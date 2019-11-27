@@ -22,9 +22,22 @@ namespace BlackJack
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Speler Speler1 = new Speler();
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            Kaarten.Text = Speler1.GetKaarten();
+            
+            Saldo.Text = Convert.ToString(Speler1.GetSaldo());
+        }
+
+
+        private void Hit_Click(object sender, RoutedEventArgs e)
+        {
+            Speler1.Hit();
+            Kaarten.Text = Speler1.GetKaarten();
         }
     }
 }

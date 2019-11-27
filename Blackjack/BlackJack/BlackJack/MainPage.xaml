@@ -10,5 +10,11 @@
 
     <Grid>
 
+
+        <Button Name="Hit" Content="Hit" Margin="0,450,0,0" VerticalAlignment="Top" Height="81" Width="200" HorizontalAlignment="Center" Click="Hit_Click"/>
+        <TextBlock Name="Saldo" HorizontalAlignment="Left" Margin="981,276,0,0" Text="Saldo" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="Kaarten" HorizontalAlignment="Left" Margin="627,280,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="286"/>
+        <Button Name ="Stand" Content="Stand" Margin="499,450,0,0" VerticalAlignment="Top" Height="81" Width="185"/>
     </Grid>
+
 </Page>
