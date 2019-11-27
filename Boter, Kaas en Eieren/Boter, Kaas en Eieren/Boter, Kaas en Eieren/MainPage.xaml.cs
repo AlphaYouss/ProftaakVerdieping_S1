@@ -9,128 +9,154 @@ namespace Boter__Kaas_en_Eieren
 
     public sealed partial class MainPage : Page
     {
-        BKE Speler = new BKE();
 
+        BKE bke = new BKE();
+
+        BitmapImage heelmooi = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+        public int score = 0;
+        
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        private void ae(object sender, RoutedEventArgs e)
+        private void vak_click(object sender, RoutedEventArgs e)
         {
             string ctrlName = ((Control)sender).Name;
             string[] words = ctrlName.Split("vak");
+            int vak = Convert.ToInt32(words[1]);
+            
+            ZetStapSpeler(vak);
 
-            Speler.PlayerClick(Convert.ToInt32(words[1]));
-
-            ChangeImage(Convert.ToInt32(words[1]));
-
-            if (Speler.Checken())
+            foreach (string box in bke.ImageBoxen)
             {
-                string a = "gewonnen!";
-                txtMessage.Text = a;
-                Speler.clear();
-                ClearImage();
-
-
+                if (box == "X")
+                {
+                    bke.count++;
+                }
             }
 
-            Speler.AIclick();
-            ChangeImage2(Speler.aiClick);
+            if (bke.WinCheck()) // hier wint de speler
+            {
+                score = score + 3;
+                bke.ClearVeld();
+                PlaatjesResetten();
+            }
+            else
+            {
+                 if (bke.count != 5)
+                {
+                    ZetStapAI();
+
+                    if (bke.WinCheck()) // hier wint de AI
+                    {
+                        score = score - 1;
+                        bke.ClearVeld();
+                        PlaatjesResetten();
+                    }
+                }
+                else                    // hier is het gelijkspel
+                {
+                    bke.ClearVeld();
+                    PlaatjesResetten(); 
+                }
+            }
+
+            bke.count = 0;
         }
 
-
-
-        private void ChangeImage(int nummer)
+        private void ZetStapSpeler(int vak)
         {
-            switch (nummer)
+            bke.ZetStapSpeler(vak);
+
+            switch (vak)
             {
                 default:
                     break;
                 case 1:
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image.Source = bke.plaatje_Speler; 
                     vak1.IsEnabled = false;
                     break;
                 case 2:
-                    image2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image2.Source = bke.plaatje_Speler;
                     vak2.IsEnabled = false;
                     break;
                 case 3:
-                    image3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image3.Source = bke.plaatje_Speler;
                     vak3.IsEnabled = false;
                     break;
                 case 4:
-                    image4.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image4.Source = bke.plaatje_Speler;
                     vak4.IsEnabled = false;
                     break;
                 case 5:
-                    image5.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image5.Source = bke.plaatje_Speler;
                     vak5.IsEnabled = false;
                     break;
                 case 6:
-                    image6.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image6.Source = bke.plaatje_Speler;
                     vak6.IsEnabled = false;
                     break;
                 case 7:
-                    image7.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image7.Source = bke.plaatje_Speler;
                     vak7.IsEnabled = false;
                     break;
                 case 8:
-                    image8.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image8.Source = bke.plaatje_Speler;
                     vak8.IsEnabled = false;
                     break;
                 case 9:
-                    image9.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+                    image9.Source = bke.plaatje_Speler;
                     vak9.IsEnabled = false;
                     break;
-
             }
         }
-        private void ChangeImage2(int nummer)
+        private void ZetStapAI()
         {
-            switch (nummer)
+            bke.ZetStapAI();
+            switch (bke.stapAI)
             {
                 default:
                     break;
                 case 1:
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image.Source = bke.plaatje_AI;
                     vak1.IsEnabled = false;
                     break;
                 case 2:
-                    image2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image2.Source = bke.plaatje_AI;
                     vak2.IsEnabled = false;
                     break;
                 case 3:
-                    image3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image3.Source = bke.plaatje_AI;
                     vak3.IsEnabled = false;
                     break;
                 case 4:
-                    image4.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image4.Source = bke.plaatje_AI;
                     vak4.IsEnabled = false;
                     break;
                 case 5:
-                    image5.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image5.Source = bke.plaatje_AI;
                     vak5.IsEnabled = false;
                     break;
                 case 6:
-                    image6.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image6.Source = bke.plaatje_AI;
                     vak6.IsEnabled = false;
                     break;
                 case 7:
-                    image7.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image7.Source = bke.plaatje_AI;
                     vak7.IsEnabled = false;
                     break;
                 case 8:
-                    image8.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image8.Source = bke.plaatje_AI;
                     vak8.IsEnabled = false;
                     break;
                 case 9:
-                    image9.Source = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+                    image9.Source = bke.plaatje_AI;
                     vak9.IsEnabled = false;
                     break;
             }
         }
-        private void ClearImage()
+        private void PlaatjesResetten()
         {
             for (int i = 1; i < 10; i++)
             {
@@ -139,39 +165,39 @@ namespace Boter__Kaas_en_Eieren
                     default:
                         break;
                     case 1:
-                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image.Source = heelmooi;
                         vak1.IsEnabled = true;
                         break;
                     case 2:
-                        image2.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image2.Source = heelmooi;
                         vak2.IsEnabled = true;
                         break;
                     case 3:
-                        image3.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image3.Source = heelmooi;
                         vak3.IsEnabled = true;
                         break;
                     case 4:
-                        image4.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image4.Source = heelmooi;
                         vak4.IsEnabled = true;
                         break;
                     case 5:
-                        image5.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image5.Source = heelmooi;
                         vak5.IsEnabled = true;
                         break;
                     case 6:
-                        image6.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image6.Source = heelmooi;
                         vak6.IsEnabled = true;
                         break;
                     case 7:
-                        image7.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image7.Source = heelmooi;
                         vak7.IsEnabled = true;
                         break;
                     case 8:
-                        image8.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image8.Source = heelmooi;
                         vak8.IsEnabled = true;
                         break;
                     case 9:
-                        image9.Source = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
+                        image9.Source = heelmooi;
                         vak9.IsEnabled = true;
                         break;
                 }

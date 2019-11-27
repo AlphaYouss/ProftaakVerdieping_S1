@@ -11,10 +11,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
-        <StackPanel >
+        <RelativePanel BorderBrush="Gray" BorderThickness="30">
+            <TextBox x:Name="txtMessage" Text="wow!" TextWrapping="Wrap" Width="111" Margin="50,50,0,0" IsReadOnly="True"/>
+        </RelativePanel>
+        
+        <StackPanel>
             <Button  Name="vak1" Height="250" Width="250"
-                Click="ae" Margin="75,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                Click="vak_click" Margin="75,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
             <StackPanel >
                     <Image Name="image" Source="/Assets/heelmooi.jpg"/>
             </StackPanel>
@@ -23,7 +26,7 @@
 
         <StackPanel >
             <Button  Name="vak2" Height="250" Width="250"
-                Click="ae" Margin="375,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                Click="vak_click" Margin="375,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
                     <Image Name="image2" Source="/Assets/heelmooi.jpg"/>
                 </StackPanel>
@@ -32,7 +35,7 @@
 
         <StackPanel >
             <Button  Name="vak3" Height="250" Width="250"
-                Click="ae" Margin="675,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                Click="vak_click" Margin="675,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
                     <Image Name="image3" Source="/Assets/heelmooi.jpg"/>
                 </StackPanel>
@@ -40,8 +43,26 @@
         </StackPanel>
 
         <StackPanel >
+            <Button  Name="vak4" Height="250" Width="250"
+                Click="vak_click" Margin="75,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                <StackPanel >
+                    <Image Name="image4" Source="/Assets/heelmooi.jpg"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        
+         <StackPanel >
+            <Button  Name="vak5" Height="250" Width="250"
+                Click="vak_click" Margin="375,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                <StackPanel >
+                    <Image Name="image5" Source="/Assets/heelmooi.jpg"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel >
             <Button  Name="vak6" Height="250" Width="250"
-                Click="ae" Margin="675,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                Click="vak_click" Margin="675,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
                     <Image Name="image6" Source="/Assets/heelmooi.jpg"/>
                 </StackPanel>
@@ -49,35 +70,17 @@
         </StackPanel>
 
         <StackPanel >
-            <Button  Name="vak5" Height="250" Width="250"
-                Click="ae" Margin="375,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+            <Button  Name="vak7" Height="250" Width="250"
+                Click="vak_click" Margin="75,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
-                    <Image Name="image5" Source="/Assets/heelmooi.jpg"/>
+                    <Image Name="image7" Source="/Assets/heelmooi.jpg"/>
                 </StackPanel>
             </Button>
         </StackPanel>
-
-        <StackPanel >
-            <Button  Name="vak4" Height="250" Width="250"
-                Click="ae" Margin="75,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
-                <StackPanel >
-                    <Image Name="image4" Source="/Assets/heelmooi.jpg"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
-
-        <StackPanel >
-            <Button  Name="vak9" Height="250" Width="250"
-                Click="ae" Margin="675,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
-                <StackPanel >
-                    <Image Name="image9" Source="/Assets/heelmooi.jpg"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
-
-        <StackPanel >
+        
+         <StackPanel >
             <Button  Name="vak8" Height="250" Width="250"
-                Click="ae" Margin="375,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+                Click="vak_click" Margin="375,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
                     <Image Name="image8" Source="/Assets/heelmooi.jpg"/>
                 </StackPanel>
@@ -85,19 +88,12 @@
         </StackPanel>
 
         <StackPanel >
-            <Button  Name="vak7" Height="250" Width="250"
-                Click="ae" Margin="75,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
+            <Button  Name="vak9" Height="250" Width="250"
+                Click="vak_click" Margin="675,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
-                    <Image Name="image7" Source="/Assets/heelmooi.jpg"/>
+                    <Image Name="image9" Source="/Assets/heelmooi.jpg"/>
                 </StackPanel>
             </Button>
         </StackPanel>
-
-
-
-
-        <RelativePanel BorderBrush="Gray" BorderThickness="30">
-            <TextBox x:Name="txtMessage" Text="wow!" TextWrapping="Wrap" Width="111" Margin="50,50,0,0"/>
-        </RelativePanel>
     </Grid>
 </Page>
