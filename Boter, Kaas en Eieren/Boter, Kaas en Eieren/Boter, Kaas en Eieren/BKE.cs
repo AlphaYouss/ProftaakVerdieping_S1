@@ -8,13 +8,17 @@ namespace Boter__Kaas_en_Eieren
 {
     class BKE
     {
-       public List<string> ImageBoxen = new List<string>() {"vak0", "vak1", "vak2", "vak3", "vak4", "vak5", "vak6", "vak7", "vak8", "vak9" }; //Vakken van het bord.
-                                                                                                                                              // "0" is geen vak, maar maakt het aanroepen van elementen overzichtelijker.
+    
+
+        public List<string> ImageBoxen = new List<string>();
 
         public int aiClick = 0;
         public BKE()
         {
-           
+            for (int i = 0; i < 10; i++)
+            {
+                ImageBoxen.Add("vak" + i);
+            }
         }
 
         public bool Checken() // Checken of iemand heeft gewonnen
@@ -39,22 +43,22 @@ namespace Boter__Kaas_en_Eieren
             return false;
         }
         
-        public void PlayerClick(int vak)
+        public void PlayerClick(int vak) //toevoegen van een "X" aan de list.
         {
             ImageBoxen[vak] = "X";
         }
         
-        public int GenereerNummer()
+        public int GenereerNummer() //een nummer tussen 0 en 10 genereren.
         {
             Random rnd = new Random();
             int vak = rnd.Next(1, 10);
             return vak;
         }
 
-        public void AIclick()
+        public void AIclick() //checken todat je een nummer rolt dat nog niet in de list is gebruikt.
         {
             bool check = true;
-
+            int i = 0;
             do
             {
                 int getal = GenereerNummer();
@@ -70,8 +74,21 @@ namespace Boter__Kaas_en_Eieren
 
                     check = false;
                 }
-
+                i++;
+                if (i == 20)
+                {
+                    break;
+                }
             } while (check == true);
+        }
+
+        public void clear()
+        {
+            ImageBoxen.Clear();
+             for (int i = 0; i < 10; i++)
+            {
+                ImageBoxen.Add("vak" + i);
+            }
         }
     }
 }
