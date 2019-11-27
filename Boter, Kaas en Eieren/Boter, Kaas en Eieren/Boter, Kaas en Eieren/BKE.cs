@@ -1,28 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace Boter__Kaas_en_Eieren
 {
     class BKE
     {
-        public List<string> ImageBoxen = new List<string>();
+        // Het veld.
+        public List<string> imageBoxen = new List<string>();
 
+        // Speler data.
+        public int score = 0;
+        public int countTurnsSpeler = 0;
+        public string naamSpeler= "Geobles";
+        public BitmapImage plaatjeSpeler = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+
+        // AI data.
         public int stapAI = 0;
         public string naamAI = "Stalin";
-        public string tekenAI = "o";
-        public BitmapImage plaatje_AI = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+        public BitmapImage plaatjeAI = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
 
-        public int IDspeler = 0;
-        public string naamSpeler= "Geobles";
-        public string tekenSpeler = "x";
-        public BitmapImage plaatje_Speler = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
-
-
-        public int count = 0;
         public BKE()
         {
             VeldGenereren();
@@ -32,13 +29,13 @@ namespace Boter__Kaas_en_Eieren
         {
             for (int i = 0; i < 10; i++)
             {
-                ImageBoxen.Add("vak" + i);
+                imageBoxen.Add("vak" + i);
             }
         }
 
         public void ZetStapSpeler(int vak)
         {
-            ImageBoxen[vak] = "X";
+            imageBoxen[vak] = "X";
         }
 
         public void ZetStapAI()
@@ -47,7 +44,7 @@ namespace Boter__Kaas_en_Eieren
 
             if (CheckVak(vak))
             {
-                ImageBoxen[vak] = "O";
+                imageBoxen[vak] = "O";
                 stapAI = vak;
             }
             else
@@ -60,12 +57,13 @@ namespace Boter__Kaas_en_Eieren
         {
             Random rnd = new Random();
             int vak = rnd.Next(1, 10);
+
             return vak;
         }
 
         private bool CheckVak(int vak)
         {
-            if (ImageBoxen[vak] == "X" || ImageBoxen[vak] == "O")
+            if (imageBoxen[vak] == "X" || imageBoxen[vak] == "O")
             {
                 return false;
             }
@@ -75,21 +73,22 @@ namespace Boter__Kaas_en_Eieren
             }
         }
 
-        public bool WinCheck() // Checken of iemand heeft gewonnen
+        public bool WinCheck()
         {
-            if (  //horizontaal  
-                   ImageBoxen[1] == ImageBoxen[2] && ImageBoxen[2] == ImageBoxen[3]
-                || ImageBoxen[4] == ImageBoxen[5] && ImageBoxen[5] == ImageBoxen[6]
-                || ImageBoxen[7] == ImageBoxen[8] && ImageBoxen[8] == ImageBoxen[9]
+            if (  
+                // Horizontaal.  
+                   imageBoxen[1] == imageBoxen[2] && imageBoxen[2] == imageBoxen[3]
+                || imageBoxen[4] == imageBoxen[5] && imageBoxen[5] == imageBoxen[6]
+                || imageBoxen[7] == imageBoxen[8] && imageBoxen[8] == imageBoxen[9]
 
-                  //verticaal
-                || ImageBoxen[1] == ImageBoxen[4] && ImageBoxen[4] == ImageBoxen[7]
-                || ImageBoxen[2] == ImageBoxen[5] && ImageBoxen[5] == ImageBoxen[8]
-                || ImageBoxen[3] == ImageBoxen[6] && ImageBoxen[6] == ImageBoxen[9]
+                  // Verticaal.
+                || imageBoxen[1] == imageBoxen[4] && imageBoxen[4] == imageBoxen[7]
+                || imageBoxen[2] == imageBoxen[5] && imageBoxen[5] == imageBoxen[8]
+                || imageBoxen[3] == imageBoxen[6] && imageBoxen[6] == imageBoxen[9]
 
-                  //diagonaal
-                || ImageBoxen[1] == ImageBoxen[5] && ImageBoxen[5] == ImageBoxen[9]
-                || ImageBoxen[3] == ImageBoxen[5] && ImageBoxen[5] == ImageBoxen[7]
+                  // Diagonaal.
+                || imageBoxen[1] == imageBoxen[5] && imageBoxen[5] == imageBoxen[9]
+                || imageBoxen[3] == imageBoxen[5] && imageBoxen[5] == imageBoxen[7]
                 )
             {
                 return true;
@@ -99,7 +98,7 @@ namespace Boter__Kaas_en_Eieren
 
         public void ClearVeld()
         {
-            ImageBoxen.Clear();
+            imageBoxen.Clear();
             VeldGenereren();
         }
     }

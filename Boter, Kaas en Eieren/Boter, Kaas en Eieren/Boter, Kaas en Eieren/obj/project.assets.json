@@ -8151,28 +8151,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sem\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\Youssef\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sem\\Desktop\\ICT FONTYS\\Proftaak RTS\\ProftaakVerdieping_S1\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren.csproj",
+      "projectUniqueName": "D:\\Code\\C#\\ProftaakVerdieping_S1\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren.csproj",
       "projectName": "Boter, Kaas en Eieren",
-      "projectPath": "C:\\Users\\Sem\\Desktop\\ICT FONTYS\\Proftaak RTS\\ProftaakVerdieping_S1\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren.csproj",
-      "packagesPath": "C:\\Users\\Sem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sem\\Desktop\\ICT FONTYS\\Proftaak RTS\\ProftaakVerdieping_S1\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\obj\\",
+      "projectPath": "D:\\Code\\C#\\ProftaakVerdieping_S1\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren.csproj",
+      "packagesPath": "C:\\Users\\Youssef\\.nuget\\packages\\",
+      "outputPath": "D:\\Code\\C#\\ProftaakVerdieping_S1\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\Boter, Kaas en Eieren\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Youssef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "uap10.0.17763"

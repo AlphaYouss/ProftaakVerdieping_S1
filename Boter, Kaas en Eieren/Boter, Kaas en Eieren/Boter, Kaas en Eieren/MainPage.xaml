@@ -12,7 +12,7 @@
 
     <Grid>
         <RelativePanel BorderBrush="Gray" BorderThickness="30">
-            <TextBox x:Name="txtMessage" Text="wow!" TextWrapping="Wrap" Width="111" Margin="50,50,0,0" IsReadOnly="True"/>
+            <TextBox x:Name="txtMessage" Text="wow!" TextWrapping="Wrap" Width="111" Margin="50,50,0,0" IsReadOnly="True" />
         </RelativePanel>
         
         <StackPanel>
