@@ -15,6 +15,8 @@ namespace Boter__Kaas_en_Eieren
         public MainPage()
         {
             InitializeComponent();
+            txtnaamAI.Text = bke.naamAI;
+            txtnaamSpeler.Text = bke.naamSpeler;
         }
 
         private void vak_click(object sender, RoutedEventArgs e)
@@ -40,31 +42,47 @@ namespace Boter__Kaas_en_Eieren
             if (bke.WinCheck()) 
             {
                 // Speler wint.
-                bke.score = bke.score + 3;
-                PlaatjesResetten();
+                btnNext.Content = "Gewonnen!";
+                NextGame();
+                bke.scoreSpeler = bke.scoreSpeler + 3;
+                bke.scoreAI = bke.scoreAI - 1;
+                
             }
             else
             {
                 // Controle voor gelijk spel.
                 if (bke.countTurnsSpeler != 5)
                 {
+                    //YoussYouss Delay please!!!1!1!!!
                     ZetStapAI();
 
                     if (bke.WinCheck()) 
                     {
                         // AI wint.
-                        bke.score = bke.score - 1;
-                        PlaatjesResetten();
+                        btnNext.Content = "Verloren!";
+                        bke.scoreSpeler = bke.scoreSpeler - 1;
+                        bke.scoreAI = bke.scoreAI + 3;
+                        NextGame();
+                        
                     }
                 }
                 else
                 {
                     // Gelijkspel.
-                    PlaatjesResetten(); 
+                    btnNext.Content = "Gelijkspel!";
+                    NextGame();
+                   
                 }
             }
 
             bke.countTurnsSpeler = 0;
+        }
+
+        private void NextGame()
+        {
+            btnNext.Visibility = Visibility.Visible;
+            txtscoreSpeler.Text = "Score speler:" + " " + bke.scoreSpeler;
+            txtscoreAI.Text = "Score AI:" + " " + bke.scoreAI;
         }
 
         private void ZetStapSpeler(int vak)
@@ -159,6 +177,12 @@ namespace Boter__Kaas_en_Eieren
                     break;
             }
         }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            PlaatjesResetten();
+            btnNext.Visibility = Visibility.Collapsed;
+        }
         private void PlaatjesResetten()
         {
             bke.ClearVeld();
@@ -208,5 +232,7 @@ namespace Boter__Kaas_en_Eieren
                 }
             }
         }
+
+  
     }
 }

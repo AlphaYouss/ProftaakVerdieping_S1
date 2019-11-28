@@ -10,12 +10,13 @@ namespace Boter__Kaas_en_Eieren
         public List<string> imageBoxen = new List<string>();
 
         // Speler data.
-        public int score = 0;
+        public int scoreSpeler = 0;
         public int countTurnsSpeler = 0;
-        public string naamSpeler= "Geobles";
+        public string naamSpeler= "Goebles";
         public BitmapImage plaatjeSpeler = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
 
         // AI data.
+        public int scoreAI = 0;
         public int stapAI = 0;
         public string naamAI = "Stalin";
         public BitmapImage plaatjeAI = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
