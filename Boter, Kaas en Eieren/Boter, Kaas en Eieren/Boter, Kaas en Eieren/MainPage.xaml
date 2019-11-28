@@ -11,16 +11,25 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <RelativePanel BorderBrush="Gray" BorderThickness="30">
-            <TextBox x:Name="txtMessage" Text="wow!" TextWrapping="Wrap" Width="111" Margin="50,50,0,0" IsReadOnly="True" />
-        </RelativePanel>
-        
+
+        <TextBox x:Name="txtnaamSpeler" Text="naamSpeler" TextWrapping="Wrap" Height="35" Margin="163,44,700,1001" IsReadOnly="True" />
+
+        <TextBox x:Name="txtscoreSpeler" Text="Score Speler" TextWrapping="Wrap" Height="35" Margin="163,96,700,949" IsReadOnly="True" />
+
+        <TextBox x:Name="txtnaamAI" HorizontalAlignment="Left" Margin="713,44,0,0" Text="naamAI" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="116" IsReadOnly="True"/>
+
+        <TextBox x:Name="txtscoreAI" Text="Score AI" TextWrapping="Wrap" Height="35" Margin="713,96,171,949" IsReadOnly="True" />
+
+        <Button Name="btnBack" FontSize="26" Content="Back" Margin="29,20,0,0" VerticalAlignment="Top" Height="49" Width="74"/>
+
+        <Button Visibility="Collapsed" Name="btnNext" FontSize="26" Content="Hier staat&#xD;&#xA;tekst" Margin="390,20,0,0" VerticalAlignment="Top" Height="103" Width="180" Click="btnNext_Click"/>
+
         <StackPanel>
             <Button  Name="vak1" Height="250" Width="250"
                 Click="vak_click" Margin="75,175,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
-            <StackPanel >
+                <StackPanel >
                     <Image Name="image" Source="/Assets/heelmooi.jpg"/>
-            </StackPanel>
+                </StackPanel>
             </Button>
         </StackPanel>
 
@@ -50,8 +59,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        
-         <StackPanel >
+
+        <StackPanel >
             <Button  Name="vak5" Height="250" Width="250"
                 Click="vak_click" Margin="375,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
@@ -59,7 +68,7 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        
+
         <StackPanel >
             <Button  Name="vak6" Height="250" Width="250"
                 Click="vak_click" Margin="675,475,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
@@ -77,8 +86,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        
-         <StackPanel >
+
+        <StackPanel >
             <Button  Name="vak8" Height="250" Width="250"
                 Click="vak_click" Margin="375,775,0,0" VerticalAlignment="Top" Padding="0,0,0,0">
                 <StackPanel >
@@ -95,5 +104,6 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+
     </Grid>
 </Page>
