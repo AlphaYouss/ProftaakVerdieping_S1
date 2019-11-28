@@ -16,7 +16,7 @@
 
         <TextBox x:Name="txtscoreSpeler" Text="Score Speler" TextWrapping="Wrap" Height="35" Margin="163,96,700,949" IsReadOnly="True" />
 
-        <TextBox x:Name="txtnaamAI" HorizontalAlignment="Left" Margin="713,44,0,0" Text="naamAI" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="116"/>
+        <TextBox x:Name="txtnaamAI" HorizontalAlignment="Left" Margin="713,44,0,0" Text="naamAI" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="116" IsReadOnly="True"/>
 
         <TextBox x:Name="txtscoreAI" Text="Score AI" TextWrapping="Wrap" Height="35" Margin="713,96,171,949" IsReadOnly="True" />
 

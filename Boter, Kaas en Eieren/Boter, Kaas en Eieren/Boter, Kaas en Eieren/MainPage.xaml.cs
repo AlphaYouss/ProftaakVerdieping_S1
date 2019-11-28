@@ -43,10 +43,11 @@ namespace Boter__Kaas_en_Eieren
             {
                 // Speler wint.
                 btnNext.Content = "Gewonnen!";
-                NextGame();
+
                 bke.scoreSpeler = bke.scoreSpeler + 3;
                 bke.scoreAI = bke.scoreAI - 1;
-                
+
+                NextGameShow();
             }
             else
             {
@@ -60,9 +61,11 @@ namespace Boter__Kaas_en_Eieren
                     {
                         // AI wint.
                         btnNext.Content = "Verloren!";
+
                         bke.scoreSpeler = bke.scoreSpeler - 1;
                         bke.scoreAI = bke.scoreAI + 3;
-                        NextGame();
+
+                        NextGameShow();
                         
                     }
                 }
@@ -70,7 +73,8 @@ namespace Boter__Kaas_en_Eieren
                 {
                     // Gelijkspel.
                     btnNext.Content = "Gelijkspel!";
-                    NextGame();
+
+                    NextGameShow();
                    
                 }
             }
@@ -78,11 +82,23 @@ namespace Boter__Kaas_en_Eieren
             bke.countTurnsSpeler = 0;
         }
 
-        private void NextGame()
+        private void NextGameShow()
         {
             btnNext.Visibility = Visibility.Visible;
+
             txtscoreSpeler.Text = "Score speler:" + " " + bke.scoreSpeler;
             txtscoreAI.Text = "Score AI:" + " " + bke.scoreAI;
+
+            vak1.IsEnabled = false;
+            vak2.IsEnabled = false;
+            vak3.IsEnabled = false;
+            vak4.IsEnabled = false;
+            vak5.IsEnabled = false;
+            vak6.IsEnabled = false;
+            vak7.IsEnabled = false;
+            vak8.IsEnabled = false;
+            vak9.IsEnabled = false;
+            
         }
 
         private void ZetStapSpeler(int vak)
