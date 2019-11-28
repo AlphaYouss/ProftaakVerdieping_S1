@@ -9,12 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
-
+        <RelativePanel>
         <Button x:ConnectionId='2' Name="Hit" Content="Hit" Margin="0,450,0,0" VerticalAlignment="Top" Height="81" Width="200" HorizontalAlignment="Center"                  />
         <TextBlock x:ConnectionId='3' Name="Saldo" HorizontalAlignment="Left" Margin="981,276,0,0" Text="Saldo" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:ConnectionId='4' Name="Kaarten" HorizontalAlignment="Left" Margin="627,280,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="286"/>
-        <Button x:ConnectionId='5' Name ="Stand" Content="Stand" Margin="499,450,0,0" VerticalAlignment="Top" Height="81" Width="185"/>
+        <TextBlock x:ConnectionId='4' Name="KaartenSpeler" HorizontalAlignment="Left" Margin="499,234,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
+        <Button x:ConnectionId='5' Name ="Stand" Content="Stand" Margin="499,450,0,0" VerticalAlignment="Top" Height="81" Width="185"                    />
+        <TextBox x:ConnectionId='6' Name="Inzet" HorizontalAlignment="Left" Margin="379,299,0,0" Text="100" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='7' Name="Uitkomst" HorizontalAlignment="Left" Margin="706,164,0,0" Text="Uitkomst" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='8' x:Name="KaartenDealer" HorizontalAlignment="Left" Margin="734,238,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
+        </RelativePanel>
     </Grid>
 
 </Page>

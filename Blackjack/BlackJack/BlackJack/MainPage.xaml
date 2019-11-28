@@ -9,12 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
-
+        <RelativePanel>
         <Button Name="Hit" Content="Hit" Margin="0,450,0,0" VerticalAlignment="Top" Height="81" Width="200" HorizontalAlignment="Center" Click="Hit_Click"/>
         <TextBlock Name="Saldo" HorizontalAlignment="Left" Margin="981,276,0,0" Text="Saldo" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="Kaarten" HorizontalAlignment="Left" Margin="627,280,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="286"/>
-        <Button Name ="Stand" Content="Stand" Margin="499,450,0,0" VerticalAlignment="Top" Height="81" Width="185"/>
+        <TextBlock Name="KaartenSpeler" HorizontalAlignment="Left" Margin="499,234,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
+        <Button Name ="Stand" Content="Stand" Margin="499,450,0,0" VerticalAlignment="Top" Height="81" Width="185" Click="Stand_Click"/>
+        <TextBox Name="Inzet" HorizontalAlignment="Left" Margin="379,299,0,0" Text="100" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="Uitkomst" HorizontalAlignment="Left" Margin="706,164,0,0" Text="Uitkomst" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="KaartenDealer" HorizontalAlignment="Left" Margin="734,238,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
+        </RelativePanel>
     </Grid>
 
 </Page>

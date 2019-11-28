@@ -6,73 +6,38 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    class Speler
+    class Dealer
     {
         List<string> EigenKaarten = new List<string>();
         List<int> Punten = new List<int>();
         List<string> Kleuren = new List<string>() { "C", "D", "H", "S" };
         List<string> Plaatjes = new List<string>() { "J", "Q", "K", "A" };
         Random RandomNummer = new Random();
-        public double Saldo = 2000;
-
-        public Speler()
+       
+        public Dealer()
         {
-            Start();
+            Start();  
         }
 
         public void Start()
         {
             NieuweKaart();
             NieuweKaart();
-            if (DoubleDownControle())
-            {
-               //
-            }
         }
 
-        public void Hit(BlackJack blackJack)
+        public bool InsuranceCheck()
         {
-            NieuweKaart();
-            blackJack.BustControle();           
-        }
-
-        public bool DoubleDownControle()
-        {
-            if (TotaalPunten() == 9 || TotaalPunten() == 10 || TotaalPunten() == 11)
+            if (EigenKaarten[1].Contains("A"))
             {
                 return true;
             }
             return false;
-        }
-
-        public bool BustControle()
-        {
-            if (TotaalPunten() >21)
-            {
-            //   Clear();
-            //   Start();
-                return true;
-            }
-            return false;
-        }
-
-
-        public void Clear()
-        {
-            EigenKaarten.Clear();
-            Punten.Clear();
         }
        
-        public void Stand(Dealer dealer,double inzet)
+        public Double Insurance(Double Inzet)
         {
-            dealer.HitControle();
-         //   blackjack.WinnaarControle(inzet);
-            
-        }
-
-        public double GetSaldo()
-        {
-            return Saldo;
+            Inzet = Inzet * 1.5;
+            return Inzet;
         }
 
         private void NieuweKaart()
@@ -90,11 +55,15 @@ namespace BlackJack
                     {
                         StrKaart = Plaatjes[x] + Kleuren[RandomNummer.Next(0, 4)] + ".jpg";
                         gevonden = true;
-                        IntKaart = 10;
-                    }
-                    else if (IntKaart == 14)
-                    {
-                        // Aas code
+                        
+                        if (IntKaart == 14)
+                        {
+                            IntKaart = 11;
+                        }
+                        else
+                        {
+                            IntKaart = 10;
+                        }         
                     }
                     else
                     {
@@ -103,11 +72,35 @@ namespace BlackJack
                 }
                 x++;
             }
-
             Punten.Add(IntKaart);
             EigenKaarten.Add(StrKaart);
         }
 
+        public int TotaalPunten()
+        {
+            int totaal = 0;
+
+            for (int i = 0; i < Punten.Count; i++)
+            {
+                totaal += Punten[i];
+            }
+            return totaal;
+        }
+
+        public void Clear()
+        {
+            EigenKaarten.Clear();
+            Punten.Clear();
+        }
+
+        public bool BustControle()
+        {
+            if (TotaalPunten() > 21)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public string GetKaart(int i)
         {
@@ -125,25 +118,12 @@ namespace BlackJack
             return Kaart;
         }
 
-        public int TotaalPunten()
+        public void HitControle()
         {
-            int totaal = 0;
-            
-            for (int i = 0; i < Punten.Count; i++)
+            while (TotaalPunten() < 17)
             {
-                totaal += Punten[i];
+                NieuweKaart();
             }
-            return totaal;
-        }
-
-        public void SaldoBijschrijven(double Inzet)
-        {
-            Saldo += Inzet;
-        }
-
-        public void SaldoAfschrijven(double Inzet)
-        {
-            Saldo -= Inzet;
         }
 
     }
