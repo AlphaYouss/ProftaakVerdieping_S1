@@ -8,21 +8,27 @@ namespace BlackJack
 {  
     class BlackJack
     {
-        List<string> stock = new List<string>();
-        public Speler deSpeler = new Speler();
-        public Speler deDealer = new Speler();
-        public Kaarten bank = new Kaarten();
-        public string uitkomst = "";
-        public bool gameOver = false;
+        List<string> Stock = new List<string>();
+        public Speler DeSpeler = new Speler();
+        public Dealer DeDealer = new Dealer();
+        public string Uitkomst = "-";
+        public bool GameOver = false;
 
-
-        public void BustControle(double inzet)
+        public BlackJack()
         {
-            if (deSpeler.BustControle(bank.TotaalPunten(deSpeler.listPunten)))
+
+
+
+        public void BustControle(double Inzet)
+        {
+            if (DeSpeler.BustControle() /*|| DeDealer.BustControle()*/)
             {
-                uitkomst = "Bust!";
-                deSpeler.SaldoAfschrijven(inzet);
-                gameOver = true;
+                Uitkomst = "Bust!";
+                GameOver = true;
+                DeSpeler.SaldoAfschrijven(Inzet);
+                //  Uitkomst = "";
+                //  Clear();
+                //  Start(); 
             }
             
         }
@@ -42,9 +48,15 @@ namespace BlackJack
 
             else if (Dealer > 21)
             {
-                uitkomst = "Dealer bust!";
-                deSpeler.SaldoBijschrijven(inzet);
-                BustControle(inzet);
+                Uitkomst = "Bust!";
+                DeSpeler.SaldoBijschrijven(inzet);
+            }
+
+            else if (DeSpeler.BustControle())
+            {
+                Uitkomst = "Bust!";
+                GameOver = true;
+                DeSpeler.SaldoAfschrijven(inzet);
             }
 
             else if (Speler > Dealer&& Speler <= 21 )
@@ -68,19 +80,16 @@ namespace BlackJack
             {
                 uitkomst = "Het is gelijkspel!";
             }
-            gameOver = true;
-            return uitkomst;
+            GameOver = true;
+            return Uitkomst;
         }
 
         public void Clear()
         {
-            deSpeler.listPunten.Clear();
-            deSpeler.listKaarten.Clear();
-            
-            deDealer.listPunten.Clear();
-            deDealer.listKaarten.Clear();
-            
-            uitkomst = "";
+            DeSpeler.Clear();
+            DeDealer.Clear();
+            Uitkomst = "";
+            GameOver = false;
         }
 
         public void Start()

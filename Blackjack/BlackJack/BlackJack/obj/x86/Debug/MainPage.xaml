@@ -9,17 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        
         <Button x:ConnectionId='2' Name="Hit" Content="Hit" Margin="0,450,0,0" VerticalAlignment="Top" Height="81" Width="200" HorizontalAlignment="Center"                  />
         <TextBlock x:ConnectionId='3' Name="Saldo" HorizontalAlignment="Left" Margin="981,276,0,0" Text="Saldo" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:ConnectionId='4' Name="KaartenSpeler" HorizontalAlignment="Left" Margin="499,234,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
         <Button x:ConnectionId='5' Name ="Stand" Content="Stand" Margin="499,450,0,0" VerticalAlignment="Top" Height="81" Width="185"                    />
         <TextBox x:ConnectionId='6' Name="Inzet" HorizontalAlignment="Left" Margin="379,299,0,0" Text="100" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:ConnectionId='7' Name="Uitkomst" HorizontalAlignment="Left" Margin="706,164,0,0" Text="Uitkomst" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:ConnectionId='8' Name="KaartenDealer" HorizontalAlignment="Left" Margin="734,238,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
-        <Button x:ConnectionId='9' Name="NewGame" Content="NewGame" Margin="884,131,0,0" VerticalAlignment="Top" Height="51" Width="114"                      />
-        <TextBlock x:ConnectionId='10' Name="Speler" HorizontalAlignment="Left" Margin="494,211,0,0" Text="Speler" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="734,221,0,0" Text="Dealer" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="379,281,0,0" Text="Inzet" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='7' Name="Uitkomst" HorizontalAlignment="Left" Margin="706,164,0,0" Text="-" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='8' x:Name="KaartenDealer" HorizontalAlignment="Left" Margin="734,238,0,0" Text="Kaarten" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
+        <Button x:ConnectionId='9' Name="NewGame" Content="New Game" Margin="960,173,0,0" VerticalAlignment="Top"                      />
+
     </Grid>
 
 </Page>

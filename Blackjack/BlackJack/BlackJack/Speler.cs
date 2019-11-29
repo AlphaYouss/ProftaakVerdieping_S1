@@ -20,6 +20,20 @@ namespace BlackJack
         {
             if (Totaal >21)
             {
+               //
+            }
+        }
+
+        public void Hit(BlackJack blackJack,double inzet)
+        {
+            NieuweKaart();
+            blackJack.BustControle(inzet);           
+        }
+
+        public bool DoubleDownControle()
+        {
+            if (TotaalPunten() == 9 || TotaalPunten() == 10 || TotaalPunten() == 11)
+            {
                 return true;
             }
             return false;
