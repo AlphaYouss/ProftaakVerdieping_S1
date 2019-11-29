@@ -39,19 +39,32 @@ namespace BlackJack
 
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
-            GameHost.DeSpeler.Hit(GameHost);
-            GameHost.BustControle();
+            double inzet = Convert.ToDouble(Inzet.Text);
+            GameHost.DeSpeler.Hit(GameHost, inzet);
+           // GameHost.BustControle(inzet);
             Uitkomst.Text = GameHost.Uitkomst;
             StartText();
+            if (GameHost.GameOver)
+            {
+                KnopZichtbaar();
+            }
          //   KaartenSpeler.Text= GameHost.DeSpeler.GetKaarten();
             
         }
 
-        private async void Stand_Click(object sender, RoutedEventArgs e)
+        private  void Stand_Click(object sender, RoutedEventArgs e)
         {
-            //double inzet = Convert.ToDouble(Inzet.Text);
+            double inzet = Convert.ToDouble(Inzet.Text);
             //GameHost.DeSpeler.Stand(GameHost.DeDealer, inzet);
-            //StartText();
+            GameHost.DeDealer.HitControle();
+            GameHost.WinnaarControle(inzet);
+            StartText();
+            
+            if (GameHost.GameOver)
+            {
+                KnopZichtbaar();
+            }
+
             //await Task.Delay(TimeSpan.FromSeconds(5));
 
             //GameHost.WinnaarControle(inzet);
@@ -81,7 +94,25 @@ namespace BlackJack
             KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
             KaartenSpeler.Text = GameHost.DeSpeler.GetKaarten();
             Uitkomst.Text = GameHost.Uitkomst;
+            Hit.Visibility = Visibility.Visible;
+            Stand.Visibility = Visibility.Visible;
+            NewGame.Visibility = Visibility.Collapsed;
         }
-        
+
+        private void KnopZichtbaar()
+        {
+            Hit.Visibility = Visibility.Collapsed;
+            Stand.Visibility = Visibility.Collapsed;
+            NewGame.Visibility = Visibility.Visible;
+        }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+          //  GameHost.GameOver = false;
+            GameHost.Clear();
+            GameHost.Start();
+            ClearText();
+            StartText();
+        }
     }
 }

@@ -30,10 +30,10 @@ namespace BlackJack
             }
         }
 
-        public void Hit(BlackJack blackJack)
+        public void Hit(BlackJack blackJack,double inzet)
         {
             NieuweKaart();
-            blackJack.BustControle();           
+            blackJack.BustControle(inzet);           
         }
 
         public bool DoubleDownControle()

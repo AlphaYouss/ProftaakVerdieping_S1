@@ -11,30 +11,25 @@ namespace BlackJack
         List<string> Stock = new List<string>();
         public Speler DeSpeler = new Speler();
         public Dealer DeDealer = new Dealer();
-        public string Uitkomst = "Uitkomst"; 
+        public string Uitkomst = "-";
+        public bool GameOver = false;
+
         public BlackJack()
         {
 
         }
 
-        public void StockCheck(string Kaart)
+
+        public void BustControle(double Inzet)
         {
-            if (Stock.Contains(Kaart))
-            {
-
-            }
-
-        }
-
-        public void BustControle()
-        {
-            if (DeSpeler.BustControle() || DeDealer.BustControle())
+            if (DeSpeler.BustControle() /*|| DeDealer.BustControle()*/)
             {
                 Uitkomst = "Bust!";
-               
-                Uitkomst = "";
-                  Clear();
-                  Start(); 
+                GameOver = true;
+                DeSpeler.SaldoAfschrijven(Inzet);
+                //  Uitkomst = "";
+                //  Clear();
+                //  Start(); 
             }
             
         }
@@ -56,9 +51,16 @@ namespace BlackJack
                 DeSpeler.SaldoBijschrijven(inzet);
             }
 
-            else if (Speler > 21 || Dealer > 21)
+            else if (Dealer > 21)
             {
                 Uitkomst = "Bust!";
+                DeSpeler.SaldoBijschrijven(inzet);
+            }
+
+            else if (DeSpeler.BustControle())
+            {
+                Uitkomst = "Bust!";
+                GameOver = true;
                 DeSpeler.SaldoAfschrijven(inzet);
             }
 
@@ -83,6 +85,7 @@ namespace BlackJack
             {
                 Uitkomst = "Het is gelijkspel!";
             }
+            GameOver = true;
             return Uitkomst;
         }
 
@@ -90,6 +93,8 @@ namespace BlackJack
         {
             DeSpeler.Clear();
             DeDealer.Clear();
+            Uitkomst = "";
+            GameOver = false;
         }
 
         public void Start()
