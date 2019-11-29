@@ -26,45 +26,46 @@ namespace BlackJack
     public sealed partial class MainPage : Page
     {
         BlackJack GameHost = new BlackJack();
-      
-        
+       
 
         public MainPage()
         { 
             this.InitializeComponent();
-            
+            GameHost.Start();
             StartText();
         }
-
+        
 
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
-            GameHost.DeSpeler.Hit(GameHost);
-            GameHost.BustControle();
-            Uitkomst.Text = GameHost.Uitkomst;
+            double inzet = Convert.ToDouble(Inzet.Text);
+            GameHost.BustControle(inzet/*,GameHost.bank.TotaalPunten(GameHost.deSpeler.listPunten)*/);
+            GameHost.bank.NieuweKaart(GameHost.deSpeler.listKaarten, GameHost.deSpeler.listPunten);
+
+           // GameHost.deSpeler.Hit(GameHost, inzet, GameHost.bank.TotaalPunten(GameHost.deSpeler.listPunten));
             StartText();
-         //   KaartenSpeler.Text= GameHost.DeSpeler.GetKaarten();
-            
+            GameOver();
         }
 
-        private async void Stand_Click(object sender, RoutedEventArgs e)
+        private void Stand_Click(object sender, RoutedEventArgs e)
         {
-            //double inzet = Convert.ToDouble(Inzet.Text);
-            //GameHost.DeSpeler.Stand(GameHost.DeDealer, inzet);
-            //StartText();
-            //await Task.Delay(TimeSpan.FromSeconds(5));
-
-            //GameHost.WinnaarControle(inzet);
-            //Uitkomst.Text = GameHost.Uitkomst;
-            //KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
-
-            //await Task.Delay(TimeSpan.FromSeconds(5));
-            //ClearText();
-            //StartText();
-            //GameHost.Clear();
-            //GameHost.Start();
-
+            double inzet = Convert.ToDouble(Inzet.Text);
+            
+            GameHost.deDealer.HitControle(GameHost.bank,GameHost.deDealer.listPunten);
+            GameHost.WinnaarControle(inzet, GameHost.bank.TotaalPunten(GameHost.deSpeler.listPunten));
+           
+            StartText();
+            GameOver();
         }
+
+        private void GameOver()
+        {
+            if (GameHost.gameOver)
+            {
+                KnopZichtbaar();
+            }
+        }
+
 
         private void ClearText()
         {
@@ -72,16 +73,33 @@ namespace BlackJack
             Uitkomst.Text = "";
             KaartenSpeler.Text = "";
             KaartenDealer.Text = "";
-            Uitkomst.Text = "";
+            Inzet.Text = Convert.ToString(100);
         }
 
         private void StartText()
         {
-            Saldo.Text = Convert.ToString(GameHost.DeSpeler.Saldo);
-            KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
-            KaartenSpeler.Text = GameHost.DeSpeler.GetKaarten();
-            Uitkomst.Text = GameHost.Uitkomst;
+            Uitkomst.Text = GameHost.uitkomst;
+            Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
+            KaartenDealer.Text = GameHost.bank.GetKaarten(GameHost.deDealer.listKaarten);
+            KaartenSpeler.Text = GameHost.bank.GetKaarten(GameHost.deSpeler.listKaarten);         
+            Hit.Visibility = Visibility.Visible;
+            Stand.Visibility = Visibility.Visible;
+            NewGame.Visibility = Visibility.Collapsed;          
         }
-        
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            ClearText();
+            GameHost.Clear();
+            GameHost.Start();
+            StartText();
+        }
+
+        private void KnopZichtbaar()
+        {
+            Hit.Visibility = Visibility.Collapsed;
+            Stand.Visibility = Visibility.Collapsed;
+            NewGame.Visibility = Visibility.Visible;
+        }
     }
 }

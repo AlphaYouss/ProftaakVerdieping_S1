@@ -8,94 +8,87 @@ namespace BlackJack
 {  
     class BlackJack
     {
-        List<string> Stock = new List<string>();
-        public Speler DeSpeler = new Speler();
-        public Dealer DeDealer = new Dealer();
-        public string Uitkomst = "Uitkomst"; 
-        public BlackJack()
-        {
+        List<string> stock = new List<string>();
+        public Speler deSpeler = new Speler();
+        public Speler deDealer = new Speler();
+        public Kaarten bank = new Kaarten();
+        public string uitkomst = "";
+        public bool gameOver = false;
 
-        }
 
-        public void StockCheck(string Kaart)
+        public void BustControle(double inzet)
         {
-            if (Stock.Contains(Kaart))
+            if (deSpeler.BustControle(bank.TotaalPunten(deSpeler.listPunten)))
             {
-
-            }
-
-        }
-
-        public void BustControle()
-        {
-            if (DeSpeler.BustControle() || DeDealer.BustControle())
-            {
-                Uitkomst = "Bust!";
-               
-                Uitkomst = "";
-                  Clear();
-                  Start(); 
+                uitkomst = "Bust!";
+                deSpeler.SaldoAfschrijven(inzet);
+                gameOver = true;
             }
             
         }
 
       
-        public string WinnaarControle(double inzet)
+        public string WinnaarControle(double inzet, int totaal)
         {
-            DeDealer.HitControle();
-            DeDealer.BustControle();
-            DeSpeler.BustControle();
-           // String Uitkomst = "";
-
-            int Speler = DeSpeler.TotaalPunten();
-            int Dealer = DeDealer.TotaalPunten();
+       
+            int Speler = bank.TotaalPunten(deSpeler.listPunten);
+            int Dealer = bank.TotaalPunten(deDealer.listPunten);
 
             if (Speler == 21)
             {
-                Uitkomst = "De speler heeft gewonnen!";
-                DeSpeler.SaldoBijschrijven(inzet);
+                uitkomst = "De speler heeft gewonnen!";
+                deSpeler.SaldoBijschrijven(inzet);
             }
 
-            else if (Speler > 21 || Dealer > 21)
+            else if (Dealer > 21)
             {
-                Uitkomst = "Bust!";
-                DeSpeler.SaldoAfschrijven(inzet);
+                uitkomst = "Dealer bust!";
+                deSpeler.SaldoBijschrijven(inzet);
+                BustControle(inzet);
             }
 
             else if (Speler > Dealer&& Speler <= 21 )
             {
-                Uitkomst = "De speler heeft gewonnen!";
-                DeSpeler.SaldoBijschrijven(inzet);
+                uitkomst = "De speler heeft gewonnen!";
+                deSpeler.SaldoBijschrijven(inzet);
             }
             else if ( Dealer > Speler && Dealer <= 21)
             {
-                Uitkomst = "De dealer heeft gewonnen!";
-                DeSpeler.SaldoAfschrijven(inzet);
+                uitkomst = "De dealer heeft gewonnen!";
+                deSpeler.SaldoAfschrijven(inzet);
             }
 
             else if (Speler == Dealer && Speler <=20 )
             {
-                Uitkomst = "De dealer heeft gewonnen!";
-                DeSpeler.SaldoAfschrijven(inzet);
+                uitkomst = "De dealer heeft gewonnen!";
+                deSpeler.SaldoAfschrijven(inzet);
             }
 
             else if (Speler == Dealer && Speler <= 21)
             {
-                Uitkomst = "Het is gelijkspel!";
+                uitkomst = "Het is gelijkspel!";
             }
-            return Uitkomst;
+            gameOver = true;
+            return uitkomst;
         }
 
         public void Clear()
         {
-            DeSpeler.Clear();
-            DeDealer.Clear();
+            deSpeler.listPunten.Clear();
+            deSpeler.listKaarten.Clear();
+            
+            deDealer.listPunten.Clear();
+            deDealer.listKaarten.Clear();
+            
+            uitkomst = "";
         }
 
         public void Start()
         {
-            DeSpeler.Start();
-            DeDealer.Start();
+            bank.NieuweKaart(deSpeler.listKaarten, deSpeler.listPunten);
+            bank.NieuweKaart(deSpeler.listKaarten, deSpeler.listPunten);
+            bank.NieuweKaart(deDealer.listKaarten, deDealer.listPunten);
+            bank.NieuweKaart(deDealer.listKaarten, deDealer.listPunten);
         }
         
     }
