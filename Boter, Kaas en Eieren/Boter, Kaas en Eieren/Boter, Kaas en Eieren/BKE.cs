@@ -13,13 +13,13 @@ namespace Boter__Kaas_en_Eieren
         public int scoreSpeler = 0;
         public int countTurnsSpeler = 0;
         public string naamSpeler= "Goebles";
-        public BitmapImage plaatjeSpeler = new BitmapImage(new Uri("ms-appx:///Assets/Dikke x.jpg"));
+        public BitmapImage plaatjeSpeler = new BitmapImage(new Uri("ms-appx:///Assets/Fotos/Dikke x.png"));
 
         // AI data.
         public int scoreAI = 0;
         public int stapAI = 0;
         public string naamAI = "Stalin";
-        public BitmapImage plaatjeAI = new BitmapImage(new Uri("ms-appx:///Assets/Dikke O.jpg"));
+        public BitmapImage plaatjeAI = new BitmapImage(new Uri("ms-appx:///Assets/Fotos/Dikke O.png"));
 
         public BKE()
         {
@@ -41,7 +41,17 @@ namespace Boter__Kaas_en_Eieren
 
         public void ZetStapAI()
         {
-            int vak = GenereerNummer();
+            List<int> temp = new List<int>();
+
+            for (int i = 1; i < imageBoxen.Count; i++)
+            {
+                if (imageBoxen[i] != "X" && imageBoxen[i] != "O")
+                {
+                    temp.Add(i);
+                }
+            }
+
+            int vak = GenereerNummer(temp.Count, temp);
 
             if (CheckVak(vak))
             {
@@ -54,12 +64,13 @@ namespace Boter__Kaas_en_Eieren
             }
         }
 
-        private int GenereerNummer()
+        private int GenereerNummer(int overgeblevenGetallen, List<int> temp)
         {
             Random rnd = new Random();
-            int vak = rnd.Next(1, 10);
+            int vak = rnd.Next(1, overgeblevenGetallen);
 
-            return vak;
+
+            return temp[vak];
         }
 
         private bool CheckVak(int vak)

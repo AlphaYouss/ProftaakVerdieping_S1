@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 
@@ -10,16 +14,31 @@ namespace Boter__Kaas_en_Eieren
     public sealed partial class MainPage : Page
     {
         BKE bke = new BKE();
-        BitmapImage plaatjes = new BitmapImage(new Uri("ms-appx:///Assets/heelmooi.jpg"));
-        
+        BitmapImage plaatjes = new BitmapImage(new Uri("ms-appx:///"));
+
         public MainPage()
         {
             InitializeComponent();
-            txtnaamAI.Text = bke.naamAI;
-            txtnaamSpeler.Text = bke.naamSpeler;
+            SetUp();
         }
 
-        private void vak_click(object sender, RoutedEventArgs e)
+        private void SetUp()
+        {
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(1920, 1080));
+
+            txtnaamAI.Text = bke.naamAI;
+            txtnaamSpeler.Text = bke.naamSpeler;
+
+            btnBack.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters.ttf#SF Alien Encounters");
+            btnRestart.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters.ttf#SF Alien Encounters");
+
+            txtnaamSpeler.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
+            txtnaamAI.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
+            txtscoreAI.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
+            txtscoreSpeler.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
+        }
+
+        private async void vak_click(object sender, RoutedEventArgs e)
         {
             // Krijg geklikte vaknaam.
             string ctrlName = ((Control)sender).Name;
@@ -27,7 +46,7 @@ namespace Boter__Kaas_en_Eieren
 
             // Converteer de vaknaam naar een getal.
             int vak = Convert.ToInt32(words[1]);
-            
+
             ZetStapSpeler(vak);
 
             // Haalt op hoeveel stappen de speler heeft gezet.
@@ -39,13 +58,15 @@ namespace Boter__Kaas_en_Eieren
                 }
             }
 
-            if (bke.WinCheck()) 
+            if (bke.WinCheck())
             {
                 // Speler wint.
-                btnNext.Content = "Gewonnen!";
+                //btnNext.Content = "Gewonnen!";
 
                 bke.scoreSpeler = bke.scoreSpeler + 3;
+                txtnaamSpeler.Foreground = new SolidColorBrush(Colors.Green);
                 bke.scoreAI = bke.scoreAI - 1;
+                txtnaamAI.Foreground = new SolidColorBrush(Colors.Red);
 
                 NextGameShow();
             }
@@ -54,40 +75,58 @@ namespace Boter__Kaas_en_Eieren
                 // Controle voor gelijk spel.
                 if (bke.countTurnsSpeler != 5)
                 {
-                    //YoussYouss Delay please!!!1!1!!!
+                    await DelayAsync();
+
                     ZetStapAI();
 
-                    if (bke.WinCheck()) 
+                    if (bke.WinCheck())
                     {
                         // AI wint.
-                        btnNext.Content = "Verloren!";
+                        //btnNext.Content = "Verloren!";
 
                         bke.scoreSpeler = bke.scoreSpeler - 1;
+                        txtnaamSpeler.Foreground = new SolidColorBrush(Colors.Red);
                         bke.scoreAI = bke.scoreAI + 3;
+                        txtnaamAI.Foreground = new SolidColorBrush(Colors.Green);
 
                         NextGameShow();
-                        
                     }
                 }
                 else
                 {
                     // Gelijkspel.
-                    btnNext.Content = "Gelijkspel!";
+                    //btnNext.Content = "Gelijkspel!";
+
+                    txtnaamSpeler.Foreground = new SolidColorBrush(Colors.Orange);
+                    txtnaamAI.Foreground = new SolidColorBrush(Colors.Orange);
 
                     NextGameShow();
-                   
                 }
             }
-
             bke.countTurnsSpeler = 0;
+        }
+
+        private async Task DelayAsync()
+        {
+            Task.Delay(TimeSpan.FromSeconds(0.5)).Wait();
         }
 
         private void NextGameShow()
         {
-            btnNext.Visibility = Visibility.Visible;
+            btnRestart.Visibility = Visibility.Visible;
 
-            txtscoreSpeler.Text = "Score speler:" + " " + bke.scoreSpeler;
-            txtscoreAI.Text = "Score AI:" + " " + bke.scoreAI;
+            if (bke.scoreSpeler < 0)
+            {
+                bke.scoreSpeler = 0;
+            }
+
+            if (bke.scoreAI < 0)
+            {
+                bke.scoreAI = 0;
+            }
+
+            txtscoreSpeler.Text = bke.scoreSpeler.ToString();
+            txtscoreAI.Text = bke.scoreAI.ToString();
 
             vak1.IsEnabled = false;
             vak2.IsEnabled = false;
@@ -98,7 +137,6 @@ namespace Boter__Kaas_en_Eieren
             vak7.IsEnabled = false;
             vak8.IsEnabled = false;
             vak9.IsEnabled = false;
-            
         }
 
         private void ZetStapSpeler(int vak)
@@ -110,7 +148,7 @@ namespace Boter__Kaas_en_Eieren
                 default:
                     break;
                 case 1:
-                    image.Source = bke.plaatjeSpeler; 
+                    image.Source = bke.plaatjeSpeler;
                     vak1.IsEnabled = false;
                     break;
                 case 2:
@@ -147,6 +185,7 @@ namespace Boter__Kaas_en_Eieren
                     break;
             }
         }
+
         private void ZetStapAI()
         {
             bke.ZetStapAI();
@@ -194,11 +233,16 @@ namespace Boter__Kaas_en_Eieren
             }
         }
 
-        private void btnNext_Click(object sender, RoutedEventArgs e)
+        private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
             PlaatjesResetten();
-            btnNext.Visibility = Visibility.Collapsed;
+
+            txtnaamAI.Foreground = new SolidColorBrush(Colors.White);
+            txtnaamSpeler.Foreground = new SolidColorBrush(Colors.White);
+
+            btnRestart.Visibility = Visibility.Collapsed;
         }
+
         private void PlaatjesResetten()
         {
             bke.ClearVeld();
@@ -248,7 +292,5 @@ namespace Boter__Kaas_en_Eieren
                 }
             }
         }
-
-  
     }
 }
