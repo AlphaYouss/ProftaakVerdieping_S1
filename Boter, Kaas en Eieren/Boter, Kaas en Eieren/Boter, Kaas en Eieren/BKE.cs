@@ -33,7 +33,5 @@ namespace Boter__Kaas_en_Eieren
             }
             return false;
         }
-
-    
     }
 }

@@ -15,6 +15,7 @@ namespace Boter__Kaas_en_Eieren
         {
             this.veld = veld;   
         }
+
         public void ZetStapSpeler(int vak)
         {
             veld.Velden[vak] = "X";

@@ -19,6 +19,7 @@ namespace Boter__Kaas_en_Eieren
         {
             this.veld = veld;
         }
+
         public void ZetStapAI()
         {
             List<int> temp = new List<int>();
@@ -49,9 +50,9 @@ namespace Boter__Kaas_en_Eieren
             Random rnd = new Random();
             int vak = rnd.Next(1, overgeblevenGetallen);
 
-
             return temp[vak];
         }
+
         private bool CheckVak(int vak)
         {
             if (veld.Velden[vak] == "X" || veld.Velden[vak] == "O")
@@ -63,13 +64,15 @@ namespace Boter__Kaas_en_Eieren
                 return true;
             }
         }
-        public void SetScoreAIZero(int zero)
+
+        public void SetScoreAIZero()
         {
             if (scoreAI < 0)
             {
                 scoreAI = 0;
             }
         }
+
         public void SetScoreAI(int score)
         {
             scoreAI += score;
