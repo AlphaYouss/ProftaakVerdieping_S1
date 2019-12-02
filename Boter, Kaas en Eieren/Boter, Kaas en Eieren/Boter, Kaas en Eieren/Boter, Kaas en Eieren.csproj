@@ -131,18 +131,21 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Dikke O.jpg" />
-    <Content Include="Assets\Dikke x.jpg" />
-    <Content Include="Assets\heelmooi.jpg" />
-    <Content Include="Assets\tantoemooi.jpg" />
+    <Content Include="Assets\Fotos\1.jpg" />
+    <Content Include="Assets\Fotos\Back.png" />
+    <Content Include="Assets\Fotos\Dikke O.png" />
+    <Content Include="Assets\Fotos\Dikke x.png" />
+    <Content Include="Assets\Fotos\heelmooi.png" />
+    <Content Include="Assets\Fotos\Restart.png" />
+    <Content Include="Assets\Fotos\tantoemooi.jpg" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Fotos\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Fotos\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Fotos\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Fotos\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Fotos\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Fotos\StoreLogo.png" />
+    <Content Include="Assets\Fotos\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -158,6 +161,13 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Fonts\SFAlienEncounters.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Fonts\SFAlienEncounters-Italic.ttf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
