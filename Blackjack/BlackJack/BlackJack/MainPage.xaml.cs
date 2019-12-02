@@ -33,50 +33,76 @@ namespace BlackJack
         { 
             this.InitializeComponent();
             
+            GameHost.Start();
+            ClearText();
+            StartText();  
+        }
+
+        //Start
+        private void StartNewGame()
+        {
+        //    Hit.Visibility = Visibility.Collapsed;
+        //    Stand.Visibility = Visibility.Collapsed;
+        //    NewGame.Visibility = Visibility.Visible;
+            GameHost.Clear();
+            GameHost.Start();
+            ClearText();
             StartText();
+        }
+        private void StartText()
+        {
+            Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
+            KaartenDealer.Text = GameHost.deDealer.GetKaarten();
+            KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
+            Uitkomst.Text = GameHost.uitkomst;
         }
 
 
+        //Hit
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
             double inzet = Convert.ToDouble(Inzet.Text);
-            GameHost.DeSpeler.Hit(GameHost, inzet);
-           // GameHost.BustControle(inzet);
-            Uitkomst.Text = GameHost.Uitkomst;
+
+            GameHost.Hit(inzet);
+
+            AasControle();
+           
+            GameCheck();
+
+            //Uitkomst.Text = GameHost.uitkomst;
             StartText();
-            if (GameHost.GameOver)
-            {
-                KnopZichtbaar();
-            }
-         //   KaartenSpeler.Text= GameHost.DeSpeler.GetKaarten();
-            
         }
 
+
+        public void GameCheck()
+        {
+            if (GameHost.gameOver)
+            {
+                Hit.Visibility = Visibility.Collapsed;
+                Stand.Visibility = Visibility.Collapsed;
+                NewGame.Visibility = Visibility.Visible;
+                //StartNewGame();
+            }
+        }
+
+        // Stand
         private  void Stand_Click(object sender, RoutedEventArgs e)
         {
             double inzet = Convert.ToDouble(Inzet.Text);
-            //GameHost.DeSpeler.Stand(GameHost.DeDealer, inzet);
-            GameHost.DeDealer.HitControle();
-            GameHost.WinnaarControle(inzet);
-            StartText();
+
+            GameHost.Stand(inzet, GameHost.bank);
+           
+            GameCheck();
             
-            if (GameHost.GameOver)
-            {
-                KnopZichtbaar();
-            }
+            StartText();
+        }
 
-            //await Task.Delay(TimeSpan.FromSeconds(5));
 
-            //GameHost.WinnaarControle(inzet);
-            //Uitkomst.Text = GameHost.Uitkomst;
-            //KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
 
-            //await Task.Delay(TimeSpan.FromSeconds(5));
-            //ClearText();
-            //StartText();
-            //GameHost.Clear();
-            //GameHost.Start();
-
+        // Einde
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            StartNewGame();
         }
 
         private void ClearText()
@@ -86,33 +112,43 @@ namespace BlackJack
             KaartenSpeler.Text = "";
             KaartenDealer.Text = "";
             Uitkomst.Text = "";
-        }
-
-        private void StartText()
-        {
-            Saldo.Text = Convert.ToString(GameHost.DeSpeler.Saldo);
-            KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
-            KaartenSpeler.Text = GameHost.DeSpeler.GetKaarten();
-            Uitkomst.Text = GameHost.Uitkomst;
             Hit.Visibility = Visibility.Visible;
             Stand.Visibility = Visibility.Visible;
             NewGame.Visibility = Visibility.Collapsed;
+            Elf.Visibility = Visibility.Collapsed;
+            Een.Visibility = Visibility.Collapsed;
         }
 
-        private void KnopZichtbaar()
+
+        //Aas
+        private void AasControle()
         {
-            Hit.Visibility = Visibility.Collapsed;
-            Stand.Visibility = Visibility.Collapsed;
-            NewGame.Visibility = Visibility.Visible;
+            if (GameHost.deSpeler.Aas())
+            {
+                Elf.Visibility = Visibility.Visible;
+                Een.Visibility = Visibility.Visible;
+                Hit.Visibility = Visibility.Collapsed;
+                Stand.Visibility = Visibility.Collapsed;
+            }
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
+
+        private void Elf_Click(object sender, RoutedEventArgs e)
         {
-          //  GameHost.GameOver = false;
-            GameHost.Clear();
-            GameHost.Start();
-            ClearText();
-            StartText();
+            Elf.Visibility = Visibility.Collapsed;
+            Een.Visibility = Visibility.Collapsed;
+            Hit.Visibility = Visibility.Visible;
+            Stand.Visibility = Visibility.Visible;
+        }
+
+        private void Een_Click(object sender, RoutedEventArgs e)
+        {
+            // Hier komt een code die de 11 in de punten lijst vervangt door een 1
+
+            Elf.Visibility = Visibility.Collapsed;
+            Een.Visibility = Visibility.Collapsed;
+            Hit.Visibility = Visibility.Visible;
+            Stand.Visibility = Visibility.Visible;
         }
     }
 }

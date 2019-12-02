@@ -8,100 +8,108 @@ namespace BlackJack
 {  
     class BlackJack
     {
-        List<string> Stock = new List<string>();
-        public Speler DeSpeler = new Speler();
-        public Dealer DeDealer = new Dealer();
-        public string Uitkomst = "-";
-        public bool GameOver = false;
 
-        public BlackJack()
+        public Speler deSpeler = new Speler();
+        public Speler deDealer = new Speler();
+        public Kaarten bank = new Kaarten();
+        public string uitkomst = "-";
+        public bool gameOver = false;
+
+        //Start
+        public void Start()
         {
+            bank.NieuweKaart(deSpeler.spelerPunten, deSpeler.spelerKaarten);
+            bank.NieuweKaart(deSpeler.spelerPunten, deSpeler.spelerKaarten);
 
+            bank.NieuweKaart(deDealer.spelerPunten, deDealer.spelerKaarten);
+            bank.NieuweKaart(deDealer.spelerPunten, deDealer.spelerKaarten);
         }
 
 
-        public void BustControle(double Inzet)
+
+        //Hit
+        public void Hit(double inzet)
         {
-            if (DeSpeler.BustControle() /*|| DeDealer.BustControle()*/)
+            bank.NieuweKaart(deSpeler.spelerPunten, deSpeler.spelerKaarten);
+            SpelerBustControle(inzet);
+        }
+
+
+        private void SpelerBustControle(double Inzet)
+        {
+            if (deSpeler.BustControle())
             {
-                Uitkomst = "Bust!";
-                GameOver = true;
-                DeSpeler.SaldoAfschrijven(Inzet);
-                //  Uitkomst = "";
-                //  Clear();
-                //  Start(); 
-            }
-            
+                uitkomst = "Speler bust!";
+                deSpeler.SaldoAfschrijven(Inzet);
+                gameOver = true;
+                
+            } 
         }
 
+
+        //Stand
+        public void Stand(double inzet, Kaarten bank)
+        {
+            deDealer.HitControle(bank);
+            WinnaarControle(inzet);
+        }
       
+
         public string WinnaarControle(double inzet)
         {
-            DeDealer.HitControle();
-            DeDealer.BustControle();
-            DeSpeler.BustControle();
-           // String Uitkomst = "";
 
-            int Speler = DeSpeler.TotaalPunten();
-            int Dealer = DeDealer.TotaalPunten();
+            int Speler = deSpeler.TotaalPunten();
+            int Dealer = deDealer.TotaalPunten();
 
             if (Speler == 21)
             {
-                Uitkomst = "De speler heeft gewonnen!";
-                DeSpeler.SaldoBijschrijven(inzet);
+                uitkomst = "De speler heeft blackjack!";
+                deSpeler.SaldoBijschrijven(inzet);
             }
 
             else if (Dealer > 21)
             {
-                Uitkomst = "Bust!";
-                DeSpeler.SaldoBijschrijven(inzet);
+                uitkomst = "Dealer Bust!";
+                deSpeler.SaldoBijschrijven(inzet);
             }
 
-            else if (DeSpeler.BustControle())
+            else if (Speler > Dealer)
             {
-                Uitkomst = "Bust!";
-                GameOver = true;
-                DeSpeler.SaldoAfschrijven(inzet);
+                uitkomst = "De speler heeft gewonnen!";
+                deSpeler.SaldoBijschrijven(inzet);
+            }
+           
+            
+            else if ( Dealer > Speler)
+            {
+                uitkomst = "De dealer heeft gewonnen!";
+                deSpeler.SaldoAfschrijven(inzet);
             }
 
-            else if (Speler > Dealer&& Speler <= 21 )
+            else if (Speler == Dealer)
             {
-                Uitkomst = "De speler heeft gewonnen!";
-                DeSpeler.SaldoBijschrijven(inzet);
+                uitkomst = "De dealer heeft gewonnen!(Huis +1)";
+                deSpeler.SaldoAfschrijven(inzet);
             }
-            else if ( Dealer > Speler && Dealer <= 21)
-            {
-                Uitkomst = "De dealer heeft gewonnen!";
-                DeSpeler.SaldoAfschrijven(inzet);
-            }
-
-            else if (Speler == Dealer && Speler <=20 )
-            {
-                Uitkomst = "De dealer heeft gewonnen!";
-                DeSpeler.SaldoAfschrijven(inzet);
-            }
-
-            else if (Speler == Dealer && Speler <= 21)
-            {
-                Uitkomst = "Het is gelijkspel!";
-            }
-            GameOver = true;
-            return Uitkomst;
+            gameOver = true;
+            return uitkomst;
         }
 
+
+        //Einde
         public void Clear()
         {
-            DeSpeler.Clear();
-            DeDealer.Clear();
-            Uitkomst = "";
-            GameOver = false;
+            deSpeler.spelerKaarten.Clear();
+            deSpeler.spelerPunten.Clear();
+
+            deDealer.spelerKaarten.Clear();
+            deDealer.spelerPunten.Clear();
+
+           // uitkomst = "";
+           // gameOver = false;
         }
 
-        public void Start()
-        {
-            DeSpeler.Start();
-            DeDealer.Start();
-        }
+        
         
     }
 }
