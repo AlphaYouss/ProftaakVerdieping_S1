@@ -11,7 +11,7 @@ namespace Boter__Kaas_en_Eieren
         {
             for (int i = 0; i < 10; i++)
             {
-                Velden.Add("vak" + i);
+                Velden.Add(i.ToString());
             }
         }
 

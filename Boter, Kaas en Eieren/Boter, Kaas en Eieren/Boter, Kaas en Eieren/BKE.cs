@@ -6,11 +6,14 @@ namespace Boter__Kaas_en_Eieren
 {
     class BKE
     {
+        public int count { get; private set; } = 0;
         public Veld veld { get; private set; }
+
         public BKE(Veld veld)
         {
             this.veld = veld;
         }
+
         public bool WinCheck()
         {
             if (  
@@ -32,6 +35,20 @@ namespace Boter__Kaas_en_Eieren
                 return true;
             }
             return false;
+        }
+
+        public int CheckVak()
+        {
+            int test = 0;
+
+            for (int i = 1; i < veld.Velden.Count; i++)
+            {
+                if (veld.Velden[i] != "O" && veld.Velden[i] != "X")
+                {
+                    test++;
+                }
+            }
+            return test;
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Boter__Kaas_en_Eieren
     {
         public Veld veld { get; private set; } 
         public int scoreSpeler { get; private set; } = 0;
-        public int countTurnsSpeler { get; private set; } = 0;
         public string naamSpeler { get; private set; } = "Goebles";
         public BitmapImage plaatjeSpeler { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Fotos/Dikke x.png"));
 
@@ -18,7 +17,7 @@ namespace Boter__Kaas_en_Eieren
 
         public void ZetStapSpeler(int vak)
         {
-            veld.Velden[vak] = "X";
+            veld.Velden[vak] = "X";    
         }
 
         public void SetScoreSpeler(int score)
@@ -32,22 +31,6 @@ namespace Boter__Kaas_en_Eieren
             {
                 scoreSpeler = 0;
             }
-        }
-
-        public void SetCountTurnsSpelerZero()
-        {
-            countTurnsSpeler = 0;
-        }
-
-        public void CountTurnsSpeler()
-        {
-            foreach (string box in veld.Velden)
-            {
-                if (box == "X")
-                {
-                    countTurnsSpeler++;
-                }
-            }
-        }
+        }  
     }
 }

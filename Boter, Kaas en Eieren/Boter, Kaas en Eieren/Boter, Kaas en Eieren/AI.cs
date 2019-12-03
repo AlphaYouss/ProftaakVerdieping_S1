@@ -28,21 +28,14 @@ namespace Boter__Kaas_en_Eieren
             {
                 if (veld.Velden[i] != "X" && veld.Velden[i] != "O")
                 {
-                    temp.Add(i);
+                    temp.Add(i);               
                 }
             }
 
             int vak = GenereerNummer(temp.Count, temp);
-
-            if (CheckVak(vak))
-            {
-                veld.Velden[vak] = "O";
-                stapAI = vak;
-            }
-            else
-            {
-                ZetStapAI();
-            }
+        
+            veld.Velden[vak] = "O";
+            stapAI = vak;     
         }
 
         private int GenereerNummer(int overgeblevenGetallen, List<int> temp)
@@ -52,19 +45,7 @@ namespace Boter__Kaas_en_Eieren
 
             return temp[vak];
         }
-
-        private bool CheckVak(int vak)
-        {
-            if (veld.Velden[vak] == "X" || veld.Velden[vak] == "O")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
+   
         public void SetScoreAIZero()
         {
             if (scoreAI < 0)
