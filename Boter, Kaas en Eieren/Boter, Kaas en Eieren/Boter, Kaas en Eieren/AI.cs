@@ -19,28 +19,28 @@ namespace Boter__Kaas_en_Eieren
 
         public void ZetStapAI()
         {
-            List<int> temp = new List<int>();
+            List<int> overgeblevenVakken = new List<int>();
 
             for (int i = 1; i < veld.Velden.Count; i++)
             {
                 if (veld.Velden[i] != "X" && veld.Velden[i] != "O")
                 {
-                    temp.Add(i);               
+                    overgeblevenVakken.Add(i);               
                 }
             }
 
-            int vak = GenereerNummer(temp.Count, temp);
+            int vak = GenereerNummer(overgeblevenVakken.Count, overgeblevenVakken);
         
             veld.Velden[vak] = "O";
             stapAI = vak;     
         }
 
-        private int GenereerNummer(int overgeblevenGetallen, List<int> temp)
+        private int GenereerNummer(int overgeblevenGetallen, List<int> overgeblevenVakken)
         {
             Random rnd = new Random();
             int vak = rnd.Next(1, overgeblevenGetallen);
 
-            return temp[vak];
+            return overgeblevenVakken[vak];
         }
    
         public void SetScoreAIZero()

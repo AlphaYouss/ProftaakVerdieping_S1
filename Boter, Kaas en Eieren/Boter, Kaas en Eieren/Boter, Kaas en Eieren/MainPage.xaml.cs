@@ -214,6 +214,8 @@ namespace Boter__Kaas_en_Eieren
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
+            btnRestart.Visibility = Visibility.Collapsed;
+
             for (int i = 1; i < 10; i++)
             {
                 VeranderVeld(i, plaatjes, true , true);
@@ -223,8 +225,6 @@ namespace Boter__Kaas_en_Eieren
 
             txtnaamAI.Foreground = new SolidColorBrush(Colors.White);
             txtnaamSpeler.Foreground = new SolidColorBrush(Colors.White);
-
-            btnRestart.Visibility = Visibility.Collapsed;
         }
     }
 }
