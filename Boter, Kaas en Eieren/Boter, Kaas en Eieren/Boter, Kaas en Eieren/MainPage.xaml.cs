@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -67,9 +66,7 @@ namespace Boter__Kaas_en_Eieren
 
             int beschikbarevakken = bke.CheckVak();
 
-            if (beschikbarevakken != 0)
-            {
-                if (bke.WinCheck())
+            if (bke.WinCheck())
                 {
                     // Speler wint.
 
@@ -81,7 +78,7 @@ namespace Boter__Kaas_en_Eieren
 
                     NextGameShow();
                 }
-                else
+                else if (beschikbarevakken != 0)
                 {
                     await DelayAsync();
 
@@ -101,7 +98,7 @@ namespace Boter__Kaas_en_Eieren
                         NextGameShow();
                     }
                 }
-            }
+            
             else
             {
                 // Gelijkspel.
@@ -221,6 +218,7 @@ namespace Boter__Kaas_en_Eieren
             {
                 VeranderVeld(i, plaatjes, true , true);
             }
+
             veld.ClearVeld();
 
             txtnaamAI.Foreground = new SolidColorBrush(Colors.White);

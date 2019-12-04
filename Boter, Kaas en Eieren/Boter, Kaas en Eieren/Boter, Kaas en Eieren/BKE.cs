@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Windows.UI.Xaml.Media.Imaging;
-
+﻿
 namespace Boter__Kaas_en_Eieren
 {
     class BKE
