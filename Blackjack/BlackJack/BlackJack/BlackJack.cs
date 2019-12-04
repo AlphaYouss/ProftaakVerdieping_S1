@@ -8,21 +8,22 @@ namespace BlackJack
 {  
     class BlackJack
     {
+        public Speler deSpeler { get; private set; } = new Speler();
+        public Speler deDealer { get; private set; } = new Speler();
+        public Kaarten bank { get; private set; } = new Kaarten();
+        public string uitkomst { get; private set; } = "";
+        public bool gameOver { get; private set; } = false;
+        public bool Insurance { get; private set; } = false;
 
-        public Speler deSpeler = new Speler();
-        public Speler deDealer = new Speler();
-        public Kaarten bank = new Kaarten();
-        public string uitkomst = "-";
-        public bool gameOver = false;
 
         //Start
         public void Start()
         {
-            bank.NieuweKaart(deSpeler.spelerPunten, deSpeler.spelerKaarten);
-            bank.NieuweKaart(deSpeler.spelerPunten, deSpeler.spelerKaarten);
+            deSpeler.PakKaart(bank);
+            deSpeler.PakKaart(bank);
 
-            bank.NieuweKaart(deDealer.spelerPunten, deDealer.spelerKaarten);
-            bank.NieuweKaart(deDealer.spelerPunten, deDealer.spelerKaarten);
+            deDealer.PakKaart(bank);
+            deDealer.PakKaart(bank);
         }
 
 
@@ -30,19 +31,18 @@ namespace BlackJack
         //Hit
         public void Hit(double inzet)
         {
-            bank.NieuweKaart(deSpeler.spelerPunten, deSpeler.spelerKaarten);
+            deSpeler.PakKaart(bank);
             SpelerBustControle(inzet);
         }
 
 
-        private void SpelerBustControle(double Inzet)
+        public void SpelerBustControle(double Inzet)
         {
-            if (deSpeler.BustControle())
+          if (deSpeler.TotaalPunten() > 21)
             {
                 uitkomst = "Speler bust!";
                 deSpeler.SaldoAfschrijven(Inzet);
                 gameOver = true;
-                
             } 
         }
 
@@ -51,13 +51,13 @@ namespace BlackJack
         public void Stand(double inzet, Kaarten bank)
         {
             deDealer.HitControle(bank);
+
             WinnaarControle(inzet);
         }
       
 
         public string WinnaarControle(double inzet)
         {
-
             int Speler = deSpeler.TotaalPunten();
             int Dealer = deDealer.TotaalPunten();
 
@@ -99,17 +99,36 @@ namespace BlackJack
         //Einde
         public void Clear()
         {
-            deSpeler.spelerKaarten.Clear();
-            deSpeler.spelerPunten.Clear();
-
-            deDealer.spelerKaarten.Clear();
-            deDealer.spelerPunten.Clear();
-
-           // uitkomst = "";
-           // gameOver = false;
+            deSpeler.HandLegen();
+            deDealer.HandLegen();
+            uitkomst = "";
+            gameOver = false;
         }
 
-        
-        
+
+
+        public bool InzetCheck(double inzet)
+        {
+            if (inzet > deSpeler.saldo || inzet > 250)
+            {
+                uitkomst = "Je inzet is te hoog";
+                return false;
+            }
+            else if (inzet <= 0)
+            {
+                uitkomst = "Je inzet is  0 / negatief";
+                return false;
+            }
+            return true;
+        }
+
+        private void DoInsurance()
+        {
+            if (deDealer.InsuranceControle())
+            {
+                Insurance = true;
+            }
+        }
+
     }
 }

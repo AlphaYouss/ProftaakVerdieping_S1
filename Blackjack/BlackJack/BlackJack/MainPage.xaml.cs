@@ -18,37 +18,51 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BlackJack
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    /// 
   
     public sealed partial class MainPage : Page
     {
+
         BlackJack GameHost = new BlackJack();
-      
-        
+        public double inzet { get; private set; }
+       // public double inzet;
+
+     //   public bool Insurance { get; private set; } = false;
 
         public MainPage()
         { 
-            this.InitializeComponent();
+            InitializeComponent();
             
             GameHost.Start();
             ClearText();
-            StartText();  
+            StartText();
+            InzetText();
+            GameHost.deSpeler.DoubleDownControle();
+        }
+
+        private void DoubleDown()
+        {
+            if (GameHost.deSpeler.DoubleDownControle())
+            {
+                DoubleDownKnop.Visibility = Visibility.Visible;
+            }
         }
 
         //Start
         private void StartNewGame()
         {
-        //    Hit.Visibility = Visibility.Collapsed;
-        //    Stand.Visibility = Visibility.Collapsed;
-        //    NewGame.Visibility = Visibility.Visible;
             GameHost.Clear();
-            GameHost.Start();
             ClearText();
+            
+            GameHost.Start(); 
             StartText();
+
+           
+         //   AasControle();
+            InzetText(); 
+         //   DoubleDown();  
         }
+
+
         private void StartText()
         {
             Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
@@ -57,19 +71,19 @@ namespace BlackJack
             Uitkomst.Text = GameHost.uitkomst;
         }
 
+       
+
+
 
         //Hit
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
-            double inzet = Convert.ToDouble(Inzet.Text);
+           // GameHost.deSpeler.PakKaart(GameHost.bank);
 
+            //  AasControle();
             GameHost.Hit(inzet);
-
-            AasControle();
-           
+           // GameHost.SpelerBustControle(inzet);
             GameCheck();
-
-            //Uitkomst.Text = GameHost.uitkomst;
             StartText();
         }
 
@@ -81,15 +95,14 @@ namespace BlackJack
                 Hit.Visibility = Visibility.Collapsed;
                 Stand.Visibility = Visibility.Collapsed;
                 NewGame.Visibility = Visibility.Visible;
-                //StartNewGame();
+                Elf.Visibility = Visibility.Collapsed;
+                Een.Visibility = Visibility.Collapsed;
             }
         }
 
         // Stand
         private  void Stand_Click(object sender, RoutedEventArgs e)
         {
-            double inzet = Convert.ToDouble(Inzet.Text);
-
             GameHost.Stand(inzet, GameHost.bank);
            
             GameCheck();
@@ -103,10 +116,13 @@ namespace BlackJack
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
             StartNewGame();
+            Een.IsEnabled = false;
+            Elf.IsEnabled = false;
         }
 
         private void ClearText()
         {
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
             Saldo.Text = "";
             Uitkomst.Text = "";
             KaartenSpeler.Text = "";
@@ -119,7 +135,7 @@ namespace BlackJack
             Een.Visibility = Visibility.Collapsed;
         }
 
-
+/*
         //Aas
         private void AasControle()
         {
@@ -127,28 +143,88 @@ namespace BlackJack
             {
                 Elf.Visibility = Visibility.Visible;
                 Een.Visibility = Visibility.Visible;
+                Elf.IsEnabled = true;
+                Een.IsEnabled = true;
                 Hit.Visibility = Visibility.Collapsed;
                 Stand.Visibility = Visibility.Collapsed;
+                StartText();
             }
+            else
+            {
+                GameHost.SpelerBustControle(inzet);
+                GameCheck();
+                StartText();
+            } 
         }
-
-
+*/
         private void Elf_Click(object sender, RoutedEventArgs e)
         {
             Elf.Visibility = Visibility.Collapsed;
             Een.Visibility = Visibility.Collapsed;
             Hit.Visibility = Visibility.Visible;
             Stand.Visibility = Visibility.Visible;
+            TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
+            
+            
+            GameHost.SpelerBustControle(inzet);
+            GameCheck();
+            StartText();
         }
 
         private void Een_Click(object sender, RoutedEventArgs e)
         {
-            // Hier komt een code die de 11 in de punten lijst vervangt door een 1
-
+            
+           // GameHost.deSpeler.spelerKaarten[GameHost.deSpeler.AasPlekken[0]].ChangeToOne(); 
+            
             Elf.Visibility = Visibility.Collapsed;
             Een.Visibility = Visibility.Collapsed;
             Hit.Visibility = Visibility.Visible;
             Stand.Visibility = Visibility.Visible;
+            TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
+           
+            
+            GameHost.SpelerBustControle(inzet);
+            GameCheck();
+            StartText();
+        }
+
+        private void ConfirmInzet_Click(object sender, RoutedEventArgs e)
+        {           
+            if (GameHost.InzetCheck(Convert.ToDouble(TbInzet.Text)))
+            {
+                inzet = Convert.ToDouble(TbInzet.Text);
+                ConfirmInzet.IsEnabled = false;
+                TbInzet.IsEnabled = false;
+                Hit.IsEnabled = true;
+                Stand.IsEnabled = true;
+                Uitkomst.Text = "";
+                Elf.IsEnabled = true;
+                Een.IsEnabled = true;
+                DoubleDown();
+            }
+            else
+            {
+                Uitkomst.Text = GameHost.uitkomst;
+                
+            }
+           
+        }
+
+
+        private void InzetText()
+        {
+            Hit.IsEnabled = false;
+            Stand.IsEnabled = false;
+            ConfirmInzet.IsEnabled = true;
+            TbInzet.IsEnabled = true;
+        }
+
+
+        private void DoubleDown_Click(object sender, RoutedEventArgs e)
+        {
+            inzet *= 2;
+            TbInzet.Text = Convert.ToString(inzet);
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
         }
     }
 }

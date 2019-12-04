@@ -8,18 +8,25 @@ namespace BlackJack
 {
     class Speler
     {
-        public List<string> spelerKaarten = new List<string>();
-        public List<int> spelerPunten = new List<int>();
-        public double saldo = 2000;
+        private List<string> Azen = new List<string>();
+        public List<Kaart> spelerKaarten { get; private set; } = new List<Kaart>();
+        public double saldo { get; private set; } = 5000;
 
+        //public List<int> AasPlekken = new List<int>();
+        //public int AasPlek { get; private set; }
 
         //Start
+        public void PakKaart(Kaarten bank)
+        {
+            spelerKaarten.Add(bank.NieuweKaart());
+        }
+
         public string GetKaarten()
         {
             string Kaart = "";
             for (int i = 0; i < spelerKaarten.Count; i++)
             {
-                Kaart = Kaart + "    " + spelerKaarten[i];
+                Kaart = Kaart + "    " + spelerKaarten[i].Plaatje;
             }
             return Kaart;
         }
@@ -29,40 +36,37 @@ namespace BlackJack
         {
             int totaal = 0;
 
-            for (int i = 0; i < spelerPunten.Count; i++)
+            for (int i = 0; i < spelerKaarten.Count; i++)
             {
-                totaal += spelerPunten[i];
+                totaal += spelerKaarten[i].Punt;
             }
             return totaal;
         }
 
+
+/*
         public bool Aas()
         {
-            if (spelerPunten.Contains(11))
+            for (int i = 0; i < spelerKaarten.Count; i++)
             {
-                return true;
+                if (spelerKaarten[i].Punt == 11 && !Azen.Contains(spelerKaarten[i].Plaatje))
+                {
+                    AasPlekken.Add(i);
+                    Azen.Add(spelerKaarten[i].Plaatje);
+                    return true;
+                }          
             }
             return false;
         }
-
-
-        public bool BustControle()
-        {
-            if (TotaalPunten() >21)
-            {
-                return true;
-            }
-            return false;
-        }
-
-
+*/
+     
 
         //Stand
         public void HitControle(Kaarten bank)
         {
             while (TotaalPunten() < 17)
             {
-                bank.NieuweKaart(spelerPunten, spelerKaarten);
+                PakKaart(bank);
             }
         }
 
@@ -78,13 +82,32 @@ namespace BlackJack
         }
 
 
-        /*        public bool DoubleDownControle()
+        //Einde
+        public void HandLegen()
+        {
+            spelerKaarten.Clear();
+            Azen.Clear();
+        }
+
+
+        public bool InsuranceControle()
+        {
+            if (spelerKaarten[0].Plaatje.Contains("A"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+        public bool DoubleDownControle()
         {
             if (TotaalPunten() == 9 || TotaalPunten() == 10 || TotaalPunten() == 11)
             {
                 return true;
             }
             return false;
-        }    */
+        }    
     }
 }

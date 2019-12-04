@@ -8,12 +8,13 @@ namespace BlackJack
 {
     class Kaarten
     {
-        List<string> kleuren = new List<string>() { "C", "D", "H", "S" };
-        List<string> plaatjes = new List<string>() { "J", "Q", "K", "A" };
-        Random randomNummer = new Random();
+        public Random randomNummer { get; private set; } = new Random();
+        enum kleuren  { C, D, H, S };
+        enum plaatjes { J, Q, K, A };
 
-        public void NieuweKaart(List<int> listPunten, List<string> listKaarten)
+        public Kaart NieuweKaart()
         {
+            
             int IntKaart = randomNummer.Next(2, 15);
             int x = 0;
             bool gevonden = false;
@@ -25,29 +26,28 @@ namespace BlackJack
                 {
                     if (IntKaart == i)
                     {
-                        StrKaart = plaatjes[x] + kleuren[randomNummer.Next(0, 4)] + ".jpg";
+                        StrKaart = Enum.GetName(typeof(plaatjes), x) + Enum.GetName(typeof(kleuren), randomNummer.Next(0, 4)) + ".jpg";
                         gevonden = true;
 
                         if (IntKaart == 14)
                         {
-                            IntKaart = 11;
-                            
+                            IntKaart = 11;                  
                         }
                         else
                         {
                             IntKaart = 10;
+                            //IntKaart = 11;
                         }
                     }
                     else
                     {
-                        StrKaart = Convert.ToString(IntKaart) + kleuren[randomNummer.Next(0, 4)] + ".jpg";
+                        StrKaart = Convert.ToString(IntKaart) + Enum.GetName(typeof(kleuren), randomNummer.Next(0, 4)) + ".jpg";
                     }
                 }
                 x++;
             }
-
-            listPunten.Add(IntKaart);
-            listKaarten.Add(StrKaart);
+            Kaart DeKaart = new Kaart(IntKaart,StrKaart);
+            return DeKaart;
         }
     }
 }
