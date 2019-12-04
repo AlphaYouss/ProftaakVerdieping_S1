@@ -24,46 +24,117 @@ namespace BlackJack
 
         BlackJack GameHost = new BlackJack();
         public double inzet { get; private set; }
-       // public double inzet;
-
-     //   public bool Insurance { get; private set; } = false;
+        public bool BeurtGedaan { get; private set; } = false;
 
         public MainPage()
         { 
             InitializeComponent();
             
-            GameHost.Start();
             ClearText();
-            StartText();
+            
             InzetText();
-            GameHost.deSpeler.DoubleDownControle();
+        }
+        
+
+        //Inzet Bepalen
+        private void InzetText()
+        {
+            Hit.IsEnabled = false;
+            Stand.IsEnabled = false;
+            ConfirmInzet.IsEnabled = true;
+            TbInzet.IsEnabled = true;
         }
 
-        private void DoubleDown()
+
+        private void ConfirmInzet_Click(object sender, RoutedEventArgs e)
         {
-            if (GameHost.deSpeler.DoubleDownControle())
+            if (GameHost.InzetCheck(Convert.ToDouble(TbInzet.Text)))
             {
-                DoubleDownKnop.Visibility = Visibility.Visible;
+                StartNewGame();
+                inzet = Convert.ToDouble(TbInzet.Text);
+                ConfirmInzet.IsEnabled = false;
+                TbInzet.IsEnabled = false;
+                Hit.IsEnabled = true;
+                Stand.IsEnabled = true;
+                Uitkomst.Text = "";
+                Elf.IsEnabled = true;
+                Een.IsEnabled = true;
+            }
+            else
+            {
+                Uitkomst.Text = GameHost.uitkomst;
             }
         }
+
+
+
 
         //Start
         private void StartNewGame()
         {
-            GameHost.Clear();
             ClearText();
-            
-            GameHost.Start(); 
-            StartText();
 
-           
-         //   AasControle();
-            InzetText(); 
-         //   DoubleDown();  
+            Beurt1();
+
+            UpdateText();
+            InzetText();
         }
 
 
-        private void StartText()
+        private void Beurt1()
+        {
+            bool Zichtbaar = false;
+
+            GameHost.deSpeler.PakKaart(GameHost.bank);
+            if (GameHost.deSpeler.Aas() == true)
+            {
+                AasControle(true);
+                Zichtbaar = true;
+            }
+
+            GameHost.deDealer.PakKaart(GameHost.bank);
+            GameHost.deDealer.DealerAzen();
+            if (GameHost.deDealer.InsuranceControle())
+            {
+                Insurance.Visibility = Visibility.Visible;
+                Zichtbaar = true;
+            }
+
+            if (!Zichtbaar)
+            {
+                Beurt2();
+            }
+        }
+
+
+        private void Beurt2()
+        {
+            GameHost.deSpeler.PakKaart(GameHost.bank);
+            AasControle(GameHost.deSpeler.Aas());
+
+            GameHost.deDealer.PakKaart(GameHost.bank);
+            GameHost.deDealer.DealerAzen();
+            if (GameHost.Insurance)
+            {
+                if (GameHost.deDealer.spelerKaarten[1].Punt == 10)
+                {
+                    GameHost.deSpeler.SaldoBijschrijven(inzet / 2);
+
+                    GameHost.Stand(inzet, GameHost.bank);
+
+                    GameCheck();
+
+                    UpdateText();
+                }
+            }
+
+            DoubleDown();
+            UpdateText();
+            BeurtGedaan = true;
+        }
+
+
+        private void UpdateText()
         {
             Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
             KaartenDealer.Text = GameHost.deDealer.GetKaarten();
@@ -71,20 +142,19 @@ namespace BlackJack
             Uitkomst.Text = GameHost.uitkomst;
         }
 
-       
 
 
 
         //Hit
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
-           // GameHost.deSpeler.PakKaart(GameHost.bank);
+            GameHost.deSpeler.PakKaart(GameHost.bank);
+            AasControle(GameHost.deSpeler.Aas());
+            GameHost.SpelerBustControle(inzet);
+            //GameHost.Hit(inzet);
 
-            //  AasControle();
-            GameHost.Hit(inzet);
-           // GameHost.SpelerBustControle(inzet);
             GameCheck();
-            StartText();
+            UpdateText();
         }
 
 
@@ -100,6 +170,9 @@ namespace BlackJack
             }
         }
 
+
+
+
         // Stand
         private  void Stand_Click(object sender, RoutedEventArgs e)
         {
@@ -107,18 +180,24 @@ namespace BlackJack
            
             GameCheck();
             
-            StartText();
+            UpdateText();
         }
+
 
 
 
         // Einde
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
-            StartNewGame();
+            GameHost.Clear();
+            ClearText();
+            UpdateText();
+            InzetText();
+            NewGame.Visibility = Visibility.Collapsed;
             Een.IsEnabled = false;
             Elf.IsEnabled = false;
         }
+
 
         private void ClearText()
         {
@@ -133,13 +212,18 @@ namespace BlackJack
             NewGame.Visibility = Visibility.Collapsed;
             Elf.Visibility = Visibility.Collapsed;
             Een.Visibility = Visibility.Collapsed;
+            Insurance.Visibility = Visibility.Collapsed;
+            BeurtGedaan = false;
+            GameHost.ChangeInsurance(false);
         }
+ 
 
-/*
+  
+ 
         //Aas
-        private void AasControle()
+        private void AasControle(bool Aas)
         {
-            if (GameHost.deSpeler.Aas())
+            if (Aas)
             {
                 Elf.Visibility = Visibility.Visible;
                 Een.Visibility = Visibility.Visible;
@@ -147,76 +231,60 @@ namespace BlackJack
                 Een.IsEnabled = true;
                 Hit.Visibility = Visibility.Collapsed;
                 Stand.Visibility = Visibility.Collapsed;
-                StartText();
+                UpdateText();
             }
-            else
-            {
-                GameHost.SpelerBustControle(inzet);
-                GameCheck();
-                StartText();
-            } 
         }
-*/
-        private void Elf_Click(object sender, RoutedEventArgs e)
+
+
+        private void AasClick()
         {
             Elf.Visibility = Visibility.Collapsed;
             Een.Visibility = Visibility.Collapsed;
             Hit.Visibility = Visibility.Visible;
             Stand.Visibility = Visibility.Visible;
             TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
-            
-            
+
+
             GameHost.SpelerBustControle(inzet);
             GameCheck();
-            StartText();
+            UpdateText();
+
         }
+
+
+        private void Elf_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.deSpeler.spelerKaarten[GameHost.deSpeler.AasPlek].ChangeToEleven();
+            AasClick();
+            
+            if (BeurtGedaan == false)
+            {
+                Beurt2();
+            }
+        }
+
 
         private void Een_Click(object sender, RoutedEventArgs e)
         {
-            
-           // GameHost.deSpeler.spelerKaarten[GameHost.deSpeler.AasPlekken[0]].ChangeToOne(); 
-            
-            Elf.Visibility = Visibility.Collapsed;
-            Een.Visibility = Visibility.Collapsed;
-            Hit.Visibility = Visibility.Visible;
-            Stand.Visibility = Visibility.Visible;
-            TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
+            GameHost.deSpeler.spelerKaarten[GameHost.deSpeler.AasPlek].ChangeToOne();
+            AasClick();
            
-            
-            GameHost.SpelerBustControle(inzet);
-            GameCheck();
-            StartText();
-        }
-
-        private void ConfirmInzet_Click(object sender, RoutedEventArgs e)
-        {           
-            if (GameHost.InzetCheck(Convert.ToDouble(TbInzet.Text)))
+            if (BeurtGedaan == false)
             {
-                inzet = Convert.ToDouble(TbInzet.Text);
-                ConfirmInzet.IsEnabled = false;
-                TbInzet.IsEnabled = false;
-                Hit.IsEnabled = true;
-                Stand.IsEnabled = true;
-                Uitkomst.Text = "";
-                Elf.IsEnabled = true;
-                Een.IsEnabled = true;
-                DoubleDown();
+                Beurt2();
             }
-            else
-            {
-                Uitkomst.Text = GameHost.uitkomst;
-                
-            }
-           
         }
 
 
-        private void InzetText()
+
+
+        // Double Down
+        private void DoubleDown()
         {
-            Hit.IsEnabled = false;
-            Stand.IsEnabled = false;
-            ConfirmInzet.IsEnabled = true;
-            TbInzet.IsEnabled = true;
+            if (GameHost.deSpeler.DoubleDownControle())
+            {
+                DoubleDownKnop.Visibility = Visibility.Visible;
+            }
         }
 
 
@@ -225,6 +293,17 @@ namespace BlackJack
             inzet *= 2;
             TbInzet.Text = Convert.ToString(inzet);
             DoubleDownKnop.Visibility = Visibility.Collapsed;
+        }
+
+
+
+
+        //Insurance 
+        private void Insurance_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.ChangeInsurance(true);
+            GameHost.deSpeler.SaldoAfschrijven(inzet / 2);
+            Insurance.Visibility = Visibility.Visible;
         }
     }
 }

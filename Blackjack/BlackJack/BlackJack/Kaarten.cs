@@ -31,12 +31,11 @@ namespace BlackJack
 
                         if (IntKaart == 14)
                         {
-                            IntKaart = 11;                  
+                           // IntKaart = 1;                  
                         }
                         else
                         {
                             IntKaart = 10;
-                            //IntKaart = 11;
                         }
                     }
                     else

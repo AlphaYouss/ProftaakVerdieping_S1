@@ -8,12 +8,12 @@ namespace BlackJack
 {
     class Speler
     {
-        private List<string> Azen = new List<string>();
+       // private List<string> Azen = new List<string>();
         public List<Kaart> spelerKaarten { get; private set; } = new List<Kaart>();
         public double saldo { get; private set; } = 5000;
 
-        //public List<int> AasPlekken = new List<int>();
-        //public int AasPlek { get; private set; }
+        public int AasPlek { get; private set; }
+
 
         //Start
         public void PakKaart(Kaarten bank)
@@ -44,22 +44,18 @@ namespace BlackJack
         }
 
 
-/*
-        public bool Aas()
+        public void DealerAzen()
         {
             for (int i = 0; i < spelerKaarten.Count; i++)
             {
-                if (spelerKaarten[i].Punt == 11 && !Azen.Contains(spelerKaarten[i].Plaatje))
+                if (spelerKaarten[i].Punt == 14)
                 {
-                    AasPlekken.Add(i);
-                    Azen.Add(spelerKaarten[i].Plaatje);
-                    return true;
-                }          
+                    spelerKaarten[i].ChangeToEleven();
+                }
             }
-            return false;
         }
-*/
-     
+
+
 
         //Stand
         public void HitControle(Kaarten bank)
@@ -67,6 +63,7 @@ namespace BlackJack
             while (TotaalPunten() < 17)
             {
                 PakKaart(bank);
+                DealerAzen();
             }
         }
 
@@ -86,8 +83,25 @@ namespace BlackJack
         public void HandLegen()
         {
             spelerKaarten.Clear();
-            Azen.Clear();
+            //Azen.Clear();
         }
+
+
+        // Speciale Methodes
+        public bool Aas()
+        {
+            for (int i = 0; i < spelerKaarten.Count; i++)
+            {
+                if (spelerKaarten[i].Punt == 14)
+                {
+                    AasPlek = i;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
 
 
         public bool InsuranceControle()

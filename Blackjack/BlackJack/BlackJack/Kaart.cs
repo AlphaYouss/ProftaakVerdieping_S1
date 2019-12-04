@@ -20,5 +20,10 @@ namespace BlackJack
         {
            Punt = 1;
         }
+
+        public void ChangeToEleven()
+        {
+            Punt = 11;
+        }
     }
 }

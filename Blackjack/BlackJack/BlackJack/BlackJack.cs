@@ -16,18 +16,6 @@ namespace BlackJack
         public bool Insurance { get; private set; } = false;
 
 
-        //Start
-        public void Start()
-        {
-            deSpeler.PakKaart(bank);
-            deSpeler.PakKaart(bank);
-
-            deDealer.PakKaart(bank);
-            deDealer.PakKaart(bank);
-        }
-
-
-
         //Hit
         public void Hit(double inzet)
         {
@@ -58,10 +46,17 @@ namespace BlackJack
 
         public string WinnaarControle(double inzet)
         {
+            
             int Speler = deSpeler.TotaalPunten();
             int Dealer = deDealer.TotaalPunten();
 
-            if (Speler == 21)
+            if(Insurance && Dealer == 21)
+            {
+                uitkomst = "Insurance wordt uitbetaald!"; 
+
+            }
+
+            else if (Speler == 21)
             {
                 uitkomst = "De speler heeft blackjack!";
                 deSpeler.SaldoBijschrijven(inzet);
@@ -73,14 +68,15 @@ namespace BlackJack
                 deSpeler.SaldoBijschrijven(inzet);
             }
 
-            else if (Speler > Dealer)
+
+            else if (Speler > Dealer && Speler <= 21)
             {
                 uitkomst = "De speler heeft gewonnen!";
-                deSpeler.SaldoBijschrijven(inzet);
+                //deSpeler.SaldoBijschrijven(inzet);
             }
            
             
-            else if ( Dealer > Speler)
+            else if ( Dealer > Speler )
             {
                 uitkomst = "De dealer heeft gewonnen!";
                 deSpeler.SaldoAfschrijven(inzet);
@@ -122,13 +118,14 @@ namespace BlackJack
             return true;
         }
 
-        private void DoInsurance()
+        public void ChangeInsurance(bool Waarde)
         {
-            if (deDealer.InsuranceControle())
-            {
-                Insurance = true;
-            }
+           // if (deDealer.InsuranceControle())
+           // {
+                Insurance = Waarde;
+           // }
         }
+
 
     }
 }
