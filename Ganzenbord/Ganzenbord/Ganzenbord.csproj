@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bord.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ganzenbord_pd.svg.png" />
+    <Content Include="Assets\WireFrameBlackJack3X9.jpg" />
+    <Content Include="Assets\WireframeBlackJack7x2.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
