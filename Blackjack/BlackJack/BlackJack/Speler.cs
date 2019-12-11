@@ -13,6 +13,7 @@ namespace BlackJack
         public double saldo { get; private set; } = 5000;
 
         public int AasPlek { get; private set; }
+        public bool HeeftAas { get; private set; }
 
 
         //Start
@@ -20,6 +21,13 @@ namespace BlackJack
         {
             spelerKaarten.Add(bank.NieuweKaart());
         }
+
+        public string GetKaart(int i)
+        {
+            return spelerKaarten[i].Plaatje;
+        }
+
+
 
         public string GetKaarten()
         {
@@ -80,9 +88,16 @@ namespace BlackJack
 
 
         //Einde
+        public void ChangeHeeftAas(bool Choice)
+        {
+            HeeftAas = Choice;
+        }
+
+
         public void HandLegen()
         {
             spelerKaarten.Clear();
+            HeeftAas = false;
             //Azen.Clear();
         }
 
@@ -95,6 +110,7 @@ namespace BlackJack
                 if (spelerKaarten[i].Punt == 14)
                 {
                     AasPlek = i;
+                    HeeftAas = true;
                     return true;
                 }
             }

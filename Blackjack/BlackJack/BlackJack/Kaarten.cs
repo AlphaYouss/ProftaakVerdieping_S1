@@ -48,5 +48,10 @@ namespace BlackJack
             Kaart DeKaart = new Kaart(IntKaart,StrKaart);
             return DeKaart;
         }
+
+        
+        
     }
+
 }
+
