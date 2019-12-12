@@ -25,60 +25,121 @@ namespace BlackJack
 
         BlackJack GameHost = new BlackJack();
         public double inzet { get; private set; }
-        Image[] images;
+        
+        Image[] SpelerImages;
+        Image[] DealerImages;
 
 
         public MainPage()
         { 
             InitializeComponent();
 
-            images = new Image[] { SpelerKaart1, SpelerKaart2, SpelerKaart3, SpelerKaart4, SpelerKaart5, SpelerKaart6, SpelerKaart7, SpelerKaart8 };        
+            SpelerImages = new Image[] { SpelerKaart1, SpelerKaart2, SpelerKaart3, SpelerKaart4, SpelerKaart5, SpelerKaart6, SpelerKaart7, SpelerKaart8 };
+            DealerImages = new Image[] { DealerKaart1, DealerKaart2, DealerKaart3, DealerKaart4, DealerKaart5, DealerKaart6, DealerKaart7, DealerKaart8 };
 
             ClearText();
-            
-            InzetText();
-            
+            InzetAan();
+            UpdateText();
         }
-        
+
+
+
+        // Text aanpassen
+        private void ClearText()
+        {
+            Saldo.Text = "";
+            Uitkomst.Text = "";
+            KaartenSpeler.Text = "";
+            KaartenDealer.Text = "";
+            Uitkomst.Text = "";
+
+            GameHost.ChangeUitkomst("");
+
+            Hit.Visibility = Visibility.Visible;
+            Stand.Visibility = Visibility.Visible;
+
+            NewGame.Visibility = Visibility.Collapsed;
+
+            Elf.Visibility = Visibility.Collapsed;
+            Een.Visibility = Visibility.Collapsed;
+
+            Insurance.Visibility = Visibility.Collapsed;
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
+
+            GameHost.ChangeInsurance(false);
+            ImagesClear(SpelerImages);
+            ImagesClear(DealerImages);
+        }
+
+
+        private void UpdateText()
+        {
+            Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
+            KaartenDealer.Text = GameHost.deDealer.GetKaarten();
+            KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
+            Uitkomst.Text = GameHost.uitkomst;
+            TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
+            tbWinstVerlies.Text = Convert.ToString(GameHost.deSpeler.WinstVerlies);
+
+            UpdateImage(GameHost.deSpeler, SpelerImages);
+
+            if (!GameHost.deSpeler.Aas())
+            {
+                TotaalPuntenLatenZien();
+            }
+
+            if (GameHost.gameOver)
+            {
+                UpdateImage(GameHost.deDealer, DealerImages);
+            }
+        }
+
+
 
         //Inzet Bepalen
-        private void InzetText()
+        private void InzetAan()
         {
             Hit.IsEnabled = false;
             Stand.IsEnabled = false;
-            
-            ConfirmInzet.IsEnabled = true;
-            //TbInzet.IsEnabled = true;
-        }
 
+            TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
+            ConfirmInzet.IsEnabled = true;
+            VijftigKnop.IsEnabled = true;
+            HonderdKnop.IsEnabled = true;
+            TweehonderdKnop.IsEnabled = true;
+            VijfhonderdKnop.IsEnabled = true;
+        }
 
         private void ConfirmInzet_Click(object sender, RoutedEventArgs e)
         {
-          //  if (GameHost.InzetCheck(Convert.ToDouble(TbInzet.Text)))
-          //  {
-                
+            if (GameHost.InzetCheck(0))
+            {
                 inzet = Convert.ToDouble(TbInzet.Text);
                 GameHost.deSpeler.SaldoAfschrijven(inzet);
-                
+
                 StartNewGame();
-                
+
                 ConfirmInzet.IsEnabled = false;
-                //TbInzet.IsEnabled = false;
-                
+
                 Hit.IsEnabled = true;
                 Stand.IsEnabled = true;
-                
+
                 Uitkomst.Text = "";
-                
+
                 Elf.IsEnabled = true;
                 Een.IsEnabled = true;
-           // }
-           // else
-           // {
-            //    Uitkomst.Text = GameHost.uitkomst;
-           // }
-        }
 
+                VijftigKnop.IsEnabled = false;
+                HonderdKnop.IsEnabled = false;
+                TweehonderdKnop.IsEnabled = false;
+                VijfhonderdKnop.IsEnabled = false;
+            }
+            else
+            {
+                GameHost.ResetInzet();
+            }
+            UpdateText();
+        }
 
 
 
@@ -89,30 +150,23 @@ namespace BlackJack
 
             GameHost.Beurt1(inzet);
             AasControle(GameHost.deSpeler.HeeftAas);
+           
             if (GameHost.HeeftInsurance)
             {
                 Insurance.Visibility = Visibility.Visible;
             }
-                       
-            GameCheck();
-            DoubleDown();
-
+                        
+            if (GameHost.deSpeler.spelerKaarten.Count == 2)
+            {
+                DoubleDown();
+            }
+           
             UpdateText();
-            InzetText();
+            InzetAan();
+            
+            UpdateImage(GameHost.deSpeler, SpelerImages);
+            DealerImage(GameHost.deDealer, DealerImages);
         }
-
-
-     
-
-
-        private void UpdateText()
-        {
-            Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
-            KaartenDealer.Text = GameHost.deDealer.GetKaarten();
-            KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
-            Uitkomst.Text = GameHost.uitkomst;
-        }
-
 
 
 
@@ -135,6 +189,7 @@ namespace BlackJack
             GameCheck();
             UpdateText();
             Insurance.Visibility = Visibility.Collapsed;
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
         }
 
 
@@ -148,9 +203,23 @@ namespace BlackJack
                 NewGame.Visibility = Visibility.Visible;
                 Elf.Visibility = Visibility.Collapsed;
                 Een.Visibility = Visibility.Collapsed;
+
+                UpdateImage(GameHost.deDealer, DealerImages);
             }
         }
 
+
+        private void TotaalPuntenLatenZien()
+        {
+            if (GameHost.deSpeler.TotaalPunten() != 0)
+            {
+                TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
+            }
+            else
+            {
+                TotaalPuntenSpeler.Text = "";
+            }
+        }
 
 
 
@@ -162,8 +231,9 @@ namespace BlackJack
             GameCheck();
             
             UpdateText();
-        }
 
+            UpdateImage(GameHost.deDealer, DealerImages);
+        }
 
 
 
@@ -173,57 +243,31 @@ namespace BlackJack
             GameHost.Clear();
             ClearText();
             UpdateText();
-            InzetText();
+            InzetAan();
             NewGame.Visibility = Visibility.Collapsed;
             Een.IsEnabled = false;
             Elf.IsEnabled = false;
         }
 
 
-        private void ClearText()
-        {
-            Saldo.Text = "";
-            Uitkomst.Text = "";
-            KaartenSpeler.Text = "";
-            KaartenDealer.Text = "";
-            Uitkomst.Text = "";
-
-            Hit.Visibility = Visibility.Visible;
-            Stand.Visibility = Visibility.Visible;
-
-            NewGame.Visibility = Visibility.Collapsed;
-            
-            Elf.Visibility = Visibility.Collapsed;
-            Een.Visibility = Visibility.Collapsed;
-            
-            Insurance.Visibility = Visibility.Collapsed;
-            DoubleDownKnop.Visibility = Visibility.Collapsed;
-
-            //BeurtGedaan = false;
-            GameHost.ChangeInsurance(false);
-        }
- 
-
-  
  
         //Aas
         private void AasControle(bool Aas)
         {
             if (Aas)
             {
-                Elf.Visibility = Visibility.Visible;
-                Een.Visibility = Visibility.Visible;
-                Elf.IsEnabled = true;
-                Een.IsEnabled = true;
-               
-                Hit.Visibility = Visibility.Collapsed;
-                Stand.Visibility = Visibility.Collapsed;
-                
+                    Elf.Visibility = Visibility.Visible;
+                    Een.Visibility = Visibility.Visible;
+                    Elf.IsEnabled = true;
+                    Een.IsEnabled = true;
+
+                    Hit.Visibility = Visibility.Collapsed;
+                    Stand.Visibility = Visibility.Collapsed;
+
                 UpdateText();
-                GameHost.deSpeler.ChangeHeeftAas(false);
+                GameHost.deSpeler.VeranderHeeftAas(false);
             }
         }
-
 
         private void AasClick()
         {
@@ -231,13 +275,13 @@ namespace BlackJack
             Een.Visibility = Visibility.Collapsed;
             Hit.Visibility = Visibility.Visible;
             Stand.Visibility = Visibility.Visible;
-            TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
+
+            TotaalPuntenLatenZien();
 
             GameHost.SpelerBustControle(inzet);
             GameCheck();
             UpdateText();
         }
-
 
         private void Elf_Click(object sender, RoutedEventArgs e)
         {
@@ -252,7 +296,6 @@ namespace BlackJack
             }
             UpdateText();
         }
-
 
         private void Een_Click(object sender, RoutedEventArgs e)
         {
@@ -270,7 +313,6 @@ namespace BlackJack
 
 
 
-
         // Double Down
         private void DoubleDown()
         {
@@ -278,9 +320,9 @@ namespace BlackJack
             {
                 DoubleDownKnop.Visibility = Visibility.Visible;
                 GameHost.ChangeUitkomst("");
+                GameHost.deSpeler.SaldoAfschrijven(inzet);
             }
         }
-
 
         private void DoubleDown_Click(object sender, RoutedEventArgs e)
         {
@@ -288,7 +330,6 @@ namespace BlackJack
             TbInzet.Text = Convert.ToString(inzet);
             DoubleDownKnop.Visibility = Visibility.Collapsed;
         }
-
 
 
 
@@ -315,8 +356,8 @@ namespace BlackJack
         {
             if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Fifty)))
             {
-                inzet = GameHost.TestInzet;
-                TbInzet.Text =Convert.ToString(inzet);
+                inzet = GameHost.EchteInzet;
+                TbInzet.Text = Convert.ToString(inzet);
             }
             UpdateText();
         }
@@ -325,7 +366,7 @@ namespace BlackJack
         {
             if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Hundered)))
             {
-                inzet = GameHost.TestInzet;
+                inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
             }
             UpdateText();
@@ -335,7 +376,7 @@ namespace BlackJack
         {
             if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Twohundered)))
             {
-                inzet = GameHost.TestInzet;
+                inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
             }
             UpdateText();
@@ -345,18 +386,44 @@ namespace BlackJack
         {
             if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Fivehunderd)))
             {
-                inzet = GameHost.TestInzet;
+                inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
             }
             UpdateText();
         }
 
 
-        private void PictureBox(Speler speler)
-        {
-            images[0]{ ImageSource =""; };
 
-           // Image[] images = new Image[] {SpelerKaart1, SpelerKaart2, SpelerKaart3, SpelerKaart4, SpelerKaart5, SpelerKaart6, SpelerKaart7, SpelerKaart8 };
+        //Images
+        private void UpdateImage(Speler speler, Image[] ImagesArray)
+        {
+            for (int i = 0; i < speler.spelerKaarten.Count; i++)
+            {
+                string locatie = "ms-appx:///Assets/Speelkaarten/" + speler.GetKaart(i); 
+                
+                BitmapImage ImageSource = new BitmapImage(new Uri(locatie));
+                ImagesArray[i].Source = ImageSource;
+            }
         }
-}
+
+        private void DealerImage(Speler dealer, Image[] ImagesArray)
+        {
+                
+                string locatie = "ms-appx:///Assets/Speelkaarten/" + dealer.GetKaart(0);
+                BitmapImage ImageSource1 = new BitmapImage(new Uri(locatie));
+                ImagesArray[0].Source = ImageSource1;
+
+                BitmapImage ImageSource2 = new BitmapImage(new Uri("ms-appx:///Assets/Speelkaarten/achterkant kaart.jpg"));
+                ImagesArray[1].Source = ImageSource2;
+            
+        }
+
+        private void ImagesClear(Image[] ImagesArray)
+        {
+            for (int i = 0; i < ImagesArray.Length; i++)
+            {
+                ImagesArray[i].Source = null;
+            }
+        }
+    }
 }

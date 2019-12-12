@@ -11,17 +11,22 @@ namespace BlackJack
         public Speler deSpeler { get; private set; } = new Speler();
         public Speler deDealer { get; private set; } = new Speler();
         public Kaarten bank { get; private set; } = new Kaarten();
+        
         public string uitkomst { get; private set; } = "";
         public bool gameOver { get; private set; } = false;
+        
         public bool Insurance { get; private set; } = false;
-       
         public bool HeeftInsurance { get; private set; }
-        public double TestInzet { get; private set; } = 50;
-        public enum fiches { Fifty = 50, Hundered = 100, Twohundered = 200, Fivehunderd = 500 };
         public bool Beurtgedaan { get; private set; } = false;
 
-        //Start 
+        private double Inzet = 50;
+        public double EchteInzet { get; private set; } = 50;
+        
+        public enum fiches { Fifty = 50, Hundered = 100, Twohundered = 200, Fivehunderd = 500 };
+        
 
+
+        //Start 
         public void Beurt1(double inzet)
         {
             bool Zichtbaar = false;
@@ -75,16 +80,15 @@ namespace BlackJack
             SpelerBustControle(inzet);
         }
 
-
         public void SpelerBustControle(double Inzet)
         {
           if (deSpeler.TotaalPunten() > 21)
             {
                 uitkomst = "Speler bust!";
-                //deSpeler.SaldoAfschrijven(Inzet);
                 gameOver = true;
             } 
         }
+
 
 
         //Stand
@@ -95,7 +99,6 @@ namespace BlackJack
             WinnaarControle(inzet);
         }
       
-
         public string WinnaarControle(double inzet)
         {
             
@@ -131,17 +134,19 @@ namespace BlackJack
             else if ( Dealer > Speler )
             {
                 uitkomst = "De dealer heeft gewonnen!";
-                //deSpeler.SaldoAfschrijven(inzet);
+                
             }
 
             else if (Speler == Dealer)
             {
-                uitkomst = "De dealer heeft gewonnen!(Huis +1)";
-               // deSpeler.SaldoAfschrijven(inzet);
+                uitkomst = "Push. Gelijkspel!";
+                deSpeler.SaldoBijschrijven(inzet);
+               
             }
             gameOver = true;
             return uitkomst;
         }
+
 
 
         //Einde
@@ -153,25 +158,45 @@ namespace BlackJack
             gameOver = false;
             HeeftInsurance = false;
             Beurtgedaan = false;
-            TestInzet = 50;
+            ResetInzet();
         }
 
 
 
+        //Inzet
         public bool InzetCheck(double inzet)
         {
-            //TestInzet = 50;
-            TestInzet += inzet;
+            Inzet += inzet;
 
-            if (TestInzet > deSpeler.saldo || TestInzet >= 1000)
+            if (Inzet > deSpeler.saldo)
             {
-                uitkomst = "Je inzet is te hoog";
-                TestInzet -= inzet;
+                uitkomst = "Je inzet is groter dan je saldo!";
+                ResetInzet();
                 return false;
             }
-            return true;
+            else if(Inzet > 1000)
+            {
+                uitkomst = "Je inzet is te hoog (max 1000)";
+                Inzet = EchteInzet;
+                return false;
+            }
+            else if(deSpeler.saldo <= 0)
+            {
+                uitkomst = "Je saldo is negatief..";
+                // Hier komt een link naar de backknop
+                return false;
+            }
+            else
+            {
+                uitkomst = "";
+                EchteInzet = Inzet;
+                return true;
+            }
         }
 
+
+
+        // Variabele met een private set aanpassen
         public void ChangeUitkomst(string NieuweUitkomst)
         {
             uitkomst = NieuweUitkomst;
@@ -185,6 +210,12 @@ namespace BlackJack
         public void ChangeBeurtGedaan(bool Waarde)
         {
             Beurtgedaan = Waarde;
+        }
+
+        public void ResetInzet()
+        {
+            Inzet = 50;
+            EchteInzet = 50;
         }
     }
 }

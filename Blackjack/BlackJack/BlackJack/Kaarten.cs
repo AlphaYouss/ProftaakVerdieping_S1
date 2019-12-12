@@ -12,9 +12,10 @@ namespace BlackJack
         enum kleuren  { C, D, H, S };
         enum plaatjes { J, Q, K, A };
 
+
+
         public Kaart NieuweKaart()
-        {
-            
+        { 
             int IntKaart = randomNummer.Next(2, 15);
             int x = 0;
             bool gevonden = false;
@@ -29,13 +30,9 @@ namespace BlackJack
                         StrKaart = Enum.GetName(typeof(plaatjes), x) + Enum.GetName(typeof(kleuren), randomNummer.Next(0, 4)) + ".jpg";
                         gevonden = true;
 
-                        if (IntKaart == 14)
+                        if (IntKaart != 14)
                         {
-                           // IntKaart = 1;                  
-                        }
-                        else
-                        {
-                            IntKaart = 10;
+                           IntKaart = 10;          
                         }
                     }
                     else
@@ -45,13 +42,10 @@ namespace BlackJack
                 }
                 x++;
             }
+
             Kaart DeKaart = new Kaart(IntKaart,StrKaart);
             return DeKaart;
         }
-
-        
-        
     }
-
 }
 

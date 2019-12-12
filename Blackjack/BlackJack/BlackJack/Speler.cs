@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BlackJack
 {
     class Speler
     {
-       // private List<string> Azen = new List<string>();
         public List<Kaart> spelerKaarten { get; private set; } = new List<Kaart>();
-        public double saldo { get; private set; } = 5000;
-
+        public double saldo { get; private set; } = 25000;
         public int AasPlek { get; private set; }
         public bool HeeftAas { get; private set; }
+        public double WinstVerlies { get; private set; } = 0;
+
 
 
         //Start
@@ -27,8 +23,6 @@ namespace BlackJack
             return spelerKaarten[i].Plaatje;
         }
 
-
-
         public string GetKaarten()
         {
             string Kaart = "";
@@ -38,6 +32,8 @@ namespace BlackJack
             }
             return Kaart;
         }
+
+
 
         //Hit
         public int TotaalPunten()
@@ -50,7 +46,6 @@ namespace BlackJack
             }
             return totaal;
         }
-
 
         public void DealerAzen()
         {
@@ -75,31 +70,32 @@ namespace BlackJack
             }
         }
 
-
         public void SaldoBijschrijven(double Inzet)
         {
             saldo += Inzet;
+            WinstVerlies += Inzet;
         }
 
         public void SaldoAfschrijven(double Inzet)
         {
             saldo -= Inzet;
+            WinstVerlies -= Inzet;
         }
+
 
 
         //Einde
-        public void ChangeHeeftAas(bool Choice)
+        public void VeranderHeeftAas(bool Choice)
         {
             HeeftAas = Choice;
         }
-
 
         public void HandLegen()
         {
             spelerKaarten.Clear();
             HeeftAas = false;
-            //Azen.Clear();
         }
+
 
 
         // Speciale Methodes
@@ -117,9 +113,6 @@ namespace BlackJack
             return false;
         }
 
-
-
-
         public bool InsuranceControle()
         {
             if (spelerKaarten[0].Plaatje.Contains("A"))
@@ -128,8 +121,6 @@ namespace BlackJack
             }
             return false;
         }
-
-
 
         public bool DoubleDownControle()
         {

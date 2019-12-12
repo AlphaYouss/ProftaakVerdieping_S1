@@ -11,11 +11,16 @@ namespace BlackJack
         public int Punt { get; private set;}
         public string Plaatje { get; private set;}
 
+
+        //Constructor
         public Kaart(int GegevenPunt, string GegevenKaart)
         {
             Punt = GegevenPunt;
             Plaatje = GegevenKaart;
         }
+
+
+        // Voor Aas
         public void ChangeToOne()
         {
            Punt = 1;
