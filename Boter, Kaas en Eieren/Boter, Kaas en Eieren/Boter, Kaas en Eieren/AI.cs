@@ -10,11 +10,12 @@ namespace Boter__Kaas_en_Eieren
         public int scoreAI { get; private set; } = 0;
         public int stapAI { get; private set; }
         public string naamAI { get; private set; } = "Stalin";
-        public BitmapImage plaatjeAI { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Fotos/Dikke O.png"));
+        public BitmapImage plaatjeAI { get; private set; } 
 
         public AI(Veld veld)
         {
             this.veld = veld;
+            plaatjeAI = new BitmapImage(new Uri("ms-appx:///Assets/Fotos/Dikke O.png"));
         }
 
         public void ZetStapAI()

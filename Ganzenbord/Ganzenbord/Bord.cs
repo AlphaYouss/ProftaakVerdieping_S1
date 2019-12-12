@@ -22,13 +22,13 @@ namespace Ganzenbord
             { 
                 if (dubbelWorpVakken.Contains(i))
                 {
-                    vakken.Add(i, "dubbeleWorp");
+                    vakken.Add(i, "dubbeleworp");
                 }
 
                 switch (i)
                 {
                     default:
-                        vakken.Add(i, "");
+                        vakken.Add(i, null);
                         break;
                     case 6:
                         vakken.Add(i, "brug");

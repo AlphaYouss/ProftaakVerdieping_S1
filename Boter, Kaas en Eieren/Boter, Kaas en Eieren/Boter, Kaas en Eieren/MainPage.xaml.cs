@@ -80,7 +80,7 @@ namespace Boter__Kaas_en_Eieren
                 }
                 else if (beschikbarevakken != 0)
                 {
-                    await DelayAsync();
+                    //await DelayAsync();
 
                     ai1.ZetStapAI();
                     VeranderVeld(ai1.stapAI, ai1.plaatjeAI, false , true);
@@ -110,10 +110,10 @@ namespace Boter__Kaas_en_Eieren
             }
         }
 
-        private async Task DelayAsync()
-        {
-            Task.Delay(TimeSpan.FromSeconds(0.5)).Wait();
-        }
+        //private async Task DelayAsync()
+        //{
+        //    Task.Delay(TimeSpan.FromSeconds(0.5)).Wait();
+        //}
 
         private void NextGameShow()
         {
