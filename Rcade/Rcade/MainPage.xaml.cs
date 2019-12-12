@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -6,27 +6,32 @@ namespace Rcade
 {
     public sealed partial class MainPage : Page
     {
-        private Databasehandler dbh = new Databasehandler();
         public MainPage()
         {
             InitializeComponent();
-            WriteData();
         }
 
-        void submitButtonClick(object sender, RoutedEventArgs e)
+        private void Register_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
-            Content = menu;
+            DefaultLaunch();
         }
 
-        public void WriteData()
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            dbh.GetUserData();
+            LoginPage loginPage = new LoginPage();
+            Content = loginPage;
+        }
 
-            foreach (DataRow row in dbh.table.Rows)
+        async void DefaultLaunch()
+        {
+            string uriToLaunch = @"http://rcade.azurewebsites.net/register.php";
+            Uri uri = new Uri(uriToLaunch);
+
+            bool success = await Windows.System.Launcher.LaunchUriAsync(uri);
+            if (!success)
             {
-                string name = row["Username"].ToString();
-             }
+                Status.Text = "Maak hier een account aan: rcade.azurewebsites.net";
+            }
         }
     }
 }

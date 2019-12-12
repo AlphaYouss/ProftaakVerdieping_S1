@@ -119,12 +119,22 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BKE.cs" />
+    <Compile Include="BKEPage.xaml.cs">
+      <DependentUpon>BKEPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BKE_Ai.cs" />
+    <Compile Include="BKE_Speler.cs" />
+    <Compile Include="BKE_Veld.cs" />
     <Compile Include="Databasehandler.cs" />
+    <Compile Include="HubPage.xaml.cs">
+      <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -134,33 +144,51 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Afbeeldingen\BKE\Achtergrond.jpg" />
+    <Content Include="Assets\Afbeeldingen\BKE\Back.png" />
+    <Content Include="Assets\Afbeeldingen\BKE\Restart.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\StoreLogo.png" />
+    <Content Include="Assets\Afbeeldingen\Applicatie\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BKEPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Lettertypes\sfalienenc\SFAlienEncounters.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Lettertypes\sfalienenc\SFAlienEncounters-Italic.ttf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
