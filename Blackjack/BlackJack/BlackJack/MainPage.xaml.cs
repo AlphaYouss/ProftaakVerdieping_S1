@@ -12,73 +12,39 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace BlackJack
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    /// 
   
     public sealed partial class MainPage : Page
     {
+
         BlackJack GameHost = new BlackJack();
-      
+        public double inzet { get; private set; }
         
+        Image[] SpelerImages;
+        Image[] DealerImages;
+
 
         public MainPage()
         { 
-            this.InitializeComponent();
-            
-            StartText();
+            InitializeComponent();
+
+            SpelerImages = new Image[] { SpelerKaart1, SpelerKaart2, SpelerKaart3, SpelerKaart4, SpelerKaart5, SpelerKaart6, SpelerKaart7, SpelerKaart8 };
+            DealerImages = new Image[] { DealerKaart1, DealerKaart2, DealerKaart3, DealerKaart4, DealerKaart5, DealerKaart6, DealerKaart7, DealerKaart8 };
+
+            ClearText();
+            InzetAan();
+            UpdateText();
         }
 
 
-        private void Hit_Click(object sender, RoutedEventArgs e)
-        {
-            double inzet = Convert.ToDouble(Inzet.Text);
-            GameHost.DeSpeler.Hit(GameHost, inzet);
-           // GameHost.BustControle(inzet);
-            Uitkomst.Text = GameHost.Uitkomst;
-            StartText();
-            if (GameHost.GameOver)
-            {
-                KnopZichtbaar();
-            }
-         //   KaartenSpeler.Text= GameHost.DeSpeler.GetKaarten();
-            
-        }
 
-        private  void Stand_Click(object sender, RoutedEventArgs e)
-        {
-            double inzet = Convert.ToDouble(Inzet.Text);
-            //GameHost.DeSpeler.Stand(GameHost.DeDealer, inzet);
-            GameHost.DeDealer.HitControle();
-            GameHost.WinnaarControle(inzet);
-            StartText();
-            
-            if (GameHost.GameOver)
-            {
-                KnopZichtbaar();
-            }
-
-            //await Task.Delay(TimeSpan.FromSeconds(5));
-
-            //GameHost.WinnaarControle(inzet);
-            //Uitkomst.Text = GameHost.Uitkomst;
-            //KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
-
-            //await Task.Delay(TimeSpan.FromSeconds(5));
-            //ClearText();
-            //StartText();
-            //GameHost.Clear();
-            //GameHost.Start();
-
-        }
-
+        // Text aanpassen
         private void ClearText()
         {
             Saldo.Text = "";
@@ -86,33 +52,378 @@ namespace BlackJack
             KaartenSpeler.Text = "";
             KaartenDealer.Text = "";
             Uitkomst.Text = "";
-        }
 
-        private void StartText()
-        {
-            Saldo.Text = Convert.ToString(GameHost.DeSpeler.Saldo);
-            KaartenDealer.Text = GameHost.DeDealer.GetKaarten();
-            KaartenSpeler.Text = GameHost.DeSpeler.GetKaarten();
-            Uitkomst.Text = GameHost.Uitkomst;
+            GameHost.ChangeUitkomst("");
+
             Hit.Visibility = Visibility.Visible;
             Stand.Visibility = Visibility.Visible;
+
             NewGame.Visibility = Visibility.Collapsed;
+
+            Elf.Visibility = Visibility.Collapsed;
+            Een.Visibility = Visibility.Collapsed;
+
+            Insurance.Visibility = Visibility.Collapsed;
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
+
+            GameHost.ChangeInsurance(false);
+            ImagesClear(SpelerImages);
+            ImagesClear(DealerImages);
         }
 
-        private void KnopZichtbaar()
+
+        private void UpdateText()
         {
-            Hit.Visibility = Visibility.Collapsed;
-            Stand.Visibility = Visibility.Collapsed;
-            NewGame.Visibility = Visibility.Visible;
+            Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
+            KaartenDealer.Text = GameHost.deDealer.GetKaarten();
+            KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
+            Uitkomst.Text = GameHost.uitkomst;
+            TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
+            tbWinstVerlies.Text = Convert.ToString(GameHost.deSpeler.WinstVerlies);
+
+            UpdateImage(GameHost.deSpeler, SpelerImages);
+
+            if (!GameHost.deSpeler.Aas())
+            {
+                TotaalPuntenLatenZien();
+            }
+
+            if (GameHost.gameOver)
+            {
+                UpdateImage(GameHost.deDealer, DealerImages);
+            }
         }
 
+
+
+        //Inzet Bepalen
+        private void InzetAan()
+        {
+            Hit.IsEnabled = false;
+            Stand.IsEnabled = false;
+
+            TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
+            ConfirmInzet.IsEnabled = true;
+            VijftigKnop.IsEnabled = true;
+            HonderdKnop.IsEnabled = true;
+            TweehonderdKnop.IsEnabled = true;
+            VijfhonderdKnop.IsEnabled = true;
+        }
+
+        private void ConfirmInzet_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameHost.InzetCheck(0))
+            {
+                inzet = Convert.ToDouble(TbInzet.Text);
+                GameHost.deSpeler.SaldoAfschrijven(inzet);
+
+                StartNewGame();
+
+                ConfirmInzet.IsEnabled = false;
+
+                Hit.IsEnabled = true;
+                Stand.IsEnabled = true;
+
+                Uitkomst.Text = "";
+
+                Elf.IsEnabled = true;
+                Een.IsEnabled = true;
+
+                VijftigKnop.IsEnabled = false;
+                HonderdKnop.IsEnabled = false;
+                TweehonderdKnop.IsEnabled = false;
+                VijfhonderdKnop.IsEnabled = false;
+            }
+            else
+            {
+                GameHost.ResetInzet();
+            }
+            UpdateText();
+        }
+
+
+
+        //Start
+        private void StartNewGame()
+        {
+            ClearText();
+
+            GameHost.Beurt1(inzet);
+            AasControle(GameHost.deSpeler.HeeftAas);
+           
+            if (GameHost.HeeftInsurance)
+            {
+                Insurance.Visibility = Visibility.Visible;
+            }
+                        
+            if (GameHost.deSpeler.spelerKaarten.Count == 2)
+            {
+                DoubleDown();
+            }
+           
+            UpdateText();
+            InzetAan();
+            
+            UpdateImage(GameHost.deSpeler, SpelerImages);
+            DealerImage(GameHost.deDealer, DealerImages);
+        }
+
+
+
+        //Hit
+        private void Hit_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.deSpeler.PakKaart(GameHost.bank);
+
+            AasControle(GameHost.deSpeler.Aas());
+
+            if (GameHost.deSpeler.Aas())
+            {
+                AasControle(true);
+            }
+            else
+            {
+                GameHost.SpelerBustControle(inzet);
+            }
+
+            GameCheck();
+            UpdateText();
+            Insurance.Visibility = Visibility.Collapsed;
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
+        }
+
+
+        public void GameCheck()
+        {
+            if (GameHost.gameOver)
+            {
+                Hit.Visibility = Visibility.Collapsed;
+                Stand.Visibility = Visibility.Collapsed;
+
+                NewGame.Visibility = Visibility.Visible;
+                Elf.Visibility = Visibility.Collapsed;
+                Een.Visibility = Visibility.Collapsed;
+
+                UpdateImage(GameHost.deDealer, DealerImages);
+            }
+        }
+
+
+        private void TotaalPuntenLatenZien()
+        {
+            if (GameHost.deSpeler.TotaalPunten() != 0)
+            {
+                TotaalPuntenSpeler.Text = Convert.ToString(GameHost.deSpeler.TotaalPunten());
+            }
+            else
+            {
+                TotaalPuntenSpeler.Text = "";
+            }
+        }
+
+
+
+        // Stand
+        private  void Stand_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.Stand(inzet, GameHost.bank);
+           
+            GameCheck();
+            
+            UpdateText();
+
+            UpdateImage(GameHost.deDealer, DealerImages);
+        }
+
+
+
+        // Einde
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
-          //  GameHost.GameOver = false;
             GameHost.Clear();
-            GameHost.Start();
             ClearText();
-            StartText();
+            UpdateText();
+            InzetAan();
+            NewGame.Visibility = Visibility.Collapsed;
+            Een.IsEnabled = false;
+            Elf.IsEnabled = false;
+        }
+
+
+ 
+        //Aas
+        private void AasControle(bool Aas)
+        {
+            if (Aas)
+            {
+                    Elf.Visibility = Visibility.Visible;
+                    Een.Visibility = Visibility.Visible;
+                    Elf.IsEnabled = true;
+                    Een.IsEnabled = true;
+
+                    Hit.Visibility = Visibility.Collapsed;
+                    Stand.Visibility = Visibility.Collapsed;
+
+                UpdateText();
+                GameHost.deSpeler.VeranderHeeftAas(false);
+            }
+        }
+
+        private void AasClick()
+        {
+            Elf.Visibility = Visibility.Collapsed;
+            Een.Visibility = Visibility.Collapsed;
+            Hit.Visibility = Visibility.Visible;
+            Stand.Visibility = Visibility.Visible;
+
+            TotaalPuntenLatenZien();
+
+            GameHost.SpelerBustControle(inzet);
+            GameCheck();
+            UpdateText();
+        }
+
+        private void Elf_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.deSpeler.spelerKaarten[GameHost.deSpeler.AasPlek].ChangeToEleven();
+            AasClick();
+            
+            if (!GameHost.Beurtgedaan)
+            {
+                GameHost.Beurt2(inzet);
+                AasControle(GameHost.deSpeler.Aas());
+                GameHost.ChangeBeurtGedaan(true);
+            }
+            UpdateText();
+        }
+
+        private void Een_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.deSpeler.spelerKaarten[GameHost.deSpeler.AasPlek].ChangeToOne();
+            AasClick();
+           
+            if (!GameHost.Beurtgedaan)
+            {
+                GameHost.Beurt2(inzet);
+                AasControle(GameHost.deSpeler.Aas());
+                GameHost.ChangeBeurtGedaan(true);
+            }
+            UpdateText();
+        }
+
+
+
+        // Double Down
+        private void DoubleDown()
+        {
+            if (GameHost.deSpeler.DoubleDownControle() && GameHost.InzetCheck(inzet * 2))
+            {
+                DoubleDownKnop.Visibility = Visibility.Visible;
+                GameHost.ChangeUitkomst("");
+                GameHost.deSpeler.SaldoAfschrijven(inzet);
+            }
+        }
+
+        private void DoubleDown_Click(object sender, RoutedEventArgs e)
+        {
+            inzet *= 2;
+            TbInzet.Text = Convert.ToString(inzet);
+            DoubleDownKnop.Visibility = Visibility.Collapsed;
+        }
+
+
+
+        //Insurance 
+        private void Insurance_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.ChangeInsurance(true);
+            GameHost.deSpeler.SaldoAfschrijven(inzet / 2);
+            Insurance.Visibility = Visibility.Collapsed;
+
+            if (!GameHost.Beurtgedaan)
+            {
+                GameHost.Beurt2(inzet);
+                AasControle(GameHost.deSpeler.Aas());
+                GameHost.ChangeBeurtGedaan(true);
+            }
+            UpdateText();
+        }
+
+
+
+        //  Fiches
+        private void VijftigKnop_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Fifty)))
+            {
+                inzet = GameHost.EchteInzet;
+                TbInzet.Text = Convert.ToString(inzet);
+            }
+            UpdateText();
+        }
+
+        private void HonderdKnop_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Hundered)))
+            {
+                inzet = GameHost.EchteInzet;
+                TbInzet.Text = Convert.ToString(inzet);
+            }
+            UpdateText();
+        }
+
+        private void TweehonderdKnop_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Twohundered)))
+            {
+                inzet = GameHost.EchteInzet;
+                TbInzet.Text = Convert.ToString(inzet);
+            }
+            UpdateText();
+        }
+
+        private void VijfhonderdKnop_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameHost.InzetCheck(Convert.ToDouble(BlackJack.fiches.Fivehunderd)))
+            {
+                inzet = GameHost.EchteInzet;
+                TbInzet.Text = Convert.ToString(inzet);
+            }
+            UpdateText();
+        }
+
+
+
+        //Images
+        private void UpdateImage(Speler speler, Image[] ImagesArray)
+        {
+            for (int i = 0; i < speler.spelerKaarten.Count; i++)
+            {
+                string locatie = "ms-appx:///Assets/Speelkaarten/" + speler.GetKaart(i); 
+                
+                BitmapImage ImageSource = new BitmapImage(new Uri(locatie));
+                ImagesArray[i].Source = ImageSource;
+            }
+        }
+
+        private void DealerImage(Speler dealer, Image[] ImagesArray)
+        {
+                
+                string locatie = "ms-appx:///Assets/Speelkaarten/" + dealer.GetKaart(0);
+                BitmapImage ImageSource1 = new BitmapImage(new Uri(locatie));
+                ImagesArray[0].Source = ImageSource1;
+
+                BitmapImage ImageSource2 = new BitmapImage(new Uri("ms-appx:///Assets/Speelkaarten/achterkant kaart.jpg"));
+                ImagesArray[1].Source = ImageSource2;
+            
+        }
+
+        private void ImagesClear(Image[] ImagesArray)
+        {
+            for (int i = 0; i < ImagesArray.Length; i++)
+            {
+                ImagesArray[i].Source = null;
+            }
         }
     }
 }

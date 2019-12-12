@@ -120,7 +120,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlackJack.cs" />
-    <Compile Include="Dealer.cs" />
+    <Compile Include="Kaart.cs" />
+    <Compile Include="Kaarten.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +134,60 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Speelkaarten\10C.jpg" />
+    <Content Include="Assets\Speelkaarten\10D.jpg" />
+    <Content Include="Assets\Speelkaarten\10H.jpg" />
+    <Content Include="Assets\Speelkaarten\10S.jpg" />
+    <Content Include="Assets\Speelkaarten\2C.jpg" />
+    <Content Include="Assets\Speelkaarten\2D.jpg" />
+    <Content Include="Assets\Speelkaarten\2H.jpg" />
+    <Content Include="Assets\Speelkaarten\2S.jpg" />
+    <Content Include="Assets\Speelkaarten\3C.jpg" />
+    <Content Include="Assets\Speelkaarten\3D.jpg" />
+    <Content Include="Assets\Speelkaarten\3H.jpg" />
+    <Content Include="Assets\Speelkaarten\3S.jpg" />
+    <Content Include="Assets\Speelkaarten\4C.jpg" />
+    <Content Include="Assets\Speelkaarten\4D.jpg" />
+    <Content Include="Assets\Speelkaarten\4H.jpg" />
+    <Content Include="Assets\Speelkaarten\4S.jpg" />
+    <Content Include="Assets\Speelkaarten\5C.jpg" />
+    <Content Include="Assets\Speelkaarten\5D.jpg" />
+    <Content Include="Assets\Speelkaarten\5H.jpg" />
+    <Content Include="Assets\Speelkaarten\5S.jpg" />
+    <Content Include="Assets\Speelkaarten\6C.jpg" />
+    <Content Include="Assets\Speelkaarten\6D.jpg" />
+    <Content Include="Assets\Speelkaarten\6H.jpg" />
+    <Content Include="Assets\Speelkaarten\6S.jpg" />
+    <Content Include="Assets\Speelkaarten\7C.jpg" />
+    <Content Include="Assets\Speelkaarten\7D.jpg" />
+    <Content Include="Assets\Speelkaarten\7H.jpg" />
+    <Content Include="Assets\Speelkaarten\7S.jpg" />
+    <Content Include="Assets\Speelkaarten\8C.jpg" />
+    <Content Include="Assets\Speelkaarten\8D.jpg" />
+    <Content Include="Assets\Speelkaarten\8H.jpg" />
+    <Content Include="Assets\Speelkaarten\8S.jpg" />
+    <Content Include="Assets\Speelkaarten\9C.jpg" />
+    <Content Include="Assets\Speelkaarten\9D.jpg" />
+    <Content Include="Assets\Speelkaarten\9H.jpg" />
+    <Content Include="Assets\Speelkaarten\9S.jpg" />
+    <Content Include="Assets\Speelkaarten\AC.jpg" />
+    <Content Include="Assets\Speelkaarten\achterkant kaart.jpg" />
+    <Content Include="Assets\Speelkaarten\AD.jpg" />
+    <Content Include="Assets\Speelkaarten\AH.jpg" />
+    <Content Include="Assets\Speelkaarten\AS.jpg" />
+    <Content Include="Assets\Speelkaarten\JC.jpg" />
+    <Content Include="Assets\Speelkaarten\JD.jpg" />
+    <Content Include="Assets\Speelkaarten\JH.jpg" />
+    <Content Include="Assets\Speelkaarten\JS.jpg" />
+    <Content Include="Assets\Speelkaarten\KC.jpg" />
+    <Content Include="Assets\Speelkaarten\KD.jpg" />
+    <Content Include="Assets\Speelkaarten\KH.jpg" />
+    <Content Include="Assets\Speelkaarten\KS.jpg" />
+    <Content Include="Assets\Speelkaarten\QC.jpg" />
+    <Content Include="Assets\Speelkaarten\QD.jpg" />
+    <Content Include="Assets\Speelkaarten\QH.jpg" />
+    <Content Include="Assets\Speelkaarten\QS.jpg" />
+    <Content Include="Assets\WireFramejpg.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -157,6 +212,7 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
