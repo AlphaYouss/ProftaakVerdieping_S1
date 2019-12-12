@@ -104,7 +104,7 @@ namespace BlackJack
 
             TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
             ConfirmInzet.IsEnabled = true;
-            ResetInzet.IsEnabled = true;
+            ResetInzet.IsEnabled = false;
             VijftigKnop.IsEnabled = true;
             HonderdKnop.IsEnabled = true;
             TweehonderdKnop.IsEnabled = true;
@@ -142,6 +142,13 @@ namespace BlackJack
                 GameHost.ResetInzet();
             }
             UpdateText();
+        }
+
+        private void ResetInzet_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.ResetInzet();
+            UpdateText();
+            ResetInzet.IsEnabled = false;
         }
 
 
@@ -372,6 +379,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -382,6 +390,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -392,6 +401,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -402,6 +412,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -440,10 +451,6 @@ namespace BlackJack
             }
         }
 
-        private void ResetInzet_Click(object sender, RoutedEventArgs e)
-        {
-            GameHost.ResetInzet();
-            UpdateText();
-        }
+        
     }
 }

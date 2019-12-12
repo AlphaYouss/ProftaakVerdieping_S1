@@ -63,7 +63,9 @@ namespace BlackJack
             {
                 if (deDealer.spelerKaarten[1].Punt == 10)
                 {
-                    deSpeler.SaldoBijschrijven(inzet / 2);
+                    double InsuranceGeld = (inzet / 2) + inzet;
+
+                    deSpeler.SaldoBijschrijven(InsuranceGeld);
 
                     Stand(inzet,bank);
                 }
