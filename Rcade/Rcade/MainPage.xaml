@@ -8,7 +8,30 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid x:Name="main" Background="DarkCyan">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Text="Inlogscherm" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True">
+        </TextBox>
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Click="submitButtonClick" Width="75" Height="75">Login</Button>
+        <Button Grid.Row="1" Grid.Column="1" Width="75" Height="75">
+            <HyperlinkButton Content="Register" NavigateUri="http://rcade.azurewebsites.net/register.php" Foreground="White">
+                <HyperlinkButton.ContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </HyperlinkButton.ContentTemplate>
+            </HyperlinkButton>
+        </Button>
     </Grid>
 </Page>
