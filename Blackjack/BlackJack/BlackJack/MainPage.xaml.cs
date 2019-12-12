@@ -78,7 +78,7 @@ namespace BlackJack
             KaartenDealer.Text = GameHost.deDealer.GetKaarten();
             KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
             Uitkomst.Text = GameHost.uitkomst;
-            TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
+           // TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
             tbWinstVerlies.Text = Convert.ToString(GameHost.deSpeler.WinstVerlies);
 
             UpdateImage(GameHost.deSpeler, SpelerImages);
@@ -125,6 +125,7 @@ namespace BlackJack
                 Stand.IsEnabled = true;
 
                 Uitkomst.Text = "";
+                GameHost.ChangeUitkomst("");
 
                 Elf.IsEnabled = true;
                 Een.IsEnabled = true;
@@ -316,11 +317,10 @@ namespace BlackJack
         // Double Down
         private void DoubleDown()
         {
-            if (GameHost.deSpeler.DoubleDownControle() && GameHost.InzetCheck(inzet * 2))
+            if (GameHost.deSpeler.DoubleDownControle() && inzet*2 < GameHost.deSpeler.saldo )
             {
                 DoubleDownKnop.Visibility = Visibility.Visible;
                 GameHost.ChangeUitkomst("");
-                GameHost.deSpeler.SaldoAfschrijven(inzet);
             }
         }
 
@@ -329,6 +329,7 @@ namespace BlackJack
             inzet *= 2;
             TbInzet.Text = Convert.ToString(inzet);
             DoubleDownKnop.Visibility = Visibility.Collapsed;
+            GameHost.deSpeler.SaldoAfschrijven(inzet);
         }
 
 
