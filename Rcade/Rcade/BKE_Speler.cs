@@ -6,7 +6,7 @@ namespace Rcade
     class BKE_Speler
     {
         public BKE_Veld veld { get; private set; }
-        public BitmapImage plaatjeSpeler { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Fotos/Dikke x.png"));
+        public BitmapImage plaatjeSpeler { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Afbeeldingen/BKE/X.png"));
         public string naamSpeler { get; private set; } = "Goebles";
         public int scoreSpeler { get; private set; } = 0;
 

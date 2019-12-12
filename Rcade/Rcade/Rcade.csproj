@@ -146,7 +146,9 @@
   <ItemGroup>
     <Content Include="Assets\Afbeeldingen\BKE\Achtergrond.jpg" />
     <Content Include="Assets\Afbeeldingen\BKE\Back.png" />
+    <Content Include="Assets\Afbeeldingen\BKE\O.png" />
     <Content Include="Assets\Afbeeldingen\BKE\Restart.png" />
+    <Content Include="Assets\Afbeeldingen\BKE\X.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Afbeeldingen\Applicatie\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\Afbeeldingen\Applicatie\SplashScreen.scale-200.png" />
