@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Windows.UI;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -26,14 +25,11 @@ namespace Rcade
 
         private void SetUp()
         {
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(1920, 1080));
-
             veld = new BKE_Veld();
             veld.VeldGenereren();
 
             speler1 = new BKE_Speler(veld);
             ai1 = new BKE_Ai(veld);
-
             bke = new BKE(veld);
 
             txtnaamAI.Text = ai1.naamAI;
@@ -50,13 +46,11 @@ namespace Rcade
             txtscoreSpeler.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
         }
 
-        private async void vak_click(object sender, RoutedEventArgs e)
+        private void vak_click(object sender, RoutedEventArgs e)
         {
-            // Krijg geklikte vaknaam.
             string ctrlName = ((Control)sender).Name;
             string[] words = ctrlName.Split("vak");
 
-            // Converteer de vaknaam naar een getal.
             int vak = Convert.ToInt32(words[1]);
 
             speler1.ZetStapSpeler(vak);
@@ -78,7 +72,7 @@ namespace Rcade
             }
             else if (beschikbarevakken != 0)
             {
-                await DelayAsync();
+                Delay();
 
                 ai1.ZetStapAI();
                 VeranderVeld(ai1.stapAI, ai1.plaatjeAI, false, true);
@@ -108,7 +102,7 @@ namespace Rcade
             }
         }
 
-        private async Task DelayAsync()
+        private void Delay()
         {
             Task.Delay(TimeSpan.FromSeconds(0.5)).Wait();
         }
@@ -223,6 +217,12 @@ namespace Rcade
 
             txtnaamAI.Foreground = new SolidColorBrush(Colors.White);
             txtnaamSpeler.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            HubPage hub = new HubPage();
+            Content = hub;
         }
     }
 }

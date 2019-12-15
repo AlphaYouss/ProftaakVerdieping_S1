@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters">
 
     <Grid x:Name="main">
         <Grid.Background>
@@ -32,7 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <Viewbox Stretch="fill" Grid.Column="0">
-                <Button x:Name="btnBack" Grid.Column="0" Margin="7,18,7,0" Padding="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="42" Background="Black" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="btnBack" Click="btnBack_Click" Grid.Column="0" Margin="7,18,7,0" Padding="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="42" Background="Black" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BKE/Back.png" />
                 </Button>
             </Viewbox>

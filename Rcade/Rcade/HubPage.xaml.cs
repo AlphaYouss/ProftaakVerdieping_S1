@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml;
+﻿using Windows.Foundation;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Rcade
@@ -8,6 +10,12 @@ namespace Rcade
         public HubPage()
         {
             InitializeComponent();
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+            new Size(
+            1000, // Width
+            1000 // Height
+            ));
         }
 
         private void BKE_Click(object sender, RoutedEventArgs e)
@@ -18,8 +26,14 @@ namespace Rcade
 
         private void BJ_Click(object sender, RoutedEventArgs e)
         {
-            //HubPage hub = new HubPage();
-            //Content = hub;
+            BJPage bj = new BJPage();
+            Content = bj;
+        }
+
+        private void Uitloggen_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage main = new MainPage();
+            Content = main;
         }
     }
 }

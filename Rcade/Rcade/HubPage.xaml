@@ -11,20 +11,100 @@
     <Grid x:Name="main" Background="DarkCyan">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="Titel"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Hub" FontSize="60"/>
-        <TextBlock x:Name="Status" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Foreground="Red"/>
+        <Viewbox Grid.Row="0" Grid.Column="0" StretchDirection="Both" HorizontalAlignment="Left">
+            <Button x:Name="Uitloggen" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="50" Padding="5,5,5,0" Click="Uitloggen_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Uitloggen"/>
+        </Viewbox>
 
-        <Button x:Name="BKE" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Padding="5,5,5,0" Click="BKE_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Boter, kaas en eieren"/>
-        <Button x:Name="BJ" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Padding="5,5,5,0" Click="BJ_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Blackjack"/>
+        <TextBlock x:Name="Titel"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Hub" FontSize="60"/>
+
+        <Viewbox Grid.Row="0" Grid.Column="2" StretchDirection="Both" HorizontalAlignment="Right" >
+            <Button x:Name="account" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="50" Padding="5,5,5,0" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Account"/>
+        </Viewbox>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Viewbox Grid.Row="0" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Button x:Name="leaderboard" HorizontalAlignment="Stretch" Padding="0" Content="" Height="37" BorderThickness="0.5"  Width="58"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Column="0" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
+                    <Button x:Name="bj" HorizontalAlignment="Stretch" Padding="0" Click="BJ_Click" Content="" Height="37" BorderThickness="0.5"  Width="18"/>
+                </Viewbox>
+
+                <Viewbox Grid.Column="2" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
+                    <Button x:Name="bke" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Click="BKE_Click" BorderThickness="0.5"  Height="37" Width="18"/>
+                </Viewbox>
+
+                <Viewbox Grid.Column="4" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
+                    <Button x:Name="a" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
+                </Viewbox>
+
+                <Viewbox Grid.Column="6" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
+                    <Button x:Name="b" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
+                </Viewbox>
+
+                <Viewbox Grid.Column="8" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
+                    <Button x:Name="c" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0"  Height="37" BorderThickness="0.5"  Width="18"/>
+                </Viewbox>
+
+                <Viewbox Grid.Column="10" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
+                    <Button x:Name="d" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Margin="0" BorderThickness="0.5" Height="37" Width="18"/>
+                </Viewbox>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

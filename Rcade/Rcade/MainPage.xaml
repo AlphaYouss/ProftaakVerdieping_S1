@@ -9,22 +9,111 @@
     FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters">
 
     <Grid x:Name="main" Background="DarkCyan">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2.5*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="Titel"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Main" FontSize="60"/>
-        <TextBlock x:Name="Status" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Foreground="Red"/>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button x:Name="Login" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Padding="5,5,5,0" Click="Login_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Login"/>
-        <Button x:Name="Register" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Padding="5,5,5,0" Click="Register_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Register"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".8*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height=".8*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".8*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height=".8*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock x:Name="titela" HorizontalAlignment="Left" Text="Rcade"/>
+                </Viewbox>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.3*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="0.2*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Viewbox Grid.Column="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
+                                <TextBlock x:Name="titelaa" HorizontalAlignment="Left" Text="Login"/>
+                            </Viewbox>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.05*"/>
+                                <RowDefinition Height=".15*"/>
+                                <RowDefinition Height="0.05*"/>
+                                <RowDefinition Height=".15*"/>
+                                <RowDefinition Height="0.05*"/>
+                                <RowDefinition Height=".15*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
+                                <TextBox x:Name="username" PlaceholderText="Username" Width="300" FontFamily="Consolas" Padding="5,10,5,10"/>
+                            </Viewbox>
+
+                            <Viewbox Grid.Row="3" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
+                                <PasswordBox x:Name="password" PlaceholderText="Password" Width="300" FontFamily="Consolas" Padding="5,10,5,10"/>
+                            </Viewbox>
+
+                            <Viewbox Grid.Row="5" StretchDirection="Both" HorizontalAlignment="Right" Stretch="Uniform">
+                                <Button x:Name="btnLogin" Click="btnLogin_Click" Padding="0" Margin="0" BorderThickness="0" BorderBrush="#1963d0" >
+                                    <Image Source="/Assets/Afbeeldingen/BKE/Back.png"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Viewbox  StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
+                                <TextBlock x:Name="titelaaaa" HorizontalAlignment="Left">
+                                    <Hyperlink NavigateUri="http://rcade.azurewebsites.net/register.php" Foreground="White">Create account</Hyperlink>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock x:Name="titelaaa" HorizontalAlignment="Left" Text="Alpha V.1.6"/>
+                    </Viewbox>
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Afbeeldingen/BKE/Achtergrond.jpg"></ImageBrush>
+            </Grid.Background>
+        </Grid>
     </Grid>
 </Page>

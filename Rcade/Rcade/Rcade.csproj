@@ -119,6 +119,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BJ.cs" />
+    <Compile Include="BJPage.xaml.cs">
+      <DependentUpon>BJPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BJ_Kaart.cs" />
+    <Compile Include="BJ_Kaarten.cs" />
+    <Compile Include="BJ_Speler.cs" />
     <Compile Include="BKE.cs" />
     <Compile Include="BKEPage.xaml.cs">
       <DependentUpon>BKEPage.xaml</DependentUpon>
@@ -129,9 +136,6 @@
     <Compile Include="Databasehandler.cs" />
     <Compile Include="HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -163,15 +167,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BJPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BKEPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HubPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,7 +189,9 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Afbeeldingen\BJ\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Lettertypes\sfalienenc\SFAlienEncounters.ttf" />
   </ItemGroup>
