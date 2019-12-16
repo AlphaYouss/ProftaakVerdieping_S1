@@ -119,7 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Field.cs" />
     <Compile Include="Hangman.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -133,6 +132,19 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\HangmanWords.txt" />
+    <Content Include="Assets\Numbers\number0.jpg" />
+    <Content Include="Assets\Numbers\number1.jpg" />
+    <Content Include="Assets\Numbers\number10.jpg" />
+    <Content Include="Assets\Numbers\number11.jpg" />
+    <Content Include="Assets\Numbers\number2.jpg" />
+    <Content Include="Assets\Numbers\number3.jpg" />
+    <Content Include="Assets\Numbers\number4.jpg" />
+    <Content Include="Assets\Numbers\number5.jpg" />
+    <Content Include="Assets\Numbers\number6.jpg" />
+    <Content Include="Assets\Numbers\number7.jpg" />
+    <Content Include="Assets\Numbers\number8.jpg" />
+    <Content Include="Assets\Numbers\number9.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

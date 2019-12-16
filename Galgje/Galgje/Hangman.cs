@@ -8,15 +8,20 @@ namespace Galgje
 {
     class Hangman
     {
-        public Field field = new Field();
         public Player player = new Player();
 
         public char[] correctLetters { get; private set; }
         public char[] displayedLetters { get; private set; }
         public string word { get; private set; }
         public List<char> guessedLetters { get; private set; } = new List<char>();
+        public string Result { get; private set; } = "";
+        
 
 
+
+
+
+        //Start
         public void start()
         {
             GenerateWord();
@@ -24,11 +29,9 @@ namespace Galgje
         }
 
 
-
-
         public void GenerateWord()
         { 
-            string word = "Dora";
+            string word = "FEEST";
             SplitWord(word);
         }
 
@@ -36,11 +39,15 @@ namespace Galgje
         private void SplitWord(string word)
         {
             correctLetters = word.ToCharArray();
-
             displayedLetters = new char[correctLetters.Length];
         }
 
 
+
+
+
+
+        // Clear
         private void ClearDisplayLetters()
         {
             for (int i = 0; i < displayedLetters.Length; i++)
@@ -50,6 +57,21 @@ namespace Galgje
         }
 
 
+        public void Clear()
+        {
+            Array.Clear(correctLetters, 0, correctLetters.Length);
+            ClearDisplayLetters();
+            guessedLetters.Clear();
+            word = "";
+            Result = "";
+        }
+
+
+
+
+
+
+        // Controles
         public void CheckLetters(char letter)
         {
             bool ContainsLetter = false;
@@ -63,34 +85,15 @@ namespace Galgje
                 }
             }
 
-            if (!ContainsLetter)
+            if (!ContainsLetter && !guessedLetters.Contains(letter))
             {
                 guessedLetters.Add(letter);
+                player.AddTurn();
             }
         }
 
 
-        private bool EndGame()
-        {
-            if (player.turn == 11)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-
-        private void Clear()
-        {
-            Array.Clear(correctLetters, 0, correctLetters.Length);
-            ClearDisplayLetters();
-            guessedLetters.Clear();
-            word = "";
-        }
-
-
-        private bool WinCheck()
+        public bool WinCheck()
         {
             int x = 0;
             for (int i = 0; i < correctLetters.Length; i++)
@@ -102,11 +105,23 @@ namespace Galgje
 
                 if (x == correctLetters.Length)
                 {
+                    Result = "Je hebt gewonnen!";
                     return true;
                 }
             }
             return false;
         }
 
+
+        public bool EndGameCheck()
+        {
+            if (player.turn == 11)
+            {
+                Result = "Je hebt verloren!";
+                return true;
+            }
+
+            return false;
+        }
     }
 }

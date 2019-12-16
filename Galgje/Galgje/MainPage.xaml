@@ -9,8 +9,41 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBox    Name="LetterInput"      Text="Letter"       MaxLength="1" HorizontalAlignment="Left" Margin="335,607,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock  Name="LetterDisplay"    Text="blabla"       HorizontalAlignment="Left" Margin="468,544,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="46"/>
-        <Button     Name="LetterButton"     Content="Vul in!"   Margin="608,689,0,0" VerticalAlignment="Top" Click="LetterButton_Click"/>
+        <TextBlock  Name="TbLetterDisplay"      Text="blabla"           HorizontalAlignment="Left" Margin="304,385,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="46"/>
+        <TextBlock  Name="TbGuessedLetters"     Text="Geraden Letters"  HorizontalAlignment="Left" Margin="172,652,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="110"/>
+        <TextBlock  Name="TbResult"             Text="-"                HorizontalAlignment="Left" Margin="564,277,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock  Name="TbScore"              Text="Score:"        HorizontalAlignment="Left" Margin="647,242,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
+        <Image      Name="HangmanImage"         Source="/Assets/Numbers/number0.jpg"    VerticalAlignment="Top"     Margin="199,117,0,0"    HorizontalAlignment="Left" Height="203"  Width="162"/>
+        <Button     Name="NewGameBtn"           Content="New Game"                      VerticalAlignment="Top"     Margin="592,646,0,0"    Click="NewGameBtn_Click"/>
+       
+        
+        <!--    Alphabet   -->
+        <Button Name="A" Content="A" Margin="200,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="B" Content="B" Margin="240,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="C" Content="C" Margin="280,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="D" Content="D" Margin="320,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="E" Content="E" Margin="360,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="F" Content="F" Margin="400,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="G" Content="G" Margin="440,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="H" Content="H" Margin="480,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="I" Content="I" Margin="200,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="J" Content="J" Margin="240,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="K" Content="K" Margin="280,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="L" Content="L" Margin="320,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="M" Content="M" Margin="360,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="N" Content="N" Margin="400,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="O" Content="O" Margin="440,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="P" Content="P" Margin="480,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="Q" Content="Q" Margin="200,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="R" Content="R" Margin="240,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="S" Content="S" Margin="280,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="T" Content="T" Margin="320,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="U" Content="U" Margin="360,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="V" Content="V" Margin="400,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="W" Content="W" Margin="440,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="X" Content="X" Margin="480,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="Y" Content="Y" Margin="320,600,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        <Button Name="Z" Content="Z" Margin="360,600,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
     </Grid>
 </Page>

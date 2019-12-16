@@ -8,17 +8,17 @@ namespace Galgje
 {
     class Player
     {
-        public int score { get; private set; }
+        public int score { get; private set; } = 0;
         public int turn { get; private set; } = 0;
         public string playerName { get; private set; }
-        private enum ScoreOptions {Ten = 10, Seven = 7, Five = 5, Three = 3, One = 1, Zero = 0 }
+        enum ScoreOptions {Ten = 10, Seven = 7, Five = 5, Three = 3, One = 1, Zero = 0 }
 
 
 
         //Start
         public void SetScore()
         {
-            if (turn == 1)
+            if (turn == 1 || turn == 0)
             {
                 score += Convert.ToInt32(ScoreOptions.Ten);
             }
@@ -46,13 +46,15 @@ namespace Galgje
 
 
 
+
+
         //Change variables
         public void AddTurn()
         {
             turn++;
         }
 
-        public void ResetTurn()
+        public void ClearTurn()
         {
             turn = 0;
         }
@@ -61,5 +63,6 @@ namespace Galgje
         {
             playerName = name;
         }
+
     }
 }
