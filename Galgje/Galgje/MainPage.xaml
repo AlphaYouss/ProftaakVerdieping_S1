@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Galgje.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Galgje"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBox    Name="LetterInput"      Text="Letter"       MaxLength="1" HorizontalAlignment="Left" Margin="335,607,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock  Name="LetterDisplay"    Text="blabla"       HorizontalAlignment="Left" Margin="468,544,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="46"/>
+        <Button     Name="LetterButton"     Content="Vul in!"   Margin="608,689,0,0" VerticalAlignment="Top" Click="LetterButton_Click"/>
+    </Grid>
+</Page>
