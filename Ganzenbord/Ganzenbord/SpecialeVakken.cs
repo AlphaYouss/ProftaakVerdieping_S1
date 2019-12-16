@@ -8,12 +8,16 @@ namespace Ganzenbord
 {
     class SpecialeVakken
     {
+        public Ganzenbord ganzenbord { get; private set; }
+        public Bord bord { get; private set; }
         public Dobbelsteen dobbelsteen { get; private set; }
         public int worp { get; private set; } 
         public SpecialeVakken(Dobbelsteen dobbelsteen)
         {
-            worp = dobbelsteen.worpTotaal;
+            this.bord = bord;
             this.dobbelsteen = dobbelsteen;
+            worp = dobbelsteen.worpTotaal;
+            
         }
 
         public int DubbelWorp(int locatie)

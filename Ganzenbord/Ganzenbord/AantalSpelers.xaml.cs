@@ -10,15 +10,12 @@ namespace Ganzenbord
     {
         
         public int aantalSpelers { get; private set; }
-        Ganzenbord ganzenbord;
-        Bord bord;
+
 
         public AantalSpelers()
         {
             this.InitializeComponent();
             aantalSpelers = 2;
-            bord = new Bord();
-            ganzenbord = new Ganzenbord(bord);
             
         }
 
@@ -31,8 +28,7 @@ namespace Ganzenbord
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
             aantalSpelers = Convert.ToInt32(txtAantalspelers.Text);
-            ganzenbord.VulSpelerList();
-            MainPage mainPage = new MainPage();
+            MainPage mainPage = new MainPage(aantalSpelers);
             Content = mainPage;
         }
 

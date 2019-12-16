@@ -17,11 +17,26 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Ganzenbord
 {
-    public sealed partial class MainPage : Page
+    sealed partial class MainPage : Page
     {
-        public MainPage()
+        public Ganzenbord ganzenbord { get; private set; }
+        public MainPage(int aantalSpelers)
         {
             this.InitializeComponent();
+            ganzenbord = new Ganzenbord(aantalSpelers);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (ganzenbord.CheckBeurtOverslaan())
+            {
+                ganzenbord.VolgendeSpeler();
+            }
+            else
+            {
+                ganzenbord.ZetStap();
+                ganzenbord.VolgendeSpeler();
+            }
         }
     }
 }

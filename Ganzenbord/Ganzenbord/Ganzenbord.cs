@@ -8,40 +8,60 @@ namespace Ganzenbord
 {
     class Ganzenbord
     {
-        public Bord bord;
+        public Dobbelsteen dobbelsteen { get; private set; }
+        public Bord bord { get; private set; }
         public List<Speler> spelers { get; private set; }
-        public SpecialeVakken specialeVakken  { get; private set; }
-        public AantalSpelers aantalspelers;
-        public int spelerBeurt { get; private set; }
-        public bool tweeSpelersOpVak { get; private set; }
         public Speler speler1 { get; private set; }
         public Speler speler2 { get; private set; }
         public Speler speler3 { get; private set; }
         public Speler speler4 { get; private set; }
         public Speler speler5 { get; private set; }
+        public int aantalSpelers { get; private set; }
+        public int spelerBeurt { get; private set; }
+        public bool tweeSpelersOpVak { get; private set; }
 
-
-        public Ganzenbord(Bord bord)
+        public Ganzenbord(int aantalSpelers)
         {
+            dobbelsteen = new Dobbelsteen();
+            bord = new Bord(dobbelsteen);
+            speler1 = new Speler(bord, dobbelsteen, bord.specialevakken);
+            speler2 = new Speler(bord, dobbelsteen, bord.specialevakken);
+            speler3 = new Speler(bord, dobbelsteen, bord.specialevakken);
+            speler4 = new Speler(bord, dobbelsteen, bord.specialevakken);
+            speler5 = new Speler(bord, dobbelsteen, bord.specialevakken);
+
             spelers = new List<Speler>();
-            spelerBeurt = 1;
+            spelerBeurt = 0;
+            this.aantalSpelers = aantalSpelers;
 
             tweeSpelersOpVak = false;
 
-            this.bord = bord;
-
-            speler1 = new Speler(bord);
-            speler2 = new Speler(bord);
-            speler3 = new Speler(bord);
-            speler4 = new Speler(bord);
-            speler5 = new Speler(bord);
+            VulSpelerList();
+            bord.BordGenereren();
+            
+        }
+        
+        public void ZetStap()
+        {
+            spelers[spelerBeurt].ZetStap();
+            for (int i = 0; i < spelers.Count; i++)
+            {
+                if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
+                {
+                    spelers[spelerBeurt].RevertLocatie();
+                }
+                else
+                {
+                    CheckVak(spelers[spelerBeurt].locatie);
+                }
+            }
         }
 
         public void VulSpelerList()
         {
-            for (int i = 0; i < aantalspelers.aantalSpelers; i++)
+            for (int i = 1; i <= aantalSpelers; i++)
             {
-                switch (aantalspelers.aantalSpelers)
+                switch (i)
                 {
                     default:
                         break;
@@ -63,24 +83,39 @@ namespace Ganzenbord
                 }
             }
         }
+
+        public bool CheckSpelersOpVak(int locatie)
+        {
+            for (int i = 0; i < spelers.Count; i++)
+            {
+                if (spelers[i].locatie == locatie && spelers[i] != spelers[spelerBeurt])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void CheckVak(int locatie)
         {       
             string vak = bord.vakken[locatie];
-            if (tweeSpelersOpVak)
-            {
-                VolgendeSpeler();
-            } else if (vak != null)
+            if (vak != null)
             {
                 spelers[spelerBeurt].EventStart(vak);
+                if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
+                {
+                    spelers[spelerBeurt].RevertLocatie();
+                }
             }
         }
 
         public void VolgendeSpeler()
         {
             spelerBeurt++;
-            if (spelerBeurt == 6)
+            if (spelerBeurt == aantalSpelers + 1)
             {
-                spelerBeurt = 1;
+                dobbelsteen.ResetWorp();
+                spelerBeurt = 0;
             }
         }
 

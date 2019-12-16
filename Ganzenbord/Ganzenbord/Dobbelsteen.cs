@@ -12,7 +12,7 @@ namespace Ganzenbord
 
         public int XD6(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
             Random rnd = new Random();
             int worp = rnd.Next(1, 7);
@@ -23,7 +23,7 @@ namespace Ganzenbord
 
         public int XD2(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 3);
@@ -34,7 +34,7 @@ namespace Ganzenbord
 
         public int XD3(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 4);
@@ -45,7 +45,7 @@ namespace Ganzenbord
 
         public int XD4(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 5);
@@ -56,7 +56,7 @@ namespace Ganzenbord
 
         public int XD8(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 8);
@@ -67,7 +67,7 @@ namespace Ganzenbord
 
         public int XD10(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 11);
@@ -78,7 +78,7 @@ namespace Ganzenbord
 
         public int XD12(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 13);
@@ -89,7 +89,7 @@ namespace Ganzenbord
 
         public int XD16(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 17);
@@ -100,7 +100,7 @@ namespace Ganzenbord
 
         public int XD20(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 21);
@@ -111,7 +111,7 @@ namespace Ganzenbord
 
         public  int XD30(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 31);
@@ -122,7 +122,7 @@ namespace Ganzenbord
 
         public int XD100(int X)
         {
-            for (int i = 1; i < X; i++)
+            for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
                 int worp = rnd.Next(1, 101);

@@ -9,7 +9,6 @@ namespace Ganzenbord
 {
     class Speler
     {
-        public Ganzenbord ganzenbord { get; private set; }
         public Bord bord { get; private set; }
         public Dobbelsteen dobbelsteen { get; private set; }
         public SpecialeVakken specialevakken { get; private set; }
@@ -18,11 +17,10 @@ namespace Ganzenbord
         public int locatie { get; private set; }
         public bool beurtOverslaan { get; private set; } 
         public bool winst { get; private set; } 
-        public Speler(Bord bord)
+        public Speler(Bord bord, Dobbelsteen dobbelsteen, SpecialeVakken specialevakken)
         {
-            dobbelsteen = new Dobbelsteen();
-            ganzenbord = new Ganzenbord(bord);
-            specialevakken = new SpecialeVakken(dobbelsteen);
+            this.specialevakken = specialevakken;
+            this.dobbelsteen = dobbelsteen;
             this.bord = bord;
             locatie = 0;
             beurtOverslaan = false;
@@ -31,11 +29,13 @@ namespace Ganzenbord
 
         public void ZetStap()
         {
-
             locatie = locatie + dobbelsteen.XD6(2);
-            ganzenbord.CheckVak(locatie);
         }
 
+        public void RevertLocatie()
+        {
+            locatie = locatie - dobbelsteen.worpTotaal;
+        }
         public void EventStart(string Event)
         {
             switch (Event)
@@ -63,7 +63,7 @@ namespace Ganzenbord
                 case "einde":
                    winst = specialevakken.EindeEvent();
                     break;
-                case "dubbelworp":
+                case "dubbeleworp":
                    locatie = specialevakken.DubbelWorp(locatie);
                     break;
             }
