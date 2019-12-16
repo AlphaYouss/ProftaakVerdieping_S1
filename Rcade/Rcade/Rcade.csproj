@@ -148,11 +148,76 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Afbeeldingen\BJ\2xBtn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\Achtergrond.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Back.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\10C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\10D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\10H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\10S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\2C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\2D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\2H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\2S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\3C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\3D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\3H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\3S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\4C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\4D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\4H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\4S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\5C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\5D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\5H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\5S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\6C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\6D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\6H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\6S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\7C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\7D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\7H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\7S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\8C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\8D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\8H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\8S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\9C.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\9D.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\9H.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\9S.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\AC.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\AD.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\AH.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\AS.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\back.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\JC.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\JD.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\JH.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\JS.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\KC.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\KD.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\KH.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\KS.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\QC.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\QD.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\QH.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\Cards\QS.jpg" />
+    <Content Include="Assets\Afbeeldingen\BJ\ConfrimBtn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\HitBtn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\InsuranceShortBtn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\StandBtn.png" />
     <Content Include="Assets\Afbeeldingen\BKE\Achtergrond.jpg" />
     <Content Include="Assets\Afbeeldingen\BKE\Back.png" />
     <Content Include="Assets\Afbeeldingen\BKE\O.png" />
     <Content Include="Assets\Afbeeldingen\BKE\Restart.png" />
     <Content Include="Assets\Afbeeldingen\BKE\X.png" />
+    <Content Include="Assets\Afbeeldingen\Fiches\Fiche100.png" />
+    <Content Include="Assets\Afbeeldingen\Fiches\Fiche200.png" />
+    <Content Include="Assets\Afbeeldingen\Fiches\Fiche50.png" />
+    <Content Include="Assets\Afbeeldingen\Fiches\Fiche500.png" />
+    <Content Include="Assets\Afbeeldingen\YoussKaas.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Afbeeldingen\Applicatie\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\Afbeeldingen\Applicatie\SplashScreen.scale-200.png" />
@@ -189,9 +254,7 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Afbeeldingen\BJ\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Lettertypes\sfalienenc\SFAlienEncounters.ttf" />
   </ItemGroup>

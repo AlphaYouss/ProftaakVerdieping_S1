@@ -11,7 +11,7 @@
     <Grid x:Name="main" Background="DarkCyan">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.25*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Grid.Row="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                    <TextBlock x:Name="titela" HorizontalAlignment="Left" Text="Rcade"/>
+                    <TextBlock x:Name="title" Text="Rcade"/>
                 </Viewbox>
 
                 <Grid Grid.Row="1">
@@ -58,7 +58,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Viewbox Grid.Column="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                                <TextBlock x:Name="titelaa" HorizontalAlignment="Left" Text="Login"/>
+                                <TextBlock x:Name="login" Text="Login"/>
                             </Viewbox>
                         </Grid>
 
@@ -82,7 +82,7 @@
                             </Viewbox>
 
                             <Viewbox Grid.Row="5" StretchDirection="Both" HorizontalAlignment="Right" Stretch="Uniform">
-                                <Button x:Name="btnLogin" Click="btnLogin_Click" Padding="0" Margin="0" BorderThickness="0" BorderBrush="#1963d0" >
+                                <Button x:Name="btnLogin" Click="btnLogin_Click" Padding="0" Margin="2.5,0" BorderThickness="0" BorderBrush="#1963d0" >
                                     <Image Source="/Assets/Afbeeldingen/BKE/Back.png"/>
                                 </Button>
                             </Viewbox>
@@ -90,30 +90,29 @@
 
                         <Grid Grid.Row="2">
                             <Viewbox  StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                                <TextBlock x:Name="titelaaaa" HorizontalAlignment="Left">
+                                <TextBlock x:Name="website">
                                     <Hyperlink NavigateUri="http://rcade.azurewebsites.net/register.php" Foreground="White">Create account</Hyperlink>
                                 </TextBlock>
                             </Viewbox>
                         </Grid>
                     </Grid>
                 </Grid>
+
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="0.5*"/>
                     </Grid.RowDefinitions>
+
                     <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                        <TextBlock x:Name="titelaaa" HorizontalAlignment="Left" Text="Alpha V.1.6"/>
+                        <TextBlock x:Name="version" Text="Alpha V.1.7"/>
                     </Viewbox>
                 </Grid>
-
             </Grid>
         </Grid>
 
         <Grid Grid.Column="1">
-            <Grid.Background>
-                <ImageBrush ImageSource="/Assets/Afbeeldingen/BKE/Achtergrond.jpg"></ImageBrush>
-            </Grid.Background>
+            <Image Source="/Assets/Afbeeldingen/BKE/Achtergrond.jpg" Stretch="fill"/>
         </Grid>
     </Grid>
 </Page>

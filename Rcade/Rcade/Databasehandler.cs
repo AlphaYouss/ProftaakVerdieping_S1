@@ -8,7 +8,7 @@ namespace Rcade
     {
        private SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
        private SqlConnection con;
-       public DataTable table = new DataTable("allPrograms");
+       public DataTable table = new DataTable();
 
         public Databasehandler()
         {

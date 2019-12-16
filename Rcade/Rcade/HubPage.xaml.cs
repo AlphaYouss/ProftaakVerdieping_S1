@@ -18,22 +18,22 @@ namespace Rcade
             ));
         }
 
-        private void BKE_Click(object sender, RoutedEventArgs e)
+        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage main = new MainPage();
+            Content = main;
+        }
+
+        private void btn_Bke_Click(object sender, RoutedEventArgs e)
         {
             BKEPage bke = new BKEPage();
             Content = bke;
         }
 
-        private void BJ_Click(object sender, RoutedEventArgs e)
+        private void btn_Bj_Click(object sender, RoutedEventArgs e)
         {
             BJPage bj = new BJPage();
             Content = bj;
-        }
-
-        private void Uitloggen_Click(object sender, RoutedEventArgs e)
-        {
-            MainPage main = new MainPage();
-            Content = main;
         }
     }
 }
