@@ -135,5 +135,10 @@ namespace Ganzenbord
         {
             worpTotaal = 0;
         }
+
+        public void ChangeWorpTotaal(int Getal)
+        {
+            worpTotaal = worpTotaal + Getal;
+        }
     }
 }

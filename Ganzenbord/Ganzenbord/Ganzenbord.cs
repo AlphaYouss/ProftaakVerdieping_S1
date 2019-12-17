@@ -44,7 +44,6 @@ namespace Ganzenbord
         public void ZetStap()
         {
             spelers[spelerBeurt].ZetStap();
-            for (int i = 0; i < spelers.Count; i++)
             {
                 if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
                 {
@@ -88,8 +87,9 @@ namespace Ganzenbord
         {
             for (int i = 0; i < spelers.Count; i++)
             {
-                if (spelers[i].locatie == locatie && spelers[i] != spelers[spelerBeurt])
+                if (spelers[i].locatie == locatie && spelers[i] != spelers[spelerBeurt] && locatie != 0 )
                 {
+                    spelers[spelerBeurt].ChangeBeurtOverslaan();
                     return true;
                 }
             }
@@ -112,11 +112,12 @@ namespace Ganzenbord
         public void VolgendeSpeler()
         {
             spelerBeurt++;
-            if (spelerBeurt == aantalSpelers + 1)
+            if (spelerBeurt == aantalSpelers)
             {
-                dobbelsteen.ResetWorp();
+                
                 spelerBeurt = 0;
             }
+            dobbelsteen.ResetWorp();
         }
 
         public bool CheckBeurtOverslaan()
@@ -130,6 +131,18 @@ namespace Ganzenbord
                 return false;
             }
         }
+        public bool CheckInDePut_Gevangenis()
+        {
+            if (spelers[spelerBeurt].beurtOverslaan)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         public bool WinCheck()
         {
@@ -143,9 +156,16 @@ namespace Ganzenbord
             }
         }
 
-        public bool CheckPut_Gevangenis()
+        public void CheckPut_Gevangenis()
         {
-            return true;
+            for (int i = 0; i < spelers.Count; i++)
+            {
+                if(spelers[spelerBeurt].inDePut_Gevangenis == spelers[i].inDePut_Gevangenis && spelers[i] != spelers[spelerBeurt])
+                {
+                    spelers[spelerBeurt].ChangeInDePut_Gevangenis();
+                }
+            }
+
         }
 
         public void Restart()
@@ -154,6 +174,11 @@ namespace Ganzenbord
             {
                 spelers[i].Restart();
             }
+        }
+
+        public void ChangeBeurtOverslaan()
+        {
+            spelers[spelerBeurt].ChangeBeurtOverslaan();
         }
     }
 }

@@ -28,9 +28,11 @@ namespace Ganzenbord
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ganzenbord.CheckBeurtOverslaan())
+            if (ganzenbord.CheckBeurtOverslaan() || ganzenbord.CheckInDePut_Gevangenis())
             {
                 ganzenbord.VolgendeSpeler();
+                ganzenbord.ChangeBeurtOverslaan();
+
             }
             else
             {

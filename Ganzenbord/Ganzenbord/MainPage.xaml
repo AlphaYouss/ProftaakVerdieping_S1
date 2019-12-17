@@ -9,7 +9,50 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Button" Height="490" Width="918" HorizontalAlignment="Center" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Viewbox Stretch="Fill" Grid.Row="1">
+                <Button Content="Back" HorizontalAlignment="Center" Click="Button_Click"/>
+            </Viewbox>
+        </Grid>
+        
+
+        
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            
+        </Grid>
+        
+ 
+
+
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Viewbox Stretch="Fill" Grid.Row="1">
+                <Button Content="Dobbel" HorizontalAlignment="Center" Click="Button_Click"/>
+            </Viewbox>
+        </Grid>
         
     </Grid>
 </Page>

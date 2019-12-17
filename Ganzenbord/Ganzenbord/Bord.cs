@@ -21,7 +21,7 @@ namespace Ganzenbord
 
        public void BordGenereren()
         {
-            for (int i = 0; i < 63; i++)
+            for (int i = 0; i <= 63; i++)
             { 
                 if (dubbelWorpVakken.Contains(i))
                 {

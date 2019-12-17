@@ -22,13 +22,15 @@ namespace Ganzenbord
 
         public int DubbelWorp(int locatie)
         {
-            locatie = locatie + worp;
+            locatie = locatie + dobbelsteen.worpTotaal;
             return locatie; 
         }
 
         public int BurgEvent(int locatie)
         {
+            dobbelsteen.ChangeWorpTotaal(6);
             return locatie = 12;
+
         }
 
         public bool HerbergEvent()
@@ -43,6 +45,7 @@ namespace Ganzenbord
 
         public int DoolhofEvent(int locatie)
         {
+            dobbelsteen.ChangeWorpTotaal(-5);
             return locatie = 37;
         }
 
