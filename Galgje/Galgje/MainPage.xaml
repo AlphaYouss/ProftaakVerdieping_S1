@@ -9,15 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock  Name="TbLetterDisplay"      Text="blabla"           HorizontalAlignment="Left" Margin="304,385,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="46"/>
+        <TextBlock  Name="TbLetterDisplay"      Text="blabla"           HorizontalAlignment="Left" Margin="202,349,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="308" FontSize="20"/>
         <TextBlock  Name="TbGuessedLetters"     Text="Geraden Letters"  HorizontalAlignment="Left" Margin="172,652,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="110"/>
         <TextBlock  Name="TbResult"             Text="-"                HorizontalAlignment="Left" Margin="564,277,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock  Name="TbScore"              Text="Score:"        HorizontalAlignment="Left" Margin="647,242,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
-        
+        <TextBlock  Name="TbScore"              Text="Score:"           HorizontalAlignment="Left" Margin="647,242,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
+
         <Image      Name="HangmanImage"         Source="/Assets/Numbers/number0.jpg"    VerticalAlignment="Top"     Margin="199,117,0,0"    HorizontalAlignment="Left" Height="203"  Width="162"/>
         <Button     Name="NewGameBtn"           Content="New Game"                      VerticalAlignment="Top"     Margin="592,646,0,0"    Click="NewGameBtn_Click"/>
-       
-        
+
+
         <!--    Alphabet   -->
         <Button Name="A" Content="A" Margin="200,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
         <Button Name="B" Content="B" Margin="240,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
