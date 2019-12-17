@@ -7,74 +7,12 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters">
-
-    <!--<Grid x:Name="main" Background="DarkCyan">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <TextBlock x:Name="Titel"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Blackjack" FontSize="60"/>
-        <TextBlock x:Name="Status" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Foreground="Red"/>
-
-        <Button x:Name="Back" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Padding="5,5,5,0" Click="Back_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Back"/>
-
-        <Grid Grid.Row="1" Grid.Column="1">
-            <TextBlock  Name="Saldo"                HorizontalAlignment="Left" Margin="987,190,0,0" Text="Saldo" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            --><!--<TextBlock  Name="KaartenDealer"        HorizontalAlignment="Left" Margin="796,238,0,0" Text="KaartenDealer" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>
-            <TextBlock  Name="KaartenSpeler"        HorizontalAlignment="Left" Margin="554,236,0,0" Text="KaartenSpeler" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="170"/>--><!--
-            <TextBlock  Name="TotaalPuntenSpeler"   HorizontalAlignment="Left" Margin="260,509,0,0" Text="Totaal punten" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
-            <TextBlock  Name="Uitkomst"             HorizontalAlignment="Left" Margin="706,164,0,0" Text="-" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock  Name="tbWinstVerlies"       HorizontalAlignment="Left" Margin="392,86,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
-
-            <Button Name="Hit"                  Content="Hit" Margin="532,364,0,0" VerticalAlignment="Top" Height="81" Width="200" Click="Hit_Click"/>
-            <Button Name ="Stand"               Content="Stand" Margin="784,359,0,0" VerticalAlignment="Top" Height="81" Width="185" Click="Stand_Click"/>
-            <Button Name="NewGame"              Content="New Game" Margin="960,143,0,0" VerticalAlignment="Top" Click="NewGame_Click"/>
-            <Button Name="Elf"                  Content="Elf" Margin="784,154,0,0" VerticalAlignment="Top" Click="Elf_Click"/>
-            <Button Name="Een"                  Content="Een" Margin="686,154,0,0" VerticalAlignment="Top" Height="33" Width="47" Click="Een_Click"/>
-            <Button Name ="DoubleDownKnop"      Content="Double Down?" Margin="152,423,0,0" VerticalAlignment="Top" Click="DoubleDown_Click"/>
-            <Button Name="Insurance"            Content="Insurance?" Margin="313,418,0,0" VerticalAlignment="Top" Click="Insurance_Click"/>
-
-            <Button     Name="ConfirmInzet"     Content="Voer Inzet in" Margin="200,348,0,0" VerticalAlignment="Top" Click="ConfirmInzet_Click"/>
-            <Button     Name="VijftigKnop"      Content="50" Margin="173,173,0,0" VerticalAlignment="Top" Click="VijftigKnop_Click"/>
-            <Button     Name="HonderdKnop"      Content="100" Margin="265,173,0,0" VerticalAlignment="Top" Click="HonderdKnop_Click"/>
-            <Button     Name="TweehonderdKnop"  Content="200" Margin="169,238,0,0" VerticalAlignment="Top" Click="TweehonderdKnop_Click"/>
-            <Button     Name="VijfhonderdKnop"  Content="500" Margin="265,238,0,0" VerticalAlignment="Top" Click="VijfhonderdKnop_Click"/>
-            <Button     Name="ResetInzet"       Content="Reset inzet" Margin="52,348,0,0" VerticalAlignment="Top" Click="ResetInzet_Click"/>
-            <TextBlock  Name="TbInzet"          HorizontalAlignment="Left" Margin="220,312,0,0" Text="50" TextWrapping="Wrap" VerticalAlignment="Top"/>
-
-            <Image Name="SpelerKaart1" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="120,530,0,0" VerticalAlignment="Top" Width="66"/>
-            <Image Name="SpelerKaart2" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="200,530,0,0" VerticalAlignment="Top" Width="66" />
-            <Image Name="SpelerKaart3" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="280,530,0,0" VerticalAlignment="Top" Width="76"/>
-            <Image Name="SpelerKaart4" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="360,530,0,0" VerticalAlignment="Top" Width="76"/>
-            <Image Name="SpelerKaart5" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="120,650,0,0" VerticalAlignment="Top" Width="66"/>
-            <Image Name="SpelerKaart6" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="200,650,0,0" VerticalAlignment="Top" Width="66" />
-            <Image Name="SpelerKaart7" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="280,650,0,0" VerticalAlignment="Top" Width="76"/>
-            <Image Name="SpelerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="360,650,0,0" VerticalAlignment="Top" Width="76"/>
-
-            <Image Name="DealerKaart1" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="760,526,0,0" VerticalAlignment="Top" Width="66"/>
-            <Image Name="DealerKaart2" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="840,526,0,0" VerticalAlignment="Top" Width="66" />
-            <Image Name="DealerKaart3" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="920,526,0,0" VerticalAlignment="Top" Width="76"/>
-            <Image Name="DealerKaart4" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="1000,526,0,0" VerticalAlignment="Top" Width="76"/>
-            <Image Name="DealerKaart5" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="760,650,0,0" VerticalAlignment="Top" Width="66"/>
-            <Image Name="DealerKaart6" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="840,650,0,0" VerticalAlignment="Top" Width="66" />
-            <Image Name="DealerKaart7" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="920,650,0,0" VerticalAlignment="Top" Width="76"/>
-            <Image Name="DealerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="1000,650,0,0" VerticalAlignment="Top" Width="76"/>
-
-        </Grid>
-    </Grid>-->
+    
     <Grid x:Name="main">
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Afbeeldingen/BJ/Achtergrond.jpg"></ImageBrush>
         </Grid.Background>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -126,6 +64,39 @@
             <Image Name="SpelerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
         </Viewbox>
 
+        <Grid Grid.Column="7" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width=".75*"/>
+                <ColumnDefinition Width=".75*"/>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="ResetInzet" Margin="10,20" Click="ResetInzet_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                    <Image Source="/Assets/Afbeeldingen/BJ/ResetBtn.png" />
+                </Button>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.8*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Stretch="Uniform" Grid.Row="2" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="Uitkomst"  FontFamily="Consolas" Margin="10,0,14,0" Padding="0"/>
+            </Viewbox>
+        </Grid>
+
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
             <Image Name="DealerKaart1" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
         </Viewbox>
@@ -153,13 +124,6 @@
             <Image Name="DealerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
         </Viewbox>
 
-
-        <!--<Image Name="SpelerKaart4" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="360,530,0,0" VerticalAlignment="Top" Width="76"/>
-        <Image Name="SpelerKaart5" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="120,650,0,0" VerticalAlignment="Top" Width="66"/>
-        <Image Name="SpelerKaart6" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="200,650,0,0" VerticalAlignment="Top" Width="66" />-->
-        <!--<Image Name="SpelerKaart7" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="280,650,0,0" VerticalAlignment="Top" Width="76"/>
-        <Image Name="SpelerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" HorizontalAlignment="Left" Height="100" Margin="360,650,0,0" VerticalAlignment="Top" Width="76"/>-->
-
         <Grid Grid.Column="7" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -175,29 +139,25 @@
             </Grid.ColumnDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="0" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack1" Margin="10,20" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="VijftigKnop" Margin="10,20" Padding="0" Click="VijftigKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche50.png" />
                 </Button>
             </Viewbox>
-
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack10" Margin="10,20" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="HonderdKnop" Margin="10,20" Padding="0" Click="HonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche100.png" />
                 </Button>
             </Viewbox>
-
             <Viewbox Stretch="Uniform" Grid.Row="2" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack11" Margin="10,20" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="TweehonderdKnop" Margin="10,20" Padding="0" Click="TweehonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche200.png" />
                 </Button>
             </Viewbox>
-
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack12" Margin="10,20" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="VijfhonderdKnop" Margin="10,20" Padding="0" Click="VijfhonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche500.png" />
                 </Button>
             </Viewbox>
-
         </Grid>
 
         <Grid Grid.Column="8" Grid.Row="1">
@@ -214,13 +174,40 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
+                
                 <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="titela1" HorizontalAlignment="Left" Text="Goebeals" TextWrapping="Wrap" Padding="0" Margin="5,0"/>
+                    <TextBlock x:Name="playerName" Text="Goebals123" Margin="1.5,2.5,5,2.5"/>
                 </Viewbox>
             </Grid>
 
             <Viewbox Stretch="Uniform" Grid.Row="2" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="titela1a" HorizontalAlignment="Center" Text="Goebels" Margin="10,0,7,0"/>
+                <TextBlock x:Name="Saldo" HorizontalAlignment="Center" FontFamily="Consolas" Margin="10,-5,7,0"/>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="Een" Margin="10,20" Padding="0" Click="Een_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                    <Image Source="/Assets/Afbeeldingen/BJ/1Btn.png" />
+                </Button>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="Elf" Margin="10,20" Padding="0" Click="Elf_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                    <Image Source="/Assets/Afbeeldingen/BJ/11Btn.png" />
+                </Button>
             </Viewbox>
         </Grid>
 
@@ -231,7 +218,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Hit" Margin="10,20" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Hit" Margin="10,20" Padding="0" Click="Hit_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/HitBtn.png" />
                 </Button>
             </Viewbox>
@@ -244,12 +231,25 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="4" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Stand" Margin="10,20" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Stand" Margin="10,20" Click="Stand_Click" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/StandBtn.png" />
                 </Button>
             </Viewbox>
         </Grid>
 
+        <Grid Grid.Row="2" Grid.Column="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="4" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="NewGame" Margin="10,20" Padding="0" Click="NewGame_Click" Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                    <Image Source="/Assets/Afbeeldingen/BJ/NextBtn.png" />
+                </Button>
+            </Viewbox>
+        </Grid>
+
         <Grid Grid.Row="2" Grid.Column="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -257,12 +257,12 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="5" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack12sss" Margin="10,20" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Insurance" Margin="10,20" Padding="0" Click="Insurance_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/InsuranceShortBtn.png" />
                 </Button>
             </Viewbox>
         </Grid>
-       
+
 
         <Grid Grid.Row="2" Grid.Column="5">
             <Grid.RowDefinitions>
@@ -271,7 +271,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="5" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack12ssss" Margin="10,20" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="DoubleDownKnop" Margin="10,20" Padding="0" Click="DoubleDown_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/2xBtn.png" />
                 </Button>
             </Viewbox>
@@ -285,29 +285,11 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="7" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="btnBack12sssss" Margin="10,20" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0" >
+                <Button x:Name="ConfirmInzet" Margin="10,20" Padding="0" Click="ConfirmInzet_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0" >
                     <Image Source="/Assets/Afbeeldingen/BJ/ConfrimBtn.png" />
                 </Button>
             </Viewbox>
         </Grid>
-
-        <!--<Grid Grid.Column="8" Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".55*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height=".70*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height=".50*"/>
-            </Grid.RowDefinitions>
-
-            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="titela1q" HorizontalAlignment="Left" Text="Goebels" Padding="0" Margin="10,0,7,0"/>
-            </Viewbox>
-
-            <Viewbox Stretch="Uniform" Grid.Row="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="titela1aq" HorizontalAlignment="Center" Text="Goebels" Margin="10,0,7,0"/>
-            </Viewbox>
-        </Grid>-->
 
         <Grid Grid.Column="8" Grid.Row="2">
             <Grid.RowDefinitions>
@@ -323,19 +305,26 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="titela1q" HorizontalAlignment="Left" Text="Goebels" Padding="0" Margin="10,5,7,0"/>
+                    <TextBlock x:Name="TbInzet" HorizontalAlignment="Left" Padding="0" Margin="10,0,9,0" FontFamily="Consolas"/>
                 </Viewbox>
             </Grid>
+        </Grid>
+
+        <Grid Grid.Column="8" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height=".4*"/>
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="titela1qq" HorizontalAlignment="Left" Text="Goebels" Padding="0" Margin="10,5,7,0"/>
+                    <TextBlock x:Name="tbWinstVerlies" HorizontalAlignment="Center" FontFamily="Consolas" Padding="0" Margin="3.5,6.5,3.5,8"/>
                 </Viewbox>
             </Grid>
         </Grid>

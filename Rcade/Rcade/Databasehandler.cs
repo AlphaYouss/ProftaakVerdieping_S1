@@ -6,18 +6,21 @@ namespace Rcade
 {
     class Databasehandler
     {
-       private SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-       private SqlConnection con;
-       public DataTable table = new DataTable();
+        public SqlConnectionStringBuilder builder { get; private set; }
+        public SqlConnection con { get; private set; }
+        public DataTable table { get; private set; }
 
         public Databasehandler()
         {
+            builder = new SqlConnectionStringBuilder();
+
             builder.DataSource = "rcade.database.windows.net";
             builder.UserID = "rcade";
             builder.Password = "Kanker!25";
             builder.InitialCatalog = "Rcade";
 
             con = new SqlConnection(builder.ConnectionString);
+            table =  new DataTable();
         }
 
         public bool TestConnection()
@@ -90,7 +93,7 @@ namespace Rcade
 
         public void GetUserData()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM User_gegevens", GetCon());
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Test_User_gegevens", GetCon());
 
             TestConnection();
             OpenConnectionToDB();

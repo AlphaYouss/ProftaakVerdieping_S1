@@ -1,4 +1,5 @@
-﻿using Windows.Foundation;
+﻿using System.Data;
+using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -12,6 +13,7 @@ namespace Rcade
         public MainPage()
         {
             InitializeComponent();
+            WriteData();
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
@@ -26,14 +28,14 @@ namespace Rcade
             Content = hub;
         }
 
-        //public void WriteData()
-        //{
-        //    dbh.GetUserData();
+        public void WriteData()
+        {
+            dbh.GetUserData();
 
-        //    foreach (DataRow row in dbh.table.Rows)
-        //    {
-        //        string name = row["Username"].ToString();
-        //     }
-        //}
+            foreach (DataRow row in dbh.table.Rows)
+            {
+                string name = row["Username"].ToString();
+            }
+        }
     }
 }

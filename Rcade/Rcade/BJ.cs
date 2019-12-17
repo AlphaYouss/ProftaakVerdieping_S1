@@ -76,7 +76,7 @@
         {
             if (deSpeler.TotaalPunten() > 21)
             {
-                uitkomst = "Speler bust!";
+                uitkomst = "Speler bust";
                 gameOver = true;
             }
         }
@@ -95,37 +95,37 @@
 
             if (insurance && Dealer == 21)
             {
-                uitkomst = "Insurance wordt uitbetaald!";
+                uitkomst = "Insurance uitbetaald";
             }
 
             else if (Speler == 21)
             {
-                uitkomst = "De speler heeft blackjack!";
+                uitkomst = "Speler blackjack";
                 deSpeler.SaldoBijschrijven(inzet * 2);
             }
 
             else if (Dealer > 21)
             {
-                uitkomst = "Dealer Bust!";
+                uitkomst = "Dealer Bust";
                 deSpeler.SaldoBijschrijven(inzet * 2);
             }
 
 
             else if (Speler > Dealer && Speler <= 21)
             {
-                uitkomst = "De speler heeft gewonnen!";
+                uitkomst = "Speler wint";
                 deSpeler.SaldoBijschrijven(inzet * 2);
             }
 
 
             else if (Dealer > Speler)
             {
-                uitkomst = "De dealer heeft gewonnen!";
+                uitkomst = "Dealer wint";
             }
 
             else if (Speler == Dealer)
             {
-                uitkomst = "Push. Gelijkspel!";
+                uitkomst = "Push";
                 deSpeler.SaldoBijschrijven(inzet);
             }
             gameOver = true;
@@ -154,21 +154,21 @@
 
             if (this.inzet > deSpeler.saldo)
             {
-                uitkomst = "Je inzet is groter dan je saldo!";
+                uitkomst = "Saldo te laag";
                 ResetInzet();
 
                 return false;
             }
             else if (this.inzet > 1000)
             {
-                uitkomst = "Je inzet is te hoog (max 1000)";
+                uitkomst = "Inzet max 1000";
                 this.inzet = echteInzet;
 
                 return false;
             }
             else if (deSpeler.saldo <= 0)
             {
-                uitkomst = "Je saldo is negatief..";
+                uitkomst = "Saldo negatief";
                 // Hier komt een link naar de back knop
                 return false;
             }

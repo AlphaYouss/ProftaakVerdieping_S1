@@ -134,6 +134,12 @@
     <Compile Include="BKE_Speler.cs" />
     <Compile Include="BKE_Veld.cs" />
     <Compile Include="Databasehandler.cs" />
+    <Compile Include="Databasehandler_Blackjack.cs" />
+    <Compile Include="Databasehandler_Boter_kaas_en_eieren.cs" />
+    <Compile Include="Databasehandler_Galgje.cs" />
+    <Compile Include="Databasehandler_Ganzenbord.cs" />
+    <Compile Include="Databasehandler_Roulette.cs" />
+    <Compile Include="Databasehandler_User_gegevens.cs" />
     <Compile Include="HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +154,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Afbeeldingen\BJ\11Btn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\1Btn.png" />
     <Content Include="Assets\Afbeeldingen\BJ\2xBtn.png" />
     <Content Include="Assets\Afbeeldingen\BJ\Achtergrond.jpg" />
     <Content Include="Assets\Afbeeldingen\BJ\Back.png" />
@@ -207,6 +215,8 @@
     <Content Include="Assets\Afbeeldingen\BJ\ConfrimBtn.png" />
     <Content Include="Assets\Afbeeldingen\BJ\HitBtn.png" />
     <Content Include="Assets\Afbeeldingen\BJ\InsuranceShortBtn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\NextBtn.png" />
+    <Content Include="Assets\Afbeeldingen\BJ\ResetBtn.png" />
     <Content Include="Assets\Afbeeldingen\BJ\StandBtn.png" />
     <Content Include="Assets\Afbeeldingen\BKE\Achtergrond.jpg" />
     <Content Include="Assets\Afbeeldingen\BKE\Back.png" />
@@ -217,7 +227,7 @@
     <Content Include="Assets\Afbeeldingen\Fiches\Fiche200.png" />
     <Content Include="Assets\Afbeeldingen\Fiches\Fiche50.png" />
     <Content Include="Assets\Afbeeldingen\Fiches\Fiche500.png" />
-    <Content Include="Assets\Afbeeldingen\YoussKaas.jpg" />
+    <Content Include="Assets\Afbeeldingen\Hub\HubWireframe.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Afbeeldingen\Applicatie\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\Afbeeldingen\Applicatie\SplashScreen.scale-200.png" />

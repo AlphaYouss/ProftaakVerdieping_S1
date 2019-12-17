@@ -10,7 +10,7 @@
 
     <Grid x:Name="main" >
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Afbeeldingen/YoussKaas.jpg"/>
+            <ImageBrush ImageSource="/Assets/Afbeeldingen/Hub/HubWireframe.jpg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
