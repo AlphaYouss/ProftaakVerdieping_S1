@@ -23,7 +23,6 @@ namespace Galgje
     {
         Hangman host = new Hangman();
         
-        char letter;
         
         List<string> numbers = new List<string> { "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "number10", "number11" }; 
         List<Button> buttons = new List<Button> {};
@@ -99,10 +98,7 @@ namespace Galgje
             
             UpdateImage(HangmanImage); 
 
-            if (host.player.score != 0)
-            {
-                TbScore.Text = "Score: " + Convert.ToString(host.player.score);
-            }
+            TbScore.Text = Convert.ToString(host.player.score);
         }
 
 
@@ -142,7 +138,7 @@ namespace Galgje
             TbLetterDisplay.Text = new String(host.correctLetters);
 
             host.player.SetScore();
-            TbScore.Text = "Score: " + Convert.ToString(host.player.score);
+            TbScore.Text = Convert.ToString(host.player.score);
             
             host.player.ClearTurn();
             host.Clear();

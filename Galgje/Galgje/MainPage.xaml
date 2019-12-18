@@ -9,41 +9,357 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock  Name="TbLetterDisplay"      Text="blabla"           HorizontalAlignment="Left" Margin="202,349,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="308" FontSize="20"/>
-        <TextBlock  Name="TbGuessedLetters"     Text="Geraden Letters"  HorizontalAlignment="Left" Margin="172,652,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="110"/>
-        <TextBlock  Name="TbResult"             Text="-"                HorizontalAlignment="Left" Margin="564,277,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock  Name="TbScore"              Text="Score:"           HorizontalAlignment="Left" Margin="647,242,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
 
-        <Image      Name="HangmanImage"         Source="/Assets/Numbers/number0.jpg"    VerticalAlignment="Top"     Margin="199,117,0,0"    HorizontalAlignment="Left" Height="203"  Width="162"/>
-        <Button     Name="NewGameBtn"           Content="New Game"                      VerticalAlignment="Top"     Margin="592,646,0,0"    Click="NewGameBtn_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Het vak voor de backbutton-->
+        <Grid Grid.Row="0" Grid.Column="0" >
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name ="BackButton" Margin="10,0,10,0" Content="Back" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Viewbox>
+        </Grid>
 
 
-        <!--    Alphabet   -->
-        <Button Name="A" Content="A" Margin="200,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="B" Content="B" Margin="240,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="C" Content="C" Margin="280,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="D" Content="D" Margin="320,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="E" Content="E" Margin="360,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="F" Content="F" Margin="400,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="G" Content="G" Margin="440,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="H" Content="H" Margin="480,450,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="I" Content="I" Margin="200,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="J" Content="J" Margin="240,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="K" Content="K" Margin="280,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="L" Content="L" Margin="320,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="M" Content="M" Margin="360,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="N" Content="N" Margin="400,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="O" Content="O" Margin="440,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="P" Content="P" Margin="480,500,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="Q" Content="Q" Margin="200,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="R" Content="R" Margin="240,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="S" Content="S" Margin="280,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="T" Content="T" Margin="320,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="U" Content="U" Margin="360,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="V" Content="V" Margin="400,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="W" Content="W" Margin="440,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="X" Content="X" Margin="480,550,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="Y" Content="Y" Margin="320,600,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
-        <Button Name="Z" Content="Z" Margin="360,600,0,0" VerticalAlignment="Top" Click="Alphabet_Click"/>
+        
+        <!--Het tekstblock met de tekst 'score:' en het getal-->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" >
+                <Viewbox>
+                    <TextBlock Text="Score:" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Viewbox>
+                    <TextBlock Name="TbScore" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Viewbox>
+            </Grid>
+         </Grid>
+
+        
+        
+        <!--het vak voor het resultaat textblock-->
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Viewbox>
+                <TextBlock  Name="TbResult" Text="Result" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+            </Viewbox>
+        </Grid>
+
+        
+        
+        
+        
+        <!--Het middelste gedeelte van de pagina-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--het textblock voor de streepjes-->
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <Viewbox>
+                            <TextBlock  Name="TbLetterDisplay"   Text="-------"      TextWrapping="Wrap"      HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+
+
+
+
+
+                <!--Het toetsenbord-->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.7*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1.7*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--Eerste regel van het keyboard-->
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="A" Content="A" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="3">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="B" Content="B" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="5">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="C" Content="C" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="7">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="D" Content="D" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="9">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="E" Content="E" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="11">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="F" Content="F" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="13">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="G" Content="G" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="15">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="H" Content="H" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+
+                    <!--Tweede regel van het keyboard-->
+                    <Grid Grid.Row="3" Grid.Column="1">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="I" Content="I" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="3">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="J" Content="J" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="5">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="K" Content="K" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="7">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="L" Content="L" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="9">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="M" Content="M" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="11">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="N" Content="N" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="13">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="O" Content="O" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="15">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="P" Content="P" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+
+                    <!--Derde regel van het keyboard-->
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="Q" Content="Q" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="3">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="R" Content="R" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="5">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="S" Content="S" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="7">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="T" Content="T" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="9">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="U" Content="U" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="11">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="V" Content="V" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="13">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="W" Content="W" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="15">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="X" Content="X" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+
+                    <!--Laatste regel van het toetsenbord-->
+                    <Grid Grid.Row="7" Grid.Column="7">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="Y" Content="Y" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Row="7" Grid.Column="9">
+                        <Viewbox Stretch="Fill">
+                            <Button Name="Z" Content="Z" Click="Alphabet_Click"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+
+
+
+
+            <!--Meeste rechtse zijde-->
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--Image vak-->
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1">
+                        <Viewbox>
+                            <Image Name="HangmanImage" Source="/Assets/Numbers/number0.jpg" />
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+
+                <!--Geraden letters vak-->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1">
+                        <Viewbox>
+                            <TextBlock  Name="TbGuessedLetters"     Text="Geraden Letters"  />
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+
+
+                <!--New game knop vak-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Viewbox Stretch="Fill">
+                            <Button     Name="NewGameBtn" Content="New Game" Margin="5,5,0,0" Click="NewGameBtn_Click" />
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
