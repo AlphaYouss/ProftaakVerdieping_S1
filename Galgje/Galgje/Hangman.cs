@@ -12,36 +12,43 @@ namespace Galgje
     {
         public Player player = new Player();
         public FileReader fileReader = new FileReader();
+        Random randomNumber = new Random();
 
         public char[] correctLetters { get; private set; }
         public char[] displayedLetters { get; private set; }
-        public string word { get; private set; }
+       
         public List<char> guessedLetters { get; private set; } = new List<char>();
-        public string Result { get; private set; } = "";
         
-        Random RandomNumber = new Random();
+        public string word { get; private set; }
+        public string result { get; private set; } = "";
+        
 
 
        
 
 
         //Start
-        public void start()
+        public void Start()
         {
             GenerateWord();
             ClearDisplayLetters();
         }
 
 
+
+
+
+        // Hier haal je het woord op uit de database
         public void GenerateWord()
         {
-            int MaxValue = fileReader.Words.Count + 1;
-            int number = RandomNumber.Next(0, MaxValue);
-            string word = fileReader.Words[number];
+            int MaxValue = fileReader.words.Count + 1;
+            int number = randomNumber.Next(0, MaxValue);
+            string word = fileReader.words[number];
             SplitWord(word);
         }
 
 
+        //Split het woord in een char[]
         private void SplitWord(string word)
         {
             correctLetters = word.ToCharArray();
@@ -53,7 +60,7 @@ namespace Galgje
 
 
 
-        // Clear
+        // Veranderd alle char[] characters naar streepjes
         private void ClearDisplayLetters()
         {
             for (int i = 0; i < displayedLetters.Length; i++)
@@ -63,13 +70,14 @@ namespace Galgje
         }
 
 
+        // Haalt alles leeg 
         public void Clear()
         {
             Array.Clear(correctLetters, 0, correctLetters.Length);
             ClearDisplayLetters();
             guessedLetters.Clear();
             word = "";
-            Result = "";
+            result = "";
         }
 
 
@@ -78,7 +86,7 @@ namespace Galgje
 
 
         // Controleer of de letter goed is
-        public void CheckLetters(char letter)
+        public void CheckLetter(char letter)
         {
             bool ContainsLetter = false;
 
@@ -102,6 +110,7 @@ namespace Galgje
 
 
 
+
         // Controleert of alle letters goed zijn
         public bool WinCheck()
         {
@@ -115,7 +124,7 @@ namespace Galgje
 
                 if (x == correctLetters.Length)
                 {
-                    Result = "Je hebt gewonnen!";
+                    result = "Je hebt gewonnen!";
                     return true;
                 }
             }
@@ -125,12 +134,14 @@ namespace Galgje
 
 
 
+
+
         // Controleert of je hangman dood is
         public bool EndGameCheck()
         {
             if (player.turn == 11)
             {
-                Result = "Je hebt verloren!";
+                result = "Je hebt verloren!";
                 return true;
             }
             return false;

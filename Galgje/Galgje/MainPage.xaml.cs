@@ -22,10 +22,14 @@ namespace Galgje
     public sealed partial class MainPage : Page
     {
         Hangman host = new Hangman();
-        public char letter { get; private set; }
-        List<string> Numbers = new List<string> { "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "number10", "number11" };
-       
-        List<Button> Buttons = new List<Button> {};
+        
+        char letter;
+        
+        List<string> numbers = new List<string> { "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "number10", "number11" }; 
+        List<Button> buttons = new List<Button> {};
+
+
+
 
 
 
@@ -45,41 +49,40 @@ namespace Galgje
         // Start
         private void Start()
         {
-            
             NewGameBtn.Visibility = Visibility.Collapsed;
-            host.start();
+            host.Start();
             UpdateDisplay();
         }
 
 
         private void AddButtons()
         {
-            Buttons.Add(A);
-            Buttons.Add(B);
-            Buttons.Add(C);
-            Buttons.Add(D);
-            Buttons.Add(E);
-            Buttons.Add(F);
-            Buttons.Add(G);
-            Buttons.Add(H);
-            Buttons.Add(I);
-            Buttons.Add(J);
-            Buttons.Add(K);
-            Buttons.Add(L);
-            Buttons.Add(M);
-            Buttons.Add(N);
-            Buttons.Add(O);
-            Buttons.Add(P);
-            Buttons.Add(Q);
-            Buttons.Add(R);
-            Buttons.Add(S);
-            Buttons.Add(T);
-            Buttons.Add(U);
-            Buttons.Add(V);
-            Buttons.Add(W);
-            Buttons.Add(X);
-            Buttons.Add(Y);
-            Buttons.Add(Z);
+            buttons.Add(A);
+            buttons.Add(B);
+            buttons.Add(C);
+            buttons.Add(D);
+            buttons.Add(E);
+            buttons.Add(F);
+            buttons.Add(G);
+            buttons.Add(H);
+            buttons.Add(I);
+            buttons.Add(J);
+            buttons.Add(K);
+            buttons.Add(L);
+            buttons.Add(M);
+            buttons.Add(N);
+            buttons.Add(O);
+            buttons.Add(P);
+            buttons.Add(Q);
+            buttons.Add(R);
+            buttons.Add(S);
+            buttons.Add(T);
+            buttons.Add(U);
+            buttons.Add(V);
+            buttons.Add(W);
+            buttons.Add(X);
+            buttons.Add(Y);
+            buttons.Add(Z);
         }
 
 
@@ -92,8 +95,9 @@ namespace Galgje
         {
             TbLetterDisplay.Text = new String(host.displayedLetters);
             TbGuessedLetters.Text = new String(host.guessedLetters.ToArray());
-            UpdateImage(HangmanImage);
-            TbResult.Text = host.Result;
+            TbResult.Text = host.result;
+            
+            UpdateImage(HangmanImage); 
 
             if (host.player.score != 0)
             {
@@ -114,7 +118,8 @@ namespace Galgje
             Button button = sender as Button;
             button.IsEnabled = false;
 
-            host.CheckLetters(letter);
+            host.CheckLetter(letter);
+            
             UpdateDisplay();
 
             if (host.WinCheck() || host.EndGameCheck())
@@ -131,18 +136,18 @@ namespace Galgje
         //Einde van het spel
         private void EndGame()
         {
-            TbResult.Text = host.Result;
             NewGameBtn.Visibility = Visibility.Visible;
+            
+            TbResult.Text = host.result;
+            TbLetterDisplay.Text = new String(host.correctLetters);
 
             host.player.SetScore();
             TbScore.Text = "Score: " + Convert.ToString(host.player.score);
-
-
-            TbLetterDisplay.Text = new String(host.correctLetters);
+            
             host.player.ClearTurn();
             host.Clear();
 
-            Buttons.ForEach(x => x.IsEnabled = false);         
+            buttons.ForEach(x => x.IsEnabled = false);         
         }
 
 
@@ -153,7 +158,7 @@ namespace Galgje
         // Images
         private void UpdateImage(Image image)
         {
-            string Location = "ms-appx:///Assets/Numbers/" + Numbers[host.player.turn] + ".jpg";
+            string Location = "ms-appx:///Assets/Numbers/" + numbers[host.player.turn] + ".jpg";
             BitmapImage ImageSource = new BitmapImage(new Uri(Location));
             image.Source = ImageSource;
         }
@@ -167,7 +172,8 @@ namespace Galgje
         private void NewGameBtn_Click(object sender, RoutedEventArgs e)
         {
             NewGameBtn.Visibility = Visibility.Collapsed;
-            Buttons.ForEach(x => x.IsEnabled = true);
+            
+            buttons.ForEach(x => x.IsEnabled = true);
             Start();
         }
     }

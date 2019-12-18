@@ -10,25 +10,32 @@ namespace Galgje
 {
     class FileReader
     {
-        public List<string> Words { get; private set; } = new List<string>();
+        public List<string> words { get; private set; } = new List<string>();
 
         
+
+
+
+
+        // Constructor
         public FileReader()
         {
             LoadTextFile();
         }
 
+
        
-        
-        
+        // Hierin lees ik het textbestand en zet ik het om in een list
         public void LoadTextFile()
         {
-            using (StreamReader streamReader = new StreamReader(@"Assets\HangmanWords.txt"))
+            string Location = @"Assets\HangmanWords.txt";
+
+            using (StreamReader streamReader = new StreamReader(Location))
             {
                 while (streamReader.Peek() > 0)
                 {
                     string line = streamReader.ReadLine();
-                    Words.Add(line);
+                    words.Add(line);
                 }
             }
         }
