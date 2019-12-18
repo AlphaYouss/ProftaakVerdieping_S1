@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Ganzenbord
 {
@@ -10,53 +12,69 @@ namespace Ganzenbord
     {
         public Dobbelsteen dobbelsteen { get; private set; }
         public Bord bord { get; private set; }
+
         public List<Speler> spelers { get; private set; }
         public Speler speler1 { get; private set; }
         public Speler speler2 { get; private set; }
         public Speler speler3 { get; private set; }
         public Speler speler4 { get; private set; }
         public Speler speler5 { get; private set; }
+
+        public List<Image> vakimages { get; private set; }
+        public BitmapImage pionPaars { get; private set; }
+        public BitmapImage pionBlauw { get; private set; }
+        public BitmapImage pionGroen { get; private set; }
+        public BitmapImage pionRood { get; private set; }
+        public BitmapImage pionZwart { get; private set; }
+
+
         public int aantalSpelers { get; private set; }
         public int spelerBeurt { get; private set; }
-        public bool tweeSpelersOpVak { get; private set; }
 
-        public Ganzenbord(int aantalSpelers)
+        public Ganzenbord(int aantalSpelers, List<Image> vakimages)
         {
             dobbelsteen = new Dobbelsteen();
             bord = new Bord(dobbelsteen);
-            speler1 = new Speler(bord, dobbelsteen, bord.specialevakken);
-            speler2 = new Speler(bord, dobbelsteen, bord.specialevakken);
-            speler3 = new Speler(bord, dobbelsteen, bord.specialevakken);
-            speler4 = new Speler(bord, dobbelsteen, bord.specialevakken);
-            speler5 = new Speler(bord, dobbelsteen, bord.specialevakken);
+
+            this.vakimages = vakimages;
+
+            pionPaars = new BitmapImage(new Uri("ms-appx:///Assets/pion paars.png"));
+            pionBlauw = new BitmapImage(new Uri("ms-appx:///Assets/pion blauw.png"));
+            pionGroen = new BitmapImage(new Uri("ms-appx:///Assets/pion groen.png"));
+            pionRood = new BitmapImage(new Uri("ms-appx:///Assets/pion rood.png"));
+            pionZwart = new BitmapImage(new Uri("ms-appx:///Assets/pion zwart.png"));
 
             spelers = new List<Speler>();
-            spelerBeurt = 0;
-            this.aantalSpelers = aantalSpelers;
 
-            tweeSpelersOpVak = false;
+            speler1 = new Speler(bord, dobbelsteen, bord.specialevakken, pionPaars);
+            speler2 = new Speler(bord, dobbelsteen, bord.specialevakken, pionBlauw);
+            speler3 = new Speler(bord, dobbelsteen, bord.specialevakken, pionGroen);
+            speler4 = new Speler(bord, dobbelsteen, bord.specialevakken, pionRood);
+            speler5 = new Speler(bord, dobbelsteen, bord.specialevakken, pionZwart);
+
+            spelerBeurt = 0;
+
+            this.aantalSpelers = aantalSpelers;
 
             VulSpelerList();
             bord.BordGenereren();
-            
         }
         
         public void ZetStap()
         {
             spelers[spelerBeurt].ZetStap();
+            if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
             {
-                if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
-                {
-                    spelers[spelerBeurt].RevertLocatie();
-                }
-                else
-                {
-                    CheckVak(spelers[spelerBeurt].locatie);
-                }
+                spelers[spelerBeurt].RevertLocatie();
             }
+            else
+            {
+                CheckVak(spelers[spelerBeurt].locatie);
+            }
+            vakimages[spelers[spelerBeurt].locatie - 1].Source = spelers[spelerBeurt].spelerPlaatje;
         }
 
-        public void VulSpelerList()
+        private void VulSpelerList()
         {
             for (int i = 1; i <= aantalSpelers; i++)
             {
@@ -83,7 +101,7 @@ namespace Ganzenbord
             }
         }
 
-        public bool CheckSpelersOpVak(int locatie)
+        private bool CheckSpelersOpVak(int locatie)
         {
             for (int i = 0; i < spelers.Count; i++)
             {
@@ -96,15 +114,24 @@ namespace Ganzenbord
             return false;
         }
 
-        public void CheckVak(int locatie)
+        private void CheckVak(int locatie)
         {       
             string vak = bord.vakken[locatie];
             if (vak != null)
             {
                 spelers[spelerBeurt].EventStart(vak);
-                if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
+                if (CheckPut_Gevangenis())
+                {
+
+                }
+                else if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
                 {
                     spelers[spelerBeurt].RevertLocatie();
+                }
+
+                if (WinCheck())
+                {
+                    Restart();
                 }
             }
         }
@@ -144,7 +171,7 @@ namespace Ganzenbord
         }
 
 
-        public bool WinCheck()
+        private bool WinCheck()
         {
             if (spelers[spelerBeurt].winst)
             {
@@ -156,16 +183,17 @@ namespace Ganzenbord
             }
         }
 
-        public void CheckPut_Gevangenis()
+        private bool CheckPut_Gevangenis()
         {
             for (int i = 0; i < spelers.Count; i++)
             {
                 if(spelers[spelerBeurt].inDePut_Gevangenis == spelers[i].inDePut_Gevangenis && spelers[i] != spelers[spelerBeurt])
                 {
-                    spelers[spelerBeurt].ChangeInDePut_Gevangenis();
+                    spelers[i].ChangeInDePut_Gevangenis();
+                    return true;
                 }
             }
-
+            return false;
         }
 
         public void Restart()

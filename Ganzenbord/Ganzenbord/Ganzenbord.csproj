@@ -139,6 +139,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ganzenbord_pd.svg.png" />
+    <Content Include="Assets\pion blauw.png" />
+    <Content Include="Assets\pion groen.png" />
+    <Content Include="Assets\pion paars.png" />
+    <Content Include="Assets\pion rood.png" />
+    <Content Include="Assets\pion zwart.png" />
     <Content Include="Assets\WireFrameBlackJack3X9.jpg" />
     <Content Include="Assets\WireframeBlackJack7x2.jpg" />
     <Content Include="Properties\Default.rd.xml" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace Ganzenbord
@@ -18,8 +19,9 @@ namespace Ganzenbord
         public bool beurtOverslaan { get; private set; }
         public bool inDePut_Gevangenis { get; private set; }
         public bool winst { get; private set; } 
-        public Speler(Bord bord, Dobbelsteen dobbelsteen, SpecialeVakken specialevakken)
+        public Speler(Bord bord, Dobbelsteen dobbelsteen, SpecialeVakken specialevakken, BitmapImage spelerPlaatje)
         {
+            this.spelerPlaatje = spelerPlaatje;
             this.specialevakken = specialevakken;
             this.dobbelsteen = dobbelsteen;
             this.bord = bord;
@@ -52,6 +54,7 @@ namespace Ganzenbord
         {
             locatie = locatie - dobbelsteen.worpTotaal;
         }
+
         public void EventStart(string Event)
         {
             switch (Event)

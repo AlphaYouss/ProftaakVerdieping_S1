@@ -15,9 +15,14 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="*"/>
+
+            <ColumnDefinition Width="0.05625*"/>
+            <ColumnDefinition Width="0.8875*"/>
+            <ColumnDefinition Width="0.05625*"/>
+
+            <!--<ColumnDefinition Width="0.088*"/>
+            <ColumnDefinition Width="0.82*"/>
+            <ColumnDefinition Width="0.088*"/>-->
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0">
@@ -25,8 +30,603 @@
                 <Button Content="Back" HorizontalAlignment="Center" Click="Button_Click"/>
             </Viewbox>
         </Grid>
-        
 
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="5" Grid.Column="2" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox Stretch="Fill">
+                    <Image Name="vak1"> </Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="3" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak2"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="4" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="3" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox Stretch="Fill">
+                    <Image Name="vak3"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="5" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak4"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="6" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="5" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak5"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="7" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="6" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak6"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="8" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="7" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak7"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="9" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="8" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak8"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="10" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="9" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak9"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="11" Background="Red">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak10"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="11" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="11" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak11"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="11" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="12" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak12"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="11" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="13" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak13"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="11" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="14" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak14"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="11" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="15" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak15"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="10" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak16"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="9" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="17" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak17"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="8" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak18"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="7" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="19" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak19"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="6" Background="Orange">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="20" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak20"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="5" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="21" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak21"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="4" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="22" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak22"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="3" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="23" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak23"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="2" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="24" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak24"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="25" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak25"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="26" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak26"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="27" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak27"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="28" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak28"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="29" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak29"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="0" Background="Yellow">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak30"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="1" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="31" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak31"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="2" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="32" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak32"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="3" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="33" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak33"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="4" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="34" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak34"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="5" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="35" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak35"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="6" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="36" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak36"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="7" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="37" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak37"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="8" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="38" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak38"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="9" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="39" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak39"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="10" Background="Green">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak40"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="10" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="41" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak41"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="10" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="42" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak42"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="10" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="43" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak43"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="9" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="44" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak44"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="8" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="45" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak45"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="7" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="46" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak46"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="6" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="47" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak47"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="5" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="48" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak48"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="4" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="49" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak49"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="3" Background="Blue">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="50" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak50"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="51" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak51"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="52" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak52"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="1" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="53" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak53"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="1" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="54" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak54"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="2" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak55"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="3" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="56" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak56"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="4" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="57" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak57"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="5" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="58" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak58"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="6" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="59" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak59"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="7" Background="Purple">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak60"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="8" Background="Salmon">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="61" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak61"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="9" Background="Salmon">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="62" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak62"></Image>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="9" Background="Salmon">
+                <Viewbox Stretch="Fill">
+                    <TextBox PlaceholderText="63" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
+                </Viewbox>
+                <Viewbox>
+                    <Image Name="vak63"></Image>
+                </Viewbox>
+            </Grid>
+
+
+        </Grid>
+        
         
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -36,13 +636,29 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
-            
+
+            <Viewbox Stretch="Fill" Grid.Column="0">
+                <TextBox x:Name="Speler1" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
+            </Viewbox>
+
+            <Viewbox Stretch="Fill" Grid.Column="1">
+                <TextBox x:Name="Speler2" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
+            </Viewbox>
+
+            <Viewbox Stretch="Fill" Grid.Column="2">
+                <TextBox x:Name="Speler3" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
+            </Viewbox>
+
+            <Viewbox Stretch="Fill" Grid.Column="3">
+                <TextBox x:Name="Speler4" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
+            </Viewbox>
+
+            <Viewbox Stretch="Fill" Grid.Column="4">
+                <TextBox x:Name="Speler5" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
+            </Viewbox>
+        
         </Grid>
         
- 
-
-
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*" />
