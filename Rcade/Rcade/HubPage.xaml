@@ -12,6 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Afbeeldingen/Hub/HubWireframe.jpg"/>
         </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="7*"/>
@@ -85,27 +86,27 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Grid.Column="0" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btn_Bj" HorizontalAlignment="Stretch" Padding="0" Click="btn_Bj_Click" Content="" Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnBj" HorizontalAlignment="Stretch" Padding="0" Click="btnBj_Click" Content="" Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="2" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btn_Bke" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Click="btn_Bke_Click" BorderThickness="0.5"  Height="37" Width="18"/>
+                    <Button x:Name="btnBke" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Click="btnBke_Click" BorderThickness="0.5"  Height="37" Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="4" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btn_a" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnA" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="6" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btn_b" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnB" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="8" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btn_c" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0"  Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnC" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0"  Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="10" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btn_d" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Margin="0" BorderThickness="0.5" Height="37" Width="18"/>
+                    <Button x:Name="btnD" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Margin="0" BorderThickness="0.5" Height="37" Width="18"/>
                 </Viewbox>
             </Grid>
         </Grid>

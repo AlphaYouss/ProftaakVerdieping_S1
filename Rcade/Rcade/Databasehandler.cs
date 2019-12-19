@@ -9,6 +9,8 @@ namespace Rcade
         public SqlConnectionStringBuilder builder { get; private set; }
         public SqlConnection con { get; private set; }
         public DataTable table { get; private set; }
+        public bool isDatabaseLive { get; set; }
+        public bool isTestVersion { get; set; }
 
         public Databasehandler()
         {
@@ -69,40 +71,6 @@ namespace Rcade
         public SqlConnection GetCon()
         {
             return con;
-        }
-
-        public void Execute(string query)
-        {
-            SqlCommand queryExecute = new SqlCommand(query, con);
-
-            try
-            {
-                TestConnection();
-                OpenConnectionToDB();
-
-                queryExecute.Prepare();
-                queryExecute.ExecuteReader();
-
-                CloseConnectionToDB();
-            }
-            catch (Exception)
-            {
-                CloseConnectionToDB();
-            }
-        }
-
-        public void GetUserData()
-        {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Test_User_gegevens", GetCon());
-
-            TestConnection();
-            OpenConnectionToDB();
-
-            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-            adapt.Fill(table);
-
-            CloseConnectionToDB();
         }
     }
 }

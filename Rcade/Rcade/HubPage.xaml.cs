@@ -7,15 +7,21 @@ namespace Rcade
 {
     public sealed partial class HubPage : Page
     {
+        private User user { get; set; }
         public HubPage()
         {
             InitializeComponent();
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
-            1000, // Width
-            1000 // Height
+            1000,
+            1000 
             ));
+        }
+
+        internal void SetUser(User user)
+        {
+            this.user = user;
         }
 
         private void btnUitloggen_Click(object sender, RoutedEventArgs e)
@@ -24,15 +30,19 @@ namespace Rcade
             Content = main;
         }
 
-        private void btn_Bke_Click(object sender, RoutedEventArgs e)
+        private void btnBke_Click(object sender, RoutedEventArgs e)
         {
             BKEPage bke = new BKEPage();
+            bke.SetUser(user);
+
             Content = bke;
         }
 
-        private void btn_Bj_Click(object sender, RoutedEventArgs e)
+        private void btnBj_Click(object sender, RoutedEventArgs e)
         {
             BJPage bj = new BJPage();
+            bj.SetUser(user);
+
             Content = bj;
         }
     }

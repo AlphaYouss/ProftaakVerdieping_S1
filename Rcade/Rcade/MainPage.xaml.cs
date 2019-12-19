@@ -1,5 +1,4 @@
-﻿using System.Data;
-using Windows.Foundation;
+﻿using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -8,33 +7,67 @@ namespace Rcade
 {
     public sealed partial class MainPage : Page
     {
-        private Databasehandler dbh = new Databasehandler();
+        private User user { get; set; } = new User();
 
         public MainPage()
         {
             InitializeComponent();
-            WriteData();
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
-                1000, // Width
-                1000 // Height
+                1000, 
+                1000 
                 ));
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            HubPage hub = new HubPage();
-            Content = hub;
-        }
+            bool errorUsername = false;
+            bool errorPassword = false;
 
-        public void WriteData()
-        {
-            dbh.GetUserData();
-
-            foreach (DataRow row in dbh.table.Rows)
+            if (user.ValidateUsername(username.Text) ==  false)
             {
-                string name = row["Username"].ToString();
+                errorUsername = true;
+            }
+            if (user.ValidatePassword(password.Password) == false)
+            {
+                errorPassword = true;
+            }
+
+            if (errorUsername == true && errorPassword == true)
+            {
+                message.Text = user.ShowError("Login", 2);
+            }
+            else if(errorUsername == true)
+            {
+                message.Text = user.ShowError("Login", 0);
+            }
+            else if (errorPassword == true)
+            {
+                message.Text = user.ShowError("Login", 1);
+            }
+            else
+            {
+                user.CheckIfUserExists(username.Text);
+                if (user.exists == true)
+                {
+                    user.Login(username.Text, password.Password);
+                    if (user.loggedIn == true)
+                    {
+                        HubPage hub = new HubPage();
+                        hub.SetUser(user);
+
+                        Content = hub;
+                    }
+                    else
+                    {
+                        message.Text = user.ShowError("Account", 1);
+                    }
+                }
+                else
+                {
+                    message.Text = user.ShowError("Account", 0);
+                }
             }
         }
     }

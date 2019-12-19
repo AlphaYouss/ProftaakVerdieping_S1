@@ -12,6 +12,7 @@ namespace Rcade
         BJ GameHost = new BJ();
         Image[] SpelerImages;
         Image[] DealerImages;
+        private User user { get; set; }
         public double inzet { get; private set; }
 
         public BJPage()
@@ -20,8 +21,8 @@ namespace Rcade
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
-                1000, // Width
-                1000 // Height
+                1000,
+                1000 
                 ));
 
             SpelerImages = new Image[] { SpelerKaart1, SpelerKaart2, SpelerKaart3, SpelerKaart4, SpelerKaart5, SpelerKaart6, SpelerKaart7, SpelerKaart8 };
@@ -35,6 +36,11 @@ namespace Rcade
             {
                 Saldo.Margin = new Thickness(1, 0, 0, 4);
             }
+        }
+
+        internal void SetUser(User user)
+        {
+            this.user = user;
         }
 
         //Text aanpassen
@@ -69,6 +75,12 @@ namespace Rcade
         private void UpdateText()
         {
             Saldo.Text = Convert.ToString(GameHost.deSpeler.saldo);
+
+
+            if (GameHost.deSpeler.saldo <= 0)
+            {
+                Saldo.Margin = new Thickness(1, 0, 0, 4);
+            }
 
             //KaartenDealer.Text = GameHost.deDealer.GetKaarten();
             //KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
