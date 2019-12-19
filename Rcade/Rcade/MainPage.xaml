@@ -8,7 +8,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters">
 
-    <Grid x:Name="main" Background="DarkCyan">
+    <Grid x:Name="main" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2.25*"/>
@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Grid.Row="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                    <TextBlock x:Name="title" Text="Rcade"/>
+                    <TextBlock x:Name="title" Text="Rcade" Foreground="White"/>
                 </Viewbox>
 
                 <Grid Grid.Row="1">
@@ -58,7 +58,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Viewbox Grid.Column="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                                <TextBlock x:Name="login" Text="Login"/>
+                                <TextBlock x:Name="login" Text="Welcome!" Foreground="White"/>
                             </Viewbox>
                         </Grid>
 
@@ -73,23 +73,27 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
+                            <Viewbox Grid.Row="0" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
+                                <TextBlock x:Name="message" Foreground="Red" FontFamily="Consolas"/>
+                            </Viewbox>
+
                             <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
-                                <TextBox x:Name="username" PlaceholderText="Username" Width="300" FontFamily="Consolas" Padding="5,10,5,10"/>
+                                <TextBox x:Name="username" PlaceholderText="Username" Width="300" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" />
                             </Viewbox>
 
                             <Viewbox Grid.Row="3" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
-                                <PasswordBox x:Name="password" PlaceholderText="Password" Width="300" FontFamily="Consolas" Padding="5,10,5,10"/>
+                                <PasswordBox x:Name="password" PlaceholderText="Password" Width="300" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="100"/>
                             </Viewbox>
 
                             <Viewbox Grid.Row="5" StretchDirection="Both" HorizontalAlignment="Right" Stretch="Uniform">
-                                <Button x:Name="btnLogin" Click="btnLogin_Click" Padding="0" Margin="2.5,0" BorderThickness="0" BorderBrush="#1963d0" >
-                                    <Image Source="/Assets/Afbeeldingen/BKE/Back.png"/>
+                                <Button x:Name="btnLogin" Click="btnLogin_Click" Padding="0" Margin="2.5,0" BorderThickness="0" BorderBrush="#1963d0">
+                                    <Image Source="/Assets/Afbeeldingen/Login/Login.png"/>
                                 </Button>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Row="2">
-                            <Viewbox  StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
+                            <Viewbox StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
                                 <TextBlock x:Name="website">
                                     <Hyperlink NavigateUri="http://rcade.azurewebsites.net/register.php" Foreground="White">Create account</Hyperlink>
                                 </TextBlock>
@@ -105,14 +109,14 @@
                     </Grid.RowDefinitions>
 
                     <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                        <TextBlock x:Name="version" Text="Alpha V.1.8" />
+                        <TextBlock x:Name="version" Text="Alpha V.2.0" Foreground="White"/>
                     </Viewbox>
                 </Grid>
             </Grid>
         </Grid>
 
         <Grid Grid.Column="1">
-            <Image Source="/Assets/Afbeeldingen/BKE/Achtergrond.jpg" Stretch="fill"/>
+            <Image Source="/Assets/Afbeeldingen/Login/Achtergrond.jpg" Stretch="fill"/>
         </Grid>
     </Grid>
 </Page>

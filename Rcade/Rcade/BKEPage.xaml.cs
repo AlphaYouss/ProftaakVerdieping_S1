@@ -13,6 +13,7 @@ namespace Rcade
     public sealed partial class BKEPage : Page
     {
         public BitmapImage plaatjes { get; private set; } = new BitmapImage(new Uri("ms-appx:///"));
+        private User user { get; set; }
 
         BKE bke;
         BKE_Veld veld;
@@ -25,11 +26,16 @@ namespace Rcade
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
-                1000, // Width
-                1000 // Height
+                1000,
+                1000 
                 ));
 
             SetUp();
+        }
+
+        internal void SetUser(User user)
+        {
+            this.user = user;
         }
 
         private void SetUp()
@@ -48,11 +54,6 @@ namespace Rcade
             txtnaamAI.Foreground = new SolidColorBrush(Colors.White);
             txtscoreSpeler.Foreground = new SolidColorBrush(Colors.White);
             txtscoreAI.Foreground = new SolidColorBrush(Colors.White);
-
-            txtnaamSpeler.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
-            txtnaamAI.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
-            txtscoreAI.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
-            txtscoreSpeler.FontFamily = new FontFamily("/Assets/Fonts/SFAlienEncounters-Italic.ttf#SF Alien Encounters");
         }
 
         private void vak_click(object sender, RoutedEventArgs e)
@@ -99,7 +100,6 @@ namespace Rcade
                     NextGameShow();
                 }
             }
-
             else
             {
                 // Gelijkspel.
