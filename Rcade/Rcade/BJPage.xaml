@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters">
-    
+
     <Grid x:Name="main">
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Afbeeldingen/BJ/Achtergrond.jpg"></ImageBrush>
@@ -31,8 +31,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Viewbox Stretch="Uniform" Grid.Column="0" VerticalAlignment="Top">
-            <Button x:Name="btnBack" Margin="30,30" Click="btnBack_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" BorderThickness="0" BorderBrush="#1963d0">
+        <Viewbox Stretch="Uniform" Grid.Column="0" VerticalAlignment="Top" StretchDirection="Both">
+            <Button x:Name="btnBack" Margin="30,30" Click="btnBack_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0" BorderBrush="#1963d0">
                 <Image Source="/Assets/Afbeeldingen/BJ/Back.png" />
             </Button>
         </Viewbox>
@@ -79,7 +79,7 @@
             </Grid.ColumnDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="ResetInzet" Margin="10,20" Click="ResetInzet_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="ResetInzet" Margin="10,20" Click="ResetInzet_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/ResetBtn.png" />
                 </Button>
             </Viewbox>
@@ -97,31 +97,31 @@
             </Viewbox>
         </Grid>
 
+        <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
+            <Image Name="DealerKaart1" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
+            <Image Name="DealerKaart2" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
+            <Image Name="DealerKaart3" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
+        </Viewbox>
+
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart1" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
+            <Image Name="DealerKaart4" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart2" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
+            <Image Name="DealerKaart5" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart3" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
+            <Image Name="DealerKaart6" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Viewbox Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart4" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
+            <Image Name="DealerKaart7" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart5" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
-        </Viewbox>
-        <Viewbox Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart6" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
-        </Viewbox>
-
-        <Viewbox Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart7" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
-        </Viewbox>
-        <Viewbox Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="DealerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50" />
+            <Image Name="DealerKaart8" Source="/Assets/Afbeeldingen/BJ/Cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Grid Grid.Column="7" Grid.Row="1">
@@ -139,22 +139,22 @@
             </Grid.ColumnDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="0" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="VijftigKnop" Margin="10,20" Padding="0" Click="VijftigKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="VijftigKnop" Margin="10,20" Padding="0" Click="VijftigKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche50.png" />
                 </Button>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="HonderdKnop" Margin="10,20" Padding="0" Click="HonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="HonderdKnop" Margin="10,20" Padding="0" Click="HonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche100.png" />
                 </Button>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Row="2" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="TweehonderdKnop" Margin="10,20" Padding="0" Click="TweehonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="TweehonderdKnop" Margin="10,20" Padding="0" Click="TweehonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche200.png" />
                 </Button>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="VijfhonderdKnop" Margin="10,20" Padding="0" Click="VijfhonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="VijfhonderdKnop" Margin="10,20" Padding="0" Click="VijfhonderdKnop_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/Fiches/Fiche500.png" />
                 </Button>
             </Viewbox>
@@ -174,7 +174,7 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
-                
+
                 <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock x:Name="playerName" Text="Goebals123" Margin="1.5,2.5,5,2.5"/>
                 </Viewbox>
@@ -192,7 +192,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Een" Margin="10,20" Padding="0" Click="Een_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Een" Margin="10,20" Padding="0" Click="Een_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/1Btn.png" />
                 </Button>
             </Viewbox>
@@ -205,7 +205,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Elf" Margin="10,20" Padding="0" Click="Elf_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Elf" Margin="10,20" Padding="0" Click="Elf_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/11Btn.png" />
                 </Button>
             </Viewbox>
@@ -218,7 +218,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="3" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Hit" Margin="10,20" Padding="0" Click="Hit_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Hit" Margin="10,20" Padding="0" Click="Hit_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/HitBtn.png" />
                 </Button>
             </Viewbox>
@@ -231,7 +231,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="4" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Stand" Margin="10,20" Click="Stand_Click" Padding="0"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Stand" Margin="10,20" Click="Stand_Click" Padding="0" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/StandBtn.png" />
                 </Button>
             </Viewbox>
@@ -244,7 +244,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="4" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="NewGame" Margin="10,20" Padding="0" Click="NewGame_Click" Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="NewGame" Margin="10,20" Padding="0" Click="NewGame_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/NextBtn.png" />
                 </Button>
             </Viewbox>
@@ -257,7 +257,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="5" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="Insurance" Margin="10,20" Padding="0" Click="Insurance_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="Insurance" Margin="10,20" Padding="0" Click="Insurance_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/InsuranceShortBtn.png" />
                 </Button>
             </Viewbox>
@@ -271,7 +271,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="5" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="DoubleDownKnop" Margin="10,20" Padding="0" Click="DoubleDown_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="DoubleDownKnop" Margin="10,20" Padding="0" Click="DoubleDown_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
                     <Image Source="/Assets/Afbeeldingen/BJ/2xBtn.png" />
                 </Button>
             </Viewbox>
@@ -285,7 +285,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="7" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="ConfirmInzet" Margin="10,20" Padding="0" Click="ConfirmInzet_Click"  Background="Transparent" BorderThickness="0" BorderBrush="#1963d0" >
+                <Button x:Name="ConfirmInzet" Margin="10,20" Padding="0" Click="ConfirmInzet_Click" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0" >
                     <Image Source="/Assets/Afbeeldingen/BJ/ConfrimBtn.png" />
                 </Button>
             </Viewbox>
