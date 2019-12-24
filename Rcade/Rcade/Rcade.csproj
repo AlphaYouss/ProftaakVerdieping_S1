@@ -224,6 +224,7 @@
     <Content Include="Assets\Afbeeldingen\BKE\Back.png" />
     <Content Include="Assets\Afbeeldingen\BKE\O.png" />
     <Content Include="Assets\Afbeeldingen\BKE\Restart.png" />
+    <Content Include="Assets\Afbeeldingen\BKE\Transparent.png" />
     <Content Include="Assets\Afbeeldingen\BKE\X.png" />
     <Content Include="Assets\Afbeeldingen\Fiches\Fiche100.png" />
     <Content Include="Assets\Afbeeldingen\Fiches\Fiche200.png" />

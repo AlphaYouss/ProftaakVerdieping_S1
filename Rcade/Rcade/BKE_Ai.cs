@@ -8,7 +8,7 @@ namespace Rcade
     {
         public BKE_Veld veld { get; private set; }
         public BitmapImage plaatjeAI { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Afbeeldingen/BKE/O.png"));
-        public string naamAI { get; private set; } = "Stalin";
+        public string naamAI { get; private set; } = "Izaak";
         public int scoreAI { get; private set; } = 0;
         public int stapAI { get; private set; }
 

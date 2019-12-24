@@ -12,161 +12,441 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Afbeeldingen/BKE/Achtergrond.jpg"></ImageBrush>
         </Grid.Background>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*" />
-            <RowDefinition Height="8*" />
-            <RowDefinition Height="1.6*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.92*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="0.92*"/>
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="0">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Viewbox Stretch="fill" Grid.Column="0">
-                <Button x:Name="btnBack" Click="btnBack_Click" Grid.Column="0" Margin="7,18,7,0" Padding="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="42" Background="Black" BorderThickness="0" BorderBrush="#1963d0">
-                    <Image Source="/Assets/Afbeeldingen/BKE/Back.png" />
-                </Button>
-            </Viewbox>
-
-            <Viewbox Stretch="fill" Grid.Column="2">
-                <Button x:Name="btnRestart" Grid.Column="0" Visibility="Collapsed" Click="btnRestart_Click" Margin="7,18,7,0" Padding="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="42" Background="Black" BorderThickness="0" BorderBrush="#1963d0">
-                    <Image Source="/Assets/Afbeeldingen/BKE/Restart.png" />
-                </Button>
-            </Viewbox>
-        </Grid>
-
-        <Grid Grid.Column="1" Grid.Row="1" Name="field">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="3*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="3*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".775*"/>
             </Grid.RowDefinitions>
 
-            <Button Name="vak1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image"/>
-                </StackPanel>
-            </Button>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Name="vak2" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image2"/>
-                </StackPanel>
-            </Button>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".4*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Button Name="vak3" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image3"/>
-                </StackPanel>
-            </Button>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <Viewbox StretchDirection="Both" Stretch="Uniform">
+                        <Button x:Name="btnBack" Click="btnBack_Click" Padding="0" BorderThickness="0" BorderBrush="#1963d0">
+                            <Image Source="/Assets/Afbeeldingen/BKE/Back.png" />
+                        </Button>
+                    </Viewbox>
+                </Grid>
+            </Grid>
 
-            <Button Name="vak4" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image4"/>
-                </StackPanel>
-            </Button>
+            <Grid Grid.Column="6" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Name="vak5" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image5"/>
-                </StackPanel>
-            </Button>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".4*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Button Name="vak6" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image6"/>
-                </StackPanel>
-            </Button>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <Viewbox StretchDirection="Both" Stretch="Uniform">
+                        <Button x:Name="btnRestart" Click="btnRestart_Click" Padding="0" BorderThickness="0" BorderBrush="#1963d0" >
+                            <Image Source="/Assets/Afbeeldingen/BKE/Restart.png" />
+                        </Button>
+                    </Viewbox>
+                </Grid>
+            </Grid>
 
-            <Button Name="vak7" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel >
-                    <Image Name="image7"/>
-                </StackPanel>
-            </Button>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".07*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height=".55*"/>
+                </Grid.RowDefinitions>
 
-            <Button Name="vak8" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image8"/>
-                </StackPanel>
-            </Button>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-            <Button Name="vak9" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="vak_click" Padding="0" BorderThickness="0" >
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <StackPanel>
-                    <Image Name="image9"/>
-                </StackPanel>
-            </Button>
-        </Grid>
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak1" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
 
-        <Grid Grid.Column="1" Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <Image Name="image" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
 
-            <Viewbox x:Name="speler" Grid.Column="0">
-                <StackPanel>
-                    <TextBox x:Name="txtnaamSpeler" Grid.Column="0" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,28,0,0" Padding="10,5"  MaxHeight="55"  IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-                    <TextBox x:Name="txtscoreSpeler" Grid.Column="0" FontSize="30px" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalTextAlignment="Center" Margin="0,-0.5,0,0" Padding="0,10" MaxHeight="100" MaxWidth="100" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe"/>
-                </StackPanel>
-            </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".07*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height=".55*"/>
+                </Grid.RowDefinitions>
 
-            <Viewbox x:Name="ai" Grid.Column="4">
-                <StackPanel>
-                    <TextBox x:Name="txtnaamAI" Grid.Column="0" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Margin="0,28,0,0" Padding="10,5"  MaxHeight="55"  IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-                    <TextBox x:Name="txtscoreAI" Grid.Column="0" FontSize="30px" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalTextAlignment="Center" Margin="0,-0.5,0,0" Padding="0,10" MaxHeight="100" MaxWidth="100" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe"/>
-                </StackPanel>
-            </Viewbox>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak2" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image2" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".07*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height=".55*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak3" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image3" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".75*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".53*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak4" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image4" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".75*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".53*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak5" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image5" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".75*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".53*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak6" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image6" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".32*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak7" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image7" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".32*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak8" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image8" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".32*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <Button Name="vak9" Click="vak_click" Padding="0" BorderThickness="3" CornerRadius="2" BorderBrush="#ec00fb">
+                                <Button.Background>
+                                    <SolidColorBrush Opacity="0"/>
+                                </Button.Background>
+
+                                <StackPanel>
+                                    <Image Name="image9" Source="/Assets/Afbeeldingen/BKE/Transparent.png"/>
+                                </StackPanel>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".13*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height=".03*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <TextBlock x:Name="txtnaamSpeler" Margin="0,10"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".04*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height=".08*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.55*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1">
+                            <Viewbox StretchDirection="Both" Stretch="Fill">
+                                <TextBlock x:Name="txtscoreSpeler" Text="0" Margin="5" Height="11.5"/>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".13*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height=".03*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox StretchDirection="Both" Stretch="Fill">
+                            <TextBlock x:Name="txtnaamAI" Margin="1,10,0,10"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".04*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height=".08*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.55*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1">
+                            <Viewbox StretchDirection="Both" Stretch="Fill">
+                                <TextBlock x:Name="txtscoreAI" Text="0" Margin="5" Height="11.5"/>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

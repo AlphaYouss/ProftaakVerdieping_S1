@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -12,13 +11,13 @@ namespace Rcade
 {
     public sealed partial class BKEPage : Page
     {
-        public BitmapImage plaatjes { get; private set; } = new BitmapImage(new Uri("ms-appx:///"));
+        public BitmapImage transparentImage { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Afbeeldingen/BKE/Transparent.png"));
         private User user { get; set; }
 
         BKE bke;
-        BKE_Veld veld;
-        BKE_Speler speler1;
-        BKE_Ai ai1;
+        BKE_Veld field;
+        BKE_Speler player;
+        BKE_Ai ai;
 
         public BKEPage()
         {
@@ -40,15 +39,15 @@ namespace Rcade
 
         private void SetUp()
         {
-            veld = new BKE_Veld();
-            veld.VeldGenereren();
+            field = new BKE_Veld();
+            field.VeldGenereren();
 
-            speler1 = new BKE_Speler(veld);
-            ai1 = new BKE_Ai(veld);
-            bke = new BKE(veld);
+            player = new BKE_Speler(field);
+            ai = new BKE_Ai(field);
+            bke = new BKE(field);
 
-            txtnaamAI.Text = ai1.naamAI;
-            txtnaamSpeler.Text = speler1.naamSpeler;
+            txtnaamAI.Text = ai.naamAI;
+            txtnaamSpeler.Text = player.naamSpeler;
 
             txtnaamSpeler.Foreground = new SolidColorBrush(Colors.White);
             txtnaamAI.Foreground = new SolidColorBrush(Colors.White);
@@ -63,8 +62,8 @@ namespace Rcade
 
             int vak = Convert.ToInt32(words[1]);
 
-            speler1.ZetStapSpeler(vak);
-            VeranderVeld(vak, speler1.plaatjeSpeler, false, true);
+            player.ZetStapSpeler(vak);
+            VeranderVeld(vak, player.plaatjeSpeler, false, true);
 
             int beschikbarevakken = bke.CheckVak();
 
@@ -72,8 +71,8 @@ namespace Rcade
             {
                 // Speler wint.
 
-                speler1.SetScoreSpeler(3);
-                ai1.SetScoreAI(-1);
+                player.SetScoreSpeler(3);
+                ai.SetScoreAI(-1);
 
                 txtnaamSpeler.Foreground = new SolidColorBrush(Colors.Green);
                 txtnaamAI.Foreground = new SolidColorBrush(Colors.Red);
@@ -82,17 +81,17 @@ namespace Rcade
             }
             else if (beschikbarevakken != 0)
             {
-                Delay();
+                //Delay();
 
-                ai1.ZetStapAI();
-                VeranderVeld(ai1.stapAI, ai1.plaatjeAI, false, true);
+                ai.ZetStapAI();
+                VeranderVeld(ai.stapAI, ai.plaatjeAI, false, true);
 
                 if (bke.WinCheck())
                 {
                     // AI wint.   
 
-                    speler1.SetScoreSpeler(-1);
-                    ai1.SetScoreAI(3);
+                    player.SetScoreSpeler(-1);
+                    ai.SetScoreAI(3);
 
                     txtnaamSpeler.Foreground = new SolidColorBrush(Colors.Red);
                     txtnaamAI.Foreground = new SolidColorBrush(Colors.Green);
@@ -111,24 +110,24 @@ namespace Rcade
             }
         }
 
-        private void Delay()
-        {
-            Task.Delay(TimeSpan.FromSeconds(0.5)).Wait();
-        }
+        //private void Delay()
+        //{
+        //    Task.Delay(TimeSpan.FromSeconds(0.5)).Wait();
+        //}
 
         private void NextGameShow()
         {
             btnRestart.Visibility = Visibility.Visible;
 
-            speler1.SetScoreSpelerZero();
-            ai1.SetScoreAIZero();
+            player.SetScoreSpelerZero();
+            ai.SetScoreAIZero();
 
-            txtscoreSpeler.Text = speler1.scoreSpeler.ToString();
-            txtscoreAI.Text = ai1.scoreAI.ToString();
+            txtscoreSpeler.Text = player.scoreSpeler.ToString();
+            txtscoreAI.Text = ai.scoreAI.ToString();
 
             for (int i = 1; i < 10; i++)
             {
-                VeranderVeld(i, plaatjes, false, false);
+                VeranderVeld(i, transparentImage, false, false);
             }
         }
 
@@ -144,7 +143,8 @@ namespace Rcade
                         image.Source = imageSource;
                     }
 
-                    vak1.IsEnabled = enabled;
+                    vak1.Click -= vak_click;
+                    //vak1.IsEnabled = enabled;
                     break;
                 case 2:
                     if (reset == true)
@@ -152,7 +152,8 @@ namespace Rcade
                         image2.Source = imageSource;
                     }
 
-                    vak2.IsEnabled = enabled;
+                    vak2.Click -= vak_click;
+                    //vak2.IsEnabled = enabled;
                     break;
                 case 3:
                     if (reset == true)
@@ -160,7 +161,8 @@ namespace Rcade
                         image3.Source = imageSource;
                     }
 
-                    vak3.IsEnabled = enabled;
+                    vak3.Click -= vak_click;
+                    //vak3.IsEnabled = enabled;
                     break;
                 case 4:
                     if (reset == true)
@@ -168,7 +170,8 @@ namespace Rcade
                         image4.Source = imageSource;
                     }
 
-                    vak4.IsEnabled = enabled;
+                    vak4.Click -= vak_click;
+                    //vak4.IsEnabled = enabled;
                     break;
                 case 5:
                     if (reset == true)
@@ -176,7 +179,8 @@ namespace Rcade
                         image5.Source = imageSource;
                     }
 
-                    vak5.IsEnabled = enabled;
+                    vak5.Click -= vak_click;
+                    //vak5.IsEnabled = enabled;
                     break;
                 case 6:
                     if (reset == true)
@@ -184,7 +188,8 @@ namespace Rcade
                         image6.Source = imageSource;
                     }
 
-                    vak6.IsEnabled = enabled;
+                    vak6.Click -= vak_click;
+                    //vak6.IsEnabled = enabled;
                     break;
                 case 7:
                     if (reset == true)
@@ -192,7 +197,8 @@ namespace Rcade
                         image7.Source = imageSource;
                     }
 
-                    vak7.IsEnabled = enabled;
+                    vak7.Click -= vak_click;
+                    //vak7.IsEnabled = enabled;
                     break;
                 case 8:
                     if (reset == true)
@@ -200,7 +206,8 @@ namespace Rcade
                         image8.Source = imageSource;
                     }
 
-                    vak8.IsEnabled = enabled;
+                    vak8.Click -= vak_click;
+                    //vak8.IsEnabled = enabled;
                     break;
                 case 9:
                     if (reset == true)
@@ -208,7 +215,8 @@ namespace Rcade
                         image9.Source = imageSource;
                     }
 
-                    vak9.IsEnabled = enabled;
+                    vak9.Click -= vak_click;
+                    //vak9.IsEnabled = enabled;
                     break;
             }
         }
@@ -219,10 +227,20 @@ namespace Rcade
 
             for (int i = 1; i < 10; i++)
             {
-                VeranderVeld(i, plaatjes, true, true);
+                VeranderVeld(i, transparentImage, true, true);
             }
 
-            veld.ClearVeld();
+            field.ClearVeld();
+
+            vak1.Click += vak_click;
+            vak2.Click += vak_click;
+            vak3.Click += vak_click;
+            vak4.Click += vak_click;
+            vak5.Click += vak_click;
+            vak6.Click += vak_click;
+            vak7.Click += vak_click;
+            vak8.Click += vak_click;
+            vak9.Click += vak_click;
 
             txtnaamAI.Foreground = new SolidColorBrush(Colors.White);
             txtnaamSpeler.Foreground = new SolidColorBrush(Colors.White);
