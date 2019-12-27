@@ -93,7 +93,6 @@ namespace Rcade
                 OpenConnectionToDB();
 
                 salt = Convert.ToString(cmd.ExecuteScalar());
-
                 CloseConnectionToDB();
             }
             else
@@ -123,7 +122,6 @@ namespace Rcade
                 SqlDataAdapter adapt = new SqlDataAdapter(cmd);
 
                 adapt.Fill(table);
-
                 CloseConnectionToDB();
             }
             else

@@ -29,7 +29,6 @@ namespace Rcade
                 SqlDataAdapter adapt = new SqlDataAdapter(cmd);
 
                 adapt.Fill(table);
-
                 CloseConnectionToDB();
             }
             else

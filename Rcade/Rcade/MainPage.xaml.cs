@@ -2,6 +2,7 @@
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Rcade
 {
@@ -22,10 +23,23 @@ namespace Rcade
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            Login();
+        }
+
+        private void password_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                Login();
+            }
+        }
+
+        private void Login()
+        {
             bool errorUsername = false;
             bool errorPassword = false;
 
-            if (user.ValidateUsername(username.Text) ==  false)
+            if (user.ValidateUsername(username.Text) == false)
             {
                 errorUsername = true;
             }
@@ -38,7 +52,7 @@ namespace Rcade
             {
                 message.Text = user.ShowError("Login", 2);
             }
-            else if(errorUsername == true)
+            else if (errorUsername == true)
             {
                 message.Text = user.ShowError("Login", 0);
             }
