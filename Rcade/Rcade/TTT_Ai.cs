@@ -7,7 +7,7 @@ namespace Rcade
     class TTT_Ai
     {
         public TTT_Field field { get; private set; }
-        public BitmapImage imageAi { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Afbeeldingen/BKE/O.png"));
+        public BitmapImage imageAi { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/o.png"));
         public string nameAi { get; private set; } = "Izaak";
         public int scoreAi { get; private set; } = 0;
         public int moveAi { get; private set; }
