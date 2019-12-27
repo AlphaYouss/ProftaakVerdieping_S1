@@ -2,205 +2,187 @@
 {
     class BJ
     {
-        public BJ_Speler deSpeler { get; private set; } = new BJ_Speler();
-        public BJ_Speler deDealer { get; private set; } = new BJ_Speler();
-        public BJ_Kaarten bank { get; private set; } = new BJ_Kaarten();
-
-        public string uitkomst { get; private set; } = "";
-        public bool gameOver { get; private set; } = false;
-
-        public bool insurance { get; private set; } = false;
-        public bool heeftInsurance { get; private set; }
-        public bool beurtGedaan { get; private set; } = false;
-
-        private double inzet = 50;
-        public double echteInzet { get; private set; } = 50;
-
+        public BJ_Player player { get; private set; } = new BJ_Player();
+        public BJ_Player dealer { get; private set; } = new BJ_Player();
+        public BJ_Cards stackOfCards { get; private set; } = new BJ_Cards();
         public enum fiches { Fifty = 50, Hundered = 100, Twohundered = 200, Fivehunderd = 500 };
+        public string result { get; private set; } = "";
+        public bool gameOver { get; private set; } = false;
+        public bool insurance { get; private set; } = false;
+        public bool hasInsurance { get; private set; }
+        public bool playedTurn { get; private set; } = false;
+        public double actualStake { get; private set; } = 50;
+        private double stake = 50;
 
-        //Start 
-        public void Beurt1(double inzet)
+        public void FirstTurn(double stake)
         {
-            bool zichtbaar = false;
+            bool visible = false;
 
-            deSpeler.PakKaart(bank);
-            if (deSpeler.Aas() == true)
+            player.SetCard(stackOfCards);
+            if (player.CheckForAce() == true)
             {
-                zichtbaar = true;
+                visible = true;
             }
 
-            deDealer.PakKaart(bank);
-            deDealer.DealerAzen();
-            if (deDealer.InsuranceControle())
+            dealer.SetCard(stackOfCards);
+            dealer.SetDealerAces();
+            if (dealer.CheckInsurance())
             {
-                heeftInsurance = true;
-                zichtbaar = true;
+                hasInsurance = true;
+                visible = true;
             }
 
-            if (!zichtbaar)
+            if (!visible)
             {
-                Beurt2(inzet);
+                SecondTurn(stake);
             }
         }
 
-        public void Beurt2(double inzet)
+        public void SecondTurn(double stake)
         {
-            deSpeler.PakKaart(bank);
-            deSpeler.Aas();
+            player.SetCard(stackOfCards);
+            player.CheckForAce();
 
-            deDealer.PakKaart(bank);
-            deDealer.DealerAzen();
+            dealer.SetCard(stackOfCards);
+            dealer.SetDealerAces();
 
             if (insurance)
             {
-                if (deDealer.spelerKaarten[1].punt == 10)
+                if (dealer.card[1].value == 10)
                 {
-                    double InsuranceGeld = (inzet / 2) + inzet;
+                    double insuranceMoney = (stake / 2) + stake;
 
-                    deSpeler.SaldoBijschrijven(InsuranceGeld);
+                    player.AddBalance(insuranceMoney);
 
-                    Stand(inzet, bank);
+                    Stand(stake, stackOfCards);
                 }
             }
-            beurtGedaan = true;
+            playedTurn = true;
         }
 
-        //Hit
-        public void Hit(double inzet)
+        public void CheckForPlayerBust()
         {
-            deSpeler.PakKaart(bank);
-            SpelerBustControle(inzet);
-        }
-
-        public void SpelerBustControle(double Inzet)
-        {
-            if (deSpeler.TotaalPunten() > 21)
+            if (player.GetTotalPoints() > 21)
             {
-                uitkomst = "Speler bust";
+                result = "Player bust!";
                 gameOver = true;
             }
         }
 
-        //Stand
-        public void Stand(double inzet, BJ_Kaarten bank)
+        public void Stand(double stake, BJ_Cards cards)
         {
-            deDealer.HitControle(bank);
-            WinnaarControle(inzet);
+            dealer.CheckHit(cards);
+            CheckWinner(stake);
         }
 
-        public string WinnaarControle(double inzet)
+        public string CheckWinner(double stake)
         {
-            int Speler = deSpeler.TotaalPunten();
-            int Dealer = deDealer.TotaalPunten();
+            int playerPoints = player.GetTotalPoints();
+            int dealerPoints = dealer.GetTotalPoints();
 
-            if (insurance && Dealer == 21)
+            if (insurance && dealerPoints == 21)
             {
-                uitkomst = "Insurance uitbetaald";
+                result = "Insurance paid out!";
             }
 
-            else if (Speler == 21)
+            else if (playerPoints == 21)
             {
-                uitkomst = "Speler blackjack";
-                deSpeler.SaldoBijschrijven(inzet * 2);
+                result = "Player blackjack!";
+                player.AddBalance(stake * 2);
             }
 
-            else if (Dealer > 21)
+            else if (dealerPoints > 21)
             {
-                uitkomst = "Dealer Bust";
-                deSpeler.SaldoBijschrijven(inzet * 2);
+                result = "Dealer Bust!";
+                player.AddBalance(stake * 2);
             }
 
-
-            else if (Speler > Dealer && Speler <= 21)
+            else if (playerPoints > dealerPoints && playerPoints <= 21)
             {
-                uitkomst = "Speler wint";
-                deSpeler.SaldoBijschrijven(inzet * 2);
+                result = "Player wins!";
+                player.AddBalance(stake * 2);
             }
 
-
-            else if (Dealer > Speler)
+            else if (dealerPoints > playerPoints)
             {
-                uitkomst = "Dealer wint";
+                result = "Dealer wins!";
             }
 
-            else if (Speler == Dealer)
+            else if (playerPoints == dealerPoints)
             {
-                uitkomst = "Push";
-                deSpeler.SaldoBijschrijven(inzet);
+                result = "No winner, Push!";
+                player.AddBalance(stake);
             }
+
             gameOver = true;
-            return uitkomst;
+            return result;
         }
 
-        //Einde
         public void Clear()
         {
-            deSpeler.HandLegen();
-            deDealer.HandLegen();
+            player.Clear();
+            dealer.Clear();
 
-            uitkomst = "";
+            result = "";
 
             gameOver = false;
-            heeftInsurance = false;
-            beurtGedaan = false;
+            hasInsurance = false;
+            playedTurn = false;
 
-            ResetInzet();
+            SetStakeReset();
         }
 
-        //Inzet
-        public bool InzetCheck(double inzet)
+        public bool CheckStake(double stake)
         {
-            this.inzet += inzet;
+            this.stake += stake;
 
-            if (this.inzet > deSpeler.saldo)
+            if (this.stake > player.balance)
             {
-                uitkomst = "Saldo te laag";
-                ResetInzet();
-
-                return false;
-            }
-            else if (this.inzet > 1000)
-            {
-                uitkomst = "Inzet max 1000";
-                this.inzet = echteInzet;
+                result = "Balance too low.";
+                SetStakeReset();
 
                 return false;
             }
-            else if (deSpeler.saldo <= 0)
+            else if (this.stake > 1000)
             {
-                uitkomst = "Saldo negatief";
-                // Hier komt een link naar de back knop
+                result = "Bet max 1000.";
+                this.stake = actualStake;
+
+                return false;
+            }
+            else if (player.balance <= 0)
+            {
+                result = "Balance negative.";
                 return false;
             }
             else
             {
-                uitkomst = "";
-                echteInzet = this.inzet;
+                result = "";
+                actualStake = this.stake;
 
                 return true;
             }
         }
 
-        // Variabele met een private set aanpassen
-        public void ChangeUitkomst(string NieuweUitkomst)
+        public void SetResult(string result)
         {
-            uitkomst = NieuweUitkomst;
+            this.result = result;
         }
 
-        public void ChangeInsurance(bool Waarde)
+        public void SetInsurance(bool value)
         {
-            insurance = Waarde;
+            insurance = value;
         }
 
-        public void ChangeBeurtGedaan(bool Waarde)
+        public void SetPlayedTurn(bool value)
         {
-            beurtGedaan = Waarde;
+            playedTurn = value;
         }
 
-        public void ResetInzet()
+        public void SetStakeReset()
         {
-            inzet = 50;
-            echteInzet = 50;
+            stake = 50;
+            actualStake = 50;
         }
     }
 }

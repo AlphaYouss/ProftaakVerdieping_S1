@@ -87,7 +87,7 @@
 
                             <Viewbox Grid.Row="5" StretchDirection="Both" HorizontalAlignment="Right" Stretch="Uniform">
                                 <Button x:Name="btnLogin" Click="btnLogin_Click" Padding="0" Margin="2.5,0" BorderThickness="0" BorderBrush="#1963d0">
-                                    <Image Source="/Assets/Afbeeldingen/Login/Login.png"/>
+                                    <Image Source="/Assets/Images/login/login.png"/>
                                 </Button>
                             </Viewbox>
                         </Grid>
@@ -109,7 +109,7 @@
                     </Grid.RowDefinitions>
 
                     <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                        <TextBlock x:Name="version" Text="Alpha V.2.0" Foreground="White"/>
+                        <TextBlock x:Name="version" Text="Alpha V.3.0" Foreground="White"/>
                     </Viewbox>
                 </Grid>
             </Grid>
@@ -141,7 +141,7 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <Image Source="/Assets/Afbeeldingen/Login/Achtergrond.jpg" Stretch="fill"/>
+            <Image Source="/Assets/Images/login/background.jpg" Stretch="fill"/>
         </Grid>
     </Grid>
 </Page>

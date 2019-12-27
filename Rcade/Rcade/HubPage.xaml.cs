@@ -32,8 +32,9 @@ namespace Rcade
 
         private void btnBke_Click(object sender, RoutedEventArgs e)
         {
-            BKEPage bke = new BKEPage();
+            TTTPage bke = new TTTPage();
             bke.SetUser(user);
+            bke.SetUp();
 
             Content = bke;
         }
@@ -42,6 +43,7 @@ namespace Rcade
         {
             BJPage bj = new BJPage();
             bj.SetUser(user);
+            bj.SetUp();
 
             Content = bj;
         }
