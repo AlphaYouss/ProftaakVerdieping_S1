@@ -16,7 +16,7 @@ namespace Rcade
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
         private TTT_Ai ai { get; set; }
-        private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Afbeeldingen/BKE/Transparent.png"));
+        private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
 
         public TTTPage()
         {
@@ -39,11 +39,12 @@ namespace Rcade
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
+            btnBack.Visibility = Visibility.Collapsed;
             btnRestart.Visibility = Visibility.Collapsed;
 
             for (int i = 1; i < 10; i++)
             {
-                ChangeField(i, defaultImage, true, true);
+                SetField(i, defaultImage, true, true);
             }
 
             field.ClearField();
@@ -70,9 +71,10 @@ namespace Rcade
             int clickedBox = Convert.ToInt32(button[1]);
 
             btnBack.Visibility = Visibility.Collapsed;
+            btnRestart.Visibility = Visibility.Collapsed;
 
             player.TakesTurn(clickedBox);
-            ChangeField(clickedBox, player.imagePlayer, false, true);
+            SetField(clickedBox, player.imagePlayer, false, true);
 
             int remainingBoxes = ttt.CheckField();
 
@@ -91,7 +93,7 @@ namespace Rcade
             else if (remainingBoxes != 0)
             {
                 ai.TakesTurn();
-                ChangeField(ai.moveAi, ai.imageAi, false, true);
+                SetField(ai.moveAi, ai.imageAi, false, true);
 
                 if (ttt.CheckWin())
                 {
@@ -143,11 +145,11 @@ namespace Rcade
 
             for (int i = 1; i < 10; i++)
             {
-                ChangeField(i, defaultImage, false, false);
+                SetField(i, defaultImage, false, false);
             }
         }
 
-        private void ChangeField(int box, BitmapImage imageSource, bool enabled, bool reset)
+        private void SetField(int box, BitmapImage imageSource, bool enabled, bool reset)
         {
             switch (box)
             {

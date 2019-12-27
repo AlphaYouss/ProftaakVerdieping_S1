@@ -274,10 +274,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Assets\Lettertypes\sfalienenc\SFAlienEncounters.ttf" />
+    <Content Include="Assets\Fonts\sfalienenc\SFAlienEncounters.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Lettertypes\sfalienenc\SFAlienEncounters-Italic.ttf" />
+    <Content Include="Assets\Fonts\sfalienenc\SFAlienEncounters-Italic.ttf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
