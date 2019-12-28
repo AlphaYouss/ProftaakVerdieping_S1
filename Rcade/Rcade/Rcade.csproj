@@ -134,12 +134,12 @@
     <Compile Include="TTT_Player.cs" />
     <Compile Include="TTT_Field.cs" />
     <Compile Include="Databasehandler.cs" />
-    <Compile Include="Databasehandler_Blackjack.cs" />
-    <Compile Include="Databasehandler_Boter_kaas_en_eieren.cs" />
-    <Compile Include="Databasehandler_Galgje.cs" />
-    <Compile Include="Databasehandler_Ganzenbord.cs" />
-    <Compile Include="Databasehandler_Roulette.cs" />
-    <Compile Include="Databasehandler_User_gegevens.cs" />
+    <Compile Include="Databasehandler_bj.cs" />
+    <Compile Include="Databasehandler_ttt.cs" />
+    <Compile Include="Databasehandler_hm.cs" />
+    <Compile Include="Databasehandler_gb.cs" />
+    <Compile Include="Databasehandler_rl.cs" />
+    <Compile Include="Databasehandler_user.cs" />
     <Compile Include="Errorhandler.cs" />
     <Compile Include="HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>

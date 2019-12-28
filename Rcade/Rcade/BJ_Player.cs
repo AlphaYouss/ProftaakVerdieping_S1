@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Rcade
 {
     class BJ_Player
     {
         public List<BJ_Card> card { get; private set; } = new List<BJ_Card>();
-        public double balance { get; private set; } = 25000;
+        public string namePlayer { get; private set; }
+        public double balance { get; private set; }
         public double sessionBalance { get; private set; } = 0;
         public int aceLocation { get; private set; }
         public bool hasAce { get; private set; }
+        public DateTime lastPlayed { get; private set; }
 
         public void CheckHit(BJ_Cards cards)
         {
@@ -84,6 +87,17 @@ namespace Rcade
                 totalPoints += card[i].value;
             }
             return totalPoints;
+        }
+
+        public void SetPlayerName(string playerName)
+        {
+            namePlayer = playerName;
+        }
+
+        public void SetStats(int balance)
+        {
+            this.balance = Convert.ToInt32(balance);
+            lastPlayed = DateTime.Now;
         }
 
         public void SetCard(BJ_Cards cards)

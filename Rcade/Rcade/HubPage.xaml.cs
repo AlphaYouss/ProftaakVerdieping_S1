@@ -30,22 +30,38 @@ namespace Rcade
             Content = main;
         }
 
-        private void btnBke_Click(object sender, RoutedEventArgs e)
-        {
-            TTTPage bke = new TTTPage();
-            bke.SetUser(user);
-            bke.SetUp();
-
-            Content = bke;
-        }
-
         private void btnBj_Click(object sender, RoutedEventArgs e)
         {
             BJPage bj = new BJPage();
             bj.SetUser(user);
             bj.SetUp();
 
-            Content = bj;
+            if (user.CanConnectToDatabase() == false)
+            {
+                btnUitloggen_Click(sender, e);
+            }
+            else
+            {
+                bj.SetUserStats();
+                Content = bj;
+            }
+        }
+
+        private void btnBke_Click(object sender, RoutedEventArgs e)
+        {
+            TTTPage ttt = new TTTPage();
+            ttt.SetUser(user);
+            ttt.SetUp();
+
+            if (user.CanConnectToDatabase() == false)
+            {
+                btnUitloggen_Click(sender, e);
+            }
+            else
+            {
+                ttt.SetUserStats();
+                Content = ttt;
+            }
         }
     }
 }

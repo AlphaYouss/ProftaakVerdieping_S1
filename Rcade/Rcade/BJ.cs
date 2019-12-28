@@ -12,7 +12,7 @@
         public bool hasInsurance { get; private set; }
         public bool playedTurn { get; private set; } = false;
         public double actualStake { get; private set; } = 50;
-        private double stake = 50;
+        private double stake { get; set; } = 50;
 
         public void FirstTurn(double stake)
         {

@@ -17,7 +17,7 @@ namespace Rcade
             this.field = field;
         }
 
-        public void TakesTurn()
+        public void TakeTurn()
         {
             List<int> remainingBoxes = new List<int>();
 
@@ -43,12 +43,12 @@ namespace Rcade
             return remainingBoxes[number];
         }
 
-        public void SetScoreAi(int score)
+        public void SetScore(int score)
         {
             scoreAi += score;
         }
 
-        public void SetScoreAi()
+        public void SetScore()
         {
             if (scoreAi < 0)
             {

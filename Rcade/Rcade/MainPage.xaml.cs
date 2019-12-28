@@ -62,25 +62,33 @@ namespace Rcade
             }
             else
             {
-                user.CheckIfUserExists(username.Text);
-                if (user.exists == true)
+                if (user.CanConnectToDatabase() == false)
                 {
-                    user.Login(username.Text, password.Password);
-                    if (user.loggedIn == true)
-                    {
-                        HubPage hub = new HubPage();
-                        hub.SetUser(user);
-
-                        Content = hub;
-                    }
-                    else
-                    {
-                        message.Text = user.ShowError("Account", 1);
-                    }
+                    message.Text = user.ShowError("Database", 0);
                 }
                 else
                 {
-                    message.Text = user.ShowError("Account", 0);
+                    user.CheckIfUserExists(username.Text);
+
+                    if (user.exists == true)
+                    {
+                        user.Login(username.Text, password.Password);
+                        if (user.loggedIn == true)
+                        {
+                            HubPage hub = new HubPage();
+                            hub.SetUser(user);
+
+                            Content = hub;
+                        }
+                        else
+                        {
+                            message.Text = user.ShowError("Account", 1);
+                        }
+                    }
+                    else
+                    {
+                        message.Text = user.ShowError("Account", 0);
+                    }
                 }
             }
         }

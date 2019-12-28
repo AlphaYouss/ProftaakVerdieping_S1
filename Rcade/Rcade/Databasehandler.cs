@@ -9,7 +9,6 @@ namespace Rcade
         public SqlConnectionStringBuilder builder { get; private set; }
         public SqlConnection con { get; private set; }
         public DataTable table { get; private set; }
-        public bool isDatabaseLive { get; set; }
         public bool isTestVersion { get; set; }
 
         public Databasehandler()
