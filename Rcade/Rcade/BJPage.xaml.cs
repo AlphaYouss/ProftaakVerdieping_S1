@@ -228,7 +228,9 @@ namespace Rcade
             playerImages = new Image[] { playerCard1, playerCard2, playerCard3, playerCard4, playerCard5, playerCard6, playerCard7, playerCard8 };
             dealerImages = new Image[] { dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5, dealerCard6, dealerCard7, dealerCard8 };
 
-            playerName.Text = user.userName;
+            gameHost.player.SetPlayerName(user.userName);
+
+            playerName.Text = gameHost.player.namePlayer;
 
             ClearText();
             EnableStake();
@@ -332,6 +334,8 @@ namespace Rcade
         {
             if (gameHost.gameOver)
             {
+                SetUserStats(Convert.ToInt32(gameHost.player.balance));
+
                 btnHit.Visibility = Visibility.Collapsed;
                 btnStand.Visibility = Visibility.Collapsed;
 
@@ -404,6 +408,36 @@ namespace Rcade
         internal void SetUser(User user)
         {
             this.user = user;
+        }
+
+        internal void SetUserStats()
+        {
+            if (user.CanConnectToDatabase() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                user.CheckIfUserHasBJRow();
+                gameHost.player.SetStats(user.GetBJRow());
+                balance.Margin = new Thickness(10, -5, 7, 0);
+
+                UpdateText();
+            }
+        }
+
+        private void SetUserStats(int balance)
+        {
+            if (user.CanConnectToDatabase() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                user.SetBJRow(user.id, balance, gameHost.player.lastPlayed);
+            }
         }
 
         private void SetPlayerImage(BJ_Player speler, Image[] ImagesArray)

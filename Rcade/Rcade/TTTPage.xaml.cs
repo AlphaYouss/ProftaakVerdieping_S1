@@ -73,7 +73,7 @@ namespace Rcade
             btnBack.Visibility = Visibility.Collapsed;
             btnRestart.Visibility = Visibility.Collapsed;
 
-            player.TakesTurn(clickedBox);
+            player.TakeTurn(clickedBox);
             SetField(clickedBox, player.imagePlayer, false, true);
 
             int remainingBoxes = ttt.CheckField();
@@ -82,8 +82,10 @@ namespace Rcade
             {
                 // Player wins.
 
-                player.SetScorePlayer(3);
-                ai.SetScoreAi(-1);
+                player.SetScore(3);
+                ai.SetScore(-1);
+
+                SetUserStats(0);
 
                 txtNamePlayer.Foreground = new SolidColorBrush(Colors.Green);
                 txtNameAI.Foreground = new SolidColorBrush(Colors.Red);
@@ -92,15 +94,17 @@ namespace Rcade
             }
             else if (remainingBoxes != 0)
             {
-                ai.TakesTurn();
+                ai.TakeTurn();
                 SetField(ai.moveAi, ai.imageAi, false, true);
 
                 if (ttt.CheckWin())
                 {
                     // AI wins.   
 
-                    player.SetScorePlayer(-1);
-                    ai.SetScoreAi(3);
+                    player.SetScore(-1);
+                    ai.SetScore(3);
+
+                    SetUserStats(1);
 
                     txtNamePlayer.Foreground = new SolidColorBrush(Colors.Red);
                     txtNameAI.Foreground = new SolidColorBrush(Colors.Green);
@@ -111,6 +115,8 @@ namespace Rcade
             else
             {
                 // Draw.
+
+                SetUserStats(2);
 
                 txtNamePlayer.Foreground = new SolidColorBrush(Colors.Orange);
                 txtNameAI.Foreground = new SolidColorBrush(Colors.Orange);
@@ -128,8 +134,10 @@ namespace Rcade
             ai = new TTT_Ai(field);
             ttt = new TTT(field);
 
+            player.SetPlayerName(user.userName);
+
             txtNameAI.Text = ai.nameAi;
-            txtNamePlayer.Text = user.userName;
+            txtNamePlayer.Text = player.namePlayer;
         }
 
         private void NextGame()
@@ -137,8 +145,8 @@ namespace Rcade
             btnBack.Visibility = Visibility.Visible;
             btnRestart.Visibility = Visibility.Visible;
 
-            player.SetScorePlayer();
-            ai.SetScoreAi();
+            player.SetScore();
+            ai.SetScore();
 
             txtScorePlayer.Text = player.scorePlayer.ToString();
             txtScoreAI.Text = ai.scoreAi.ToString();
@@ -233,6 +241,38 @@ namespace Rcade
         internal void SetUser(User user)
         {
             this.user = user;
+        }
+
+        internal void SetUserStats()
+        {
+            if (user.CanConnectToDatabase() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                user.CheckIfUserHasTTTRow();
+
+                string[] tttValues = new string[3];
+
+                tttValues = user.GetTTTRow();
+                player.SetStats(tttValues);
+            }
+        }
+
+        private void SetUserStats(int status)
+        {
+            if (user.CanConnectToDatabase() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                player.SetStats(status);
+                user.SettTTTRow(user.id, player.won, player.lost, player.draw, player.lastPlayed);
+            }
         }
     }
 }

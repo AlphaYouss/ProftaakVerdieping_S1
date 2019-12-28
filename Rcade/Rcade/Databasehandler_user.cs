@@ -3,9 +3,9 @@ using System.Data.SqlClient;
 
 namespace Rcade
 {
-    class Databasehandler_User_gegevens : Databasehandler
+    class Databasehandler_user : Databasehandler
     {
-        public Databasehandler_User_gegevens(bool testTable)
+        public Databasehandler_user(bool testTable)
         {
             isTestVersion = testTable;
         }
@@ -20,25 +20,17 @@ namespace Rcade
             }
             else
             {
-                cmd = new SqlCommand("SELECT COUNT(*) FROM User_gegevens WHERE Username = @BSNUsername", GetCon());
+                cmd = new SqlCommand("SELECT COUNT(*) FROM User_gegevens WHERE Username = @Username", GetCon());
             }
 
             cmd.Parameters.AddWithValue("Username", username);
+            
+            OpenConnectionToDB();
 
-            if (TestConnection() == true)
-            {
-                OpenConnectionToDB();
+            bool exists = (int)cmd.ExecuteScalar() > 0;
 
-                bool exists = (int)cmd.ExecuteScalar() > 0;
-
-                CloseConnectionToDB();
-                return exists;
-            }
-            else
-            {
-                isDatabaseLive = false;
-                return false;
-            }
+            CloseConnectionToDB();
+            return exists;
         } 
 
         public int GetUserID(string username)
@@ -52,23 +44,16 @@ namespace Rcade
             }
             else
             {
-                cmd = new SqlCommand("SELECT ID FROM User_gegevens WHERE Username = @BSNUsername", GetCon());
+                cmd = new SqlCommand("SELECT ID FROM User_gegevens WHERE Username = @Username", GetCon());
             }
 
             cmd.Parameters.AddWithValue("Username", username);
 
-            if (TestConnection() == true)
-            {
-                OpenConnectionToDB();
+            OpenConnectionToDB();
 
-                userID = Convert.ToInt16(cmd.ExecuteScalar());
+            userID = Convert.ToInt16(cmd.ExecuteScalar());
 
-                CloseConnectionToDB();
-            }
-            else
-            {
-                isDatabaseLive = false;
-            }
+            CloseConnectionToDB();
             return userID;
         }
 
@@ -88,17 +73,11 @@ namespace Rcade
 
             cmd.Parameters.AddWithValue("ID", id);
 
-            if (TestConnection() == true)
-            {
-                OpenConnectionToDB();
+            OpenConnectionToDB();
 
-                salt = Convert.ToString(cmd.ExecuteScalar());
-                CloseConnectionToDB();
-            }
-            else
-            {
-                isDatabaseLive = false;
-            }
+            salt = Convert.ToString(cmd.ExecuteScalar());
+            CloseConnectionToDB();
+
             return salt;
         }
 
@@ -114,20 +93,13 @@ namespace Rcade
             {
                  cmd = new SqlCommand("SELECT * FROM User_gegevens", GetCon());
             }
+            
+            OpenConnectionToDB();
 
-            if (TestConnection() == true)
-            {
-                OpenConnectionToDB();
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
 
-                SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-                adapt.Fill(table);
-                CloseConnectionToDB();
-            }
-            else
-            {
-                isDatabaseLive = false;
-            }
+            adapt.Fill(table);
+            CloseConnectionToDB();
         }
     }
 }

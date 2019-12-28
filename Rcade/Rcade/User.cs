@@ -1,19 +1,20 @@
 ﻿using CryptSharp;
+using System;
+using System.Data;
 using System.Text.RegularExpressions;
 
 namespace Rcade
 {
     internal class User
     {
-        private Databasehandler_User_gegevens dbh_UG = new Databasehandler_User_gegevens(true);
-        private Databasehandler_Blackjack dbh_BJ = new Databasehandler_Blackjack(true);
-        private Databasehandler_Boter_kaas_en_eieren dbh_BKE = new Databasehandler_Boter_kaas_en_eieren(true);
-        private Databasehandler_Galgje dbh_GJ = new Databasehandler_Galgje(true);
-        private Databasehandler_Ganzenbord dbh_GB = new Databasehandler_Ganzenbord(true);
-        private Databasehandler_Roulette dbh_RL = new Databasehandler_Roulette(true);
-
-        private Errorhandler errorHandler = new Errorhandler();
-
+        private Databasehandler dbh { get; set; } = new Databasehandler();
+        private Databasehandler_user dbh_U { get; set; } = new Databasehandler_user(true);
+        private Databasehandler_bj dbh_BJ { get; set; } = new Databasehandler_bj(true);
+        private Databasehandler_ttt dbh_TTT { get; set; } = new Databasehandler_ttt(true);
+        private Databasehandler_hm dbh_HM { get; set; } = new Databasehandler_hm(true);
+        private Databasehandler_gb dbh_GB { get; set; } = new Databasehandler_gb(true);
+        private Databasehandler_rl dbh_RL { get; set; } = new Databasehandler_rl(true);
+        private Errorhandler errorHandler { get; set; } = new Errorhandler();
         public bool exists { get; private set; } = false;
         public bool loggedIn { get; private set; } = false;
         public string userName { get; private set; } = "";
@@ -24,17 +25,14 @@ namespace Rcade
             string errorMessage = "";
             switch (list)
             {
-                default:
-                    break;
                 case "Login":
                     errorMessage = errorHandler.GetLoginError(error);
                     break;
                 case "Account":
                     errorMessage = errorHandler.GetAccountError(error);
                     break;
-                case "Blackjack":
-                    break;
-                case "Roulette":
+                case "Database":
+                    errorMessage = errorHandler.GetConnectionError(error);
                     break;
             }
             return errorMessage;
@@ -70,9 +68,14 @@ namespace Rcade
             }
         }
 
+        public bool CanConnectToDatabase()
+        {
+            return dbh.TestConnection();
+        }
+
         public void CheckIfUserExists(string username)
         {
-            if (dbh_UG.CheckIfUserExists(username) == false)
+            if (dbh_U.CheckIfUserExists(username) == false)
             {
                 exists = false;
             }
@@ -87,9 +90,9 @@ namespace Rcade
             if (exists != false)
             {
                 userName = username;
-                id = dbh_UG.GetUserID(userName);
+                id = dbh_U.GetUserID(userName);
 
-                CheckPassword(password, dbh_UG.GetUserHash(id));
+                CheckPassword(password, dbh_U.GetUserHash(id));
             }
         }
 
@@ -105,14 +108,59 @@ namespace Rcade
             }
         }
 
-        //public void WriteData()
-        //{
-        //    d_UG.GetUsersData();
+        public void CheckIfUserHasTTTRow()
+        {
+            if (dbh_TTT.CheckIfUserRowExists(id) == false)
+            {
+                dbh_TTT.CreateRow(id);
+            }
+        }
 
-        //    foreach (DataRow row in d_UG.table.Rows)
-        //    {
-        //        string name = row["Username"].ToString();
-        //    }
-        //}
+        public void CheckIfUserHasBJRow()
+        {
+            if (dbh_BJ.CheckIfUserRowExists(id) == false)
+            {
+                dbh_BJ.CreateRow(id);
+            }
+        }
+
+        public string[] GetTTTRow()
+        {
+            dbh_TTT.GetRow(id);
+
+            string[] tttValues = new string[3];
+
+            foreach (DataRow row in dbh_TTT.table.Rows)
+            {
+                tttValues[0] = Convert.ToString(row["gewonnen_potjes"]);
+                tttValues[1] = Convert.ToString(row["verloren_potjes"]);
+                tttValues[2] = Convert.ToString(row["gelijkspel_potjes"]);
+            }
+            return tttValues;
+        }
+
+        public int GetBJRow()
+        {
+            dbh_BJ.GetRow(id);
+
+            int bjSaldo = 0;
+
+            foreach (DataRow row in dbh_BJ.table.Rows)
+            {
+                bjSaldo = Convert.ToInt32(row["saldo"]);
+            }
+
+            return bjSaldo;
+        }
+
+        public void SettTTTRow(int id, int won, int lost, int draw, DateTime lastTime)
+        {
+            dbh_TTT.SetRow(id ,won, lost, draw, lastTime);
+        }
+
+        public void SetBJRow(int id, int saldo, DateTime lastTime)
+        {
+            dbh_BJ.SetRow(id, saldo, lastTime);
+        }
     }
 }
