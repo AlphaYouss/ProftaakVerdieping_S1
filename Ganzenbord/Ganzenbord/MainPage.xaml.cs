@@ -31,6 +31,7 @@ namespace Ganzenbord
 
         private void VulImages()
         {
+            vakimages.Add(vak0);
             vakimages.Add(vak1);
             vakimages.Add(vak2);
             vakimages.Add(vak3);
@@ -107,8 +108,9 @@ namespace Ganzenbord
 
             if (ganzenbord.CheckBeurtOverslaan() || ganzenbord.CheckInDePut_Gevangenis())
             {
-                ganzenbord.VolgendeSpeler();
                 ganzenbord.ChangeBeurtOverslaan();
+                ganzenbord.VolgendeSpeler();
+               
 
             }
             else

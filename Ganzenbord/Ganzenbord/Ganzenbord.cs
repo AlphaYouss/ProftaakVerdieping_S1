@@ -26,7 +26,7 @@ namespace Ganzenbord
         public BitmapImage pionGroen { get; private set; }
         public BitmapImage pionRood { get; private set; }
         public BitmapImage pionZwart { get; private set; }
-
+        public BitmapImage leegPlaatje { get; private set; } 
 
         public int aantalSpelers { get; private set; }
         public int spelerBeurt { get; private set; }
@@ -38,6 +38,7 @@ namespace Ganzenbord
 
             this.vakimages = vakimages;
 
+            leegPlaatje = new BitmapImage(new Uri("ms-appx:///"));
             pionPaars = new BitmapImage(new Uri("ms-appx:///Assets/pion paars.png"));
             pionBlauw = new BitmapImage(new Uri("ms-appx:///Assets/pion blauw.png"));
             pionGroen = new BitmapImage(new Uri("ms-appx:///Assets/pion groen.png"));
@@ -62,6 +63,7 @@ namespace Ganzenbord
         
         public void ZetStap()
         {
+            vakimages[spelers[spelerBeurt].locatie].Source = leegPlaatje;
             spelers[spelerBeurt].ZetStap();
             if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
             {
@@ -71,7 +73,7 @@ namespace Ganzenbord
             {
                 CheckVak(spelers[spelerBeurt].locatie);
             }
-            vakimages[spelers[spelerBeurt].locatie - 1].Source = spelers[spelerBeurt].spelerPlaatje;
+            vakimages[spelers[spelerBeurt].locatie].Source = spelers[spelerBeurt].spelerPlaatje;
         }
 
         private void VulSpelerList()
@@ -160,7 +162,7 @@ namespace Ganzenbord
         }
         public bool CheckInDePut_Gevangenis()
         {
-            if (spelers[spelerBeurt].beurtOverslaan)
+            if (spelers[spelerBeurt].inDePut_Gevangenis)
             {
                 return true;
             }

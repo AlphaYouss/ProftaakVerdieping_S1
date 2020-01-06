@@ -45,6 +45,7 @@ namespace Ganzenbord
                 {
                     int getal = 0;
                     getal = locatie - 63;
+                    locatie = 63;
                     locatie = locatie - getal;      
                 }
             }
