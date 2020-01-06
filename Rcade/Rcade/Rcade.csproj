@@ -126,6 +126,12 @@
     <Compile Include="BJ_Card.cs" />
     <Compile Include="BJ_Cards.cs" />
     <Compile Include="BJ_Player.cs" />
+    <Compile Include="Leaderboard.xaml.cs">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeaderbordList.xaml.cs">
+      <DependentUpon>LeaderbordList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TTT.cs" />
     <Compile Include="TTTPage.xaml.cs">
       <DependentUpon>TTTPage.xaml</DependentUpon>
@@ -248,6 +254,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BJPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Leaderboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeaderbordList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
