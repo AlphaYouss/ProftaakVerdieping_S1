@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Rcade.LeaderbordList"
+    x:Class="Rcade.LeaderbordGame"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Rcade"
@@ -26,14 +26,85 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
 
+
         
+        <!--Back Button-->
         <Grid Grid.Row="0" Grid.Column="0">
             <Viewbox Stretch="Fill" StretchDirection="Both">
                 <Button Content="Back" />
             </Viewbox>
         </Grid>
 
+
         
+        <!--Column 1-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <TextBlock Name="Column1Text" />
+            </Viewbox>
+        </Grid>
+        
+        <Grid Grid.Row="2" Grid.Column="1">
+            <ListView Name="Column1"  />
+        </Grid>
+
+        
+
+        <!--Collumn 2-->
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <TextBlock Name="Column2Text" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="2">
+            <ListView Name="Column2"  />
+        </Grid>
+
+        
+
+        <!--Collumn 3-->
+        <Grid Grid.Row="1" Grid.Column="3">
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <TextBlock Name="Column3Text" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="3">
+            <ListView Name="Column3"  />
+        </Grid>
+
+
+
+        <!--Column 4-->
+        <Grid Grid.Row="1" Grid.Column="4">
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <TextBlock Name="Column4Text" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="4">
+            <ListView Name="Colomn4"  />
+        </Grid>
+
+        
+        
+        <!--Column 5-->
+        <Grid Grid.Row="1" Grid.Column="5">
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <TextBlock Name="Column5Text" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="5">
+            <ListView Name="Colomn5"  />
+        </Grid>
+        
+        
+        
+
+
+        <!--Back and forward button-->
         <Grid Grid.Row="2" Grid.Column="6">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.2*" />
@@ -48,18 +119,19 @@
                 <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row=" 1" Grid.Column="1">
+
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Viewbox Stretch="Fill" StretchDirection="Both" >
-                    <Button Content=' Terug' />
-                </Viewbox>           
-            </Grid>
-            <Grid Grid.Row=" 1" Grid.Column="3">
-                <Viewbox Stretch="Fill" StretchDirection="Both" >
-                    <Button Content=' Vooruit' />
+                    <Button Name="BackButton" Content='Terug' Click="BackButton_Click" />
                 </Viewbox>
             </Grid>
 
+            <Grid Grid.Row="1" Grid.Column="3">
+                <Viewbox Stretch="Fill" StretchDirection="Both" >
+                    <Button Name="ForwardButton" Content=' Vooruit' Click="ForwardButton_Click" />
+                </Viewbox>
+            </Grid>
         </Grid>
-            
+        
     </Grid>
 </Page>

@@ -126,6 +126,7 @@
     <Compile Include="BJ_Card.cs" />
     <Compile Include="BJ_Cards.cs" />
     <Compile Include="BJ_Player.cs" />
+    <Compile Include="Databasehandler_lb.cs" />
     <Compile Include="Leaderboard.xaml.cs">
       <DependentUpon>Leaderboard.xaml</DependentUpon>
     </Compile>

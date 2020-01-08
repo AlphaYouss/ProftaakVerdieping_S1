@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Rcade.Leaderboard"
+    x:Class="Rcade.LeaderboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Rcade"
@@ -40,37 +40,37 @@
         
         <Grid Grid.Row="1" Grid.Column="1">
             <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="BlackJack"  Content="Blackjack "/>
-            </Viewbox>
-        </Grid>
-
-        <Grid Grid.Row="3" Grid.Column="1">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="BoterKaasEieren"  Content="BoterKaasEieren "/>
+                <Button Name="Blackjack"  Content="Blackjack " Click="Button_Click"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="3">
             <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Roulette"  Content="Roulette "/>
+                <Button Name="Roulette"  Content="Roulette " Click="Button_Click"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="5">
             <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Galgje"  Content="Galgje "/>
+                <Button Name="Galgje"  Content="Galgje " Click="Button_Click"/>
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Viewbox Stretch="Fill" StretchDirection="Both" >
+                <Button Name="BKE"  Content="BoterKaasEieren " Click="Button_Click"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="3">
             <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="VierOpNRij"  Content="VierOpNRij "/>
+                <Button Name="Ganzenbord"  Content="Ganzenbord " Click="Button_Click"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="5">
             <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Ganzenbord"  Content="Ganzenbord "/>
+                <Button Name="VierOpNRij"  Content="VierOpNRij " Click="Button_Click" />
             </Viewbox>
         </Grid>
 

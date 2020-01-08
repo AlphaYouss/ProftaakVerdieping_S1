@@ -57,7 +57,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Grid.Row="0" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <Button x:Name="btnLeaderboard" HorizontalAlignment="Stretch" Padding="0" Content="" Height="37" BorderThickness="0.5"  Width="58"/>
+                            <Button x:Name="btnLeaderboard" Click="btnLeaderboard_Click" HorizontalAlignment="Stretch" Padding="0" Content="" Height="37" BorderThickness="0.5"  Width="58"/>
                         </Viewbox>
                     </Grid>
                 </Grid>

@@ -63,5 +63,14 @@ namespace Rcade
                 Content = ttt;
             }
         }
+
+        
+        private void btnLeaderboard_Click(object sender, RoutedEventArgs e)
+        {
+            LeaderbordGame ll = new LeaderbordGame(1);
+           // Leaderboard ll = new Leaderboard();
+           
+            Content = ll;
+        }
     }
 }

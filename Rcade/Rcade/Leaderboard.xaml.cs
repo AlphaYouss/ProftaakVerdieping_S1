@@ -20,11 +20,41 @@ namespace Rcade
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Leaderboard : Page
+    public sealed partial class LeaderboardPage : Page
     {
-        public Leaderboard()
+        public LeaderboardPage()
         {
             this.InitializeComponent();
+        }
+
+
+        public int Number { get; private set; } = 0;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           string ButtonName = Convert.ToString(((Control)sender).Name);
+
+            switch (ButtonName)
+            {
+                case "Blackjack":
+                    Number = 1;
+                    break;
+                case "Roulette":
+                    Number = 2;
+                    break;
+                case "Hangman":
+                    Number = 3;
+                    break;
+                case "BKE":
+                    Number = 4;
+                    break;
+                case "Ganzenbord":
+                    Number = 5;
+                    break;
+            }
+
+            LeaderbordGame ll = new LeaderbordGame(Number);
+            Content = ll;
         }
     }
 }
