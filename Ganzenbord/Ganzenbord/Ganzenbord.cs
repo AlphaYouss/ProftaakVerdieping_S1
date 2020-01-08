@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -10,106 +11,111 @@ namespace Ganzenbord
 {
     class Ganzenbord
     {
-        public Dobbelsteen dobbelsteen { get; private set; }
-        public Bord bord { get; private set; }
+        public Dice dice { get; private set; }
+        public Board board { get; private set; }
 
-        public List<Speler> spelers { get; private set; }
-        public Speler speler1 { get; private set; }
-        public Speler speler2 { get; private set; }
-        public Speler speler3 { get; private set; }
-        public Speler speler4 { get; private set; }
-        public Speler speler5 { get; private set; }
+        public List<Player> players { get; private set; }
+        public Player player1 { get; private set; }
+        public Player player2 { get; private set; }
+        public Player player3 { get; private set; }
+        public Player player4 { get; private set; }
+        public Player player5 { get; private set; }
 
-        public List<Image> vakimages { get; private set; }
-        public BitmapImage pionPaars { get; private set; }
-        public BitmapImage pionBlauw { get; private set; }
-        public BitmapImage pionGroen { get; private set; }
-        public BitmapImage pionRood { get; private set; }
-        public BitmapImage pionZwart { get; private set; }
-        public BitmapImage leegPlaatje { get; private set; } 
+        public List<Image> fieldImages { get; private set; }
+        public BitmapImage purplePawn { get; private set; }
+        public BitmapImage bluePawn { get; private set; }
+        public BitmapImage greenPawn { get; private set; }
+        public BitmapImage redPawn { get; private set; }
+        public BitmapImage blackPawn { get; private set; }
+        public BitmapImage noPicture { get; private set; } 
 
-        public int aantalSpelers { get; private set; }
-        public int spelerBeurt { get; private set; }
+        public int numberOfPlayers { get; private set; }
+        public int playerTurn { get; private set; }
+        public string Field { get; private set; }
 
-        public Ganzenbord(int aantalSpelers, List<Image> vakimages)
+        public Ganzenbord(int numberOfPlayers, List<Image> fieldImages)
         {
-            dobbelsteen = new Dobbelsteen();
-            bord = new Bord(dobbelsteen);
+            dice = new Dice();
+            board = new Board(dice);
 
-            this.vakimages = vakimages;
+            this.fieldImages = fieldImages;
 
-            leegPlaatje = new BitmapImage(new Uri("ms-appx:///"));
-            pionPaars = new BitmapImage(new Uri("ms-appx:///Assets/pion paars.png"));
-            pionBlauw = new BitmapImage(new Uri("ms-appx:///Assets/pion blauw.png"));
-            pionGroen = new BitmapImage(new Uri("ms-appx:///Assets/pion groen.png"));
-            pionRood = new BitmapImage(new Uri("ms-appx:///Assets/pion rood.png"));
-            pionZwart = new BitmapImage(new Uri("ms-appx:///Assets/pion zwart.png"));
+            noPicture = new BitmapImage(new Uri("ms-appx:///"));
+            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/pion paars.png"));
+            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/pion blauw.png"));
+            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion groen.png"));
+            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion rood.png"));
+            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion zwart.png"));
 
-            spelers = new List<Speler>();
+            players = new List<Player>();
 
-            speler1 = new Speler(bord, dobbelsteen, bord.specialevakken, pionPaars);
-            speler2 = new Speler(bord, dobbelsteen, bord.specialevakken, pionBlauw);
-            speler3 = new Speler(bord, dobbelsteen, bord.specialevakken, pionGroen);
-            speler4 = new Speler(bord, dobbelsteen, bord.specialevakken, pionRood);
-            speler5 = new Speler(bord, dobbelsteen, bord.specialevakken, pionZwart);
+            player1 = new Player(board, dice, board.specialfields, purplePawn);
+            player2 = new Player(board, dice, board.specialfields, bluePawn);
+            player3 = new Player(board, dice, board.specialfields, greenPawn);
+            player4 = new Player(board, dice, board.specialfields, redPawn);
+            player5 = new Player(board, dice, board.specialfields, blackPawn);
 
-            spelerBeurt = 0;
+            playerTurn = 0;
 
-            this.aantalSpelers = aantalSpelers;
+            this.numberOfPlayers = numberOfPlayers;
 
-            VulSpelerList();
-            bord.BordGenereren();
+            FillPlayerList();
+            board.GenerateBoard();
         }
         
         public void ZetStap()
         {
-            vakimages[spelers[spelerBeurt].locatie].Source = leegPlaatje;
-            spelers[spelerBeurt].ZetStap();
-            if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
+            fieldImages[players[playerTurn].location].Source = noPicture;
+            players[playerTurn].PlayerMove();
+            CheckVak(players[playerTurn].location);
+            if (CheckSpelersOpVak(players[playerTurn].location))
             {
-                spelers[spelerBeurt].RevertLocatie();
+                players[playerTurn].RevertLocation();
+                Field = "TweeOpÉénVak";
             }
-            else
-            {
-                CheckVak(spelers[spelerBeurt].locatie);
-            }
-            vakimages[spelers[spelerBeurt].locatie].Source = spelers[spelerBeurt].spelerPlaatje;
+            ChangeImage();
         }
 
-        private void VulSpelerList()
+        private void ChangeImage()
         {
-            for (int i = 1; i <= aantalSpelers; i++)
+            fieldImages[players[playerTurn].location].Source = players[playerTurn].playerImage;
+                Task.Delay(200).Wait();
+        }
+
+        private void FillPlayerList()
+        {
+            for (int i = 1; i <= numberOfPlayers; i++)
             {
                 switch (i)
                 {
                     default:
                         break;
                     case 1:
-                        spelers.Add(speler1);
+                        players.Add(player1);
                         break;
                     case 2:
-                        spelers.Add(speler2);
+                        players.Add(player2);
                         break;
                     case 3:
-                        spelers.Add(speler3);
+                        players.Add(player3);
                         break;
                     case 4:
-                        spelers.Add(speler4);
+                        players.Add(player4);
                         break;
                     case 5:
-                        spelers.Add(speler5);
+                        players.Add(player5);
                         break;
                 }
             }
         }
 
-        private bool CheckSpelersOpVak(int locatie)
+        private bool CheckSpelersOpVak(int location)
         {
-            for (int i = 0; i < spelers.Count; i++)
+            for (int i = 0; i < players.Count; i++)
             {
-                if (spelers[i].locatie == locatie && spelers[i] != spelers[spelerBeurt] && locatie != 0 )
+                if (players[i].location == location && players[i] != players[playerTurn] && location != 0 )
                 {
-                    spelers[spelerBeurt].ChangeBeurtOverslaan();
+                    players[playerTurn].ChangeSkipTurn();
                     return true;
                 }
             }
@@ -118,40 +124,41 @@ namespace Ganzenbord
 
         private void CheckVak(int locatie)
         {       
-            string vak = bord.vakken[locatie];
-            if (vak != null)
+            Field = board.fields[locatie];
+            if (Field != null)
             {
-                spelers[spelerBeurt].EventStart(vak);
-                if (CheckPut_Gevangenis())
+                players[playerTurn].EventStart(Field);
+                if (CheckWell_Prison())
                 {
 
                 }
-                else if (CheckSpelersOpVak(spelers[spelerBeurt].locatie))
+                else if (CheckSpelersOpVak(players[playerTurn].location))
                 {
-                    spelers[spelerBeurt].RevertLocatie();
+                    players[playerTurn].RevertLocation();
+                    Field = "TweeOpÉénVak";
                 }
 
                 if (WinCheck())
                 {
+                    CoreApplication.Exit();
                     Restart();
                 }
             }
         }
 
-        public void VolgendeSpeler()
+        public void NextPlayer()
         {
-            spelerBeurt++;
-            if (spelerBeurt == aantalSpelers)
+            playerTurn++;
+            if (playerTurn == numberOfPlayers)
             {
-                
-                spelerBeurt = 0;
+                playerTurn = 0;
             }
-            dobbelsteen.ResetWorp();
+            dice.ResetThrowCount();
         }
 
-        public bool CheckBeurtOverslaan()
+        public bool CheckSkippingTurn()
         {
-            if (spelers[spelerBeurt].beurtOverslaan)
+            if (players[playerTurn].skipTurn)
             {
                 return true;
             }
@@ -160,9 +167,9 @@ namespace Ganzenbord
                 return false;
             }
         }
-        public bool CheckInDePut_Gevangenis()
+        public bool CheckStuckInWell_Prison()
         {
-            if (spelers[spelerBeurt].inDePut_Gevangenis)
+            if (players[playerTurn].stuckInWell_Prison)
             {
                 return true;
             }
@@ -172,10 +179,14 @@ namespace Ganzenbord
             }
         }
 
+        public void ChangeFieldName()
+        {
+            Field = "NineOnFirstThrow";
+        }
 
         private bool WinCheck()
         {
-            if (spelers[spelerBeurt].winst)
+            if (players[playerTurn].winGame)
             {
                 return true;
             }
@@ -185,13 +196,13 @@ namespace Ganzenbord
             }
         }
 
-        private bool CheckPut_Gevangenis()
+        private bool CheckWell_Prison()
         {
-            for (int i = 0; i < spelers.Count; i++)
+            for (int i = 0; i < players.Count; i++)
             {
-                if(spelers[spelerBeurt].inDePut_Gevangenis == spelers[i].inDePut_Gevangenis && spelers[i] != spelers[spelerBeurt])
+                if(players[playerTurn].stuckInWell_Prison == players[i].stuckInWell_Prison && players[i] != players[playerTurn])
                 {
-                    spelers[i].ChangeInDePut_Gevangenis();
+                    players[i].ChangeStuckInWell_Prison();
                     return true;
                 }
             }
@@ -200,15 +211,16 @@ namespace Ganzenbord
 
         public void Restart()
         {
-            for (int i = 1; i < spelers.Count; i++)
+            for (int i = 0; i < players.Count; i++)
             {
-                spelers[i].Restart();
+                fieldImages[players[i].location].Source = noPicture;
+                players[i].Restart();
             }
         }
 
-        public void ChangeBeurtOverslaan()
+        public void ChangeSkipTurn()
         {
-            spelers[spelerBeurt].ChangeBeurtOverslaan();
+            players[playerTurn].ChangeSkipTurn();
         }
     }
 }

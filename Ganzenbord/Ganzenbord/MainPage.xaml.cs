@@ -105,18 +105,69 @@ namespace Ganzenbord
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            if (ganzenbord.CheckBeurtOverslaan() || ganzenbord.CheckInDePut_Gevangenis())
-            {
-                ganzenbord.ChangeBeurtOverslaan();
-                ganzenbord.VolgendeSpeler();
-               
-
-            }
-            else
-            {
                 ganzenbord.ZetStap();
-                ganzenbord.VolgendeSpeler();
+
+                switch (ganzenbord.Field)
+                {
+                    default:
+                        Eventvak.Text = "";
+                        break;
+                    case "brug":
+                        Eventvak.Text = "Je bent op de brug gekomen! Je bent naar veld 12 verplaatst";
+                        break;
+                    case "herberg":
+                        Eventvak.Text = "Je bent in de herberg beland. Je moet een beurt overslaan";
+                        break;
+                    case "put":
+                        Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt";
+                        break;
+                    case "doolhof":
+                        Eventvak.Text = "Je bent vastgelopen in het doolhof. Je gaat terug naar veld 37.";
+                        break;
+                    case "gevangenis":
+                        Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt.";
+                        break;
+                    case "dood":
+                        Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";
+                        break;
+                    case "einde":
+                        Eventvak.Text = "Je hebt gewonnen!";
+                        break;
+                    case "dubbeleworp":
+                        Eventvak.Text = "Je bent ook een speciaal veld beland. Je worp wordt verdubbeld.";
+                        break;
+                    case "TweeOpÉénVak":
+                        Eventvak.Text = "Je bent op een veld beland waar al iemand op stond. Je bent terug verplaatst.";
+                        break;
+                }
+
+                dobbel.Text = Convert.ToString(ganzenbord.dice.ThrowCount);
+                ganzenbord.NextPlayer();
+                if (ganzenbord.CheckSkippingTurn() || ganzenbord.CheckStuckInWell_Prison())
+                {
+                    ganzenbord.ChangeSkipTurn();
+                    ganzenbord.NextPlayer();
+                }
+            
+            switch (ganzenbord.playerTurn)
+            {
+                default:
+                    break;
+                case 0:
+                    speler.Text = "Paars speelt";
+                    break;
+                case 1:
+                    speler.Text = "Blauw speelt";
+                    break;
+                case 2:
+                    speler.Text = "Groen speelt";
+                    break;
+                case 3:
+                    speler.Text = "Rood speelt";
+                    break;
+                case 4:
+                    speler.Text = "Zwart speelt";
+                    break;
             }
         }
     }

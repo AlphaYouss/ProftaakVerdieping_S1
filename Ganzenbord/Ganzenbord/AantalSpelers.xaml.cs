@@ -9,33 +9,33 @@ namespace Ganzenbord
     public sealed partial class AantalSpelers : Page
     {
         
-        public int aantalSpelers { get; private set; }
+        public int playerCount { get; private set; }
 
 
         public AantalSpelers()
         {
             this.InitializeComponent();
-            aantalSpelers = 2;
+            playerCount = 2;
             
         }
 
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
-            aantalSpelers++;
-            txtAantalspelers.Text = Convert.ToString(aantalSpelers);
+            playerCount++;
+            txtPlayerCount.Text = Convert.ToString(playerCount);
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            aantalSpelers = Convert.ToInt32(txtAantalspelers.Text);
-            MainPage mainPage = new MainPage(aantalSpelers);
+            playerCount = Convert.ToInt32(txtPlayerCount.Text);
+            MainPage mainPage = new MainPage(playerCount);
             Content = mainPage;
         }
 
         private void btnMin_Click(object sender, RoutedEventArgs e)
         {
-            aantalSpelers--;
-            txtAantalspelers.Text = Convert.ToString(aantalSpelers);
+            playerCount--;
+            txtPlayerCount.Text = Convert.ToString(playerCount);
         }
     }
 }

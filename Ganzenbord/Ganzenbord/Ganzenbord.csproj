@@ -122,15 +122,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bord.cs" />
-    <Compile Include="Dobbelsteen.cs" />
+    <Compile Include="Board.cs" />
+    <Compile Include="Dice.cs" />
     <Compile Include="Ganzenbord.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpecialeVakken.cs" />
-    <Compile Include="Speler.cs" />
+    <Compile Include="SpecialFields.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -144,6 +144,8 @@
     <Content Include="Assets\pion paars.png" />
     <Content Include="Assets\pion rood.png" />
     <Content Include="Assets\pion zwart.png" />
+    <Content Include="Assets\synthwave.jpg" />
+    <Content Include="Assets\test.png" />
     <Content Include="Assets\WireFrameBlackJack3X9.jpg" />
     <Content Include="Assets\WireframeBlackJack7x2.jpg" />
     <Content Include="Properties\Default.rd.xml" />

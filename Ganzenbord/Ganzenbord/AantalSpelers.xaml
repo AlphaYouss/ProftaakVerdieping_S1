@@ -13,7 +13,7 @@
     <Grid>
 
         <Grid>
-            <TextBox x:Name="txtAantalspelers" HorizontalAlignment="Left" FontSize ="36" Margin="386,0,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="309" Height="60" IsReadOnly="True"/>
+            <TextBox x:Name="txtPlayerCount" HorizontalAlignment="Left" FontSize ="36" Margin="386,0,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="309" Height="60" IsReadOnly="True"/>
             <Button x:Name="btnPlus" Content="+"  FontSize="40" Margin="719,511,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="btnPlus_Click"/>
             <Button x:Name="btnMin" Content="-"  FontSize="40" Margin="800,0,0,0" Height="60" Width="60" Click="btnMin_Click"/>
             <Button x:Name="btnConfirm" Content="Confirm"  FontSize="36" Margin="541,601,0,0" Height="60" Width="162" Click="btnConfirm_Click" VerticalAlignment="Top"/>

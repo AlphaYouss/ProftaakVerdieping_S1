@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Ganzenbord
 {
-    class Dobbelsteen
+    class Dice
     {
-        public int worpTotaal { get; private set; }
-
+        public int ThrowCount { get; private set; }
+        public int Throw { get; private set; }
         public int XD6(int X)
         {
             for (int i = 1; i <= X; i++)
             {
             Random rnd = new Random();
-            int worp = rnd.Next(1, 7);
-                worpTotaal = worpTotaal + worp;
+            int @throw = rnd.Next(1, 7);
+                ThrowCount = ThrowCount + @throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD2(int X)
@@ -26,10 +26,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 3);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 3);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD3(int X)
@@ -37,10 +37,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 4);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 4);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD4(int X)
@@ -48,10 +48,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 5);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 5);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD8(int X)
@@ -59,10 +59,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 8);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 8);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD10(int X)
@@ -70,10 +70,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 11);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 11);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD12(int X)
@@ -81,10 +81,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 13);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 13);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD16(int X)
@@ -92,10 +92,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 17);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 17);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD20(int X)
@@ -103,10 +103,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 21);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 21);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public  int XD30(int X)
@@ -114,10 +114,10 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 31);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 31);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
         public int XD100(int X)
@@ -125,20 +125,22 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                int worp = rnd.Next(1, 101);
-                worpTotaal = worpTotaal + worp;
+                Throw = rnd.Next(1, 101);
+                ThrowCount = ThrowCount + Throw;
             }
-            return worpTotaal;
+            return ThrowCount;
         }
 
-        public void ResetWorp()
+        public void ResetThrowCount()
         {
-            worpTotaal = 0;
+            ThrowCount = 0;
         }
 
-        public void ChangeWorpTotaal(int Getal)
+        public void ChangeThrowCount(int Getal)
         {
-            worpTotaal = worpTotaal + Getal;
+            ThrowCount = ThrowCount + Getal;
         }
+
+        
     }
 }

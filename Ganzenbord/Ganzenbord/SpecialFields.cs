@@ -6,29 +6,37 @@ using System.Threading.Tasks;
 
 namespace Ganzenbord
 {
-    class SpecialeVakken
+    class SpecialFields
     {
         public Ganzenbord ganzenbord { get; private set; }
-        public Bord bord { get; private set; }
-        public Dobbelsteen dobbelsteen { get; private set; }
-        public int worp { get; private set; } 
-        public SpecialeVakken(Dobbelsteen dobbelsteen)
+        public Board board { get; private set; }
+        public Dice dice { get; private set; }
+        public int Throw { get; private set; } 
+        public SpecialFields(Dice dice)
         {
-            this.bord = bord;
-            this.dobbelsteen = dobbelsteen;
-            worp = dobbelsteen.worpTotaal;
+            this.board = board;
+            this.dice = dice;
+            Throw = dice.ThrowCount;
             
         }
 
-        public int DubbelWorp(int locatie)
+        public int DubbelWorp(int location)
         {
-            locatie = locatie + dobbelsteen.worpTotaal;
-            return locatie; 
+            location = location + dice.ThrowCount;
+            if (location > 63)
+            {
+                int number = 0;
+                number = location - 63;
+                location = 63;
+                location = location - number;
+                dice.ChangeThrowCount(-number);
+            }
+            return location; 
         }
 
         public int BurgEvent(int locatie)
         {
-            dobbelsteen.ChangeWorpTotaal(6);
+            dice.ChangeThrowCount(6);
             return locatie = 12;
 
         }
@@ -45,7 +53,7 @@ namespace Ganzenbord
 
         public int DoolhofEvent(int locatie)
         {
-            dobbelsteen.ChangeWorpTotaal(-5);
+            dice.ChangeThrowCount(-5);
             return locatie = 37;
         }
 

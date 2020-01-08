@@ -9,6 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/synthwave.jpg">
+            </ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="8*" />
@@ -26,9 +30,35 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0">
-            <Viewbox Stretch="Fill" Grid.Row="1">
-                <Button Content="Back" HorizontalAlignment="Center" Click="Button_Click"/>
+            <Viewbox  Grid.Row="1">
+                <Button Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100" Click="Button_Click">
+                    <Button.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Light">
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#CB55CE"/>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                        </ResourceDictionary>
+                    </Button.Resources>
+                </Button>
             </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                <Viewbox>
+                    <TextBlock FontSize="50" Foreground="white" x:Name="Eventvak" Margin="15" ></TextBlock>
+                </Viewbox>
+            </Grid>
+
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
@@ -48,7 +78,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                
+
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -57,581 +87,721 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+
+
             <Grid Grid.Row="5" Grid.Column="1">
                 <Viewbox Stretch="Fill">
                     <Image Name="vak0"></Image>
                 </Viewbox>
             </Grid>
-            
-            <Grid Grid.Row="5" Grid.Column="2" Background="Red">
+
+            <Grid Grid.Row="5" Grid.Column="2">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="1"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="1"></TextBlock>
-                </Viewbox>
-                <Viewbox Stretch="Fill">
-                    <Image Name="vak1"> </Image>
+                    <Image Name="vak1"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="3" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="2"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="3">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="2"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak2"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="4" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="3"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="4">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25" >
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="3"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox Stretch="Fill">
                     <Image Name="vak3"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="5" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="4"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="5">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="4"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak4"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="6" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="5"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="6">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="5"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak5"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="7" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="6"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="7">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="6"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak6"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="8" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="7"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="8">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="7"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak7"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="9" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="8"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="9">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="8"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak8"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="10" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="9"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="10">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="9"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak9"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="11" Background="Red">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="10"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="5" Grid.Column="11">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="10"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak10"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="11" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="11"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="11">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="11"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak11"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="11" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="12"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="11">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="12"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak12"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="11" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="13"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="2" Grid.Column="11">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="13"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak13"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="11" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="14"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="11">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="14"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak14"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="11" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="15"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="11">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="15"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak15"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="10" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="16"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="10">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="16"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak16"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="9" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="17"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="9">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="17"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak17"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="8" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="18"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="8">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="18"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak18"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="7" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="19"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="7">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="19"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak19"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="6" Background="Orange">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="20"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="6">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="20"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak20"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="5" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="21"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="5">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="21"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak21"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="4" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="22"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="4">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="22"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak22"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="3" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="23"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="3">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="23"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak23"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="2" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="24"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="24"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak24"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="1" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="25"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="25"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak25"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="0" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="26"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="26"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak26"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="0" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="27"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="27"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak27"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="0" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="28"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="28"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak28"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="0" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="29"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="29"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak29"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="0" Background="Yellow">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="30"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="30"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak30"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="1" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="31"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="1">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="31"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak31"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="2" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="32"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="2">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="32"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak32"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="3" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="33"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="3">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="33"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak33"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="4" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="34"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="4">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="34"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak34"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="5" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="35"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="5">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="35"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak35"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="6" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="36"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="6">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="36"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak36"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="7" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="37"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="7">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="37"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak37"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="8" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="38"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="8">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="38"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak38"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="9" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="39"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="9">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="39"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak39"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.Column="10" Background="Green">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="40"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="4" Grid.Column="10">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="40"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak40"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="10" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="41"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="10">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="41"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak41"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="10" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="42"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="2" Grid.Column="10">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="42"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak42"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="10" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="43"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="10">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="43"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak43"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="9" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="44"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="9">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="44"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak44"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="8" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="45"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="8">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="45"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak45"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="7" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="46"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="7">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="46"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak46"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="6" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="47"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="6">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="47"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak47"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="5" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="48"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="5">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="48"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak48"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="4" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="49"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="4">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="49"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak49"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="3" Background="Blue">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="50"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="3">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="50"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak50"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="2" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="51"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="51"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak51"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="1" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="52"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="52"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak52"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="1" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="53"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="53"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak53"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="1" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="54"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="54"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak54"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="2" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="55"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="55"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak55"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="3" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="56"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="56"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak56"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="4" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="57"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="4">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="57"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak57"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="5" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="58"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="5">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="58"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak58"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="6" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="59"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="6">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="59"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak59"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="7" Background="Purple">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="60"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="7">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="60"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak60"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="8" Background="Salmon">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="61"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="8">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="61"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak61"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="9" Background="Salmon">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="62"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="3" Grid.Column="9">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="62"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak62"></Image>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="9" Background="Salmon">
-                <Viewbox Stretch="Fill">
-                    <TextBlock Margin="15" Text="63"></TextBlock>
-                </Viewbox>
+            <Grid Grid.Row="2" Grid.Column="9">
+                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                    <Viewbox Stretch="Fill">
+                        <TextBlock Margin="15" Text="63"></TextBlock>
+                    </Viewbox>
+                </Border>
                 <Viewbox>
                     <Image Name="vak63"></Image>
                 </Viewbox>
             </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" >
+                <Viewbox Stretch="Fill">
+                    <TextBlock Foreground="white" x:Name="speler" Margin="15" Text="Paars speelt"></TextBlock>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" >
+                <Viewbox>
+                    <TextBlock Foreground="white" x:Name="dobbel" Margin="15" ></TextBlock>
+                </Viewbox>
+            </Grid>
+
         </Grid>
-        
-        
+
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -641,7 +811,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Viewbox Stretch="Fill" Grid.Column="0">
+            <!--<Viewbox Stretch="Fill" Grid.Column="0">
                 <TextBox x:Name="Speler1" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
             </Viewbox>
 
@@ -659,20 +829,34 @@
 
             <Viewbox Stretch="Fill" Grid.Column="4">
                 <TextBox x:Name="Speler5" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-            </Viewbox>
-        
+            </Viewbox>-->
+
         </Grid>
-        
+
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-            <Viewbox Stretch="Fill" Grid.Row="1">
-                <Button Content="Dobbel" HorizontalAlignment="Center" Click="Button_Click"/>
+
+
+            <Viewbox  Grid.Row="1">
+                <Button Background="Black" Foreground="#CB55CE" Content="Dobbel" FontSize="100" Click="Button_Click">
+                    <Button.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Light">
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#CB55CE"/>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                        </ResourceDictionary>
+                    </Button.Resources>
+                </Button>
             </Viewbox>
         </Grid>
-        
+
+
+
     </Grid>
 </Page>
