@@ -10,30 +10,40 @@ namespace Rcade
 {
     class Databasehandler_lb : Databasehandler
     {
-        public Databasehandler_lb(bool testTable)
-        {
-            isTestVersion = testTable;
-            //SelectFromBlackjack();
-        }
+        string query = "";
+        string testquery = "";
 
-
+       
         public int Choice { get; private set; } = 1;
+
+       
+        public List<string> Usernames { get; private set; } = new List<string>();
 
         public string Table1Name { get; private set; } = "";
         public List<string> Table1 { get; private set; } = new List<string>();
 
+
         public string Table2Name { get; private set; } = "";
         public List<string> Table2 { get; private set; } = new List<string>();
+      
         
         public string Table3Name { get; private set; } = "";
         public List<string> Table3 { get; private set; } = new List<string>();
-       
+      
+        
         public string Table4Name { get; private set; } = "";
         public List<string> Table4 { get; private set; } = new List<string>();
+
 
         public string Table5Name { get; private set; } = "";
         public List<string> Table5 { get; private set; } = new List<string>();
 
+
+
+        public Databasehandler_lb(bool testTable)
+        {
+            isTestVersion = testTable;
+        }
 
 
         public void ChoiceMaker()
@@ -44,20 +54,37 @@ namespace Rcade
             {
                 case 1:
                     SelectFromBlackjack();
+                    testquery = "SELECT Test_User_gegevens.Username, Test_Blackjack.user_ID FROM Test_User_gegevens INNER JOIN Test_Blackjack ON Test_User_gegevens.ID = Test_Blackjack.user_ID";
+                    query = "SELECT User_gegevens.Username, Blackjack.user_ID FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID" ;
                     break;
+                
+                
                 case 2:
                     SelectFromRoulette();
+                    testquery = "SELECT Test_User_gegevens.Username, Test_Roulette.user_ID FROM Test_User_gegevens INNER JOIN Test_Roulette ON Test_User_gegevens.ID = Test_Roulette.user_ID";
+                    query = "SELECT User_gegevens.Username, Roulette.user_ID FROM User_gegevens INNER JOIN Roulette ON User_gegevens.ID = Roulette.user_ID";
                     break;
+                
                 case 3:
                     SelectFromHangman();
+                    testquery = "SELECT Test_User_gegevens.Username, Test_Galgje.user_ID FROM Test_User_gegevens INNER JOIN Test_Galgje ON Test_User_gegevens.ID = Test_Galgje.user_ID";
+                    query = "SELECT User_gegevens.Username, Galgje.user_ID FROM User_gegevens INNER JOIN Galgje ON User_gegevens.ID = Galgje.user_ID";
                     break;
+
                 case 4:
                     SelectFromBKE();
+                    testquery = "SELECT Test_User_gegevens.Username, Test_BKE.user_ID FROM Test_User_gegevens INNER JOIN Test_BKE ON Test_User_gegevens.ID = Test_BKE.user_ID";
+                    query = "SELECT User_gegevens.Username, BKE.user_ID FROM User_gegevens INNER JOIN BKE ON User_gegevens.ID = BKE.user_ID";
                     break;
+
                 case 5:
                     SelectFromGanzenbord();
+                    testquery = "SELECT Test_User_gegevens.Username, Test_Ganzenbord.user_ID FROM Test_User_gegevens INNER JOIN Test_Ganzenbord ON Test_User_gegevens.ID = Test_Ganzenbord.user_ID";
+                    query = "SELECT User_gegevens.Username, Ganzenbord.user_ID FROM User_gegevens INNER JOIN Ganzenbord ON User_gegevens.ID = Ganzenbord.user_ID";
                     break;
             }
+
+            UserIDtoUsername();
         }
 
 
@@ -66,6 +93,7 @@ namespace Rcade
         {
             table.Clear();
 
+            Usernames.Clear();
             Table1.Clear();
             Table2.Clear();
             Table3.Clear();
@@ -86,7 +114,42 @@ namespace Rcade
 
 
 
-        // BlackJack
+
+        private void UserIDtoUsername()
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            if (isTestVersion == true)
+            {
+                cmd = new SqlCommand(testquery, GetCon());
+            }
+            else
+            {
+                cmd = new SqlCommand(query, GetCon());
+            }
+
+
+            OpenConnectionToDB();
+
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            adapt.Fill(table);
+
+            CloseConnectionToDB();
+
+
+            foreach (DataRow row in table.Rows)
+            {
+                if (Convert.ToString(row["Username"]) != "")
+                {
+                    Usernames.Add(Convert.ToString(row["Username"]));
+                }   
+            }
+        }
+
+
+
+
+
         private void SelectFromBlackjack()
         {
             SqlCommand cmd = new SqlCommand();
@@ -101,13 +164,11 @@ namespace Rcade
             }
 
 
-
             OpenConnectionToDB();
            
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-
             adapt.Fill(table);
+
             CloseConnectionToDB();
 
 
@@ -122,6 +183,8 @@ namespace Rcade
                 Table3.Add(Convert.ToString(row["laatst_gespeeld"]));
             }
         }
+
+
 
 
 
@@ -142,9 +205,8 @@ namespace Rcade
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-            
             adapt.Fill(table);
+
             CloseConnectionToDB();
 
             Table1Name = "User ID";
@@ -165,6 +227,8 @@ namespace Rcade
 
 
 
+
+
         private void SelectFromHangman()
         {
             SqlCommand cmd = new SqlCommand();
@@ -182,9 +246,8 @@ namespace Rcade
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-
             adapt.Fill(table);
+
             CloseConnectionToDB();
 
 
@@ -201,6 +264,8 @@ namespace Rcade
                 Table4.Add(Convert.ToString(row["laatst_gespeeld"]));
             }
         }
+
+
 
 
 
@@ -221,8 +286,8 @@ namespace Rcade
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
             adapt.Fill(table);
+
             CloseConnectionToDB();
 
 
@@ -239,6 +304,8 @@ namespace Rcade
                 Table4.Add(Convert.ToString(row["laatst_gespeeld"]));
             }
         }
+
+
 
 
 
@@ -259,15 +326,14 @@ namespace Rcade
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
             adapt.Fill(table);
+
             CloseConnectionToDB();
 
 
             Table1Name = "User ID";
             Table2Name = "Saldo";
             Table3Name = "Last seen";
-
 
             foreach (DataRow row in table.Rows)
             {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -17,18 +18,26 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Rcade
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class LeaderboardPage : Page
     {
+        
+        public int Number { get; private set; } = 0;
+        
+        
         public LeaderboardPage()
         {
             this.InitializeComponent();
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+                new Size(
+                1000,
+                1000 )
+                );
+
+
+            
         }
 
-
-        public int Number { get; private set; } = 0;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +64,12 @@ namespace Rcade
 
             LeaderbordGame ll = new LeaderbordGame(Number);
             Content = ll;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            HubPage hub = new HubPage();
+            Content = hub;
         }
     }
 }

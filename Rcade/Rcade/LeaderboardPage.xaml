@@ -29,7 +29,7 @@
 
         <Grid Grid.Row="0" Grid.Column="0">
             <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Back"  Content="Back"/>
+                <Button Name="BackButton"  Content="Back" Click="BackButton_Click"/>
             </Viewbox>
         </Grid>
         

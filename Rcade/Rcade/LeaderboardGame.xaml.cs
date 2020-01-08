@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -19,10 +20,10 @@ namespace Rcade
 {
     public sealed partial class LeaderbordGame : Page
     {
-        
-        
+        List<string> Games = new List<string> { "Leaderboard", "Blackjack", "Roulette", "Galgje", "Boter kaas en eieren", "Ganzenbord", "Vier op een rij" };
+    
         Databasehandler_lb dbh = new Databasehandler_lb(true);
-        
+
 
 
         public LeaderbordGame(int Number)
@@ -30,16 +31,21 @@ namespace Rcade
             this.InitializeComponent();
             
             dbh.ChangeChoice(Number);
-
             dbh.ChoiceMaker();
             
             UpdateText();
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+                new Size(
+                1000,
+                1000 )
+            );
         }
 
 
 
         private void ClearText()
-        {
+        { 
             Column1Text.Text = "";
             Column2Text.Text = "";
             Column3Text.Text = "";
@@ -50,14 +56,13 @@ namespace Rcade
 
         private void UpdateText()
         {
-         //   ClearText();
+            GameName.Text = Games[dbh.Choice];
 
+            ClearText();
             ButtonOnOff();
 
-            Column1.Items.Clear();
-
             Column1Text.Text = dbh.Table1Name;
-            ListToListview(Column1, dbh.Table1);
+            ListToListview(Column1, dbh.Usernames);
             
             Column2Text.Text = dbh.Table2Name;
             ListToListview(Column2, dbh.Table2);
@@ -91,8 +96,8 @@ namespace Rcade
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            
             int TestChoice = dbh.Choice - 1;
+            
             if (TestChoice >= 1)
             {
                 dbh.ChangeChoice(TestChoice);
@@ -109,13 +114,13 @@ namespace Rcade
             }
 
             UpdateText();
-
         }
 
 
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
             int TestChoice = dbh.Choice + 1;
+            
             if (TestChoice <= 5)
             {
                 dbh.ChangeChoice(TestChoice);
@@ -156,6 +161,10 @@ namespace Rcade
             }
         }
 
-
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            LeaderboardPage lp = new LeaderboardPage();
+            Content = lp;
+        }
     }
 }

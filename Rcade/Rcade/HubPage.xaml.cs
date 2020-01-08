@@ -67,9 +67,7 @@ namespace Rcade
         
         private void btnLeaderboard_Click(object sender, RoutedEventArgs e)
         {
-            LeaderbordGame ll = new LeaderbordGame(1);
-           // Leaderboard ll = new Leaderboard();
-           
+            LeaderboardPage ll = new LeaderboardPage();      
             Content = ll;
         }
     }

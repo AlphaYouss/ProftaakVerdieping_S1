@@ -31,7 +31,7 @@
         <!--Back Button-->
         <Grid Grid.Row="0" Grid.Column="0">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Content="Back" />
+                <Button Name="ReturnButton" Content="Back" Click="ReturnButton_Click" />
             </Viewbox>
         </Grid>
 
@@ -99,7 +99,15 @@
         <Grid Grid.Row="2" Grid.Column="5">
             <ListView Name="Colomn5"  />
         </Grid>
-        
+
+
+
+
+        <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan ="4">
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <TextBlock Name="GameName" Text="Leaderboard" />
+            </Viewbox>
+        </Grid>
         
         
 

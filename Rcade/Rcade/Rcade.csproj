@@ -127,11 +127,11 @@
     <Compile Include="BJ_Cards.cs" />
     <Compile Include="BJ_Player.cs" />
     <Compile Include="Databasehandler_lb.cs" />
-    <Compile Include="Leaderboard.xaml.cs">
-      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    <Compile Include="LeaderboardPage.xaml.cs">
+      <DependentUpon>LeaderboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LeaderbordList.xaml.cs">
-      <DependentUpon>LeaderbordList.xaml</DependentUpon>
+    <Compile Include="LeaderboardGame.xaml.cs">
+      <DependentUpon>LeaderboardGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="TTT.cs" />
     <Compile Include="TTTPage.xaml.cs">
@@ -258,11 +258,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Leaderboard.xaml">
+    <Page Include="LeaderboardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LeaderbordList.xaml">
+    <Page Include="LeaderboardGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
