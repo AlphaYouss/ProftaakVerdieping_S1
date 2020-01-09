@@ -230,8 +230,8 @@
     <Content Include="Assets\Images\fiches\200.png" />
     <Content Include="Assets\Images\fiches\50.png" />
     <Content Include="Assets\Images\fiches\500.png" />
-    <Content Include="Assets\Images\hub\hubWireframe.jpg" />
-    <Content Include="Assets\Images\login\background.jpg" />
+    <Content Include="Assets\Images\hub\background.jpg" />
+    <Content Include="Assets\Images\login\image.jpg" />
     <Content Include="Assets\Images\login\login.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Images\applicatie\LockScreenLogo.scale-200.png" />

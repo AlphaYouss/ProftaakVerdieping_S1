@@ -141,7 +141,7 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <Image Source="/Assets/Images/login/background.jpg" Stretch="fill"/>
+            <Image Source="/Assets/Images/login/image.jpg" Stretch="fill"/>
         </Grid>
     </Grid>
 </Page>
