@@ -189,215 +189,215 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.Row="1" BorderBrush="White" BorderThickness="2, 2, 0, 2">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                        <Button x:Name="btnZero" Click="btnBet_Click" Content="0" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <Button x:Name="btnZero" Click="btnBet_Click" Content="0" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThree" Click="btnBet_Click" Content="3" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThree" Click="btnBet_Click" Content="3" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwo" Click="btnBet_Click" Content="2" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwo" Click="btnBet_Click" Content="2" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnOne" Click="btnBet_Click" Content="1" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnOne" Click="btnBet_Click" Content="1" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnSix" Click="btnBet_Click" Content="6" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnSix" Click="btnBet_Click" Content="6" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnFive" Click="btnBet_Click" Content="5" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnFive" Click="btnBet_Click" Content="5" Padding="8"  Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnFour" Click="btnBet_Click" Content="4" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnFour" Click="btnBet_Click" Content="4" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnNine" Click="btnBet_Click" Content="9" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnNine" Click="btnBet_Click" Content="9" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="3" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnEight" Click="btnBet_Click" Content="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnEight" Click="btnBet_Click" Content="8" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="3" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnSeven" Click="btnBet_Click" Content="7" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnSeven" Click="btnBet_Click" Content="7" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwelve" Click="btnBet_Click" Content="12" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwelve" Click="btnBet_Click" Content="12" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="4" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnEleven" Click="btnBet_Click" Content="11" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnEleven" Click="btnBet_Click" Content="11" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="4" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTen" Click="btnBet_Click" Content="10" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTen" Click="btnBet_Click" Content="10" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="5" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnFifteen" Click="btnBet_Click" Content="15" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnFifteen" Click="btnBet_Click" Content="15" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="5" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnFourteen" Click="btnBet_Click" Content="14" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnFourteen" Click="btnBet_Click" Content="14" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="5" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirteen" Click="btnBet_Click" Content="13" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirteen" Click="btnBet_Click" Content="13" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="6" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnEighteen" Click="btnBet_Click" Content="18" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnEighteen" Click="btnBet_Click" Content="18" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="6" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnSeventeen" Click="btnBet_Click" Content="17" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnSeventeen" Click="btnBet_Click" Content="17" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="6" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnSixteen" Click="btnBet_Click" Content="16" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnSixteen" Click="btnBet_Click" Content="16" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="7" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentyone" Click="btnBet_Click" Content="21" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentyone" Click="btnBet_Click" Content="21" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="7" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwenty" Click="btnBet_Click" Content="20" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwenty" Click="btnBet_Click" Content="20" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="7" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnNineteen" Click="btnBet_Click" Content="19" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnNineteen" Click="btnBet_Click" Content="19" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="8" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentyfour" Click="btnBet_Click" Content="24" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentyfour" Click="btnBet_Click" Content="24" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="8" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentythree" Click="btnBet_Click" Content="23" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentythree" Click="btnBet_Click" Content="23" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="8" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentytwo" Click="btnBet_Click" Content="22" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentytwo" Click="btnBet_Click" Content="22" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="9" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentyseven" Click="btnBet_Click" Content="27" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentyseven" Click="btnBet_Click" Content="27" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="9" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentysix" Click="btnBet_Click" Content="26" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentysix" Click="btnBet_Click" Content="26" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="9" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentyfive" Click="btnBet_Click" Content="25" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentyfive" Click="btnBet_Click" Content="25" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="10" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirty" Click="btnBet_Click" Content="30" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirty" Click="btnBet_Click" Content="30" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="10" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentynine" Click="btnBet_Click" Content="29" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentynine" Click="btnBet_Click" Content="29" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="10" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnTwentyeight" Click="btnBet_Click" Content="28" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnTwentyeight" Click="btnBet_Click" Content="28" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="11" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirtythree" Click="btnBet_Click" Content="33" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirtythree" Click="btnBet_Click" Content="33" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="11" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirtytwo" Click="btnBet_Click" Content="32" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirtytwo" Click="btnBet_Click" Content="32" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="11" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirtyone" Click="btnBet_Click" Content="31" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirtyone" Click="btnBet_Click" Content="31" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="12" BorderBrush="White" BorderThickness="2, 2, 0, 0" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirtysix" Click="btnBet_Click" Content="36" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirtysix" Click="btnBet_Click" Content="36" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="12" BorderBrush="White" BorderThickness="2, 2, 0, 2" Background="#000000">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirtyfive" Click="btnBet_Click" Content="35" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirtyfive" Click="btnBet_Click" Content="35" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="12" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,4">
-                                        <Button x:Name="btnThirtyfour" Click="btnBet_Click" Content="34" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirtyfour" Click="btnBet_Click" Content="34" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
                                 <Grid Grid.Row="0" Grid.Column="13" BorderBrush="White" BorderThickness="2, 2, 2, 0">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnThirdRow" Click="btnBet_Click" Content="3rd row" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnThirdRow" Click="btnBet_Click" Content="3rd row" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="13" BorderBrush="White" BorderThickness="2, 2, 2, 2">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnSecondRow" Click="btnBet_Click" Content="2nd row" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="btnSecondRow" Click="btnBet_Click" Content="2nd row" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="13" BorderBrush="White" BorderThickness="2, 0, 2, 2">
-                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2, 4">
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <Button x:Name="btnFirstRow" Click="btnBet_Click" Content="1st row" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
@@ -424,20 +424,20 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Grid Grid.Column="0" BorderBrush="White" BorderThickness="2, 0, 0, 2">
-                                        <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <Button x:Name="btnFirstTwelve" Click="btnBet_Click" Content="1st 12" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                        <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Button x:Name="btnFirstTwelve" Click="btnBet_Click" Content="1st 12" Margin="10" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                         </Viewbox>
                                     </Grid>
 
                                     <Grid Grid.Column="1" BorderBrush="White" BorderThickness="2, 0, 0, 2">
-                                        <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <Button x:Name="btnSecondTwelve" Click="btnBet_Click" Content="2nd 12" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                        <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Button x:Name="btnSecondTwelve" Click="btnBet_Click" Content="2nd 12" Margin="10" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                         </Viewbox>
                                     </Grid>
 
                                     <Grid Grid.Column="2" BorderBrush="White" BorderThickness="2, 0, 2, 2">
-                                        <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <Button x:Name="btnThirdTwelve" Click="btnBet_Click" Content="3rd 12" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                        <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Button x:Name="btnThirdTwelve" Click="btnBet_Click" Content="3rd 12" Margin="10" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                         </Viewbox>
                                     </Grid>
                                 </Grid>
@@ -456,14 +456,14 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Grid Grid.Column="0" BorderBrush="White" BorderThickness="2, 0, 0, 2">
-                                            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Button x:Name="btnFirstEighteen" Click="btnBet_Click" Content="1-18" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                            <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button x:Name="btnFirstEighteen" Margin="5" Click="btnBet_Click" Content="1-18" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Viewbox>
                                         </Grid>
 
                                         <Grid Grid.Column="1" BorderBrush="White" BorderThickness="2, 0, 0, 2">
-                                            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Button x:Name="btnEven" Click="btnBet_Click" Content="Even" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                            <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button x:Name="btnEven" Margin="5" Click="btnBet_Click" Content="Even" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Viewbox>
                                         </Grid>
                                     </Grid>
@@ -475,14 +475,14 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Grid Grid.Column="0" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Button x:Name="btnRed" Click="btnBet_Click" Content="Red" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                            <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button x:Name="btnRed" Margin="5" Click="btnBet_Click" Content="Red" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Viewbox>
                                         </Grid>
 
                                         <Grid Grid.Column="1" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#000000">
-                                            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Button x:Name="btnBlack" Click="btnBet_Click" Content="Black" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                            <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button x:Name="btnBlack" Margin="5" Click="btnBet_Click" Content="Black" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Viewbox>
                                         </Grid>
                                     </Grid>
@@ -494,14 +494,14 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Grid Grid.Column="0" BorderBrush="White" BorderThickness="2, 0, 0, 2">
-                                            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Button x:Name="btnOdd"  Click="btnBet_Click" Content="Odd" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                            <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button x:Name="btnOdd" Margin="5" Click="btnBet_Click" Content="Odd" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Viewbox>
                                         </Grid>
 
                                         <Grid Grid.Column="1" BorderBrush="White" BorderThickness="2, 0, 2, 2">
-                                            <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Button x:Name="btnLastEighteen" Click="btnBet_Click" Content="19-36" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                            <Viewbox Stretch="UniformToFill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button x:Name="btnLastEighteen" Margin="5" Click="btnBet_Click" Content="19-36" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Viewbox>
                                         </Grid>
                                     </Grid>
