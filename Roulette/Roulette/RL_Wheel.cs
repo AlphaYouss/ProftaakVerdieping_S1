@@ -5,7 +5,7 @@ namespace Roulette
 {
     class RL_Wheel
     {
-        public RL_Numbers allNumbers  { get; private set; }
+        public RL_Numbers allNumbers { get; private set; }
         public RL_Number winningNumber { get; private set; }
         private Random randomNumber { get; set; } = new Random();
         public int spinDuration { get; private set; }
@@ -24,7 +24,7 @@ namespace Roulette
             {
                 spinDuration = spinDuration - 1;
                 landedNumber = randomNumber.Next(0, 37);
-                await Task.Delay(200); 
+                await Task.Delay(200);
             }
 
             GetWinningNumber();
@@ -37,7 +37,7 @@ namespace Roulette
 
         private void SetSpinDuration()
         {
-           spinDuration = randomNumber.Next(10, 21);
+            spinDuration = randomNumber.Next(10, 21);
         }
     }
 }

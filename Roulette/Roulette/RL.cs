@@ -6,8 +6,9 @@ namespace Roulette
     {
         public RL_Wheel wheel { get; private set; }
         public RL_Player player { get; private set; }
-        public int multiplier { get; private set; }
+        private int multiplier { get; set; }
         public int totalMoneyWon { get; private set; } = 0;
+        public bool isPlaying { get; private set; } = false;
         public enum chips { Fifty = 50, OneHundred = 100, TwoHundred = 200, FiveHundred = 500 }
         public enum numbers { btnZero = 0, btnOne = 1, btnTwo = 2, btnThree = 3, btnFour = 4, btnFive = 5, btnSix = 6, btnSeven = 7, btnEight = 8, btnNine = 9, btnTen = 10, btnEleven = 11, btnTwelve = 12, btnThirteen = 13, btnFourteen = 14, btnFifteen = 15, btnSixteen = 16, btnSeventeen = 17, btnEighteen = 18, btnNineteen = 19, btnTwenty = 20, btnTwentyone = 21, btnTwentytwo = 22, btnTwentythree = 23, btnTwentyfour = 24, btnTwentyfive = 25, btnTwentysix = 26, btnTwentyseven = 27, btnTwentyeight = 28, btnTwentynine = 29, btnThirty = 30, btnThirtyone = 31, btnThirtytwo = 32, btnThirtythree = 33, btnThirtyfour = 34, btnThirtyfive = 35, btnThirtysix = 36 }
         public enum colors { btnRed = 0, btnBlack = 1 };
@@ -110,7 +111,7 @@ namespace Roulette
             {
                 int moneyWon = value * multiplier;
                 totalMoneyWon = totalMoneyWon + moneyWon;
-                player.UpdateBalance(moneyWon);
+                player.SetBalance(moneyWon);
             }
         }
 
@@ -122,7 +123,7 @@ namespace Roulette
             {
                 int moneyWon = value * multiplier;
                 totalMoneyWon = totalMoneyWon + moneyWon;
-                player.UpdateBalance(moneyWon);
+                player.SetBalance(moneyWon);
             }
         }
 
@@ -139,7 +140,7 @@ namespace Roulette
                         {
                             int moneyWon = value * multiplier;
                             totalMoneyWon = totalMoneyWon + moneyWon;
-                            player.UpdateBalance(moneyWon);
+                            player.SetBalance(moneyWon);
                         }
                         break;
                     case "Odd":
@@ -147,7 +148,7 @@ namespace Roulette
                         {
                             int moneyWon = value * multiplier;
                             totalMoneyWon = totalMoneyWon + moneyWon;
-                            player.UpdateBalance(moneyWon);
+                            player.SetBalance(moneyWon);
                         }
                         break;
                 }
@@ -161,13 +162,13 @@ namespace Roulette
             {
                 int moneyWon = value * multiplier;
                 totalMoneyWon = totalMoneyWon + moneyWon;
-                player.UpdateBalance(moneyWon);
+                player.SetBalance(moneyWon);
             }
             else
             {
                 int moneyWon = value * multiplier;
                 totalMoneyWon = totalMoneyWon + moneyWon;
-                player.UpdateBalance(moneyWon);
+                player.SetBalance(moneyWon);
             }
         }
 
@@ -182,7 +183,7 @@ namespace Roulette
                     {
                         int moneyWon = value * multiplier;
                         totalMoneyWon = totalMoneyWon + moneyWon;
-                        player.UpdateBalance(moneyWon);
+                        player.SetBalance(moneyWon);
                     }
                     break;
                 case "2nd 12":
@@ -190,7 +191,7 @@ namespace Roulette
                     {
                         int moneyWon = value * multiplier;
                         totalMoneyWon = totalMoneyWon + moneyWon;
-                        player.UpdateBalance(moneyWon);
+                        player.SetBalance(moneyWon);
                     }
                     break;
                 case "3rd 12":
@@ -198,7 +199,7 @@ namespace Roulette
                     {
                         int moneyWon = value * multiplier;
                         totalMoneyWon = totalMoneyWon + moneyWon;
-                        player.UpdateBalance(moneyWon);
+                        player.SetBalance(moneyWon);
                     }
                     break;
             }
@@ -215,7 +216,7 @@ namespace Roulette
                     {
                         int moneyWon = value * multiplier;
                         totalMoneyWon = totalMoneyWon + moneyWon;
-                        player.UpdateBalance(moneyWon);
+                        player.SetBalance(moneyWon);
                     }
                     break;
                 case "2nd row":
@@ -223,7 +224,7 @@ namespace Roulette
                     {
                         int moneyWon = value * multiplier;
                         totalMoneyWon = totalMoneyWon + moneyWon;
-                        player.UpdateBalance(moneyWon);
+                        player.SetBalance(moneyWon);
                     }
                     break;
                 case "3rd row":
@@ -231,7 +232,7 @@ namespace Roulette
                     {
                         int moneyWon = value * multiplier;
                         totalMoneyWon = totalMoneyWon + moneyWon;
-                        player.UpdateBalance(moneyWon);
+                        player.SetBalance(moneyWon);
                     }
                     break;
             }
@@ -316,6 +317,10 @@ namespace Roulette
                     break;
             }
             return name;
+        }
+        public void SetIsPlaying(bool value)
+        {
+            isPlaying = value;
         }
 
         public void SetTotalMoneyWon(int value)

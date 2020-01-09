@@ -25,7 +25,7 @@
 
         <Grid Grid.Column="0">
             <Viewbox Stretch="Uniform" Grid.Column="0" VerticalAlignment="Top" StretchDirection="Both">
-                <Button x:Name="btnBack" Click="btnBack_Click" Margin="30,30" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0" BorderBrush="#1963d0">
+                <Button x:Name="btnBack" Click="btnBack_Click" Margin="30,30" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0">
                     <Image Source="/Assets/back.png" />
                 </Button>
             </Viewbox>
@@ -61,7 +61,7 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both">
-                    <ListBox x:Name="betList" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="200" Width="150">
+                    <ListBox x:Name="betList" Background="Black" BorderThickness="2" BorderBrush="#ec00fb" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="200" Width="150">
                     </ListBox>
                 </Viewbox>
             </Grid>

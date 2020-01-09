@@ -30,71 +30,52 @@ namespace Roulette
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btnBet_Click(object sender, RoutedEventArgs e)
         {
-            if (CanBet() == true)
+            if (GetIsPlaying() == false)
             {
-                if (AllowedToBet() == true)
+                if (CanBet() == true)
                 {
-                    string ctrlName = ((Control)sender).Name;
-                    int type = 0;
-
-                    switch (ctrlName)
+                    if (AllowedToBet() == true)
                     {
-                        case "btnFirstTwelve":
-                        case "btnSecondTwelve":
-                        case "btnThirdTwelve":
-                            type = 1;
-                            break;
-                        case "btnFirstRow":
-                        case "btnSecondRow":
-                        case "btnThirdRow":
-                            type = 2;
-                            break;
-                        case "btnFirstEighteen":
-                        case "btnLastEighteen":
-                            type = 3;
-                            break;
-                        case "btnEven":
-                        case "btnOdd":
-                            type = 4;
-                            break;
-                        case "btnRed":
-                        case "btnBlack":
-                            type = 5;
-                            break;
+                        string buttonName = ((Control)sender).Name;
+                        PlaceBet(buttonName);
                     }
-                    roulette.PlaceBet(ctrlName, type, stake);
-
-                    UpdateResult("Bet placed!");
-                    balance.Text = roulette.player.balance.ToString();
-                    totalBet.Text = "Total bet: " + totalBetValue;
-
-                    ListBoxItem listBoxItem = new ListBoxItem();
-                    listBoxItem.Content = stake + " bet on " + roulette.player.placedbet;
-
-                    betList.Items.Add(listBoxItem);
+                    else
+                    {
+                        UpdateResult("Max bet is 1000!");
+                    }
                 }
                 else
                 {
-                    UpdateResult("Max bet is 1000!");
+                    UpdateResult("Your balance is too low!");
                 }
+            }
+        }
+
+        private void btnSpin_Click(object sender, RoutedEventArgs e)
+        {
+            SetIsPlaying(true);
+
+            if (roulette.player.bet.Count != 0)
+            {
+                Spin();
             }
             else
             {
-                UpdateResult("Your balance is too low!");
+                UpdateResult("Place a bet!");
             }
         }
 
         private void btnChip_Click(object sender, RoutedEventArgs e)
         {
-            string ctrlName = ((Control)sender).Name;
+            string buttonName = ((Control)sender).Name;
             RL.chips currentChip = RL.chips.Fifty;
 
-            switch (ctrlName)
+            switch (buttonName)
             {
                 case "btnFifty":
                     stake = Convert.ToInt32(RL.chips.Fifty);
@@ -119,48 +100,91 @@ namespace Roulette
 
         private void btnResetStake_Click(object sender, RoutedEventArgs e)
         {
-            if (betList.Items.Count == 0)
+            if (GetBets() == 0)
             {
                 UpdateResult("Nothing to reset!");
             }
             else
             {
-                int betMoney = 0;
-
-                foreach (var bet in roulette.player.bet)
-                {
-                    betMoney = betMoney + bet.Value;
-                }
-
-                roulette.player.CancelBet(betMoney);
-
-                UpdateResult("Bets resetted!");
-                balance.Text = roulette.player.balance.ToString();
-                totalBet.Text = "Total bet: 0";
-
-                betList.Items.Clear();
-                totalBetValue = 0;
+                ResetBets();
             }
         }
 
-        private void btnSpin_Click(object sender, RoutedEventArgs e)
+        private void PlaceBet(string buttonName)
         {
-            if (roulette.player.bet.Count != 0)
+            int type = 0;
+
+            switch (buttonName)
             {
-                winningNumber.Text = "-";
-
-                btnResetStake.IsEnabled = false;
-                btnSpin.IsEnabled = false;
-
-                SpinMessage();
-
-                roulette.SpinWheel();
-                UpdateWinningNumber();
+                case "btnFirstTwelve":
+                case "btnSecondTwelve":
+                case "btnThirdTwelve":
+                    type = 1;
+                    break;
+                case "btnFirstRow":
+                case "btnSecondRow":
+                case "btnThirdRow":
+                    type = 2;
+                    break;
+                case "btnFirstEighteen":
+                case "btnLastEighteen":
+                    type = 3;
+                    break;
+                case "btnEven":
+                case "btnOdd":
+                    type = 4;
+                    break;
+                case "btnRed":
+                case "btnBlack":
+                    type = 5;
+                    break;
             }
-            else
+
+            roulette.PlaceBet(buttonName, type, stake);
+
+            UpdateResult("Bet placed!");
+
+            balance.Text = roulette.player.balance.ToString();
+            totalBet.Text = "Total bet: " + totalBetValue;
+
+            ListBoxItem listBoxItem = new ListBoxItem();
+            listBoxItem.Content = stake + " bet on " + roulette.player.placedbet;
+            listBoxItem.IsSelected = true;
+
+            betList.Items.Add(listBoxItem);
+        }
+
+        private void Spin()
+        {
+            winningNumber.Text = "-";
+
+            btnResetStake.IsEnabled = false;
+            btnSpin.IsEnabled = false;
+
+            SpinMessage();
+
+            roulette.SpinWheel();
+            UpdateWinningNumber();
+        }
+
+        private void ResetBets()
+        {
+            int betMoney = 0;
+
+            foreach (var bet in roulette.player.bet)
             {
-                UpdateResult("Place a bet!");
+                betMoney = betMoney + bet.Value;
             }
+
+            roulette.player.CancelBet(betMoney);
+
+            UpdateResult("Bets resetted!");
+
+            balance.Text = roulette.player.balance.ToString();
+            totalBet.Text = "Total bet: 0";
+
+            betList.Items.Clear();
+            totalBetValue = 0;
         }
 
         private bool CanBet()
@@ -211,6 +235,13 @@ namespace Roulette
             currentChip.Source = chipSource;
         }
 
+        public async void UpdateResult(string message)
+        {
+            result.Text = message;
+            await Task.Delay(2000);
+            result.Text = "";
+        }
+
         private async void UpdateWinningNumber()
         {
             await Task.Delay(5000);
@@ -222,7 +253,7 @@ namespace Roulette
             {
                 case "Black":
                     winningBlock.Background = new SolidColorBrush(Colors.Black);
-                break;
+                    break;
 
                 case "Red":
                     winningBlock.Background = new SolidColorBrush(Colors.Red);
@@ -236,14 +267,11 @@ namespace Roulette
             winningNumber.Text = winningNumberValue.ToString();
 
             roulette.Payout();
-            ResultMessage();
-            Reset();
-
-            btnSpin.IsEnabled = true;
-            btnResetStake.IsEnabled = true;
+            WinningMessage();
+            ResetTable();
         }
 
-        public async void ResultMessage()
+        public async void WinningMessage()
         {
             if (roulette.totalMoneyWon != 0)
             {
@@ -258,7 +286,7 @@ namespace Roulette
             result.Text = "";
         }
 
-        public async void Reset()
+        public async void ResetTable()
         {
             await Task.Delay(5000);
 
@@ -266,17 +294,15 @@ namespace Roulette
             totalBet.Text = "Total bet: 0";
 
             betList.Items.Clear();
+
+            roulette.SetIsPlaying(false);
             roulette.player.ClearBet();
 
             totalBetValue = 0;
             roulette.SetTotalMoneyWon(0);
-        }
 
-        public async void UpdateResult(string message)
-        {
-            result.Text = message;
-            await Task.Delay(2000);
-            result.Text = "";
+            btnSpin.IsEnabled = true;
+            btnResetStake.IsEnabled = true;
         }
 
         public async void SpinMessage()
@@ -295,6 +321,28 @@ namespace Roulette
 
             result.Text = "Spinning.....";
             await Task.Delay(1000);
+        }
+
+        private bool GetIsPlaying()
+        {
+            if (roulette.isPlaying != true)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private int GetBets()
+        {
+            return roulette.player.bet.Count;
+        }
+
+        private void SetIsPlaying(bool value)
+        {
+            roulette.SetIsPlaying(value);
         }
     }
 }
