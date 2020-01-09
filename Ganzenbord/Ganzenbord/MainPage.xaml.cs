@@ -105,7 +105,7 @@ namespace Ganzenbord
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                ganzenbord.ZetStap();
+            ganzenbord.ZetStap();
 
                 switch (ganzenbord.Field)
                 {
@@ -134,10 +134,13 @@ namespace Ganzenbord
                         Eventvak.Text = "Je hebt gewonnen!";
                         break;
                     case "dubbeleworp":
-                        Eventvak.Text = "Je bent ook een speciaal veld beland. Je worp wordt verdubbeld.";
+                        Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
                         break;
                     case "TweeOpÉénVak":
                         Eventvak.Text = "Je bent op een veld beland waar al iemand op stond. Je bent terug verplaatst.";
+                        break;
+                    case "NineOnFirstTurn":
+                        Eventvak.Text = "Je bent op veld 9 gekomen in de eerste beurt. Je bent naar veld 26 verplaatst";
                         break;
                 }
 

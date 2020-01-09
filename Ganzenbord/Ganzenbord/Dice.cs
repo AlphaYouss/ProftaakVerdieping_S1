@@ -15,8 +15,8 @@ namespace Ganzenbord
             for (int i = 1; i <= X; i++)
             {
             Random rnd = new Random();
-            int @throw = rnd.Next(1, 7);
-                ThrowCount = ThrowCount + @throw;
+            Throw = rnd.Next(1, 7);
+                ThrowCount = ThrowCount + Throw;
             }
             return ThrowCount;
         }

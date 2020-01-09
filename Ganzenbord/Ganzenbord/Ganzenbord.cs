@@ -66,7 +66,7 @@ namespace Ganzenbord
         public void ZetStap()
         {
             fieldImages[players[playerTurn].location].Source = noPicture;
-            players[playerTurn].PlayerMove();
+            Field = players[playerTurn].PlayerMove();
             CheckVak(players[playerTurn].location);
             if (CheckSpelersOpVak(players[playerTurn].location))
             {
@@ -123,8 +123,11 @@ namespace Ganzenbord
         }
 
         private void CheckVak(int locatie)
-        {       
-            Field = board.fields[locatie];
+        {
+            if (Field != "NineOnFirstTurn")
+            {
+                Field = board.fields[locatie];
+            }
             if (Field != null)
             {
                 players[playerTurn].EventStart(Field);

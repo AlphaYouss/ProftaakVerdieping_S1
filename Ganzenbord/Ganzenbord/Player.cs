@@ -31,12 +31,13 @@ namespace Ganzenbord
             winGame = false;
         }
 
-        public void PlayerMove()
+        public string PlayerMove()
         {
             dice.XD6(2);
             if (location == 0 && dice.ThrowCount == 9)
             {
                 location = 26;
+                return "NineOnFirstTurn";
             }
             else
             {
@@ -48,8 +49,10 @@ namespace Ganzenbord
                     location = 63;
                     location = location - number;
                     dice.ChangeThrowCount(-number);
+                    
                 }
             }
+            return "";
         }
 
         public void RevertLocation()
