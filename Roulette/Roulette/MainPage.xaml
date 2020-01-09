@@ -62,15 +62,6 @@
 
                 <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both">
                     <ListBox x:Name="betList" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="200" Width="150">
-                        <!--<ListBoxItem Content="$300 bet on 1"/>
-                        <ListBoxItem Content="$300 bet on RED"/>
-                        <ListBoxItem Content="$300 bet on 1st 12"/>
-                        <ListBoxItem Content="1"/>
-                        <ListBoxItem Content="1"/>
-                        <ListBoxItem Content="1"/>
-                        <ListBoxItem Content="1"/>
-                        <ListBoxItem Content="1"/>
-                        <ListBoxItem Content="1"/>-->
                     </ListBox>
                 </Viewbox>
             </Grid>
@@ -137,6 +128,12 @@
                     </Viewbox>
                 </Grid>
 
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="totalBet" Text="Total bet: 0" Margin="10"/>
+                    </Viewbox>
+                </Grid>
+
                 <Grid Grid.Row="0" Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -188,7 +185,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.Row="1" BorderBrush="White" BorderThickness="2, 2, 0, 2">
@@ -384,7 +381,7 @@
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="12" BorderBrush="White" BorderThickness="2, 0, 0, 2" Background="#8E1600">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,4">
                                         <Button x:Name="btnThirtyfour" Click="btnBet_Click" Content="34" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
@@ -400,8 +397,8 @@
                                     </Viewbox>
                                 </Grid>
                                 <Grid Grid.Row="2" Grid.Column="13" BorderBrush="White" BorderThickness="2, 0, 2, 2">
-                                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button x:Name="btnFirstRow" Click="btnBet_Click" Content="1st row" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2, 4">
+                                        <Button x:Name="btnFirstRow" Click="btnBet_Click" Content="1st row" Padding="8" Background="#00000000" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -608,9 +605,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
+                    <Grid x:Name="winningBlock" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
                         <Viewbox Stretch="Uniform" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock x:Name="winningNumber" Text="4" HorizontalAlignment="Center" FontFamily="Consolas" Margin="10"/>
+                            <TextBlock x:Name="winningNumber" Text="-" HorizontalAlignment="Center" FontFamily="Consolas" Margin="10"/>
                         </Viewbox>
                     </Grid>
                 </Grid>

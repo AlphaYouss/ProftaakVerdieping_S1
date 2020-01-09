@@ -21,5 +21,15 @@ namespace Roulette
             bet.Clear();
             balance = balance + amount;
         }
+
+        public void UpdateBalance(int amount)
+        {
+            balance = balance + amount;
+        }
+
+        public void ClearBet()
+        {
+            bet.Clear();
+        }
     }
 }
