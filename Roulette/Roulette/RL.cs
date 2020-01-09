@@ -317,5 +317,10 @@ namespace Roulette
             }
             return name;
         }
+
+        public void SetTotalMoneyWon(int value)
+        {
+            totalMoneyWon = value;
+        }
     }
 }

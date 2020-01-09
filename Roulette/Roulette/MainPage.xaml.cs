@@ -258,14 +258,18 @@ namespace Roulette
             result.Text = "";
         }
 
-        public void Reset()
+        public async void Reset()
         {
+            await Task.Delay(5000);
+
             balance.Text = roulette.player.balance.ToString();
             totalBet.Text = "Total bet: 0";
 
             betList.Items.Clear();
             roulette.player.ClearBet();
+
             totalBetValue = 0;
+            roulette.SetTotalMoneyWon(0);
         }
 
         public async void UpdateResult(string message)
