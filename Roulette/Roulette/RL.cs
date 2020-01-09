@@ -108,8 +108,8 @@ namespace Roulette
 
             if (wheel.winningNumber.number == Convert.ToInt32(number))
             {
-                int moneyWon = value * 1;
-                totalMoneyWon = moneyWon;
+                int moneyWon = value * multiplier;
+                totalMoneyWon = totalMoneyWon + moneyWon;
                 player.UpdateBalance(moneyWon);
             }
         }
@@ -120,8 +120,8 @@ namespace Roulette
 
             if (wheel.winningNumber.color == color)
             {
-                int moneyWon = value * 1;
-                totalMoneyWon = moneyWon;
+                int moneyWon = value * multiplier;
+                totalMoneyWon = totalMoneyWon + moneyWon;
                 player.UpdateBalance(moneyWon);
             }
         }
@@ -137,16 +137,16 @@ namespace Roulette
                     case "Even":
                         if (Convert.ToInt32(wheel.winningNumber.number) % 2 == 0)
                         {
-                            int moneyWon = value * 1;
-                            totalMoneyWon = moneyWon;
+                            int moneyWon = value * multiplier;
+                            totalMoneyWon = totalMoneyWon + moneyWon;
                             player.UpdateBalance(moneyWon);
                         }
                         break;
                     case "Odd":
                         if (Convert.ToInt32(wheel.winningNumber.number) % 2 == 1)
                         {
-                            int moneyWon = value * 1;
-                            totalMoneyWon = moneyWon;
+                            int moneyWon = value * multiplier;
+                            totalMoneyWon = totalMoneyWon + moneyWon;
                             player.UpdateBalance(moneyWon);
                         }
                         break;
@@ -156,45 +156,48 @@ namespace Roulette
 
         public void Halves(int value)
         {
+            multiplier = 1;
             if (wheel.winningNumber.number < 19)
             {
-                int moneyWon = value * 1;
-                totalMoneyWon = moneyWon;
+                int moneyWon = value * multiplier;
+                totalMoneyWon = totalMoneyWon + moneyWon;
                 player.UpdateBalance(moneyWon);
             }
             else
             {
-                int moneyWon = value * 1;
-                totalMoneyWon = moneyWon;
+                int moneyWon = value * multiplier;
+                totalMoneyWon = totalMoneyWon + moneyWon;
                 player.UpdateBalance(moneyWon);
             }
         }
 
         public void Columns(int value, string type)
         {
+            multiplier = 2;
+
             switch (type)
             {
                 case "1st 12":
                     if (wheel.winningNumber.number < 13)
                     {
-                        int moneyWon = value * 2;
-                        totalMoneyWon = moneyWon;
+                        int moneyWon = value * multiplier;
+                        totalMoneyWon = totalMoneyWon + moneyWon;
                         player.UpdateBalance(moneyWon);
                     }
                     break;
                 case "2nd 12":
                     if (wheel.winningNumber.number < 26)
                     {
-                        int moneyWon = value * 2;
-                        totalMoneyWon = moneyWon;
+                        int moneyWon = value * multiplier;
+                        totalMoneyWon = totalMoneyWon + moneyWon;
                         player.UpdateBalance(moneyWon);
                     }
                     break;
                 case "3rd 12":
                     if (wheel.winningNumber.number >= 26)
                     {
-                        int moneyWon = value * 2;
-                        totalMoneyWon = moneyWon;
+                        int moneyWon = value * multiplier;
+                        totalMoneyWon = totalMoneyWon + moneyWon;
                         player.UpdateBalance(moneyWon);
                     }
                     break;
@@ -203,29 +206,31 @@ namespace Roulette
 
         public void Rows(int value, string type)
         {
+            multiplier = 2;
+
             switch (type)
             {
                 case "1st row":
                     if (wheel.winningNumber.number == 1 || wheel.winningNumber.number == 4 || wheel.winningNumber.number == 7 || wheel.winningNumber.number == 10 || wheel.winningNumber.number == 13 || wheel.winningNumber.number == 16 || wheel.winningNumber.number == 19 || wheel.winningNumber.number == 22 || wheel.winningNumber.number == 25 || wheel.winningNumber.number == 28 || wheel.winningNumber.number == 31 || wheel.winningNumber.number == 34)
                     {
-                        int moneyWon = value * 2;
-                        totalMoneyWon = moneyWon;
+                        int moneyWon = value * multiplier;
+                        totalMoneyWon = totalMoneyWon + moneyWon;
                         player.UpdateBalance(moneyWon);
                     }
                     break;
                 case "2nd row":
                     if (wheel.winningNumber.number == 2 || wheel.winningNumber.number == 5 || wheel.winningNumber.number == 8 || wheel.winningNumber.number == 11 || wheel.winningNumber.number == 14 || wheel.winningNumber.number == 17 || wheel.winningNumber.number == 20 || wheel.winningNumber.number == 23 || wheel.winningNumber.number == 26 || wheel.winningNumber.number == 29 || wheel.winningNumber.number == 32 || wheel.winningNumber.number == 35)
                     {
-                        int moneyWon = value * 2;
-                        totalMoneyWon = moneyWon;
+                        int moneyWon = value * multiplier;
+                        totalMoneyWon = totalMoneyWon + moneyWon;
                         player.UpdateBalance(moneyWon);
                     }
                     break;
                 case "3rd row":
                     if (wheel.winningNumber.number == 3 || wheel.winningNumber.number == 6 || wheel.winningNumber.number == 9 || wheel.winningNumber.number == 12 || wheel.winningNumber.number == 15 || wheel.winningNumber.number == 18 || wheel.winningNumber.number == 19 || wheel.winningNumber.number == 24 || wheel.winningNumber.number == 27 || wheel.winningNumber.number == 30 || wheel.winningNumber.number == 33 || wheel.winningNumber.number == 36)
                     {
-                        int moneyWon = value * 2;
-                        totalMoneyWon = moneyWon;
+                        int moneyWon = value * multiplier;
+                        totalMoneyWon = totalMoneyWon + moneyWon;
                         player.UpdateBalance(moneyWon);
                     }
                     break;
