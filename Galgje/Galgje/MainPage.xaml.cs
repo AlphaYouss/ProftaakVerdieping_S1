@@ -24,10 +24,10 @@ namespace Galgje
         Hangman host = new Hangman();
         
         
-        List<string> numbers = new List<string> { "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "number10", "number11" }; 
+        List<string> numbers = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }; 
         List<Button> buttons = new List<Button> {};
 
-
+        int previousTurn = 0;
 
 
 
@@ -48,6 +48,7 @@ namespace Galgje
         // Start
         private void Start()
         {
+            previousTurn = 0;
             NewGameBtn.Visibility = Visibility.Collapsed;
             host.Start();
             UpdateDisplay();
@@ -148,15 +149,19 @@ namespace Galgje
 
 
 
-
+        
 
 
         // Images
         private void UpdateImage(Image image)
         {
-            string Location = "ms-appx:///Assets/Numbers/" + numbers[host.player.turn] + ".jpg";
-            BitmapImage ImageSource = new BitmapImage(new Uri(Location));
-            image.Source = ImageSource;
+            if (previousTurn != host.player.turn || host.player.turn == 0)
+            {
+                string Location = "ms-appx:///Assets/HangmanPictures/" + numbers[host.player.turn] + ".jpg";
+                BitmapImage ImageSource = new BitmapImage(new Uri(Location));
+                image.Source = ImageSource;
+                previousTurn = host.player.turn;
+            }   
         }
 
 
