@@ -101,7 +101,9 @@ namespace Rcade
                 gameHost.SecondTurn(stake);
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
+                gameHost.CheckBlackjack(stake);
             }
+            CheckGame();
             UpdateText();
         }
 
@@ -114,8 +116,10 @@ namespace Rcade
             {
                 gameHost.SecondTurn(stake);
                 CheckAce(gameHost.player.CheckForAce());
+                gameHost.CheckBlackjack(stake);
                 gameHost.SetPlayedTurn(true);
             }
+            CheckGame();
             UpdateText();
         }
 
@@ -131,8 +135,11 @@ namespace Rcade
             }
             else
             {
+               // gameHost.CheckBlackjack();
                 gameHost.CheckForPlayerBust();
             }
+
+            gameHost.CheckBlackjack(stake);
 
             CheckGame();
             UpdateText();

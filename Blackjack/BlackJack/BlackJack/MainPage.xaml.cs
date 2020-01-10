@@ -78,7 +78,7 @@ namespace BlackJack
             KaartenDealer.Text = GameHost.deDealer.GetKaarten();
             KaartenSpeler.Text = GameHost.deSpeler.GetKaarten();
             Uitkomst.Text = GameHost.uitkomst;
-            TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
+            TbInzet.Text =Convert.ToString(GameHost.EchteInzet);
             tbWinstVerlies.Text = Convert.ToString(GameHost.deSpeler.WinstVerlies);
 
             UpdateImage(GameHost.deSpeler, SpelerImages);
@@ -104,6 +104,7 @@ namespace BlackJack
 
             TbInzet.Text = Convert.ToString(GameHost.EchteInzet);
             ConfirmInzet.IsEnabled = true;
+            ResetInzet.IsEnabled = false;
             VijftigKnop.IsEnabled = true;
             HonderdKnop.IsEnabled = true;
             TweehonderdKnop.IsEnabled = true;
@@ -120,11 +121,13 @@ namespace BlackJack
                 StartNewGame();
 
                 ConfirmInzet.IsEnabled = false;
+                ResetInzet.IsEnabled = false;
 
                 Hit.IsEnabled = true;
                 Stand.IsEnabled = true;
 
                 Uitkomst.Text = "";
+                GameHost.ChangeUitkomst("");
 
                 Elf.IsEnabled = true;
                 Een.IsEnabled = true;
@@ -139,6 +142,13 @@ namespace BlackJack
                 GameHost.ResetInzet();
             }
             UpdateText();
+        }
+
+        private void ResetInzet_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.ResetInzet();
+            UpdateText();
+            ResetInzet.IsEnabled = false;
         }
 
 
@@ -226,10 +236,15 @@ namespace BlackJack
         // Stand
         private  void Stand_Click(object sender, RoutedEventArgs e)
         {
+            StandMethod();
+        }
+
+        private void StandMethod()
+        {
             GameHost.Stand(inzet, GameHost.bank);
-           
+
             GameCheck();
-            
+
             UpdateText();
 
             UpdateImage(GameHost.deDealer, DealerImages);
@@ -256,6 +271,12 @@ namespace BlackJack
         {
             if (Aas)
             {
+                if (GameHost.deSpeler.TotaalPunten() - 14 > 21)
+                {
+                    StandMethod(); 
+                }
+                else
+                {
                     Elf.Visibility = Visibility.Visible;
                     Een.Visibility = Visibility.Visible;
                     Elf.IsEnabled = true;
@@ -263,7 +284,7 @@ namespace BlackJack
 
                     Hit.Visibility = Visibility.Collapsed;
                     Stand.Visibility = Visibility.Collapsed;
-
+                }
                 UpdateText();
                 GameHost.deSpeler.VeranderHeeftAas(false);
             }
@@ -316,11 +337,10 @@ namespace BlackJack
         // Double Down
         private void DoubleDown()
         {
-            if (GameHost.deSpeler.DoubleDownControle() && GameHost.InzetCheck(inzet * 2))
+            if (GameHost.deSpeler.DoubleDownControle() && inzet*2 < GameHost.deSpeler.saldo )
             {
                 DoubleDownKnop.Visibility = Visibility.Visible;
                 GameHost.ChangeUitkomst("");
-                GameHost.deSpeler.SaldoAfschrijven(inzet);
             }
         }
 
@@ -329,6 +349,7 @@ namespace BlackJack
             inzet *= 2;
             TbInzet.Text = Convert.ToString(inzet);
             DoubleDownKnop.Visibility = Visibility.Collapsed;
+            GameHost.deSpeler.SaldoAfschrijven(inzet);
         }
 
 
@@ -358,6 +379,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -368,6 +390,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -378,6 +401,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -388,6 +412,7 @@ namespace BlackJack
             {
                 inzet = GameHost.EchteInzet;
                 TbInzet.Text = Convert.ToString(inzet);
+                ResetInzet.IsEnabled = true;
             }
             UpdateText();
         }
@@ -425,5 +450,7 @@ namespace BlackJack
                 ImagesArray[i].Source = null;
             }
         }
+
+        
     }
 }

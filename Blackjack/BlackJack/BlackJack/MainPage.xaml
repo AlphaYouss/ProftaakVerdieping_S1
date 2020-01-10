@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="1106" d:DesignHeight="788">
 
     <Grid>
         <TextBlock  Name="Saldo"                HorizontalAlignment="Left" Margin="987,190,0,0" Text="Saldo" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -29,7 +29,9 @@
         <Button     Name="HonderdKnop"      Content="100" Margin="265,173,0,0" VerticalAlignment="Top" Click="HonderdKnop_Click"/>
         <Button     Name="TweehonderdKnop"  Content="200" Margin="169,238,0,0" VerticalAlignment="Top" Click="TweehonderdKnop_Click"/>
         <Button     Name="VijfhonderdKnop"  Content="500" Margin="265,238,0,0" VerticalAlignment="Top" Click="VijfhonderdKnop_Click"/>
+        <Button     Name="ResetInzet"       Content="Reset inzet" Margin="52,348,0,0" VerticalAlignment="Top" Click="ResetInzet_Click"/>
         <TextBlock  Name="TbInzet"          HorizontalAlignment="Left" Margin="220,312,0,0" Text="50" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
 
         <Image Name="SpelerKaart1" Source="/Assets/Speelkaarten/achterkant kaart.jpg" HorizontalAlignment="Left" Height="100" Margin="120,530,0,0" VerticalAlignment="Top" Width="66"/>
         <Image Name="SpelerKaart2" Source="/Assets/Speelkaarten/achterkant kaart.jpg" HorizontalAlignment="Left" Height="100" Margin="200,530,0,0" VerticalAlignment="Top" Width="66" />

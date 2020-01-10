@@ -63,7 +63,9 @@ namespace BlackJack
             {
                 if (deDealer.spelerKaarten[1].Punt == 10)
                 {
-                    deSpeler.SaldoBijschrijven(inzet / 2);
+                    double InsuranceGeld = (inzet / 2) + inzet;
+
+                    deSpeler.SaldoBijschrijven(InsuranceGeld);
 
                     Stand(inzet,bank);
                 }
@@ -183,7 +185,7 @@ namespace BlackJack
             else if(deSpeler.saldo <= 0)
             {
                 uitkomst = "Je saldo is negatief..";
-                // Hier komt een link naar de backknop
+                // Hier komt een link naar de back knop
                 return false;
             }
             else
