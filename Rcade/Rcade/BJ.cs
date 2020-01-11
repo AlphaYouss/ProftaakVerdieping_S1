@@ -57,8 +57,10 @@
                     Stand(stake, stackOfCards);
                 }
             }
+            CheckBlackjack(stake);
             playedTurn = true;
         }
+
 
         public void CheckForPlayerBust()
         {
@@ -68,6 +70,19 @@
                 gameOver = true;
             }
         }
+
+
+        public void CheckBlackjack(double stake)
+        {
+            if (player.GetTotalPoints() == 21)
+            {
+                gameOver = true;
+                CheckWinner(stake);
+            }
+        }
+
+
+
 
         public void Stand(double stake, BJ_Cards cards)
         {
