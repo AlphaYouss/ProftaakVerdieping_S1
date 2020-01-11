@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rcade
 {
@@ -13,10 +10,9 @@ namespace Rcade
         string query = "";
         string testquery = "";
 
-       
         public int Choice { get; private set; } = 1;
 
-       
+
         public List<string> Usernames { get; private set; } = new List<string>();
 
         public string Table1Name { get; private set; } = "";
@@ -25,12 +21,12 @@ namespace Rcade
 
         public string Table2Name { get; private set; } = "";
         public List<string> Table2 { get; private set; } = new List<string>();
-      
-        
+
+
         public string Table3Name { get; private set; } = "";
         public List<string> Table3 { get; private set; } = new List<string>();
-      
-        
+
+
         public string Table4Name { get; private set; } = "";
         public List<string> Table4 { get; private set; } = new List<string>();
 
@@ -55,16 +51,16 @@ namespace Rcade
                 case 1:
                     SelectFromBlackjack();
                     testquery = "SELECT Test_User_gegevens.Username, Test_Blackjack.user_ID FROM Test_User_gegevens INNER JOIN Test_Blackjack ON Test_User_gegevens.ID = Test_Blackjack.user_ID";
-                    query = "SELECT User_gegevens.Username, Blackjack.user_ID FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID" ;
+                    query = "SELECT User_gegevens.Username, Blackjack.user_ID FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID";
                     break;
-                
-                
+
+
                 case 2:
                     SelectFromRoulette();
                     testquery = "SELECT Test_User_gegevens.Username, Test_Roulette.user_ID FROM Test_User_gegevens INNER JOIN Test_Roulette ON Test_User_gegevens.ID = Test_Roulette.user_ID";
                     query = "SELECT User_gegevens.Username, Roulette.user_ID FROM User_gegevens INNER JOIN Roulette ON User_gegevens.ID = Roulette.user_ID";
                     break;
-                
+
                 case 3:
                     SelectFromHangman();
                     testquery = "SELECT Test_User_gegevens.Username, Test_Galgje.user_ID FROM Test_User_gegevens INNER JOIN Test_Galgje ON Test_User_gegevens.ID = Test_Galgje.user_ID";
@@ -106,14 +102,10 @@ namespace Rcade
             Table5Name = "";
         }
 
-
         public void ChangeChoice(int MyChoice)
         {
             Choice = MyChoice;
         }
-
-
-
 
         private void UserIDtoUsername()
         {
@@ -142,13 +134,9 @@ namespace Rcade
                 if (Convert.ToString(row["Username"]) != "")
                 {
                     Usernames.Add(Convert.ToString(row["Username"]));
-                }   
+                }
             }
         }
-
-
-
-
 
         private void SelectFromBlackjack()
         {
@@ -165,7 +153,7 @@ namespace Rcade
 
 
             OpenConnectionToDB();
-           
+
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
             adapt.Fill(table);
 
@@ -183,11 +171,6 @@ namespace Rcade
                 Table3.Add(Convert.ToString(row["laatst_gespeeld"]));
             }
         }
-
-
-
-
-
         private void SelectFromBKE()
         {
             SqlCommand cmd = new SqlCommand();
@@ -225,10 +208,6 @@ namespace Rcade
             }
         }
 
-
-
-
-
         private void SelectFromHangman()
         {
             SqlCommand cmd = new SqlCommand();
@@ -265,10 +244,6 @@ namespace Rcade
             }
         }
 
-
-
-
-
         private void SelectFromGanzenbord()
         {
             SqlCommand cmd = new SqlCommand();
@@ -304,10 +279,6 @@ namespace Rcade
                 Table4.Add(Convert.ToString(row["laatst_gespeeld"]));
             }
         }
-
-
-
-
 
         private void SelectFromRoulette()
         {

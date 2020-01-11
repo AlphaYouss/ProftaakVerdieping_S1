@@ -15,7 +15,7 @@ namespace Rcade
             isTestVersion = testTable;
         }
 
-        public bool CheckIfUserRowExists(int id)
+        public bool CheckUser(int id)
         {
             SqlCommand cmd = new SqlCommand();
 
@@ -38,7 +38,7 @@ namespace Rcade
             return exists;
         }
 
-        public void CreateRow(int id)
+        public void CreateUserRow(int id)
         {
             SqlCommand cmd = new SqlCommand();
             string datetime = DateTime.Now.ToString();
@@ -60,7 +60,7 @@ namespace Rcade
             CloseConnectionToDB();
         }
 
-        public void GetRow(int id)
+        public void GetUserRow(int id)
         {
             SqlCommand cmd = new SqlCommand();
 

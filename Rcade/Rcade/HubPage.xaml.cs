@@ -15,7 +15,7 @@ namespace Rcade
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
             1000,
-            1000 
+            1000
             ));
         }
 
@@ -24,21 +24,21 @@ namespace Rcade
             this.user = user;
         }
 
-        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             MainPage main = new MainPage();
             Content = main;
         }
 
-        private void btnBj_Click(object sender, RoutedEventArgs e)
+        private void btnBJ_Click(object sender, RoutedEventArgs e)
         {
             BJPage bj = new BJPage();
             bj.SetUser(user);
             bj.SetUp();
 
-            if (user.CanConnectToDatabase() == false)
+            if (user.dbh.TestConnection() == false)
             {
-                btnUitloggen_Click(sender, e);
+                btnLogout_Click(sender, e);
             }
             else
             {
@@ -47,15 +47,15 @@ namespace Rcade
             }
         }
 
-        private void btnBke_Click(object sender, RoutedEventArgs e)
+        private void btnTTT_Click(object sender, RoutedEventArgs e)
         {
             TTTPage ttt = new TTTPage();
             ttt.SetUser(user);
             ttt.SetUp();
 
-            if (user.CanConnectToDatabase() == false)
+            if (user.dbh.TestConnection() == false)
             {
-                btnUitloggen_Click(sender, e);
+                btnLogout_Click(sender, e);
             }
             else
             {
@@ -64,10 +64,9 @@ namespace Rcade
             }
         }
 
-        
         private void btnLeaderboard_Click(object sender, RoutedEventArgs e)
         {
-            LeaderboardPage ll = new LeaderboardPage();      
+            LeaderboardPage ll = new LeaderboardPage();
             Content = ll;
         }
     }

@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    FontFamily="/Assets/Fonts/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters">
+    FontFamily="/Assets/Fonts/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters"
+    Foreground="White">
 
     <Grid x:Name="main" >
         <Grid.Background>
@@ -23,13 +24,7 @@
         </Grid.ColumnDefinitions>
 
         <Viewbox Grid.Row="0" Grid.Column="0" StretchDirection="Both" HorizontalAlignment="Left">
-            <Button x:Name="btnUitloggen" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="50" Padding="5,5,5,0" Click="btnUitloggen_Click" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Uitloggen"/>
-        </Viewbox>
-
-        <TextBlock x:Name="titel"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Hub" FontSize="60"/>
-
-        <Viewbox Grid.Row="0" Grid.Column="2" StretchDirection="Both" HorizontalAlignment="Right" >
-            <Button x:Name="btnAccount" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="50" Padding="5,5,5,0" FontSize="35" FontFamily="/Assets/Lettertypes/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Content="Account"/>
+            <Button x:Name="btnLogout" Click="btnLogout_Click" HorizontalAlignment="Center"/>
         </Viewbox>
 
         <Grid Grid.Row="1">
@@ -86,27 +81,27 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Grid.Column="0" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnBj" HorizontalAlignment="Stretch" Padding="0" Click="btnBj_Click" Content="" Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnBJ" HorizontalAlignment="Stretch" Padding="0" Click="btnBJ_Click" Content="" Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="2" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnBke" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Click="btnBke_Click" BorderThickness="0.5"  Height="37" Width="18"/>
+                    <Button x:Name="btnTTT" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Click="btnTTT_Click" BorderThickness="0.5"  Height="37" Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="4" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnA" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnFourInARow" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="6" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnB" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnGooseboard" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="8" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnC" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0"  Height="37" BorderThickness="0.5"  Width="18"/>
+                    <Button x:Name="btnHangman" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0"  Height="37" BorderThickness="0.5"  Width="18"/>
                 </Viewbox>
 
                 <Viewbox Grid.Column="10" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnD" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Margin="0" BorderThickness="0.5" Height="37" Width="18"/>
+                    <Button x:Name="btnRoulette" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Margin="0" BorderThickness="0.5" Height="37" Width="18"/>
                 </Viewbox>
             </Grid>
         </Grid>

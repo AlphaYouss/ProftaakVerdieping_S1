@@ -24,14 +24,14 @@ namespace Rcade
             }
 
             cmd.Parameters.AddWithValue("Username", username);
-            
+
             OpenConnectionToDB();
 
             bool exists = (int)cmd.ExecuteScalar() > 0;
 
             CloseConnectionToDB();
             return exists;
-        } 
+        }
 
         public int GetUserID(string username)
         {
@@ -87,13 +87,13 @@ namespace Rcade
 
             if (isTestVersion == true)
             {
-                 cmd = new SqlCommand("SELECT * FROM Test_User_gegevens", GetCon());
+                cmd = new SqlCommand("SELECT * FROM Test_User_gegevens", GetCon());
             }
             else
             {
-                 cmd = new SqlCommand("SELECT * FROM User_gegevens", GetCon());
+                cmd = new SqlCommand("SELECT * FROM User_gegevens", GetCon());
             }
-            
+
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);

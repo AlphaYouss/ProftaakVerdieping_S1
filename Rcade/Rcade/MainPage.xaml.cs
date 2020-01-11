@@ -1,14 +1,15 @@
-﻿using Windows.Foundation;
+﻿using System;
+using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 namespace Rcade
 {
     public sealed partial class MainPage : Page
     {
         private User user { get; set; } = new User();
+        private string uriToLaunch { get; set; } = @"http://rcade.azurewebsites.net/register.php";
 
         public MainPage()
         {
@@ -16,8 +17,8 @@ namespace Rcade
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
-                1000, 
-                1000 
+                1000,
+                1000
                 ));
         }
 
@@ -62,13 +63,13 @@ namespace Rcade
             }
             else
             {
-                if (user.CanConnectToDatabase() == false)
+                if (user.dbh.TestConnection() == false)
                 {
                     message.Text = user.ShowError("Database", 0);
                 }
                 else
                 {
-                    user.CheckIfUserExists(username.Text);
+                    user.CheckUser(username.Text);
 
                     if (user.exists == true)
                     {
@@ -90,6 +91,22 @@ namespace Rcade
                         message.Text = user.ShowError("Account", 0);
                     }
                 }
+            }
+        }
+
+        private void website_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Uri uri = new Uri(uriToLaunch);
+            LaunchWebsite(uri);
+        }
+
+        async void LaunchWebsite(Uri uri)
+        {
+            bool success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+            if (!success)
+            {
+                message.Text = user.ShowError("Webbrowser", 0);
             }
         }
     }

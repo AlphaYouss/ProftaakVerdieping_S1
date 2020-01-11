@@ -57,6 +57,8 @@ namespace Rcade
 
         public void GetRow(int id)
         {
+            CheckIfUserRowExists(id);
+
             SqlCommand cmd = new SqlCommand();
 
             if (isTestVersion == true)
