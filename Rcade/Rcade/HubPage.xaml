@@ -93,7 +93,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnRoulette" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnRoulette" Click="btnRoulette_Click" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -144,7 +144,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnHangman" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnHangman" Click="btnHangman_Click" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
                         </Viewbox>
                     </Grid>
 

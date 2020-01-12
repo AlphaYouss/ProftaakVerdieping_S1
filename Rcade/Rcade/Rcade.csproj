@@ -127,12 +127,26 @@
     <Compile Include="BJ_Cards.cs" />
     <Compile Include="BJ_Player.cs" />
     <Compile Include="Databasehandler_lb.cs" />
+    <Compile Include="Hm.cs" />
+    <Compile Include="HmPage.xaml.cs">
+      <DependentUpon>HmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Hm_FileReader.cs" />
+    <Compile Include="Hm_Player.cs" />
     <Compile Include="LeaderboardPage.xaml.cs">
       <DependentUpon>LeaderboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LeaderboardGame.xaml.cs">
       <DependentUpon>LeaderboardGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RL.cs" />
+    <Compile Include="RLPage.xaml.cs">
+      <DependentUpon>RLPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RL_Number.cs" />
+    <Compile Include="RL_Numbers.cs" />
+    <Compile Include="RL_Player.cs" />
+    <Compile Include="RL_Wheel.cs" />
     <Compile Include="TTT.cs" />
     <Compile Include="TTTPage.xaml.cs">
       <DependentUpon>TTTPage.xaml</DependentUpon>
@@ -163,6 +177,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Files\words.txt" />
     <Content Include="Assets\Images\bj\11.png" />
     <Content Include="Assets\Images\bj\1.png" />
     <Content Include="Assets\Images\bj\2x.png" />
@@ -237,12 +252,29 @@
     <Content Include="Assets\Images\chips\200.png" />
     <Content Include="Assets\Images\chips\50.png" />
     <Content Include="Assets\Images\chips\500.png" />
+    <Content Include="Assets\Images\hm\1.jpg" />
+    <Content Include="Assets\Images\hm\10.jpg" />
+    <Content Include="Assets\Images\hm\11.jpg" />
+    <Content Include="Assets\Images\hm\12.jpg" />
+    <Content Include="Assets\Images\hm\2.jpg" />
+    <Content Include="Assets\Images\hm\3.jpg" />
+    <Content Include="Assets\Images\hm\4.jpg" />
+    <Content Include="Assets\Images\hm\5.jpg" />
+    <Content Include="Assets\Images\hm\6.jpg" />
+    <Content Include="Assets\Images\hm\7.jpg" />
+    <Content Include="Assets\Images\hm\8.jpg" />
+    <Content Include="Assets\Images\hm\9.jpg" />
     <Content Include="Assets\Images\hub\background.jpg" />
     <Content Include="Assets\Images\leaderboard\back.png" />
     <Content Include="Assets\Images\leaderboard\game\back.jpg" />
     <Content Include="Assets\Images\leaderboard\game\next.jpg" />
     <Content Include="Assets\Images\login\image.jpg" />
     <Content Include="Assets\Images\login\login.png" />
+    <Content Include="Assets\Images\rl\back.png" />
+    <Content Include="Assets\Images\rl\background.jpg" />
+    <Content Include="Assets\Images\rl\wheel.png" />
+    <Content Include="Assets\Images\rl\resetBtn.png" />
+    <Content Include="Assets\Images\rl\table.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Images\application\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\Images\application\SplashScreen.scale-200.png" />
@@ -261,11 +293,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LeaderboardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LeaderboardGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RLPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

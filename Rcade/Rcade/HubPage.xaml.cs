@@ -69,5 +69,17 @@ namespace Rcade
             LeaderboardPage ll = new LeaderboardPage();
             Content = ll;
         }
+
+        private void btnRoulette_Click(object sender, RoutedEventArgs e)
+        {
+            RLPage rl = new RLPage();
+            Content = rl;
+        }
+
+        private void btnHangman_Click(object sender, RoutedEventArgs e)
+        {
+            HmPage rl = new HmPage();
+            Content = rl;
+        }
     }
 }
