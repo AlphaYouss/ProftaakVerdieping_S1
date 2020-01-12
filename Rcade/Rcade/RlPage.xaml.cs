@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -10,7 +11,8 @@ namespace Rcade
 {
     public sealed partial class RLPage : Page
     {
-        private RL roulette { get; set; } = new RL();
+        private Databasehandler_rl dbh_RL { get; set; } = new Databasehandler_rl(true);
+        private RL roulette { get; set; } 
         private User user { get; set; }
         private int stake { get; set; } = Convert.ToInt32(RL.chips.Fifty);
         private int totalBetValue { get; set; } = 0;
@@ -39,6 +41,8 @@ namespace Rcade
                     {
                         string buttonName = ((Control)sender).Name;
                         PlaceBet(buttonName);
+
+                        btnBack.Visibility = Visibility.Collapsed;
                     }
                     else
                     {
@@ -181,6 +185,8 @@ namespace Rcade
 
             betList.Items.Clear();
             totalBetValue = 0;
+
+            btnBack.Visibility = Visibility.Visible;
         }
 
         private bool CanBet()
@@ -263,6 +269,7 @@ namespace Rcade
             winningNumber.Text = winningNumberValue.ToString();
 
             roulette.Payout();
+            SetUserStats(roulette.player.balance);
             WinningMessage();
             ResetTable();
         }
@@ -299,6 +306,7 @@ namespace Rcade
 
             btnSpin.IsEnabled = true;
             btnResetStake.IsEnabled = true;
+            btnBack.Visibility = Visibility.Visible;
         }
 
         public async void SpinMessage()
@@ -319,6 +327,31 @@ namespace Rcade
             await Task.Delay(1000);
         }
 
+
+        public int GetUserStats()
+        {
+            if (dbh_RL.TestConnection() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+
+                return 0;
+            }
+            else
+            {
+                dbh_RL.GetRow(user.id);
+
+                int bjSaldo = 0;
+
+                foreach (DataRow row in dbh_RL.table.Rows)
+                {
+                    bjSaldo = Convert.ToInt32(row["saldo"]);
+                }
+
+                return bjSaldo;
+            }
+        }
+
         private bool GetIsPlaying()
         {
             if (roulette.isPlaying != true)
@@ -334,6 +367,45 @@ namespace Rcade
         private int GetBets()
         {
             return roulette.player.bet.Count;
+        }
+
+        internal void SetUser(User user)
+        {
+            this.user = user;
+        }
+
+        internal void SetUserStats()
+        {
+            if (dbh_RL.TestConnection() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                roulette = new RL(GetUserStats(), user.userName);
+
+                balance.Text = roulette.player.balance.ToString();
+                playerName.Text = user.userName;
+            }
+        }
+
+        private void SetUserStats(int balance)
+        {
+            if (dbh_RL.TestConnection() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                SetUserStats(user.id, balance, roulette.player.lastPlayed);
+            }
+        }
+
+        public void SetUserStats(int id, int saldo, DateTime lastTime)
+        {
+            dbh_RL.SetRow(id, saldo, lastTime);
         }
 
         private void SetIsPlaying(bool value)

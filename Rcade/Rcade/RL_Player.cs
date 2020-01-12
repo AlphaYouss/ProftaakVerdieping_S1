@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rcade
 {
@@ -10,8 +7,16 @@ namespace Rcade
     {
         public List<KeyValuePair<string, int>> bet { get; private set; } = new List<KeyValuePair<string, int>>();
         public string name { get; private set; }
-        public int balance { get; private set; } = 25000;
+        public int balance { get; private set; }
         public string placedbet { get; private set; }
+        public DateTime lastPlayed { get; private set; }
+
+        public RL_Player(int balance, string name)
+        {
+            this.balance = balance;
+            this.name = name;
+            lastPlayed = DateTime.Now;
+        }
 
         public void PlaceBet(string name, int amount)
         {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rcade
 {
@@ -21,10 +17,10 @@ namespace Rcade
         public enum columns { btnFirstTwelve = 0, btnSecondTwelve = 1, btnThirdTwelve = 2 };
         public enum rows { btnFirstRow = 0, btnSecondRow = 1, btnThirdRow = 2 };
 
-        public RL()
+        public RL(int balance, string name)
         {
             wheel = new RL_Wheel();
-            player = new RL_Player();
+            player = new RL_Player(balance, name);
         }
 
         public void SpinWheel()

@@ -73,6 +73,9 @@ namespace Rcade
         private void btnRoulette_Click(object sender, RoutedEventArgs e)
         {
             RLPage rl = new RLPage();
+            rl.SetUser(user);
+            rl.SetUserStats();
+
             Content = rl;
         }
 

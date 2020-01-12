@@ -338,7 +338,6 @@ namespace Rcade
             SetDealerImage(gameHost.dealer, dealerImages);
         }
 
-
         public void CheckGame()
         {
             if (gameHost.gameOver)
