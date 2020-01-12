@@ -9,7 +9,7 @@ namespace Rcade
     public sealed partial class MainPage : Page
     {
         private User user { get; set; } = new User();
-        private string uriToLaunch { get; set; } = @"http://rcade.azurewebsites.net/register.php";
+        private string uriToLaunch { get; set; } = @"http://the-rcade.azurewebsites.net/register.php";
 
         public MainPage()
         {

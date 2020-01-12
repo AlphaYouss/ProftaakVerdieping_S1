@@ -15,7 +15,7 @@
         </Grid.Background>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.55*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
@@ -23,86 +23,142 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Viewbox Grid.Row="0" Grid.Column="0" StretchDirection="Both" HorizontalAlignment="Left">
-            <Button x:Name="btnLogout" Click="btnLogout_Click" HorizontalAlignment="Center"/>
-        </Viewbox>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".12*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox StretchDirection="Both" Stretch="Fill"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Button x:Name="btnLogout" Click="btnLogout_Click" Background="Transparent" Padding="0">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="6"/>
+                    </Button.RenderTransform>
+                </Button>
+            </Viewbox>
+        </Grid>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.9*"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.8*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Column="1" Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="3*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Viewbox Grid.Row="0" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <Button x:Name="btnLeaderboard" Click="btnLeaderboard_Click" HorizontalAlignment="Stretch" Padding="0" Content="" Height="37" BorderThickness="0.5"  Width="58"/>
-                        </Viewbox>
-                    </Grid>
-                </Grid>
+                <Viewbox Grid.Column="1" StretchDirection="Both" Stretch="Fill">
+                    <Button x:Name="btnLeaderboard" Click="btnLeaderboard_Click" Padding="0" Background="Transparent"/>
+                </Viewbox>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".6*"/>
+                    <ColumnDefinition Width=".8*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".9*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Viewbox Grid.Column="0" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnBJ" HorizontalAlignment="Stretch" Padding="0" Click="btnBJ_Click" Content="" Height="37" BorderThickness="0.5"  Width="18"/>
-                </Viewbox>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".275*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".4*"/>
+                        </Grid.RowDefinitions>
 
-                <Viewbox Grid.Column="2" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnTTT" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Click="btnTTT_Click" BorderThickness="0.5"  Height="37" Width="18"/>
-                </Viewbox>
+                        <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
+                            <Button x:Name="btnTTT" HorizontalAlignment="Stretch" Click="btnTTT_Click" Background="Transparent" Padding="0"/>
+                        </Viewbox>
+                    </Grid>
 
-                <Viewbox Grid.Column="4" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnFourInARow" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
-                </Viewbox>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".115*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".32*"/>
+                        </Grid.RowDefinitions>
 
-                <Viewbox Grid.Column="6" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnGooseboard" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Height="37" BorderThickness="0.5"  Width="18"/>
-                </Viewbox>
+                        <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
+                            <Button x:Name="btnRoulette" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
 
-                <Viewbox Grid.Column="8" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnHangman" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0"  Height="37" BorderThickness="0.5"  Width="18"/>
-                </Viewbox>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".85*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Viewbox Grid.Column="10" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="475">
-                    <Button x:Name="btnRoulette" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="0" Margin="0" BorderThickness="0.5" Height="37" Width="18"/>
-                </Viewbox>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".43*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".34*"/>
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
+                            <Button x:Name="btnFourInARow" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".27*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".25*"/>
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
+                            <Button x:Name="BtnGooseboard" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"/>
+                        <ColumnDefinition Width=".13*"/>
+                        <ColumnDefinition Width=".8*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".48*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".2*"/>
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
+                            <Button x:Name="btnHangman" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".12*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
+                            <Button x:Name="btnBJ" HorizontalAlignment="Stretch" Click="btnBJ_Click" Background="Transparent" Padding="0"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

@@ -33,7 +33,7 @@
         <Grid Grid.Row="0" Grid.Column="0">
             <Viewbox Stretch="Fill" StretchDirection="Both">
                 <Button Name="ReturnButton" Click="ReturnButton_Click" >
-                    <Image Source="/Assets/Images/bke/back.png" />
+                    <Image Source="/Assets/Images/leaderboard/back.png" />
                 </Button>
             </Viewbox>
         </Grid>
@@ -134,7 +134,7 @@
             <Grid Grid.Row="1" Grid.Column="1">
                 <Viewbox Stretch="Fill" StretchDirection="Both" >
                     <Button Name="BackButton" Click="BackButton_Click">
-                        <Image Source="/Assets/Images/Leaderboard/Back.jpg" />
+                        <Image Source="/Assets/Images/Leaderboard/game/back.jpg" />
                     </Button>
                 </Viewbox>
             </Grid>
@@ -142,7 +142,7 @@
             <Grid Grid.Row="1" Grid.Column="3">
                 <Viewbox Stretch="Fill" StretchDirection="Both" >
                     <Button Name="ForwardButton"  Click="ForwardButton_Click" >
-                        <Image Source="/Assets/Images/Leaderboard/Next.jpg" />
+                        <Image Source="/Assets/Images/Leaderboard/game/next.jpg" />
                     </Button>
                     
                 </Viewbox>

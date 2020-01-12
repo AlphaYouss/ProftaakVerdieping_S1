@@ -39,30 +39,30 @@
         </Viewbox>
 
         <Viewbox Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard1" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="dealerCard1" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard2" Source="/Assets/Images/bj/cards/back.jpg"  Margin="50"/>
+            <Image Name="dealerCard2" Source="/Assets/Images/bj/cards/back.jpg"  Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard3" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="dealerCard3" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard4" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="dealerCard4" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard5" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="dealerCard5" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard6" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="dealerCard6" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Viewbox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard7" Source="/Assets/Images/bj/cards/back.jpg"  Margin="50"/>
+            <Image Name="dealerCard7" Source="/Assets/Images/bj/cards/back.jpg"  Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="playerCard8" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="dealerCard8" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Grid Grid.Column="7" Grid.Row="0">
@@ -99,30 +99,30 @@
         </Grid>
 
         <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard1" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard1" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard2" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard2" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard3" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard3" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard4" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard4" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard5" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard5" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard6" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard6" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Viewbox Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard7" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard7" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
         <Viewbox Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both" Margin="10">
-            <Image Name="dealerCard8" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
+            <Image Name="playerCard8" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
 
         <Grid Grid.Column="7" Grid.Row="1">
@@ -141,22 +141,22 @@
 
             <Viewbox Stretch="Uniform" Grid.Row="0" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="btnFifty" Margin="10,20" Padding="0" Click="btnFifty_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
-                    <Image Source="/Assets/Images/fiches/50.png" />
+                    <Image Source="/Assets/Images/chips/50.png" />
                 </Button>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Row="1" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="btnHundred" Margin="10,20" Padding="0" Click="btnHundred_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
-                    <Image Source="/Assets/Images/fiches/100.png" />
+                    <Image Source="/Assets/Images/chips/100.png" />
                 </Button>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Row="2" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="btnTwohundred" Margin="10,20" Padding="0" Click="btnTwohundred_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
-                    <Image Source="/Assets/Images/fiches/200.png" />
+                    <Image Source="/Assets/Images/chips/200.png" />
                 </Button>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="btnFivehundred" Margin="10,20" Padding="0" Click="btnFivehundred_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
-                    <Image Source="/Assets/Images/fiches/500.png" />
+                    <Image Source="/Assets/Images/chips/500.png" />
                 </Button>
             </Viewbox>
         </Grid>
