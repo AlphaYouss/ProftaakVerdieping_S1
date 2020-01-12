@@ -7,9 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    FontFamily="Consolas">
+    FontFamily="Consolas"
+    Foreground="White">
 
     <Grid Name="main">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/rl/background.jpg"></ImageBrush>
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="7*" />
@@ -21,29 +26,34 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0" >
-            <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnBack" Click="btnBack_Click" Margin="10,0,10,0" Content="Back" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Viewbox Stretch="Uniform" StretchDirection="Both">
+                <Button Name="btnBack" Click="btnBack_Click" Margin="10" Padding="0" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="/Assets/Images/leaderboard/back.png" />
+                </Button>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" >
-                <Viewbox>
-                    <TextBlock Text="Score:" />
+            <Grid Grid.Row="0" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Viewbox Grid.Row="0">
+                    <TextBlock Text="Score:" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Margin="5"/>
                 </Viewbox>
-            </Grid>
-
-            <Grid Grid.Row="1">
-                <Viewbox>
+                
+                <Viewbox Grid.Row="1">
                     <TextBlock Name="TbScore" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Viewbox>
             </Grid>
+
         </Grid>
 
         <Grid Grid.Row="0" Grid.Column="1">
@@ -78,7 +88,7 @@
 
                     <Grid Grid.Column="1" Grid.Row="1">
                         <Viewbox>
-                            <TextBlock  Name="TbLetterDisplay" Text="-------" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock  Name="TbLetterDisplay" Text="-------" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -296,10 +306,10 @@
                         <RowDefinition Height="10*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Grid Grid.Row="1">
                         <Viewbox>
-                            <Image Name="HangmanImage" Source="/Assets/Numbers/number0.jpg" />
+                            <Image Name="HangmanImage" Source="/Assets/Numbers/number0.jpg"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -310,10 +320,10 @@
                         <RowDefinition Height="4*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Grid Grid.Row="1">
                         <Viewbox>
-                            <TextBlock  Name="TbGuessedLetters"     Text="Geraden Letters"  />
+                            <TextBlock Name="TbGuessedLetters" Text="Geraden Letters"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -323,10 +333,12 @@
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <Grid Grid.Column="1">
-                        <Viewbox Stretch="Fill">
-                            <Button Name="NewGameBtn" Content="New Game" Margin="5,5,0,0" Click="NewGameBtn_Click" />
+                        <Viewbox Stretch="Uniform">
+                            <Button Name="btnNewgame" Margin="5" Padding="0" BorderThickness="0" Click="btnNewgame_Click">
+                                <Image Source="/Assets/Images/leaderboard/back.png"/>
+                            </Button>
                         </Viewbox>
                     </Grid>
                 </Grid>

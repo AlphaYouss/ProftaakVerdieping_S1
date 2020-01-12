@@ -136,8 +136,8 @@
     <Compile Include="LeaderboardPage.xaml.cs">
       <DependentUpon>LeaderboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LeaderboardGame.xaml.cs">
-      <DependentUpon>LeaderboardGame.xaml</DependentUpon>
+    <Compile Include="LeaderboardGamePage.xaml.cs">
+      <DependentUpon>LeaderboardGamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RL.cs" />
     <Compile Include="RLPage.xaml.cs">
@@ -264,6 +264,7 @@
     <Content Include="Assets\Images\hm\7.jpg" />
     <Content Include="Assets\Images\hm\8.jpg" />
     <Content Include="Assets\Images\hm\9.jpg" />
+    <Content Include="Assets\Images\hm\back.png" />
     <Content Include="Assets\Images\hub\background.jpg" />
     <Content Include="Assets\Images\leaderboard\back.png" />
     <Content Include="Assets\Images\leaderboard\game\back.jpg" />
@@ -301,7 +302,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LeaderboardGame.xaml">
+    <Page Include="LeaderboardGamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

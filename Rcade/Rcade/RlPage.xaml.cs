@@ -12,7 +12,7 @@ namespace Rcade
     public sealed partial class RLPage : Page
     {
         private Databasehandler_rl dbh_RL { get; set; } = new Databasehandler_rl(true);
-        private RL roulette { get; set; } 
+        private RL roulette { get; set; }
         private User user { get; set; }
         private int stake { get; set; } = Convert.ToInt32(RL.chips.Fifty);
         private int totalBetValue { get; set; } = 0;
@@ -237,7 +237,7 @@ namespace Rcade
             currentChip.Source = chipSource;
         }
 
-        public async void UpdateResult(string message)
+        private async void UpdateResult(string message)
         {
             result.Text = message;
             await Task.Delay(2000);
@@ -270,11 +270,12 @@ namespace Rcade
 
             roulette.Payout();
             SetUserStats(roulette.player.balance);
+
             WinningMessage();
             ResetTable();
         }
 
-        public async void WinningMessage()
+        private async void WinningMessage()
         {
             if (roulette.totalMoneyWon != 0)
             {
@@ -289,7 +290,7 @@ namespace Rcade
             result.Text = "";
         }
 
-        public async void ResetTable()
+        private async void ResetTable()
         {
             await Task.Delay(5000);
 
@@ -309,7 +310,7 @@ namespace Rcade
             btnBack.Visibility = Visibility.Visible;
         }
 
-        public async void SpinMessage()
+        private async void SpinMessage()
         {
             result.Text = "Spinning.";
             await Task.Delay(1000);
@@ -327,8 +328,7 @@ namespace Rcade
             await Task.Delay(1000);
         }
 
-
-        public int GetUserStats()
+        private int GetUserStats()
         {
             if (dbh_RL.TestConnection() == false)
             {
@@ -339,7 +339,7 @@ namespace Rcade
             }
             else
             {
-                dbh_RL.GetRow(user.id);
+                dbh_RL.GetUser(user.id);
 
                 int bjSaldo = 0;
 
@@ -399,13 +399,8 @@ namespace Rcade
             }
             else
             {
-                SetUserStats(user.id, balance, roulette.player.lastPlayed);
+                dbh_RL.SetUser(user.id, balance, roulette.player.lastPlayed);
             }
-        }
-
-        public void SetUserStats(int id, int saldo, DateTime lastTime)
-        {
-            dbh_RL.SetRow(id, saldo, lastTime);
         }
 
         private void SetIsPlaying(bool value)

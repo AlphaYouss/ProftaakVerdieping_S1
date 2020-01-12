@@ -275,7 +275,6 @@ namespace Rcade
             SetImageReset(dealerImages);
         }
 
-
         private void UpdateText()
         {
             balance.Text = Convert.ToString(gameHost.player.balance);
@@ -415,16 +414,26 @@ namespace Rcade
 
         public int GetUserStats()
         {
-            dbh_BJ.GetRow(user.id);
-
-            int bjSaldo = 0;
-
-            foreach (DataRow row in dbh_BJ.table.Rows)
+            if (dbh_BJ.TestConnection() == false)
             {
-                bjSaldo = Convert.ToInt32(row["saldo"]);
-            }
+                MainPage main = new MainPage();
+                Content = main;
 
-            return bjSaldo;
+                return 0;
+            }
+            else
+            {
+                dbh_BJ.GetUser(user.id);
+
+                int bjSaldo = 0;
+
+                foreach (DataRow row in dbh_BJ.table.Rows)
+                {
+                    bjSaldo = Convert.ToInt32(row["saldo"]);
+                }
+
+                return bjSaldo;
+            }
         }
 
         internal void SetUser(User user)
@@ -457,13 +466,8 @@ namespace Rcade
             }
             else
             {
-                SetUserStats(user.id, balance, gameHost.player.lastPlayed);
+                dbh_BJ.SetUser(user.id, balance, gameHost.player.lastPlayed);
             }
-        }
-
-        public void SetUserStats(int id, int saldo, DateTime lastTime)
-        {
-            dbh_BJ.SetRow(id, saldo, lastTime);
         }
 
         private void SetPlayerImage(BJ_Player speler, Image[] ImagesArray)

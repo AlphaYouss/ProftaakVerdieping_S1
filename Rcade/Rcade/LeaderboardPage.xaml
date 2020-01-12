@@ -9,9 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     Foreground="White">
 
-    <Grid>
+    <Grid Name="main">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/rl/background.jpg"></ImageBrush>
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.45*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
@@ -19,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.475*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="*" />
@@ -29,53 +33,47 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="BackButton"   Click="BackButton_Click" >
+            <Viewbox Stretch="Uniform" StretchDirection="Both">
+                <Button Name="btnBack" Click="btnBack_Click" Padding="0" BorderThickness="0">
                     <Image Source="/Assets/Images/leaderboard/back.png" />
                 </Button>
             </Viewbox>
         </Grid>
-        
-        
-        
-        
-        
-        
+
         <Grid Grid.Row="1" Grid.Column="1">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Blackjack"  Content="Blackjack " Click="Button_Click"/>
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnBlackjack" Content="Blackjack" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="3">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Roulette"  Content="Roulette " Click="Button_Click"/>
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnRoulette" Content="Roulette" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="5">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Galgje"  Content="Galgje " Click="Button_Click"/>
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnHangman" Content="Galgje" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="1">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="BKE"  Content="BoterKaasEieren " Click="Button_Click"/>
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnBKE" Content="BoterKaasEieren" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="3">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="Ganzenbord"  Content="Ganzenbord " Click="Button_Click"/>
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnGanzenbord" Content="Ganzenbord" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="5">
-            <Viewbox Stretch="Fill" StretchDirection="Both" >
-                <Button Name="VierOpNRij"  Content="VierOpNRij " Click="Button_Click" />
+            <Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnVierOpNRij" Content="VierOpNRij" BorderThickness="0"/>
             </Viewbox>
         </Grid>
-
     </Grid>
 </Page>

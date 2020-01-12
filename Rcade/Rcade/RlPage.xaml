@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Foreground="White">
 
     <Grid Name="main">
         <Grid.Background>
@@ -48,7 +49,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
+            <Grid Grid.Row="0" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
                 <Viewbox Stretch="Uniform"  StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <TextBlock x:Name="bets" Text="Bets" Margin="5, 2, 5, 0"/>
                 </Viewbox>
@@ -61,12 +62,12 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Stretch="Fill" Grid.Row="1" StretchDirection="Both">
-                    <ListBox x:Name="betList" Background="Black" BorderThickness="2" BorderBrush="#ec00fb" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="200" Width="150" FontFamily="Consolas">
+                    <ListBox x:Name="betList" Background="Black" BorderThickness="3.5" BorderBrush="#ec00fb" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="200" Width="150" FontFamily="Consolas">
                     </ListBox>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
+            <Grid Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height=".5*"/>
@@ -83,13 +84,13 @@
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2" Margin="0, 20">
+            <Grid Grid.Row="5" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5" Margin="0, 20">
                 <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock x:Name="playerName" Margin="2,3,2,2"/>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="6" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
+            <Grid Grid.Row="6" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
                 <Viewbox Stretch="Uniform" Grid.Row="2" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock x:Name="balance" HorizontalAlignment="Center" FontFamily="Consolas" Margin="10"/>
                 </Viewbox>
@@ -592,7 +593,7 @@
                     </Viewbox>
                 </Grid>
 
-                <Grid Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
+                <Grid Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
                     <Viewbox Stretch="Uniform" Grid.Row="2" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock x:Name="landed" Text="Landed" HorizontalAlignment="Center" Margin="10"/>
                     </Viewbox>
@@ -605,7 +606,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid x:Name="winningBlock" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="2">
+                    <Grid x:Name="winningBlock" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
                         <Viewbox Stretch="Uniform" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Name="winningNumber" Text="-" HorizontalAlignment="Center" FontFamily="Consolas" Margin="10"/>
                         </Viewbox>

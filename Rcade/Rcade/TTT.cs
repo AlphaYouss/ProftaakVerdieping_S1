@@ -12,7 +12,7 @@
         public bool CheckWin()
         {
             if (
-                   // Horizontal.  
+                // Horizontal.  
                    field.box[1] == field.box[2] && field.box[2] == field.box[3]
                 || field.box[4] == field.box[5] && field.box[5] == field.box[6]
                 || field.box[7] == field.box[8] && field.box[8] == field.box[9]

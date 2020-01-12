@@ -66,23 +66,49 @@ namespace Rcade
 
         private void btnLeaderboard_Click(object sender, RoutedEventArgs e)
         {
-            LeaderboardPage ll = new LeaderboardPage();
-            Content = ll;
+            if (user.dbh.TestConnection() == false)
+            {
+                btnLogout_Click(sender, e);
+            }
+            else
+            {
+                LeaderboardPage lb = new LeaderboardPage();
+                lb.SetUser(user);
+
+                Content = lb;
+            }
         }
 
         private void btnRoulette_Click(object sender, RoutedEventArgs e)
         {
-            RLPage rl = new RLPage();
-            rl.SetUser(user);
-            rl.SetUserStats();
+            if (user.dbh.TestConnection() == false)
+            {
+                btnLogout_Click(sender, e);
+            }
+            else
+            {
+                RLPage rl = new RLPage();
+                rl.SetUser(user);
+                rl.SetUserStats();
 
-            Content = rl;
+                Content = rl;
+            }
         }
 
         private void btnHangman_Click(object sender, RoutedEventArgs e)
         {
-            HmPage rl = new HmPage();
-            Content = rl;
+            if (user.dbh.TestConnection() == false)
+            {
+                btnLogout_Click(sender, e);
+            }
+            else
+            {
+                HmPage hm = new HmPage();
+                hm.SetUser(user);
+                hm.Setup();
+
+                Content = hm;
+            }
         }
     }
 }

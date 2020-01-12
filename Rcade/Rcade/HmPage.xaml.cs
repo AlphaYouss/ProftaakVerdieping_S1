@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -8,28 +11,62 @@ namespace Rcade
 {
     public sealed partial class HmPage : Page
     {
+        private Databasehandler_hm dbh_Hm { get; set; } = new Databasehandler_hm(true);
         private User user { get; set; }
-        Hm host = new Hm();
-        List<string> numbers = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
-        List<Button> buttons = new List<Button> { };
-        int previousTurn = 0;
+        private Hm host { get; set; } = new Hm();
+        private List<string> numbers { get; set; } = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+        private List<Button> buttons { get; set; } = new List<Button> { };
+        private int previousTurn { get; set; } = 0;
 
         public HmPage()
         {
             InitializeComponent();
-            AddButtons();
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+            new Size(
+                1000,
+                1000
+            ));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            HubPage hub = new HubPage();
+            hub.SetUser(user);
+
+            Content = hub;
+        }
+
+        private void Alphabet_Click(object sender, RoutedEventArgs e)
+        {
+            char letter = Convert.ToChar(((Control)sender).Name);
+
+            Button button = sender as Button;
+            button.IsEnabled = false;
+
+            host.CheckLetter(letter);
+
+            UpdateDisplay();
+
+            if (host.WinCheck() || host.EndGameCheck())
+            {
+                EndGame();
+            }
+        }
+
+        private void btnNewgame_Click(object sender, RoutedEventArgs e)
+        {
+            btnNewgame.Visibility = Visibility.Collapsed;
+
+            buttons.ForEach(x => x.IsEnabled = true);
             Start();
         }
 
-        // Start
-        private void Start()
+        public void Setup()
         {
-            previousTurn = 0;
-            NewGameBtn.Visibility = Visibility.Collapsed;
-            host.Start();
-            UpdateDisplay();
+            AddButtons();
+            Start();
         }
-
 
         private void AddButtons()
         {
@@ -61,7 +98,36 @@ namespace Rcade
             buttons.Add(Z);
         }
 
-        // Update gegevens tijdens spel
+        private void Start()
+        {
+            if (dbh_Hm.TestConnection() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                dbh_Hm.GetUser(user.id);
+
+                int totalScore = 0;
+                int totalMistakes = 0;
+
+                foreach (DataRow row in dbh_Hm.table.Rows)
+                {
+                    totalScore = Convert.ToInt32(row["totaal_punten"]);
+                    totalMistakes = Convert.ToInt32(row["totaal_fouten"]);
+                }
+
+                host.player.SetPlayerTotalStats(totalScore, totalMistakes);
+
+                previousTurn = 0;
+                btnNewgame.Visibility = Visibility.Collapsed;
+
+                host.Start();
+                UpdateDisplay();
+            }
+        }
+
         private void UpdateDisplay()
         {
             TbLetterDisplay.Text = new String(host.displayedLetters);
@@ -73,43 +139,6 @@ namespace Rcade
             TbScore.Text = Convert.ToString(host.player.score);
         }
 
-
-        //Het 'toetsenbord'
-        private void Alphabet_Click(object sender, RoutedEventArgs e)
-        {
-            char letter = Convert.ToChar(((Control)sender).Name);
-
-            Button button = sender as Button;
-            button.IsEnabled = false;
-
-            host.CheckLetter(letter);
-
-            UpdateDisplay();
-
-            if (host.WinCheck() || host.EndGameCheck())
-            {
-                EndGame();
-            }
-        }
-
-        //Einde van het spel
-        private void EndGame()
-        {
-            NewGameBtn.Visibility = Visibility.Visible;
-
-            TbResult.Text = host.result;
-            TbLetterDisplay.Text = new String(host.correctLetters);
-
-            host.player.SetScore();
-            TbScore.Text = Convert.ToString(host.player.score);
-
-            host.player.ClearTurn();
-            host.Clear();
-
-            buttons.ForEach(x => x.IsEnabled = false);
-        }
-
-        // Images
         private void UpdateImage(Image image)
         {
             if (previousTurn != host.player.turn || host.player.turn == 0)
@@ -121,21 +150,42 @@ namespace Rcade
             }
         }
 
-        // New Game
-        private void NewGameBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NewGameBtn.Visibility = Visibility.Collapsed;
 
-            buttons.ForEach(x => x.IsEnabled = true);
-            Start();
+        private void EndGame()
+        {
+            btnNewgame.Visibility = Visibility.Visible;
+
+            TbResult.Text = host.result;
+            TbLetterDisplay.Text = new String(host.correctLetters);
+
+            host.player.SetScore();
+            SetUserStats();
+            TbScore.Text = Convert.ToString(host.player.score);
+
+            host.player.ClearGameScore();
+            host.player.ClearTurn();
+            host.Clear();
+
+            buttons.ForEach(x => x.IsEnabled = false);
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        internal void SetUser(User user)
         {
-            HubPage hub = new HubPage();
-            hub.SetUser(user);
+            this.user = user;
+        }
 
-            Content = hub;
+        private void SetUserStats()
+        {
+            if (dbh_Hm.TestConnection() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+            }
+            else
+            {
+                host.player.SetPlayerStats(host.player.gameScore, host.player.turn);
+                dbh_Hm.SetUser(user.id, host.player.totalScore, host.player.totalMistakes, host.player.lastPlayed);
+            }
         }
     }
 }

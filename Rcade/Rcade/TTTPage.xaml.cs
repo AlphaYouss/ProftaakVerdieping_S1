@@ -250,10 +250,10 @@ namespace Rcade
         {
             if (dbh_TTT.CheckUser(user.id) == false)
             {
-                dbh_TTT.CreateUserRow(user.id);
+                dbh_TTT.CreateUser(user.id);
             }
 
-            dbh_TTT.GetUserRow(user.id);
+            dbh_TTT.GetUser(user.id);
 
             foreach (DataRow row in dbh_TTT.table.Rows)
             {
@@ -287,7 +287,7 @@ namespace Rcade
             else
             {
                 player.SetStats(status);
-                dbh_TTT.SetRow(user.id, player.won, player.lost, player.draw, player.lastPlayed);
+                dbh_TTT.SetUser(user.id, player.won, player.lost, player.draw, player.lastPlayed);
             }
         }
     }

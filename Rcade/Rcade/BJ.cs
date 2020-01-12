@@ -61,7 +61,6 @@
             playedTurn = true;
         }
 
-
         public void CheckForPlayerBust()
         {
             if (player.GetTotalPoints() > 21)
@@ -71,7 +70,6 @@
             }
         }
 
-
         public void CheckBlackjack(double stake)
         {
             if (player.GetTotalPoints() == 21)
@@ -80,9 +78,6 @@
                 CheckWinner(stake);
             }
         }
-
-
-
 
         public void Stand(double stake, BJ_Cards cards)
         {

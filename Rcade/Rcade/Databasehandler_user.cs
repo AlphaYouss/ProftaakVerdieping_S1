@@ -10,7 +10,7 @@ namespace Rcade
             isTestVersion = testTable;
         }
 
-        public bool CheckIfUserExists(string username)
+        public bool CheckUser(string username)
         {
             SqlCommand cmd = new SqlCommand();
 
@@ -79,27 +79,6 @@ namespace Rcade
             CloseConnectionToDB();
 
             return salt;
-        }
-
-        public void GetUsersData()
-        {
-            SqlCommand cmd = new SqlCommand();
-
-            if (isTestVersion == true)
-            {
-                cmd = new SqlCommand("SELECT * FROM Test_User_gegevens", GetCon());
-            }
-            else
-            {
-                cmd = new SqlCommand("SELECT * FROM User_gegevens", GetCon());
-            }
-
-            OpenConnectionToDB();
-
-            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-            adapt.Fill(table);
-            CloseConnectionToDB();
         }
     }
 }

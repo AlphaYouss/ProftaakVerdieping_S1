@@ -13,25 +13,27 @@ namespace Rcade
         public string userName { get; private set; } = "";
         public int id { get; private set; } = 0;
 
-        public string ShowError(string list, int error)
+        public void CheckUser(string username)
         {
-            string errorMessage = "";
-            switch (list)
+            if (dbh_U.CheckUser(username) == false)
             {
-                case "Login":
-                    errorMessage = errorHandler.GetLoginError(error);
-                    break;
-                case "Account":
-                    errorMessage = errorHandler.GetAccountError(error);
-                    break;
-                case "Database":
-                    errorMessage = errorHandler.GetConnectionError(error);
-                    break;
-                case "Webbrowser":
-                    errorMessage = errorHandler.GetWebbrowserError(error);
-                    break;
+                exists = false;
             }
-            return errorMessage;
+            else
+            {
+                exists = true;
+            }
+        }
+
+        public void Login(string username, string password)
+        {
+            if (exists != false)
+            {
+                userName = username;
+                id = dbh_U.GetUserID(userName);
+
+                CheckPassword(password, dbh_U.GetUserHash(id));
+            }
         }
 
         public bool ValidateUsername(string username)
@@ -64,29 +66,6 @@ namespace Rcade
             }
         }
 
-        public void CheckUser(string username)
-        {
-            if (dbh_U.CheckIfUserExists(username) == false)
-            {
-                exists = false;
-            }
-            else
-            {
-                exists = true;
-            }
-        }
-
-        public void Login(string username, string password)
-        {
-            if (exists != false)
-            {
-                userName = username;
-                id = dbh_U.GetUserID(userName);
-
-                CheckPassword(password, dbh_U.GetUserHash(id));
-            }
-        }
-
         private void CheckPassword(string password, string hashed)
         {
             if (Crypter.CheckPassword(password, hashed) == true)
@@ -97,6 +76,27 @@ namespace Rcade
             {
                 loggedIn = false;
             }
+        }
+
+        public string ShowError(string list, int error)
+        {
+            string errorMessage = "";
+            switch (list)
+            {
+                case "Login":
+                    errorMessage = errorHandler.GetLoginError(error);
+                    break;
+                case "Account":
+                    errorMessage = errorHandler.GetAccountError(error);
+                    break;
+                case "Database":
+                    errorMessage = errorHandler.GetConnectionError(error);
+                    break;
+                case "Webbrowser":
+                    errorMessage = errorHandler.GetWebbrowserError(error);
+                    break;
+            }
+            return errorMessage;
         }
     }
 }

@@ -1,62 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Rcade
 {
     class Hm
     {
-        public Hm_Player player = new Hm_Player();
-        public Hm_FileReader fileReader = new Hm_FileReader();
-        Random randomNumber = new Random();
-
+        public Hm_Player player { get; private set; } = new Hm_Player();
+        public Hm_FileReader fileReader { get; private set; } = new Hm_FileReader();
         public char[] correctLetters { get; private set; }
         public char[] displayedLetters { get; private set; }
-
         public List<char> guessedLetters { get; private set; } = new List<char>();
-
+        public Random randomNumber { get; private set; } = new Random();
         public string word { get; private set; }
         public string result { get; private set; } = "";
 
-
-
-
-
-
-        //Start
         public void Start()
         {
             GenerateWord();
             ClearDisplayLetters();
         }
 
-
-
-
-
-        // Hier haal je het woord op uit de database
         public void GenerateWord()
         {
-            int MaxValue = fileReader.words.Count + 1;
-            int number = randomNumber.Next(0, MaxValue);
+            int maxValue = fileReader.words.Count + 1;
+            int number = randomNumber.Next(0, maxValue);
             string word = fileReader.words[number];
+
             SplitWord(word);
         }
 
-
-        //Split het woord in een char[]
         private void SplitWord(string word)
         {
             correctLetters = word.ToCharArray();
             displayedLetters = new char[correctLetters.Length];
         }
 
-
-
-
-
-
-        // Veranderd alle char[] characters naar streepjes
         private void ClearDisplayLetters()
         {
             for (int i = 0; i < displayedLetters.Length; i++)
@@ -65,49 +43,37 @@ namespace Rcade
             }
         }
 
-
-        // Haalt alles leeg 
         public void Clear()
         {
             Array.Clear(correctLetters, 0, correctLetters.Length);
+
             ClearDisplayLetters();
             guessedLetters.Clear();
+
             word = "";
             result = "";
         }
 
-
-
-
-
-
-        // Controleer of de letter goed is
         public void CheckLetter(char letter)
         {
-            bool ContainsLetter = false;
+            bool containsLetter = false;
 
             for (int i = 0; i < correctLetters.Length; i++)
             {
                 if (letter == correctLetters[i])
                 {
                     displayedLetters[i] = letter;
-                    ContainsLetter = true;
+                    containsLetter = true;
                 }
             }
 
-            if (!ContainsLetter && !guessedLetters.Contains(letter))
+            if (!containsLetter && !guessedLetters.Contains(letter))
             {
                 guessedLetters.Add(letter);
                 player.AddTurn();
             }
         }
 
-
-
-
-
-
-        // Controleert of alle letters goed zijn
         public bool WinCheck()
         {
             int x = 0;
@@ -120,24 +86,18 @@ namespace Rcade
 
                 if (x == correctLetters.Length)
                 {
-                    result = "Je hebt gewonnen!";
+                    result = "You won!";
                     return true;
                 }
             }
             return false;
         }
 
-
-
-
-
-
-        // Controleert of je hangman dood is
         public bool EndGameCheck()
         {
             if (player.turn == 11)
             {
-                result = "Je hebt verloren!";
+                result = "You lost!";
                 return true;
             }
             return false;

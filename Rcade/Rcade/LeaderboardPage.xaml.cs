@@ -8,50 +8,60 @@ namespace Rcade
 {
     public sealed partial class LeaderboardPage : Page
     {
-        public int Number { get; private set; } = 0;
+        private User user { get; set; }
+        public int number { get; private set; } = 0;
 
         public LeaderboardPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
-                new Size(
-                1000,
-                1000)
-                );
+            new Size(
+            1000,
+            1000
+            ));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            string ButtonName = Convert.ToString(((Control)sender).Name);
+            HubPage hub = new HubPage();
+            hub.SetUser(user);
 
-            switch (ButtonName)
+            Content = hub;
+        }
+
+        private void btnGame_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonName = Convert.ToString(((Control)sender).Name);
+
+            switch (buttonName)
             {
-                case "Blackjack":
-                    Number = 1;
+                case "btnBlackjack":
+                    number = 1;
                     break;
-                case "Roulette":
-                    Number = 2;
+                case "btnRoulette":
+                    number = 2;
                     break;
-                case "Hangman":
-                    Number = 3;
+                case "btnHangman":
+                    number = 3;
                     break;
-                case "BKE":
-                    Number = 4;
+                case "btnBKE":
+                    number = 4;
                     break;
-                case "Ganzenbord":
-                    Number = 5;
+                case "btnGanzenbord":
+                    number = 5;
                     break;
             }
 
-            LeaderbordGame ll = new LeaderbordGame(Number);
-            Content = ll;
+            LeaderbordGamePage lbg = new LeaderbordGamePage(number);
+            lbg.SetUser(user);
+
+            Content = lbg;
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        internal void SetUser(User user)
         {
-            HubPage hub = new HubPage();
-            Content = hub;
+            this.user = user;
         }
     }
 }
