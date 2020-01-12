@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -11,12 +12,14 @@ namespace Rcade
 {
     public sealed partial class TTTPage : Page
     {
+        private Databasehandler_ttt dbh_TTT { get; set; } = new Databasehandler_ttt(true);
         private User user { get; set; }
         private TTT ttt { get; set; }
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
         private TTT_Ai ai { get; set; }
         private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
+        private string[] tttStats { get; set; } = new string[3];
 
         public TTTPage()
         {
@@ -25,7 +28,7 @@ namespace Rcade
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
                 1000,
-                1000 
+                1000
                 ));
         }
 
@@ -66,7 +69,7 @@ namespace Rcade
         private void vak_Click(object sender, RoutedEventArgs e)
         {
             string ctrlName = ((Control)sender).Name;
-            string[] button= ctrlName.Split("vak");
+            string[] button = ctrlName.Split("vak");
 
             int clickedBox = Convert.ToInt32(button[1]);
 
@@ -243,27 +246,40 @@ namespace Rcade
             this.user = user;
         }
 
+        public void GetUserStats()
+        {
+            if (dbh_TTT.CheckUser(user.id) == false)
+            {
+                dbh_TTT.CreateUser(user.id);
+            }
+
+            dbh_TTT.GetUser(user.id);
+
+            foreach (DataRow row in dbh_TTT.table.Rows)
+            {
+                tttStats[0] = Convert.ToString(row["gewonnen_potjes"]);
+                tttStats[1] = Convert.ToString(row["verloren_potjes"]);
+                tttStats[2] = Convert.ToString(row["gelijkspel_potjes"]);
+            }
+        }
+
         internal void SetUserStats()
         {
-            if (user.CanConnectToDatabase() == false)
+            if (dbh_TTT.TestConnection() == false)
             {
                 MainPage main = new MainPage();
                 Content = main;
             }
             else
             {
-                user.CheckIfUserHasTTTRow();
-
-                string[] tttValues = new string[3];
-
-                tttValues = user.GetTTTRow();
-                player.SetStats(tttValues);
+                GetUserStats();
+                player.SetStats(tttStats);
             }
         }
 
         private void SetUserStats(int status)
         {
-            if (user.CanConnectToDatabase() == false)
+            if (dbh_TTT.TestConnection() == false)
             {
                 MainPage main = new MainPage();
                 Content = main;
@@ -271,7 +287,7 @@ namespace Rcade
             else
             {
                 player.SetStats(status);
-                user.SettTTTRow(user.id, player.won, player.lost, player.draw, player.lastPlayed);
+                dbh_TTT.SetUser(user.id, player.won, player.lost, player.draw, player.lastPlayed);
             }
         }
     }

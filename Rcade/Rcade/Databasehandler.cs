@@ -21,7 +21,7 @@ namespace Rcade
             builder.InitialCatalog = "Rcade";
 
             con = new SqlConnection(builder.ConnectionString);
-            table =  new DataTable();
+            table = new DataTable();
         }
 
         public bool TestConnection()

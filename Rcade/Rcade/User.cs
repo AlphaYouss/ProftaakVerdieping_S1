@@ -1,41 +1,39 @@
 ﻿using CryptSharp;
-using System;
-using System.Data;
 using System.Text.RegularExpressions;
 
 namespace Rcade
 {
     internal class User
     {
-        private Databasehandler dbh { get; set; } = new Databasehandler();
+        public Databasehandler dbh { get; private set; } = new Databasehandler();
         private Databasehandler_user dbh_U { get; set; } = new Databasehandler_user(true);
-        private Databasehandler_bj dbh_BJ { get; set; } = new Databasehandler_bj(true);
-        private Databasehandler_ttt dbh_TTT { get; set; } = new Databasehandler_ttt(true);
-        private Databasehandler_hm dbh_HM { get; set; } = new Databasehandler_hm(true);
-        private Databasehandler_gb dbh_GB { get; set; } = new Databasehandler_gb(true);
-        private Databasehandler_rl dbh_RL { get; set; } = new Databasehandler_rl(true);
         private Errorhandler errorHandler { get; set; } = new Errorhandler();
         public bool exists { get; private set; } = false;
         public bool loggedIn { get; private set; } = false;
         public string userName { get; private set; } = "";
         public int id { get; private set; } = 0;
 
-        public string ShowError(string list, int error)
+        public void CheckUser(string username)
         {
-            string errorMessage = "";
-            switch (list)
+            if (dbh_U.CheckUser(username) == false)
             {
-                case "Login":
-                    errorMessage = errorHandler.GetLoginError(error);
-                    break;
-                case "Account":
-                    errorMessage = errorHandler.GetAccountError(error);
-                    break;
-                case "Database":
-                    errorMessage = errorHandler.GetConnectionError(error);
-                    break;
+                exists = false;
             }
-            return errorMessage;
+            else
+            {
+                exists = true;
+            }
+        }
+
+        public void Login(string username, string password)
+        {
+            if (exists != false)
+            {
+                userName = username;
+                id = dbh_U.GetUserID(userName);
+
+                CheckPassword(password, dbh_U.GetUserHash(id));
+            }
         }
 
         public bool ValidateUsername(string username)
@@ -68,34 +66,6 @@ namespace Rcade
             }
         }
 
-        public bool CanConnectToDatabase()
-        {
-            return dbh.TestConnection();
-        }
-
-        public void CheckIfUserExists(string username)
-        {
-            if (dbh_U.CheckIfUserExists(username) == false)
-            {
-                exists = false;
-            }
-            else
-            {
-                exists = true;
-            }
-        }
-
-        public void Login(string username, string password)
-        {
-            if (exists != false)
-            {
-                userName = username;
-                id = dbh_U.GetUserID(userName);
-
-                CheckPassword(password, dbh_U.GetUserHash(id));
-            }
-        }
-
         private void CheckPassword(string password, string hashed)
         {
             if (Crypter.CheckPassword(password, hashed) == true)
@@ -108,59 +78,25 @@ namespace Rcade
             }
         }
 
-        public void CheckIfUserHasTTTRow()
+        public string ShowError(string list, int error)
         {
-            if (dbh_TTT.CheckIfUserRowExists(id) == false)
+            string errorMessage = "";
+            switch (list)
             {
-                dbh_TTT.CreateRow(id);
+                case "Login":
+                    errorMessage = errorHandler.GetLoginError(error);
+                    break;
+                case "Account":
+                    errorMessage = errorHandler.GetAccountError(error);
+                    break;
+                case "Database":
+                    errorMessage = errorHandler.GetConnectionError(error);
+                    break;
+                case "Webbrowser":
+                    errorMessage = errorHandler.GetWebbrowserError(error);
+                    break;
             }
-        }
-
-        public void CheckIfUserHasBJRow()
-        {
-            if (dbh_BJ.CheckIfUserRowExists(id) == false)
-            {
-                dbh_BJ.CreateRow(id);
-            }
-        }
-
-        public string[] GetTTTRow()
-        {
-            dbh_TTT.GetRow(id);
-
-            string[] tttValues = new string[3];
-
-            foreach (DataRow row in dbh_TTT.table.Rows)
-            {
-                tttValues[0] = Convert.ToString(row["gewonnen_potjes"]);
-                tttValues[1] = Convert.ToString(row["verloren_potjes"]);
-                tttValues[2] = Convert.ToString(row["gelijkspel_potjes"]);
-            }
-            return tttValues;
-        }
-
-        public int GetBJRow()
-        {
-            dbh_BJ.GetRow(id);
-
-            int bjSaldo = 0;
-
-            foreach (DataRow row in dbh_BJ.table.Rows)
-            {
-                bjSaldo = Convert.ToInt32(row["saldo"]);
-            }
-
-            return bjSaldo;
-        }
-
-        public void SettTTTRow(int id, int won, int lost, int draw, DateTime lastTime)
-        {
-            dbh_TTT.SetRow(id ,won, lost, draw, lastTime);
-        }
-
-        public void SetBJRow(int id, int saldo, DateTime lastTime)
-        {
-            dbh_BJ.SetRow(id, saldo, lastTime);
+            return errorMessage;
         }
     }
 }

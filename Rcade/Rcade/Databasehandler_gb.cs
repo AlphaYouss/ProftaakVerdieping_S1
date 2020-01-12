@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace Rcade
+﻿namespace Rcade
 {
     class Databasehandler_gb : Databasehandler
     {

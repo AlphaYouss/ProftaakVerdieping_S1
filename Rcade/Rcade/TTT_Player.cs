@@ -23,6 +23,7 @@ namespace Rcade
         {
             field.box[box] = "X";
         }
+
         public void SetPlayerName(string playerName)
         {
             namePlayer = playerName;

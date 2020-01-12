@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -9,6 +10,7 @@ namespace Rcade
 {
     public sealed partial class BJPage : Page
     {
+        private Databasehandler_bj dbh_BJ { get; set; } = new Databasehandler_bj(true);
         private User user { get; set; }
         private BJ gameHost { get; set; } = new BJ();
         private Image[] playerImages { get; set; }
@@ -22,7 +24,7 @@ namespace Rcade
             ApplicationView.GetForCurrentView().SetPreferredMinSize(
             new Size(
                 1000,
-                1000 
+                1000
                 ));
         }
 
@@ -135,7 +137,7 @@ namespace Rcade
             }
             else
             {
-               // gameHost.CheckBlackjack();
+                // gameHost.CheckBlackjack();
                 gameHost.CheckForPlayerBust();
             }
 
@@ -273,7 +275,6 @@ namespace Rcade
             SetImageReset(dealerImages);
         }
 
-
         private void UpdateText()
         {
             balance.Text = Convert.ToString(gameHost.player.balance);
@@ -310,7 +311,7 @@ namespace Rcade
             btnHundred.IsEnabled = true;
             btnTwohundred.IsEnabled = true;
             btnFivehundred.IsEnabled = true;
-        }    
+        }
 
         private void StartNewGame()
         {
@@ -335,7 +336,6 @@ namespace Rcade
             SetPlayerImage(gameHost.player, playerImages);
             SetDealerImage(gameHost.dealer, dealerImages);
         }
-
 
         public void CheckGame()
         {
@@ -412,6 +412,30 @@ namespace Rcade
             }
         }
 
+        public int GetUserStats()
+        {
+            if (dbh_BJ.TestConnection() == false)
+            {
+                MainPage main = new MainPage();
+                Content = main;
+
+                return 0;
+            }
+            else
+            {
+                dbh_BJ.GetUser(user.id);
+
+                int bjSaldo = 0;
+
+                foreach (DataRow row in dbh_BJ.table.Rows)
+                {
+                    bjSaldo = Convert.ToInt32(row["saldo"]);
+                }
+
+                return bjSaldo;
+            }
+        }
+
         internal void SetUser(User user)
         {
             this.user = user;
@@ -419,15 +443,14 @@ namespace Rcade
 
         internal void SetUserStats()
         {
-            if (user.CanConnectToDatabase() == false)
+            if (dbh_BJ.TestConnection() == false)
             {
                 MainPage main = new MainPage();
                 Content = main;
             }
             else
             {
-                user.CheckIfUserHasBJRow();
-                gameHost.player.SetStats(user.GetBJRow());
+                gameHost.player.SetStats(GetUserStats());
                 balance.Margin = new Thickness(10, -5, 7, 0);
 
                 UpdateText();
@@ -436,14 +459,14 @@ namespace Rcade
 
         private void SetUserStats(int balance)
         {
-            if (user.CanConnectToDatabase() == false)
+            if (dbh_BJ.TestConnection() == false)
             {
                 MainPage main = new MainPage();
                 Content = main;
             }
             else
             {
-                user.SetBJRow(user.id, balance, gameHost.player.lastPlayed);
+                dbh_BJ.SetUser(user.id, balance, gameHost.player.lastPlayed);
             }
         }
 

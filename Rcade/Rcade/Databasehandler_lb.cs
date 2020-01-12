@@ -2,69 +2,47 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rcade
 {
     class Databasehandler_lb : Databasehandler
     {
-        string query = "";
-        string testquery = "";
-
-       
-        public int Choice { get; private set; } = 1;
-
-       
-        public List<string> Usernames { get; private set; } = new List<string>();
-
-        public string Table1Name { get; private set; } = "";
-        public List<string> Table1 { get; private set; } = new List<string>();
-
-
-        public string Table2Name { get; private set; } = "";
-        public List<string> Table2 { get; private set; } = new List<string>();
-      
-        
-        public string Table3Name { get; private set; } = "";
-        public List<string> Table3 { get; private set; } = new List<string>();
-      
-        
-        public string Table4Name { get; private set; } = "";
-        public List<string> Table4 { get; private set; } = new List<string>();
-
-
-        public string Table5Name { get; private set; } = "";
-        public List<string> Table5 { get; private set; } = new List<string>();
-
-
+        private string query { get; set; } = "";
+        private string testquery { get; set; } = "";
+        public int choice { get; private set; } = 1;
+        public List<string> usernames { get; private set; } = new List<string>();
+        public string table1Name { get; private set; } = "";
+        public List<string> table1 { get; private set; } = new List<string>();
+        public string table2Name { get; private set; } = "";
+        public List<string> table2 { get; private set; } = new List<string>();
+        public string table3Name { get; private set; } = "";
+        public List<string> table3 { get; private set; } = new List<string>();
+        public string table4Name { get; private set; } = "";
+        public List<string> table4 { get; private set; } = new List<string>();
+        public string table5Name { get; private set; } = "";
+        public List<string> table5 { get; private set; } = new List<string>();
 
         public Databasehandler_lb(bool testTable)
         {
             isTestVersion = testTable;
         }
 
-
         public void ChoiceMaker()
         {
             Clear();
-
-            switch (Choice)
+            switch (choice)
             {
                 case 1:
                     SelectFromBlackjack();
                     testquery = "SELECT Test_User_gegevens.Username, Test_Blackjack.user_ID FROM Test_User_gegevens INNER JOIN Test_Blackjack ON Test_User_gegevens.ID = Test_Blackjack.user_ID";
-                    query = "SELECT User_gegevens.Username, Blackjack.user_ID FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID" ;
+                    query = "SELECT User_gegevens.Username, Blackjack.user_ID FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID";
                     break;
-                
-                
                 case 2:
                     SelectFromRoulette();
                     testquery = "SELECT Test_User_gegevens.Username, Test_Roulette.user_ID FROM Test_User_gegevens INNER JOIN Test_Roulette ON Test_User_gegevens.ID = Test_Roulette.user_ID";
                     query = "SELECT User_gegevens.Username, Roulette.user_ID FROM User_gegevens INNER JOIN Roulette ON User_gegevens.ID = Roulette.user_ID";
                     break;
-                
+
                 case 3:
                     SelectFromHangman();
                     testquery = "SELECT Test_User_gegevens.Username, Test_Galgje.user_ID FROM Test_User_gegevens INNER JOIN Test_Galgje ON Test_User_gegevens.ID = Test_Galgje.user_ID";
@@ -84,38 +62,34 @@ namespace Rcade
                     break;
             }
 
-            UserIDtoUsername();
+            UserIDToUsername();
         }
-
-
 
         public void Clear()
         {
             table.Clear();
 
-            Usernames.Clear();
-            Table1.Clear();
-            Table2.Clear();
-            Table3.Clear();
-            Table4.Clear();
-            Table5.Clear();
-            Table1Name = "";
-            Table2Name = "";
-            Table3Name = "";
-            Table4Name = "";
-            Table5Name = "";
+            usernames.Clear();
+
+            table1.Clear();
+            table2.Clear();
+            table3.Clear();
+            table4.Clear();
+            table5.Clear();
+
+            table1Name = "";
+            table2Name = "";
+            table3Name = "";
+            table4Name = "";
+            table5Name = "";
         }
 
-
-        public void ChangeChoice(int MyChoice)
+        public void ChangeChoice(int myChoice)
         {
-            Choice = MyChoice;
+            choice = myChoice;
         }
 
-
-
-
-        private void UserIDtoUsername()
+        private void UserIDToUsername()
         {
             SqlCommand cmd = new SqlCommand();
 
@@ -128,7 +102,6 @@ namespace Rcade
                 cmd = new SqlCommand(query, GetCon());
             }
 
-
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -136,19 +109,14 @@ namespace Rcade
 
             CloseConnectionToDB();
 
-
             foreach (DataRow row in table.Rows)
             {
                 if (Convert.ToString(row["Username"]) != "")
                 {
-                    Usernames.Add(Convert.ToString(row["Username"]));
-                }   
+                    usernames.Add(Convert.ToString(row["Username"]));
+                }
             }
         }
-
-
-
-
 
         private void SelectFromBlackjack()
         {
@@ -163,31 +131,29 @@ namespace Rcade
                 cmd = new SqlCommand("SELECT * FROM Blackjack", GetCon());
             }
 
-
             OpenConnectionToDB();
-           
+
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
             adapt.Fill(table);
 
             CloseConnectionToDB();
 
+            DateTime dt;
 
-            Table1Name = "User ID";
-            Table2Name = "Saldo";
-            Table3Name = "Last seen";
+            table1Name = "Username";
+            table2Name = "Balance";
+            table3Name = "Last seen";
 
             foreach (DataRow row in table.Rows)
             {
-                Table1.Add(Convert.ToString(row["user_ID"]));
-                Table2.Add(Convert.ToString(row["saldo"]));
-                Table3.Add(Convert.ToString(row["laatst_gespeeld"]));
+                table1.Add(Convert.ToString(row["user_ID"]));
+                table2.Add(Convert.ToString(row["saldo"]));
+
+                dt = Convert.ToDateTime(row["laatst_gespeeld"]);
+
+                table3.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
-
-
-
-
-
         private void SelectFromBKE()
         {
             SqlCommand cmd = new SqlCommand();
@@ -201,7 +167,6 @@ namespace Rcade
                 cmd = new SqlCommand("SELECT * FROM BKE", GetCon());
             }
 
-
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -209,25 +174,26 @@ namespace Rcade
 
             CloseConnectionToDB();
 
-            Table1Name = "User ID";
-            Table2Name = "Games won";
-            Table3Name = "Games lost";
-            Table4Name = "Games tied";
-            Table5Name = "Last seen";
+            DateTime dt;
+
+            table1Name = "Username";
+            table2Name = "Games won";
+            table3Name = "Games lost";
+            table4Name = "Games tied";
+            table5Name = "Last seen";
 
             foreach (DataRow row in table.Rows)
             {
-                Table1.Add(Convert.ToString(row["user_ID"]));
-                Table2.Add(Convert.ToString(row["gewonnen_potjes"]));
-                Table3.Add(Convert.ToString(row["verloren_potjes"]));
-                Table4.Add(Convert.ToString(row["gelijkspel_potjes"]));
-                Table5.Add(Convert.ToString(row["laatst_gespeeld"]));
+                table1.Add(Convert.ToString(row["user_ID"]));
+                table2.Add(Convert.ToString(row["gewonnen_potjes"]));
+                table3.Add(Convert.ToString(row["verloren_potjes"]));
+                table4.Add(Convert.ToString(row["gelijkspel_potjes"]));
+
+                dt = Convert.ToDateTime(row["laatst_gespeeld"]);
+
+                table5.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
-
-
-
-
 
         private void SelectFromHangman()
         {
@@ -250,24 +216,24 @@ namespace Rcade
 
             CloseConnectionToDB();
 
+            DateTime dt;
 
-            Table1Name = "User ID";
-            Table2Name = "Total points";
-            Table3Name = "Total mistakes";
-            Table4Name = "Last seen";
+            table1Name = "Username";
+            table2Name = "Total points";
+            table3Name = "Total mistakes";
+            table4Name = "Last seen";
 
             foreach (DataRow row in table.Rows)
             {
-                Table1.Add(Convert.ToString(row["user_ID"]));
-                Table2.Add(Convert.ToString(row["totaal_punten"]));
-                Table3.Add(Convert.ToString(row["totaal_fouten"]));
-                Table4.Add(Convert.ToString(row["laatst_gespeeld"]));
+                table1.Add(Convert.ToString(row["user_ID"]));
+                table2.Add(Convert.ToString(row["totaal_punten"]));
+                table3.Add(Convert.ToString(row["totaal_fouten"]));
+
+                dt = Convert.ToDateTime(row["laatst_gespeeld"]);
+
+                table4.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
-
-
-
-
 
         private void SelectFromGanzenbord()
         {
@@ -282,7 +248,6 @@ namespace Rcade
                 cmd = new SqlCommand("SELECT * FROM Ganzenbord", GetCon());
             }
 
-
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -290,24 +255,24 @@ namespace Rcade
 
             CloseConnectionToDB();
 
+            DateTime dt;
 
-            Table1Name = "User ID";
-            Table2Name = "dices rolled";
-            Table3Name = "Games played";
-            Table4Name = "Last seen";
+            table1Name = "Username";
+            table2Name = "Dices rolled";
+            table3Name = "Games played";
+            table4Name = "Last seen";
 
             foreach (DataRow row in table.Rows)
             {
-                Table1.Add(Convert.ToString(row["user_ID"]));
-                Table2.Add(Convert.ToString(row["aantal_worpen"]));
-                Table3.Add(Convert.ToString(row["gespeelde_potjes"]));
-                Table4.Add(Convert.ToString(row["laatst_gespeeld"]));
+                table1.Add(Convert.ToString(row["user_ID"]));
+                table2.Add(Convert.ToString(row["aantal_worpen"]));
+                table3.Add(Convert.ToString(row["gespeelde_potjes"]));
+
+                dt = Convert.ToDateTime(row["laatst_gespeeld"]);
+
+                table4.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
-
-
-
-
 
         private void SelectFromRoulette()
         {
@@ -322,7 +287,6 @@ namespace Rcade
                 cmd = new SqlCommand("SELECT * FROM Roulette", GetCon());
             }
 
-
             OpenConnectionToDB();
 
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -330,16 +294,20 @@ namespace Rcade
 
             CloseConnectionToDB();
 
+            DateTime dt;
 
-            Table1Name = "User ID";
-            Table2Name = "Saldo";
-            Table3Name = "Last seen";
+            table1Name = "Username";
+            table2Name = "Balance";
+            table3Name = "Last seen";
 
             foreach (DataRow row in table.Rows)
             {
-                Table1.Add(Convert.ToString(row["user_ID"]));
-                Table2.Add(Convert.ToString(row["saldo"]));
-                Table3.Add(Convert.ToString(row["laatst_gespeeld"]));
+                table1.Add(Convert.ToString(row["user_ID"]));
+                table2.Add(Convert.ToString(row["saldo"]));
+
+                dt = Convert.ToDateTime(row["laatst_gespeeld"]);
+
+                table3.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
     }

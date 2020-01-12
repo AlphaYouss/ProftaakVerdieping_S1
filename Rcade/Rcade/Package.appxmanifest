@@ -16,7 +16,7 @@
   <Properties>
     <DisplayName>Rcade</DisplayName>
     <PublisherDisplayName>Youssef</PublisherDisplayName>
-    <Logo>Assets\Images\applicatie\StoreLogo.png</Logo>
+    <Logo>Assets\Images\application\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -33,17 +33,17 @@
       EntryPoint="Rcade.App">
       <uap:VisualElements
         DisplayName="Rcade"
-        Square150x150Logo="Assets\Images\applicatie\Square150x150Logo.png"
-        Square44x44Logo="Assets\Images\applicatie\Square44x44Logo.png"
+        Square150x150Logo="Assets\Images\application\Square150x150Logo.png"
+        Square44x44Logo="Assets\Images\application\Square44x44Logo.png"
         Description="Rcade"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Images\applicatie\Wide310x150Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Images\application\Wide310x150Logo.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
           </uap:ShowNameOnTiles>
         </uap:DefaultTile >
-        <uap:SplashScreen Image="Assets\Images\applicatie\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\Images\application\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
