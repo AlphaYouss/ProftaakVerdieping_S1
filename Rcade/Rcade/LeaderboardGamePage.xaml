@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    Foreground="White">
+    Foreground="White"
+    RequestedTheme="Dark">
 
     <Grid Name="main">
         <Grid.Background>
@@ -42,7 +43,7 @@
         
         <Grid Grid.Row="1" Grid.Column="1">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <TextBlock Name="column1Text" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,10,0"/>
+                <TextBlock Name="column1Text" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,10,0"/>
             </Viewbox>
         </Grid>
 

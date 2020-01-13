@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Windows.Foundation;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -12,11 +13,7 @@ namespace Rcade
         private Databasehandler_lb dbh { get; set; } = new Databasehandler_lb(true);
         private User user { get; set; }
         private List<string> Games { get; set; } = new List<string> { "Leaderboard", "Blackjack", "Roulette", "Hangman", "Tic, Tac and Toe", "Gooseboard", "Four in a row" };
-
-        int AmountOfGames = 4;
-
-
-
+        private int AmountOfGames = 4;
 
         public LeaderbordGamePage(int Number)
         {
@@ -80,10 +77,19 @@ namespace Rcade
             column1Text.Text = dbh.table1Name;
 
             column1.FontFamily = new FontFamily("Consolas");
+            column1.Foreground = new SolidColorBrush(Colors.White);
+
             column2.FontFamily = new FontFamily("Consolas");
+            column2.Foreground = new SolidColorBrush(Colors.White);
+
             column3.FontFamily = new FontFamily("Consolas");
+            column3.Foreground = new SolidColorBrush(Colors.White);
+
             column4.FontFamily = new FontFamily("Consolas");
+            column4.Foreground = new SolidColorBrush(Colors.White);
+
             column5.FontFamily = new FontFamily("Consolas");
+            column5.Foreground = new SolidColorBrush(Colors.White);
 
             ListToListBoxItem(column1, dbh.usernames);
 

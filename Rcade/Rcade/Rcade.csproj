@@ -158,7 +158,6 @@
     <Compile Include="Databasehandler_bj.cs" />
     <Compile Include="Databasehandler_ttt.cs" />
     <Compile Include="Databasehandler_hm.cs" />
-    <Compile Include="Databasehandler_gb.cs" />
     <Compile Include="Databasehandler_rl.cs" />
     <Compile Include="Databasehandler_user.cs" />
     <Compile Include="Errorhandler.cs" />
@@ -179,6 +178,7 @@
   <ItemGroup>
     <Content Include="Assets\Files\NLwords.txt" />
     <Content Include="Assets\Files\words.txt" />
+    <Content Include="Assets\Files\wordsDutch.txt" />
     <Content Include="Assets\Images\bj\11.png" />
     <Content Include="Assets\Images\bj\1.png" />
     <Content Include="Assets\Images\bj\2x.png" />
@@ -266,6 +266,7 @@
     <Content Include="Assets\Images\hm\8.jpg" />
     <Content Include="Assets\Images\hm\9.jpg" />
     <Content Include="Assets\Images\hm\back.png" />
+    <Content Include="Assets\Images\hm\newgame.png" />
     <Content Include="Assets\Images\hub\background.jpg" />
     <Content Include="Assets\Images\leaderboard\back.png" />
     <Content Include="Assets\Images\leaderboard\game\back.jpg" />

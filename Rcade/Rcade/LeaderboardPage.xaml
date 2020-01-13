@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    Foreground="White">
+    Foreground="White"
+    RequestedTheme="Dark">
 
     <Grid Name="main">
         <Grid.Background>
@@ -47,32 +48,32 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="3">
+            <!--<Viewbox Stretch="Fill" StretchDirection="Both">
+                <Button Name="btnVierOpNRij" Content="VierOpNRij" BorderThickness="0"/>
+            </Viewbox>-->
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="5">
             <Viewbox Stretch="Fill" StretchDirection="Both">
                 <Button Name="btnRoulette" Content="Roulette" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="5">
+        <Grid Grid.Row="3" Grid.Column="1">
             <Viewbox Stretch="Fill" StretchDirection="Both">
                 <Button Name="btnHangman" Content="Galgje" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
 
-        <Grid Grid.Row="3" Grid.Column="1">
-            <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnBKE" Content="BoterKaasEieren" Click="btnGame_Click" BorderThickness="0"/>
-            </Viewbox>
-        </Grid>
-
         <Grid Grid.Row="3" Grid.Column="3">
-            <Viewbox Stretch="Fill" StretchDirection="Both">
+            <!--<Viewbox Stretch="Fill" StretchDirection="Both">
                 <Button Name="btnGanzenbord" Content="Ganzenbord" Click="btnGame_Click" BorderThickness="0"/>
-            </Viewbox>
+            </Viewbox>-->
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="5">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnVierOpNRij" Content="VierOpNRij" BorderThickness="0"/>
+                <Button Name="btnBKE" Content="BoterKaasEieren" Click="btnGame_Click" BorderThickness="0"/>
             </Viewbox>
         </Grid>
     </Grid>

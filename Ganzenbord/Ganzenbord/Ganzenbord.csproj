@@ -116,13 +116,21 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AantalSpelers.xaml.cs">
+      <DependentUpon>AantalSpelers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Board.cs" />
+    <Compile Include="Dice.cs" />
+    <Compile Include="Ganzenbord.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecialFields.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -131,6 +139,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ganzenbord_pd.svg.png" />
+    <Content Include="Assets\How-To-Make-Synthwave-Music.jpg" />
+    <Content Include="Assets\Logo.jpg" />
+    <Content Include="Assets\pion blauw.png" />
+    <Content Include="Assets\pion blauw_wit.png" />
+    <Content Include="Assets\pion groen.png" />
+    <Content Include="Assets\pion groen_wit.png" />
+    <Content Include="Assets\pion paars.png" />
+    <Content Include="Assets\pion paars_wit.png" />
+    <Content Include="Assets\pion rood.png" />
+    <Content Include="Assets\pion rood_wit.png" />
+    <Content Include="Assets\pion zwart.png" />
+    <Content Include="Assets\pion zwart_wit.png" />
+    <Content Include="Assets\synthwave.jpg" />
+    <Content Include="Assets\test.png" />
+    <Content Include="Assets\ThrowDice.png" />
+    <Content Include="Assets\WireFrameBlackJack3X9.jpg" />
+    <Content Include="Assets\WireframeBlackJack7x2.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -145,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AantalSpelers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

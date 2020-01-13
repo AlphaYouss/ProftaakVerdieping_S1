@@ -7,7 +7,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     FontFamily="/Assets/Fonts/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters"
-    Foreground="White">
+    Foreground="White"
+    RequestedTheme="Dark">
 
     <Grid x:Name="main">
         <Grid.Background>

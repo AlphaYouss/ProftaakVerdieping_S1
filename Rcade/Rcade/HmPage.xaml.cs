@@ -39,6 +39,8 @@ namespace Rcade
 
         private void Alphabet_Click(object sender, RoutedEventArgs e)
         {
+            btnBack.Visibility = Visibility.Collapsed;
+
             char letter = Convert.ToChar(((Control)sender).Name);
 
             Button button = sender as Button;
@@ -56,6 +58,7 @@ namespace Rcade
 
         private void btnNewgame_Click(object sender, RoutedEventArgs e)
         {
+            btnBack.Visibility = Visibility.Collapsed;
             btnNewgame.Visibility = Visibility.Collapsed;
 
             buttons.ForEach(x => x.IsEnabled = true);
@@ -154,6 +157,7 @@ namespace Rcade
         private void EndGame()
         {
             btnNewgame.Visibility = Visibility.Visible;
+            btnBack.Visibility = Visibility.Visible;
 
             TbResult.Text = host.result;
             TbLetterDisplay.Text = new String(host.correctLetters);

@@ -145,7 +145,7 @@ namespace Rcade
             UpdateResult("Bet placed!");
 
             balance.Text = roulette.player.balance.ToString();
-            totalBet.Text = "Total bet: " + totalBetValue;
+            totalBet.Text = totalBetValue.ToString();
 
             ListBoxItem listBoxItem = new ListBoxItem();
             listBoxItem.Content = stake + " bet on " + roulette.player.placedbet;
@@ -181,7 +181,7 @@ namespace Rcade
             UpdateResult("Bets resetted!");
 
             balance.Text = roulette.player.balance.ToString();
-            totalBet.Text = "Total bet: 0";
+            totalBet.Text = "0";
 
             betList.Items.Clear();
             totalBetValue = 0;
@@ -295,7 +295,7 @@ namespace Rcade
             await Task.Delay(5000);
 
             balance.Text = roulette.player.balance.ToString();
-            totalBet.Text = "Total bet: 0";
+            totalBet.Text = "0";
 
             betList.Items.Clear();
 

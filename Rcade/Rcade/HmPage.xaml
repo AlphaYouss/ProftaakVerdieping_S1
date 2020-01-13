@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     FontFamily="Consolas"
-    Foreground="White">
+    Foreground="White"
+    RequestedTheme="Dark">
 
     <Grid Name="main">
         <Grid.Background>
@@ -28,7 +29,7 @@
         <Grid Grid.Row="0" Grid.Column="0" >
             <Viewbox Stretch="Uniform" StretchDirection="Both">
                 <Button Name="btnBack" Click="btnBack_Click" Margin="10" Padding="0" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Image Source="/Assets/Images/leaderboard/back.png" />
+                    <Image Source="/Assets/Images/hm/back.png" />
                 </Button>
             </Viewbox>
         </Grid>
@@ -58,7 +59,7 @@
 
         <Grid Grid.Row="0" Grid.Column="1">
             <Viewbox>
-                <TextBlock  Name="TbResult" Text="Result" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Name="TbResult" FontFamily="/Assets/Fonts/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Text="Result" HorizontalAlignment="Left" />
             </Viewbox>
         </Grid>
 
@@ -329,15 +330,10 @@
                 </Grid>
 
                 <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
                             <Button Name="btnNewgame" Margin="5" Padding="0" BorderThickness="0" Click="btnNewgame_Click">
-                                <Image Source="/Assets/Images/leaderboard/back.png"/>
+                                <Image Source="/Assets/Images/hm/newgame.png"/>
                             </Button>
                         </Viewbox>
                     </Grid>
