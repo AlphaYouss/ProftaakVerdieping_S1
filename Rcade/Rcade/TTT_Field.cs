@@ -6,7 +6,7 @@ namespace Rcade
     {
         public List<string> box { get; private set; } = new List<string>();
 
-        public void GenerateField()
+        private void GenerateField()
         {
             for (int i = 0; i < 10; i++)
             {

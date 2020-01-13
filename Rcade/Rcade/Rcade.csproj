@@ -177,6 +177,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Files\NLwords.txt" />
     <Content Include="Assets\Files\words.txt" />
     <Content Include="Assets\Images\bj\11.png" />
     <Content Include="Assets\Images\bj\1.png" />

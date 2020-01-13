@@ -48,7 +48,7 @@
 
             if (insurance)
             {
-                if (dealer.card[1].value == 10)
+                if (dealer.playerCards[1].value == 10)
                 {
                     double insuranceMoney = (stake / 2) + stake;
 

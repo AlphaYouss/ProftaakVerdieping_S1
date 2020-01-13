@@ -5,7 +5,7 @@ namespace Rcade
 {
     class BJ_Player
     {
-        public List<BJ_Card> card { get; private set; } = new List<BJ_Card>();
+        public List<BJ_Card> playerCards { get; private set; } = new List<BJ_Card>();
         public string namePlayer { get; private set; }
         public double balance { get; private set; }
         public double sessionBalance { get; private set; } = 0;
@@ -36,15 +36,15 @@ namespace Rcade
 
         public void Clear()
         {
-            card.Clear();
+            playerCards.Clear();
             hasAce = false;
         }
 
         public bool CheckForAce()
         {
-            for (int i = 0; i < card.Count; i++)
+            for (int i = 0; i < playerCards.Count; i++)
             {
-                if (card[i].value == 14)
+                if (playerCards[i].value == 14)
                 {
                     aceLocation = i;
 
@@ -57,7 +57,7 @@ namespace Rcade
 
         public bool CheckInsurance()
         {
-            if (card[0].image.Contains("A"))
+            if (playerCards[0].image.Contains("A"))
             {
                 return true;
             }
@@ -75,16 +75,16 @@ namespace Rcade
 
         public string GetCard(int location)
         {
-            return card[location].image;
+            return playerCards[location].image;
         }
 
         public int GetTotalPoints()
         {
             int totalPoints = 0;
 
-            for (int i = 0; i < card.Count; i++)
+            for (int i = 0; i < playerCards.Count; i++)
             {
-                totalPoints += card[i].value;
+                totalPoints += playerCards[i].value;
             }
             return totalPoints;
         }
@@ -102,16 +102,16 @@ namespace Rcade
 
         public void SetCard(BJ_Cards cards)
         {
-            card.Add(cards.NewCard());
+            playerCards.Add(cards.NewCard());
         }
 
         public void SetDealerAces()
         {
-            for (int i = 0; i < card.Count; i++)
+            for (int i = 0; i < playerCards.Count; i++)
             {
-                if (card[i].value == 14)
+                if (playerCards[i].value == 14)
                 {
-                    card[i].SetAceValue(11);
+                    playerCards[i].SetAceValue(11);
                 }
             }
         }

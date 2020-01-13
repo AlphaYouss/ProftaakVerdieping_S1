@@ -95,7 +95,7 @@ namespace Rcade
 
         private void btnOne_Click(object sender, RoutedEventArgs e)
         {
-            gameHost.player.card[gameHost.player.aceLocation].SetAceValue(1);
+            gameHost.player.playerCards[gameHost.player.aceLocation].SetAceValue(1);
             Ace();
 
             if (!gameHost.playedTurn)
@@ -111,7 +111,7 @@ namespace Rcade
 
         private void btnEleven_Click(object sender, RoutedEventArgs e)
         {
-            gameHost.player.card[gameHost.player.aceLocation].SetAceValue(11);
+            gameHost.player.playerCards[gameHost.player.aceLocation].SetAceValue(11);
             Ace();
 
             if (!gameHost.playedTurn)
@@ -325,7 +325,7 @@ namespace Rcade
                 btnInsurance.Visibility = Visibility.Visible;
             }
 
-            if (gameHost.player.card.Count == 2)
+            if (gameHost.player.playerCards.Count == 2)
             {
                 DoubleDown();
             }
@@ -472,7 +472,7 @@ namespace Rcade
 
         private void SetPlayerImage(BJ_Player speler, Image[] ImagesArray)
         {
-            for (int i = 0; i < speler.card.Count; i++)
+            for (int i = 0; i < speler.playerCards.Count; i++)
             {
                 string locatie = "ms-appx:///Assets/Images/bj/cards/" + speler.GetCard(i);
 
