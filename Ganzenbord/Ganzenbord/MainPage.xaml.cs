@@ -37,10 +37,10 @@ namespace Ganzenbord
 
             ganzenbord = new Ganzenbord(aantalSpelers, vakimages);
 
-            this.Spelernaam2 = Spelernaam1;
-            this.Spelernaam3 = Spelernaam1;
-            this.Spelernaam4 = Spelernaam1;
-            this.Spelernaam5 = Spelernaam1;
+            this.Spelernaam2 = Spelernaam2;
+            this.Spelernaam3 = Spelernaam3;
+            this.Spelernaam4 = Spelernaam4;
+            this.Spelernaam5 = Spelernaam5;
 
             Speler2.Text = Spelernaam2;
             Speler3.Text = Spelernaam3;
@@ -197,19 +197,19 @@ namespace Ganzenbord
                 default:
                     break;
                 case 0:
-                    speler.Text = "Paars speelt";
+                    speler.Text =    "" + "speelt";
                     break;
                 case 1:
-                    speler.Text = "Blauw speelt";
+                    speler.Text = Spelernaam2 + " " + "speelt";
                     break;
                 case 2:
-                    speler.Text = "Groen speelt";
+                    speler.Text = Spelernaam3 + " " + "speelt";
                     break;
                 case 3:
-                    speler.Text = "Rood speelt";
+                    speler.Text = Spelernaam4 + " " + "speelt";
                     break;
                 case 4:
-                    speler.Text = "Zwart speelt";
+                    speler.Text = Spelernaam5 + " " + "speelt";
                     break;
             }
         }

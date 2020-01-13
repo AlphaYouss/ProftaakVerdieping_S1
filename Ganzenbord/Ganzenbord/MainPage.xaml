@@ -28,7 +28,7 @@
 
         <Grid Grid.Row="0" Grid.Column="0">
             <Viewbox>
-                <Button Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100">
+                <Button Visibility="Collapsed" Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100" RenderTransformOrigin="0.24,0.24">
                     <Button.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.ThemeDictionaries>

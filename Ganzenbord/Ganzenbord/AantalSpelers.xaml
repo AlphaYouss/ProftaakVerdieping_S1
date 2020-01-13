@@ -130,7 +130,7 @@
             <Grid Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="3">
                 <Border Name="s2" Visibility="Collapsed" Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                     <Viewbox Stretch="Fill">
-                        <TextBox TextChanged="Speler_TextChanged" x:Name="Speler2"/>
+                        <TextBox MaxLength="14" TextChanged="Speler_TextChanged" x:Name="Speler2"/>
                     </Viewbox>
                 </Border>
             </Grid>
@@ -138,7 +138,7 @@
             <Grid Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="3">
                 <Border Name="s3" Visibility="Collapsed" Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                     <Viewbox Stretch="Fill">
-                        <TextBox TextChanged="Speler_TextChanged" x:Name="Speler3"/>
+                        <TextBox MaxLength="14" TextChanged="Speler_TextChanged" x:Name="Speler3"/>
                     </Viewbox>
                 </Border>
             </Grid>
@@ -146,7 +146,7 @@
             <Grid Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="3">
                 <Border Name="s4" Visibility="Collapsed" Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                     <Viewbox Stretch="Fill">
-                        <TextBox TextChanged="Speler_TextChanged" x:Name="Speler4"/>
+                        <TextBox MaxLength="14" TextChanged="Speler_TextChanged" x:Name="Speler4"/>
                     </Viewbox>
                 </Border>
             </Grid>
@@ -154,7 +154,7 @@
             <Grid Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="3">
                 <Border Name="s5" Visibility="Collapsed" Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                     <Viewbox Stretch="Fill">
-                        <TextBox TextChanged="Speler_TextChanged" x:Name="Speler5"/>
+                        <TextBox MaxLength="14" TextChanged="Speler_TextChanged" x:Name="Speler5"/>
                     </Viewbox>
                 </Border>
             </Grid>
