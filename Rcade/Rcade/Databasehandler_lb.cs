@@ -124,11 +124,11 @@ namespace Rcade
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT * FROM Test_Blackjack", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Blackjack ORDER BY saldo DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT * FROM Blackjack", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Blackjack ORDER BY saldo DESC", GetCon());
             }
 
             OpenConnectionToDB();
@@ -160,11 +160,11 @@ namespace Rcade
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT * FROM Test_BKE", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_BKE ORDER BY gewonnen_potjes DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT * FROM BKE", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM BKE ORDER BY gewonnen_potjes DESC", GetCon());
             }
 
             OpenConnectionToDB();
@@ -201,11 +201,11 @@ namespace Rcade
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT * FROM Test_Galgje", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Galgje ORDER BY totaal_punten DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT * FROM Galgje", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Galgje ORDER BY totaal_punten DESC", GetCon());
             }
 
 
@@ -241,11 +241,11 @@ namespace Rcade
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT * FROM Test_Ganzenbord", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Ganzenbord ", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT * FROM Ganzenbord", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Ganzenbord ", GetCon());
             }
 
             OpenConnectionToDB();
@@ -280,11 +280,11 @@ namespace Rcade
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT * FROM Test_Roulette", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Roulette ORDER BY saldo DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT * FROM Roulette", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) * FROM Roulette ORDER BY saldo DESC", GetCon());
             }
 
             OpenConnectionToDB();

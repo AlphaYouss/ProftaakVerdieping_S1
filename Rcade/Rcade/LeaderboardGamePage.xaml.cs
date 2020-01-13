@@ -13,6 +13,11 @@ namespace Rcade
         private User user { get; set; }
         private List<string> Games { get; set; } = new List<string> { "Leaderboard", "Blackjack", "Roulette", "Hangman", "Tic, Tac and Toe", "Gooseboard", "Four in a row" };
 
+        int AmountOfGames = 4;
+
+
+
+
         public LeaderbordGamePage(int Number)
         {
             InitializeComponent();
@@ -46,16 +51,7 @@ namespace Rcade
                 dbh.ChangeChoice(choice);
                 dbh.ChoiceMaker();
             }
-
-            if (dbh.choice == 1)
-            {
-                btnBack.IsEnabled = false;
-            }
-            else
-            {
-                btnBack.IsEnabled = true;
-            }
-
+            ButtonOnOff();
             UpdateText();
         }
 
@@ -63,21 +59,14 @@ namespace Rcade
         {
             int choice = dbh.choice + 1;
 
-            if (choice <= 5)
+            if (choice <= AmountOfGames)
             {
                 dbh.ChangeChoice(choice);
                 dbh.ChoiceMaker();
+                
             }
 
-            if (dbh.choice == 5)
-            {
-                btnForward.IsEnabled = false;
-            }
-            else
-            {
-                btnForward.IsEnabled = true;
-            }
-
+            ButtonOnOff();
             UpdateText();
         }
 
@@ -125,7 +114,7 @@ namespace Rcade
             btnForward.IsEnabled = true;
             btnBack.IsEnabled = true;
 
-            if (dbh.choice == 5)
+            if (dbh.choice == AmountOfGames)
             {
                 btnForward.Visibility = Visibility.Collapsed;
             }
