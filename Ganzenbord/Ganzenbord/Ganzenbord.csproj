@@ -139,13 +139,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ganzenbord_pd.svg.png" />
+    <Content Include="Assets\How-To-Make-Synthwave-Music.jpg" />
+    <Content Include="Assets\Logo.jpg" />
     <Content Include="Assets\pion blauw.png" />
+    <Content Include="Assets\pion blauw_wit.png" />
     <Content Include="Assets\pion groen.png" />
+    <Content Include="Assets\pion groen_wit.png" />
     <Content Include="Assets\pion paars.png" />
+    <Content Include="Assets\pion paars_wit.png" />
     <Content Include="Assets\pion rood.png" />
+    <Content Include="Assets\pion rood_wit.png" />
     <Content Include="Assets\pion zwart.png" />
+    <Content Include="Assets\pion zwart_wit.png" />
     <Content Include="Assets\synthwave.jpg" />
     <Content Include="Assets\test.png" />
+    <Content Include="Assets\ThrowDice.png" />
     <Content Include="Assets\WireFrameBlackJack3X9.jpg" />
     <Content Include="Assets\WireframeBlackJack7x2.jpg" />
     <Content Include="Properties\Default.rd.xml" />

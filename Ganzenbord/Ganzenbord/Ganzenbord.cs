@@ -41,11 +41,11 @@ namespace Ganzenbord
             this.fieldImages = fieldImages;
 
             noPicture = new BitmapImage(new Uri("ms-appx:///"));
-            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/pion paars.png"));
-            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/pion blauw.png"));
-            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion groen.png"));
-            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion rood.png"));
-            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion zwart.png"));
+            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/pion paars_wit.png"));
+            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/pion blauw_wit.png"));
+            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion groen_wit.png"));
+            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion rood_wit.png"));
+            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/pion zwart_wit.png"));
 
             players = new List<Player>();
 
@@ -79,7 +79,7 @@ namespace Ganzenbord
         private void ChangeImage()
         {
             fieldImages[players[playerTurn].location].Source = players[playerTurn].playerImage;
-                Task.Delay(200).Wait();
+            Task.Delay(200).Wait();
         }
 
         private void FillPlayerList()
@@ -203,9 +203,11 @@ namespace Ganzenbord
         {
             for (int i = 0; i < players.Count; i++)
             {
-                if(players[playerTurn].stuckInWell_Prison == players[i].stuckInWell_Prison && players[i] != players[playerTurn])
+                if (players[playerTurn].stuckInWell_Prison == true && players[i].stuckInWell_Prison == true && players[playerTurn] != players[i])
                 {
                     players[i].ChangeStuckInWell_Prison();
+                    players[i].ChangeLocation(1);
+                    fieldImages[players[i].location].Source = players[i].playerImage;
                     return true;
                 }
             }
@@ -224,6 +226,11 @@ namespace Ganzenbord
         public void ChangeSkipTurn()
         {
             players[playerTurn].ChangeSkipTurn();
+        }
+
+        public void ChangeStuckInWell_Prison()
+        {
+            players[playerTurn].ChangeStuckInWell_Prison();
         }
     }
 }

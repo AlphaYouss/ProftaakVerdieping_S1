@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -21,11 +22,31 @@ namespace Ganzenbord
     {
         List<Image> vakimages = new List<Image> { };
         public Ganzenbord ganzenbord { get; private set; }
-        public MainPage(int aantalSpelers)
+        public string Spelernaam1 { get; private set; }
+        public string Spelernaam2 { get; private set; }
+        public string Spelernaam3 { get; private set; }
+        public string Spelernaam4 { get; private set; }
+        public string Spelernaam5 { get; private set; }
+        public int Well_PrisonTurn { get; private set; }
+        public int getal { get; private set; }
+
+        public MainPage(int aantalSpelers, string Spelernaam2, string Spelernaam3, string Spelernaam4, string Spelernaam5)
         {
 
             this.InitializeComponent();
+
             ganzenbord = new Ganzenbord(aantalSpelers, vakimages);
+
+            this.Spelernaam2 = Spelernaam1;
+            this.Spelernaam3 = Spelernaam1;
+            this.Spelernaam4 = Spelernaam1;
+            this.Spelernaam5 = Spelernaam1;
+
+            Speler2.Text = Spelernaam2;
+            Speler3.Text = Spelernaam3;
+            Speler4.Text = Spelernaam4;
+            Speler5.Text = Spelernaam5;
+
             VulImages();
         }
 
@@ -105,53 +126,72 @@ namespace Ganzenbord
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Eventvak.Text = "Dobbellen...";
+            //Task.Delay(2000).Wait();
+
             ganzenbord.ZetStap();
 
                 switch (ganzenbord.Field)
                 {
-                    default:
-                        Eventvak.Text = "";
-                        break;
-                    case "brug":
-                        Eventvak.Text = "Je bent op de brug gekomen! Je bent naar veld 12 verplaatst";
-                        break;
-                    case "herberg":
-                        Eventvak.Text = "Je bent in de herberg beland. Je moet een beurt overslaan";
-                        break;
-                    case "put":
-                        Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt";
-                        break;
-                    case "doolhof":
-                        Eventvak.Text = "Je bent vastgelopen in het doolhof. Je gaat terug naar veld 37.";
-                        break;
-                    case "gevangenis":
-                        Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt.";
-                        break;
-                    case "dood":
-                        Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";
-                        break;
-                    case "einde":
-                        Eventvak.Text = "Je hebt gewonnen!";
-                        break;
-                    case "dubbeleworp":
-                        Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
-                        break;
-                    case "TweeOpÉénVak":
-                        Eventvak.Text = "Je bent op een veld beland waar al iemand op stond. Je bent terug verplaatst.";
-                        break;
-                    case "NineOnFirstTurn":
-                        Eventvak.Text = "Je bent op veld 9 gekomen in de eerste beurt. Je bent naar veld 26 verplaatst";
-                        break;
-                }
+                default:
+                    Eventvak.Text = "";
+                    break;
+                case "brug":
+                    Eventvak.Text = "Je bent op de brug gekomen! Je bent naar veld 12 verplaatst";
+                    break;
+                case "herberg":
+                    Eventvak.Text = "Je bent in de herberg beland. Je moet een beurt overslaan";
+                     break;
+                case "put":
+                    Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt";
+                    break;
+                case "doolhof":
+                    Eventvak.Text = "Je bent vastgelopen in het doolhof. Je gaat terug naar veld 37.";
+                    break;
+                case "gevangenis":
+                    Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt.";
+                    break;
+                case "dood":
+                    Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";
+                    break;
+                case "einde":
+                    Eventvak.Text = "Je hebt gewonnen!";
+                    break;
+                case "dubbeleworp":
+                    Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
+                    break;
+                case "TweeOpÉénVak":
+                    Eventvak.Text = "Je bent op een veld beland waar al iemand op stond. Je bent terug verplaatst.";
+                    break;
+                case "NineOnFirstTurn":
+                    Eventvak.Text = "Je bent op veld 9 gekomen in de eerste beurt. Je bent naar veld 26 verplaatst";
+                    break;
+            }
 
-                dobbel.Text = Convert.ToString(ganzenbord.dice.ThrowCount);
+            dobbel.Text = "aantal ogen gegooid:" + " " + Convert.ToString(ganzenbord.dice.PipCount) + "\n Je staat nu op vak:" + " " + ganzenbord.players[ganzenbord.playerTurn].location;
+
+            ganzenbord.NextPlayer();
+
+
+            if (ganzenbord.CheckSkippingTurn())
+            {
+                ganzenbord.ChangeSkipTurn();
                 ganzenbord.NextPlayer();
-                if (ganzenbord.CheckSkippingTurn() || ganzenbord.CheckStuckInWell_Prison())
+            } 
+            else if (ganzenbord.CheckStuckInWell_Prison())
+            {
+                if (getal == 3)
                 {
-                    ganzenbord.ChangeSkipTurn();
+                    ganzenbord.ChangeStuckInWell_Prison();
+                    getal = 0;
+                }
+                else
+                {
+                    getal++;
                     ganzenbord.NextPlayer();
                 }
-            
+            }
+
             switch (ganzenbord.playerTurn)
             {
                 default:

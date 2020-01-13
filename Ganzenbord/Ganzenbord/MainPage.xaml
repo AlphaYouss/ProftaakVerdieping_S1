@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/synthwave.jpg">
+            <ImageBrush ImageSource="/Assets/How-To-Make-Synthwave-Music.jpg">
             </ImageBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
@@ -24,14 +24,11 @@
             <ColumnDefinition Width="0.8875*"/>
             <ColumnDefinition Width="0.05625*"/>
 
-            <!--<ColumnDefinition Width="0.088*"/>
-            <ColumnDefinition Width="0.82*"/>
-            <ColumnDefinition Width="0.088*"/>-->
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0">
-            <Viewbox  Grid.Row="1">
-                <Button Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100" Click="Button_Click">
+            <Viewbox>
+                <Button Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100">
                     <Button.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.ThemeDictionaries>
@@ -794,7 +791,7 @@
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" >
+            <Grid Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" >
                 <Viewbox>
                     <TextBlock Foreground="white" x:Name="dobbel" Margin="15" ></TextBlock>
                 </Viewbox>
@@ -802,46 +799,61 @@
 
         </Grid>
 
-        <Grid Grid.Row="2" Grid.Column="1">
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--<Viewbox Stretch="Fill" Grid.Column="0">
-                <TextBox x:Name="Speler1" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-            </Viewbox>
-
-            <Viewbox Stretch="Fill" Grid.Column="1">
-                <TextBox x:Name="Speler2" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-            </Viewbox>
-
-            <Viewbox Stretch="Fill" Grid.Column="2">
-                <TextBox x:Name="Speler3" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-            </Viewbox>
-
-            <Viewbox Stretch="Fill" Grid.Column="3">
-                <TextBox x:Name="Speler4" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-            </Viewbox>
-
-            <Viewbox Stretch="Fill" Grid.Column="4">
-                <TextBox x:Name="Speler5" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" HorizontalTextAlignment="Center" IsReadOnly="True"  Background="Black" BorderThickness="2" BorderBrush="#e800fe" />
-            </Viewbox>-->
-
-        </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-
-            <Viewbox  Grid.Row="1">
-                <Button Background="Black" Foreground="#CB55CE" Content="Dobbel" FontSize="100" Click="Button_Click">
+             <Grid>
+            <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
+                <Viewbox Stretch="Fill">
+                          <TextBlock Foreground="White" x:Name="Speler1"/>
+                </Viewbox>
+            </Border>
+            </Grid>
+            
+            <Grid Grid.Column="1">
+            <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
+                <Viewbox Stretch="Fill">
+                        <TextBlock Foreground="White" x:Name="Speler2"/>
+                </Viewbox>
+            </Border>
+            </Grid>
+            
+            <Grid Grid.Column="2">
+            <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
+                <Viewbox Stretch="Fill">
+                        <TextBlock Foreground="White" x:Name="Speler3"/>
+                </Viewbox>
+            </Border>
+            </Grid>
+            
+            <Grid Grid.Column="3">
+            <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
+                <Viewbox Stretch="Fill">
+                        <TextBlock Foreground="White" x:Name="Speler4"/>
+                </Viewbox>
+            </Border>
+            </Grid>
+            
+            <Grid Grid.Column="4">
+            <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
+                <Viewbox Stretch="Fill">
+                        <TextBlock Foreground="White" x:Name="Speler5"/>
+                </Viewbox>
+            </Border>
+            </Grid>
+            
+           
+            
+            <Viewbox Grid.Column="5" >
+                <Button Background="Black" Foreground="#CB55CE" FontSize="30" Click="Button_Click">
+                    <Image Source="/Assets/ThrowDice.png" />
                     <Button.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.ThemeDictionaries>

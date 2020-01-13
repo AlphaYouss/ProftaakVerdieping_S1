@@ -107,5 +107,10 @@ namespace Ganzenbord
         {
             skipTurn = false;
         }
+
+        public void ChangeLocation(int getal)
+        {
+            location = location + getal;
+        }
     }
 }

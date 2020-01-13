@@ -10,6 +10,7 @@ namespace Ganzenbord
     {
         public int ThrowCount { get; private set; }
         public int Throw { get; private set; }
+        public int PipCount { get; private set; }
         public int XD6(int X)
         {
             for (int i = 1; i <= X; i++)
@@ -17,6 +18,7 @@ namespace Ganzenbord
             Random rnd = new Random();
             Throw = rnd.Next(1, 7);
                 ThrowCount = ThrowCount + Throw;
+                PipCount = ThrowCount;
             }
             return ThrowCount;
         }
@@ -134,6 +136,7 @@ namespace Ganzenbord
         public void ResetThrowCount()
         {
             ThrowCount = 0;
+            PipCount = 0;
         }
 
         public void ChangeThrowCount(int Getal)
