@@ -197,7 +197,7 @@ namespace Ganzenbord
                 default:
                     break;
                 case 0:
-                    speler.Text =    "" + "speelt";
+                    speler.Text = "Frankie speelt";
                     break;
                 case 1:
                     speler.Text = Spelernaam2 + " " + "speelt";

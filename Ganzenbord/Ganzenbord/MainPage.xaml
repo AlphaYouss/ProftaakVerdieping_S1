@@ -787,7 +787,7 @@
 
             <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" >
                 <Viewbox Stretch="Fill">
-                    <TextBlock Foreground="white" x:Name="speler" Margin="15" Text="Paars speelt"></TextBlock>
+                    <TextBlock Foreground="white" x:Name="speler" Margin="15" Text= "Frankie speelt"></TextBlock>
                 </Viewbox>
             </Grid>
 
@@ -812,7 +812,7 @@
              <Grid>
             <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                 <Viewbox Stretch="Fill">
-                          <TextBlock Foreground="White" x:Name="Speler1"/>
+                          <TextBlock Text="Frankie" Foreground="White" x:Name="Speler1"/>
                 </Viewbox>
             </Border>
             </Grid>
