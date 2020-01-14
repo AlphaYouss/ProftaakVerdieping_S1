@@ -58,10 +58,9 @@ namespace Rcade
 
         private void btnSpin_Click(object sender, RoutedEventArgs e)
         {
-            SetIsPlaying(true);
-
             if (roulette.player.bet.Count != 0)
             {
+                SetIsPlaying(true);
                 Spin();
             }
             else
