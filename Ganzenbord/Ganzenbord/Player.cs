@@ -17,7 +17,8 @@ namespace Ganzenbord
         public int location { get; private set; }
         public bool skipTurn { get; private set; }
         public bool stuckInWell_Prison { get; private set; }
-        public bool winGame { get; private set; } 
+        public bool winGame { get; private set; }
+        public string Field { get; private set; }
         public Player(Board board, Dice dice, SpecialFields specialFields, BitmapImage playerImage)
         {
             this.playerImage = playerImage;
@@ -36,7 +37,9 @@ namespace Ganzenbord
             if (location == 0 && dice.ThrowCount == 9)
             {
                 location = 26;
+                Field = "NineOnFirstTurn";
                 return "NineOnFirstTurn";
+                
             }
             else
             {
@@ -48,7 +51,6 @@ namespace Ganzenbord
                     location = 63;
                     location = location - number;
                     dice.ChangeThrowCount(-number);
-                    
                 }
             }
             return "";
@@ -56,7 +58,14 @@ namespace Ganzenbord
 
         public void RevertLocation()
         {
-            location = location - dice.ThrowCount;
+            if (Field == "NineOnFirstTurn")
+            {
+                location = location - 26;
+            }
+            else
+            {
+                location = location - dice.ThrowCount;
+            }
         }
 
         public void EventStart(string Event)

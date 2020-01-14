@@ -143,13 +143,13 @@ namespace Ganzenbord
                     Eventvak.Text = "Je bent in de herberg beland. Je moet een beurt overslaan";
                      break;
                 case "put":
-                    Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt";
+                    Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt of je 3 beurten hebt overgeslagen";
                     break;
                 case "doolhof":
                     Eventvak.Text = "Je bent vastgelopen in het doolhof. Je gaat terug naar veld 37.";
                     break;
                 case "gevangenis":
-                    Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt.";
+                    Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt. of je 3 beurten hebt overgeslagen";
                     break;
                 case "dood":
                     Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";

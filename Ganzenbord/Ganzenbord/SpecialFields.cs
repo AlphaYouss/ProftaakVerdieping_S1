@@ -20,6 +20,7 @@ namespace Ganzenbord
         public int DoubleThrow(int location)
         {
             location = location + dice.ThrowCount;
+            dice.ChangeThrowCount(dice.ThrowCount);
             if (location > 63)
             {
                 int number = 0;

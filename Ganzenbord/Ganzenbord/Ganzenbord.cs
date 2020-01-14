@@ -69,7 +69,6 @@ namespace Ganzenbord
             fieldImages[players[playerTurn].location].Source = noPicture;
             Field = players[playerTurn].PlayerMove();
             CheckField(players[playerTurn].location);
-            CheckField(players[playerTurn].location);
             if (CheckPlayersOnField(players[playerTurn].location))
             {
                 players[playerTurn].RevertLocation();
@@ -135,26 +134,31 @@ namespace Ganzenbord
             if (Field != "NineOnFirstTurn")
             {
                 Field = board.fields[locatie];
-            }
-            if (Field != null)
-            {
-                players[playerTurn].EventStart(Field);
-                if (CheckWell_Prison())
-                {
 
-                }
-                else if (CheckPlayersOnField(players[playerTurn].location))
+                if (Field != null)
                 {
-                    players[playerTurn].RevertLocation();
-                    Field = "TweeOpÉénVak";
+                    string field2;
+                    players[playerTurn].EventStart(Field);
+                    locatie = players[playerTurn].location;
+                    field2 = board.fields[locatie];
+                    players[playerTurn].EventStart(field2);
+                    if (CheckWell_Prison())
+                    {
+
+                    }
                 }
+            }
+            else if (CheckPlayersOnField(players[playerTurn].location))
+            {
+                players[playerTurn].RevertLocation();
+                Field = "TweeOpÉénVak";
+            }
 
                 if (WinCheck())
                 {
                     CoreApplication.Exit();
                     Restart();
                 }
-            }
         }
 
         public void NextPlayer()
