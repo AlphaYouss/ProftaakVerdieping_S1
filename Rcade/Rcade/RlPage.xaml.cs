@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Threading.Tasks;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -156,11 +155,12 @@ namespace Rcade
         private void Spin()
         {
             winningNumber.Text = "-";
+            winningBlock.Background = ConvertColorFromHexString("#000000");
 
             btnResetStake.IsEnabled = false;
             btnSpin.IsEnabled = false;
 
-            SpinMessage();
+            SpinUpdate();
 
             roulette.SpinWheel();
             UpdateWinningNumber();
@@ -253,15 +253,15 @@ namespace Rcade
             switch (winningColor)
             {
                 case "Black":
-                    winningBlock.Background = new SolidColorBrush(Colors.Black);
+                    winningBlock.Background = ConvertColorFromHexString("#000000");
                     break;
 
                 case "Red":
-                    winningBlock.Background = new SolidColorBrush(Colors.Red);
+                    winningBlock.Background = ConvertColorFromHexString("#8E1600");
                     break;
 
                 case "Green":
-                    winningBlock.Background = new SolidColorBrush(Colors.Green);
+                    winningBlock.Background = ConvertColorFromHexString("#05812f");
                     break;
             }
 
@@ -309,22 +309,55 @@ namespace Rcade
             btnBack.Visibility = Visibility.Visible;
         }
 
-        private async void SpinMessage()
+        private async void SpinUpdate()
         {
+            SpinImage();
             result.Text = "Spinning.";
             await Task.Delay(1000);
 
+            SpinImage();
             result.Text = "Spinning..";
             await Task.Delay(1000);
 
+            SpinImage();
             result.Text = "Spinning...";
             await Task.Delay(1000);
 
+            SpinImage();
             result.Text = "Spinning....";
             await Task.Delay(1000);
 
+            SpinImage();
             result.Text = "Spinning.....";
             await Task.Delay(1000);
+        }
+
+        private async void SpinImage()
+        {
+            RotateTransform m_transform = new RotateTransform();
+            wheel.RenderTransform = m_transform;
+
+            while (m_transform.Angle != 360)
+            {
+                m_transform.Angle = m_transform.Angle + 36;
+                await Task.Delay(100);
+            }
+        }
+
+        private SolidColorBrush ConvertColorFromHexString(string colorHex)
+        {
+            string colorStr = colorHex;
+            colorStr = colorStr.Replace("#", string.Empty);
+
+            byte r = (byte)Convert.ToUInt32(colorStr.Substring(0, 2), 16);
+            byte g = (byte)Convert.ToUInt32(colorStr.Substring(2, 2), 16);
+            byte b = (byte)Convert.ToUInt32(colorStr.Substring(4, 2), 16);
+
+            Windows.UI.Color color = Windows.UI.Color.FromArgb(255, r, g, b);
+
+            SolidColorBrush myBrush = new SolidColorBrush(color);
+
+            return myBrush;
         }
 
         private int GetUserStats()
