@@ -129,7 +129,7 @@ namespace Ganzenbord
             Eventvak.Text = "Dobbellen...";
             //Task.Delay(2000).Wait();
 
-            ganzenbord.ZetStap();
+            ganzenbord.PlayerMove();
 
                 switch (ganzenbord.Field)
                 {
@@ -178,11 +178,11 @@ namespace Ganzenbord
                 ganzenbord.ChangeSkipTurn();
                 ganzenbord.NextPlayer();
             } 
-            else if (ganzenbord.CheckStuckInWell_Prison())
+            else if (ganzenbord.CheckStuck())
             {
                 if (getal == 3)
                 {
-                    ganzenbord.ChangeStuckInWell_Prison();
+                    ganzenbord.ChangeStuck();
                     getal = 0;
                 }
                 else

@@ -11,16 +11,13 @@ namespace Ganzenbord
         public Ganzenbord ganzenbord { get; private set; }
         public Board board { get; private set; }
         public Dice dice { get; private set; }
-        public int Throw { get; private set; } 
         public SpecialFields(Dice dice)
         {
             this.board = board;
             this.dice = dice;
-            Throw = dice.ThrowCount;
-            
         }
 
-        public int DubbelWorp(int location)
+        public int DoubleThrow(int location)
         {
             location = location + dice.ThrowCount;
             if (location > 63)
@@ -34,40 +31,40 @@ namespace Ganzenbord
             return location; 
         }
 
-        public int BurgEvent(int locatie)
+        public int BridgeEvent(int locatie)
         {
             dice.ChangeThrowCount(6);
             return locatie = 12;
 
         }
 
-        public bool HerbergEvent()
+        public bool InnEvent()
         {
             return true;
         }
 
-        public bool PutEvent()
+        public bool WellEvent()
         {
             return true;
         }
 
-        public int DoolhofEvent(int locatie)
+        public int MazeEvent(int locatie)
         {
             dice.ChangeThrowCount(-5);
             return locatie = 37;
         }
 
-        public bool GevangenisEvent()
+        public bool PrisonEvent()
         {
             return true;   
         }
 
-        public int DoodEvent(int locatie)
+        public int DeathEvent(int locatie)
         {
             return locatie = 0;
         }
 
-        public bool EindeEvent()
+        public bool EndEvent()
         {
             return true;
         }
