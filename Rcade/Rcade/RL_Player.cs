@@ -32,15 +32,9 @@ namespace Rcade
             balance = balance + amount;
         }
 
-
         public void ClearBet()
         {
             bet.Clear();
-        }
-
-        public void SetName()
-        {
-
         }
 
         public void SetBalance(int amount)
