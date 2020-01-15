@@ -101,7 +101,7 @@
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width=".3*"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="4, 4, 4, 0" CornerRadius="8, 8, 0, 0">
@@ -121,13 +121,32 @@
 
                 <Grid Grid.Column="0" Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1.2*"/>
+                        <RowDefinition Height="0.9*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
 
                     <Viewbox Stretch="Uniform" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" StretchDirection="Both">
                         <Image x:Name="wheel" Source="/Assets/Images/rl/wheel.png" RenderTransformOrigin="0.5,0.5" />
                     </Viewbox>
+
+                    <Grid Grid.Row="1" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="4*"/>
+                        </Grid.RowDefinitions>
+
+                        <Viewbox Stretch="Uniform" Grid.Row="3" StretchDirection="Both" VerticalAlignment="Top">
+                            <TextBlock x:Name="landed" Text="Landed:" Margin="5"/>
+                        </Viewbox>
+
+                        <Viewbox Stretch="Uniform" Grid.Row="4" StretchDirection="Both" VerticalAlignment="Top">
+                            <TextBlock x:Name="winningNumber" Text="0" Margin="5"/>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="0" Grid.Row="1">
@@ -535,6 +554,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="1">
@@ -576,6 +597,16 @@
                             </Button>
                         </Viewbox>
                     </Grid>
+
+                    <Grid Grid.Column="11">
+                        <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Viewbox Stretch="Uniform" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" StretchDirection="Both">
+                                <Button x:Name="btnSpin" Click="btnSpin_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0" BorderBrush="#1963d0">
+                                    <Image Source="/Assets/Images/rl/spin.jpg" />
+                                </Button>
+                            </Viewbox>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
             </Grid>
 
@@ -595,21 +626,21 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="1" Grid.Column="1">
+                <!--<Grid Grid.Row="1" Grid.Column="1">
                     <Viewbox Stretch="Uniform" Grid.Column="0" VerticalAlignment="Top" StretchDirection="Both">
                         <Button x:Name="btnSpin" Click="btnSpin_Click" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0" BorderBrush="#1963d0">
                             <Image Source="/Assets/Images/rl/spin.jpg" />
                         </Button>
                     </Viewbox>
-                </Grid>
+                </Grid>-->
 
-                <Grid Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
+                <!--<Grid Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
                     <Viewbox Stretch="Uniform" Grid.Row="2" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock x:Name="landed" Text="Landed" HorizontalAlignment="Center" Margin="10"/>
                     </Viewbox>
-                </Grid>
+                </Grid>-->
 
-                <Grid Grid.Row="5" Grid.Column="1" >
+                <!--<Grid Grid.Row="5" Grid.Column="1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="4*"/>
@@ -621,7 +652,7 @@
                             <TextBlock x:Name="winningNumber" Text="-" HorizontalAlignment="Center" FontFamily="Consolas" Margin="10"/>
                         </Viewbox>
                     </Grid>
-                </Grid>
+                </Grid>-->
             </Grid>
         </Grid>
     </Grid>

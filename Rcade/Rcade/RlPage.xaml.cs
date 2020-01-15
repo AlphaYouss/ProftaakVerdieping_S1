@@ -155,7 +155,7 @@ namespace Rcade
         private void Spin()
         {
             winningNumber.Text = "-";
-            winningBlock.Background = ConvertColorFromHexString("#000000");
+            //winningBlock.Background = ConvertColorFromHexString("#000000");
 
             btnResetStake.IsEnabled = false;
             btnSpin.IsEnabled = false;
@@ -248,22 +248,22 @@ namespace Rcade
             await Task.Delay(5000);
 
             int winningNumberValue = roulette.wheel.winningNumber.number;
-            string winningColor = roulette.wheel.winningNumber.color;
+            //string winningColor = roulette.wheel.winningNumber.color;
 
-            switch (winningColor)
-            {
-                case "Black":
-                    winningBlock.Background = ConvertColorFromHexString("#000000");
-                    break;
+            //switch (winningColor)
+            //{
+            //    case "Black":
+            //        winningBlock.Background = ConvertColorFromHexString("#000000");
+            //        break;
 
-                case "Red":
-                    winningBlock.Background = ConvertColorFromHexString("#8E1600");
-                    break;
+            //    case "Red":
+            //        winningBlock.Background = ConvertColorFromHexString("#8E1600");
+            //        break;
 
-                case "Green":
-                    winningBlock.Background = ConvertColorFromHexString("#05812f");
-                    break;
-            }
+            //    case "Green":
+            //        winningBlock.Background = ConvertColorFromHexString("#05812f");
+            //        break;
+            //}
 
             winningNumber.Text = winningNumberValue.ToString();
 
