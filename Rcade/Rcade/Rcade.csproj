@@ -275,6 +275,7 @@
     <Content Include="Assets\Images\login\login.png" />
     <Content Include="Assets\Images\rl\back.png" />
     <Content Include="Assets\Images\rl\background.jpg" />
+    <Content Include="Assets\Images\rl\spin.jpg" />
     <Content Include="Assets\Images\rl\wheel.png" />
     <Content Include="Assets\Images\rl\resetBtn.png" />
     <Content Include="Assets\Images\rl\table.jpg" />
@@ -331,6 +332,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="System.Drawing.Common">
+      <Version>4.7.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
