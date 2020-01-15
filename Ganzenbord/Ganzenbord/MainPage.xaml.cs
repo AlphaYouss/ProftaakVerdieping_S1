@@ -174,7 +174,7 @@ namespace Ganzenbord
 
             if (ganzenbord.winGame)
             {
-                Eventvak.Text = "Je hebt gewonnen! Ga terug of restart het spel!";
+                Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + " " + "heeft gewonnen! Ga terug of restart het spel!";
                 btnDobbel.IsEnabled = false;
                 btnRestart.Visibility = Visibility.Visible;
             }
@@ -201,26 +201,8 @@ namespace Ganzenbord
                 }
             }
 
-            switch (ganzenbord.playerTurn)
-            {
-                default:
-                    break;
-                case 0:
-                    speler.Text = "Frankie speelt" + " " + "(paars)";
-                    break;
-                case 1:
-                    speler.Text = Spelernaam2 + " " + "speelt" + " " + "(blauw)";
-                    break;
-                case 2:
-                    speler.Text = Spelernaam3 + " " + "speelt" + " " + "(groen)";
-                    break;
-                case 3:
-                    speler.Text = Spelernaam4 + " " + "speelt" + " " + "(rood)";
-                    break;
-                case 4:
-                    speler.Text = Spelernaam5 + " " + "speelt" + " " + "(zwart)";
-                    break;
-            }
+            SelecteerSpeler(ganzenbord.playerTurn);
+
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -235,6 +217,30 @@ namespace Ganzenbord
 
             AantalSpelers aantalSpelers = new AantalSpelers();
             Content = aantalSpelers;
+        }
+
+        private string SelecteerSpeler(int player)
+        {
+            switch (player)
+            {
+                default:
+                    return "";
+                case 0:
+                    speler.Text = "Frankie speelt" + " " + "(paars)";
+                    return "Frankie";
+                case 1:
+                    speler.Text = Spelernaam2 + " " + "speelt" + " " + "(blauw)";
+                    return Spelernaam2;
+                case 2:
+                    speler.Text = Spelernaam3 + " " + "speelt" + " " + "(groen)";
+                    return Spelernaam3;
+                case 3:
+                    speler.Text = Spelernaam4 + " " + "speelt" + " " + "(rood)";
+                    return Spelernaam4;
+                case 4:
+                    speler.Text = Spelernaam5 + " " + "speelt" + " " + "(zwart)";
+                    return Spelernaam5;
+            }
         }
     }
 }

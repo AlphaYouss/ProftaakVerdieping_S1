@@ -70,7 +70,8 @@
 
             <Grid Grid.Row="2" Grid.Column="9">
                 <Viewbox Stretch="Fill">
-                    <Button Name="btnPlus" Background="Black" Foreground="#CB55CE" Content="+" FontSize="20" Click="btnPlus_Click">
+                    <Button Name="btnPlus" Click="btnPlus_Click">
+                        <Image Source="/Assets/Plus.jpg"/>
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -87,7 +88,8 @@
 
             <Grid Grid.Row="2" Grid.Column="10">
                 <Viewbox Stretch="Fill">
-                    <Button Name="btnMin" Background="Black" Foreground="#CB55CE" Content="-" FontSize="20" Click="btnMin_Click">
+                    <Button Name="btnMin" Click="btnMin_Click">
+                        <Image Source="/Assets/Min.jpg"/>
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -104,7 +106,8 @@
 
             <Grid Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3">
                 <Viewbox Stretch="Fill">
-                    <Button Background="Black" Foreground="#CB55CE" Margin="10,0,10,0" Content="Confirm" FontSize="20" Click="btnConfirm_Click">
+                    <Button Foreground="#CB55CE" Click="btnConfirm_Click">
+                        <Image Source="/Assets/Confirm.jpg" />
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -161,7 +164,8 @@
 
             <Grid Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="3">
                 <Viewbox Stretch="Fill">
-                    <Button Visibility="Collapsed" Name="btnPlay" Background="Black" Foreground="#CB55CE" Margin="10,0,10,0" Content="play" FontSize="20" Click="btnPlay_Click">
+                    <Button Visibility="Collapsed" Name="btnPlay" Click="btnPlay_Click">
+                        <Image Source="/Assets/Play.jpg"/>
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>

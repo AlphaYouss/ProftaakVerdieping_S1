@@ -138,9 +138,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Back.png" />
+    <Content Include="Assets\Confirm.jpg" />
+    <Content Include="Assets\field.jpg" />
     <Content Include="Assets\Ganzenbord_pd.svg.png" />
     <Content Include="Assets\How-To-Make-Synthwave-Music.jpg" />
     <Content Include="Assets\Logo.jpg" />
+    <Content Include="Assets\Min.jpg" />
     <Content Include="Assets\pion blauw.png" />
     <Content Include="Assets\pion blauw_wit.png" />
     <Content Include="Assets\pion groen.png" />
@@ -151,6 +155,9 @@
     <Content Include="Assets\pion rood_wit.png" />
     <Content Include="Assets\pion zwart.png" />
     <Content Include="Assets\pion zwart_wit.png" />
+    <Content Include="Assets\Play.jpg" />
+    <Content Include="Assets\Plus.jpg" />
+    <Content Include="Assets\Restart.png" />
     <Content Include="Assets\synthwave.jpg" />
     <Content Include="Assets\test.png" />
     <Content Include="Assets\ThrowDice.png" />

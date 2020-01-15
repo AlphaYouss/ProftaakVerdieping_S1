@@ -47,7 +47,8 @@
 
                 <Grid Grid.Column="0">
                     <Viewbox>
-                        <Button Name="btnBack" Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100" RenderTransformOrigin="0.24,0.24" Click="btnBack_Click">
+                        <Button Name="btnBack"  Click="btnBack_Click">
+                            <Image Source="/Assets/Back.png" />
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <ResourceDictionary.ThemeDictionaries>
@@ -64,7 +65,8 @@
 
                 <Grid Grid.Column="2">
                     <Viewbox>
-                        <Button Name="btnRestart" Visibility="Collapsed" Background="Black" Foreground="#CB55CE" Content="Restart" FontSize="100" RenderTransformOrigin="0.24,0.24" Click="btnRestart_Click">
+                        <Button Name="btnRestart" Visibility="Collapsed" Background="Black" Foreground="#CB55CE" FontSize="100" RenderTransformOrigin="0.24,0.24" Click="btnRestart_Click">
+                            <Image Source="/Assets/Restart.png" />
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <ResourceDictionary.ThemeDictionaries>
@@ -116,9 +118,9 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="2">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="1"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="1"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox Stretch="Fill">
@@ -127,9 +129,9 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="3">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="2"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="2"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -138,9 +140,9 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="4">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25" >
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black" >
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="3"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="3"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox Stretch="Fill">
@@ -149,9 +151,9 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="5">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="4"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="4"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -160,31 +162,37 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="6">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="5"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="5"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
                     <Image Name="vak5"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="7">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="6"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="6"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
                     <Image Name="vak6"></Image>
                 </Viewbox>
+
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="8">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="7"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="7"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -193,9 +201,9 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="9">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="8"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="8"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -204,20 +212,25 @@
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="10">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="9"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="9"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
                     <Image Name="vak9"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="11">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="10"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="10"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -226,9 +239,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="11">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="11"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="11"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -237,9 +250,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="11">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="12"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="12"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -248,9 +261,9 @@
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="11">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="13"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="13"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -259,20 +272,25 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="11">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="14"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="14"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
                     <Image Name="vak14"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="11">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="15"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="15"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -281,9 +299,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="10">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="16"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="16"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -292,9 +310,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="9">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="17"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="17"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -311,12 +329,17 @@
                 <Viewbox>
                     <Image Name="vak18"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="7">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="19"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="19"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -325,9 +348,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="6">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="20"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="20"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -336,9 +359,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="5">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="21"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="21"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -347,9 +370,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="4">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="22"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="22"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -366,12 +389,17 @@
                 <Viewbox>
                     <Image Name="vak23"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="2">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="24"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="24"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -380,9 +408,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="25"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="25"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -391,9 +419,9 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="26"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="26"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -410,12 +438,17 @@
                 <Viewbox>
                     <Image Name="vak27"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="28"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="28"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -424,9 +457,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="29"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="29"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -435,9 +468,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="30"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="30"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -446,9 +479,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="31"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="31"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -465,12 +498,17 @@
                 <Viewbox>
                     <Image Name="vak32"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="3">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="33"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="33"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -479,9 +517,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="4">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="34"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="34"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -490,9 +528,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="5">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="35"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="35"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -509,12 +547,17 @@
                 <Viewbox>
                     <Image Name="vak36"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="7">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="37"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="37"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -523,9 +566,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="8">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="38"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="38"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -534,9 +577,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="9">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="39"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="39"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -545,9 +588,9 @@
             </Grid>
 
             <Grid Grid.Row="4" Grid.Column="10">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="40"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="40"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -564,12 +607,17 @@
                 <Viewbox>
                     <Image Name="vak41"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="10">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#E3BE27">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="42"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="42"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -578,9 +626,9 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="10">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="43"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="43"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -589,9 +637,9 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="9">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="44"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="44"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -600,20 +648,25 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="8">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="45"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="45"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
                     <Image Name="vak45"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="7">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="46"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="46"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -622,9 +675,9 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="6">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="47"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="47"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -633,9 +686,9 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="5">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="48"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="48"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -644,9 +697,9 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="4">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#001DFF">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="49"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="49"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -663,12 +716,17 @@
                 <Viewbox>
                     <Image Name="vak50"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="2">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="51"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="51"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -677,9 +735,9 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="52"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="52"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -688,9 +746,9 @@
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="53"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="53"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -707,12 +765,17 @@
                 <Viewbox>
                     <Image Name="vak54"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="2">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="55"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="55"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -721,9 +784,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="3">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#CB55CE">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="56"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="56"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -732,9 +795,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="4">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="57"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="57"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -743,9 +806,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="5">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="58"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="58"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -754,20 +817,25 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="6">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="59"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="59"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
                     <Image Name="vak59"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/field.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="7">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="60"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="60"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -776,9 +844,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="8">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="61"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="61"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -787,9 +855,9 @@
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="9">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="62"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="62"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -798,9 +866,9 @@
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="9">
-                <Border BorderBrush="Black" BorderThickness="3" Background="#EE1C25">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Margin="15" Text="63"></TextBlock>
+                        <TextBlock Foreground="#CB55CE" Margin="15" Text="63"></TextBlock>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -832,7 +900,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-             <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+             <Grid Grid.Row="1">
             <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                 <Viewbox Stretch="Fill">
                           <TextBlock Text="Frankie" Foreground="White" x:Name="Speler1"/>
@@ -840,7 +914,7 @@
             </Border>
             </Grid>
             
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Grid.Row="1">
             <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                 <Viewbox Stretch="Fill">
                         <TextBlock Foreground="White" x:Name="Speler2"/>
@@ -848,7 +922,7 @@
             </Border>
             </Grid>
             
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Grid.Row="1">
             <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                 <Viewbox Stretch="Fill">
                         <TextBlock Foreground="White" x:Name="Speler3"/>
@@ -856,7 +930,7 @@
             </Border>
             </Grid>
             
-            <Grid Grid.Column="3">
+            <Grid Grid.Column="3" Grid.Row="1">
             <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                 <Viewbox Stretch="Fill">
                         <TextBlock Foreground="White" x:Name="Speler4"/>
@@ -864,7 +938,7 @@
             </Border>
             </Grid>
             
-            <Grid Grid.Column="4">
+            <Grid Grid.Column="4" Grid.Row="1">
             <Border Background="Black" BorderBrush="#CB55CE" BorderThickness="2">
                 <Viewbox Stretch="Fill">
                         <TextBlock Foreground="White" x:Name="Speler5"/>
@@ -874,8 +948,8 @@
             
            
             
-            <Viewbox Grid.Column="5" >
-                <Button x:Name="btnDobbel" Background="Black" Foreground="#CB55CE" FontSize="30" Click="Button_Click">
+            <Viewbox Grid.Column="5" Grid.Row="1" Grid.RowSpan="1">
+                <Button x:Name="btnDobbel" Click="Button_Click">
                     <Image Source="/Assets/ThrowDice.png" />
                     <Button.Resources>
                         <ResourceDictionary>
