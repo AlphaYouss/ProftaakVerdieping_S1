@@ -32,6 +32,8 @@ namespace Ganzenbord
         public int numberOfPlayers { get; private set; }
         public int playerTurn { get; private set; }
         public string Field { get; private set; }
+        public int getal { get; set; }
+        public bool winGame { get; set; }
 
         public Ganzenbord(int numberOfPlayers, List<Image> fieldImages)
         {
@@ -57,22 +59,24 @@ namespace Ganzenbord
 
             playerTurn = 0;
 
+
             this.numberOfPlayers = numberOfPlayers;
 
             FillPlayerList();
             board.GenerateBoard();
         }
         
-        public void ZetStap()
+        public void PlayerMove()
         {
             fieldImages[players[playerTurn].location].Source = noPicture;
             Field = players[playerTurn].PlayerMove();
-            CheckVak(players[playerTurn].location);
-            if (CheckSpelersOpVak(players[playerTurn].location))
+            CheckField(players[playerTurn].location);
+            if (CheckPlayersOnField(players[playerTurn].location))
             {
                 players[playerTurn].RevertLocation();
                 Field = "TweeOpÉénVak";
             }
+            winGame = players[playerTurn].winGame;
             ChangeImage();
         }
 
@@ -106,10 +110,16 @@ namespace Ganzenbord
                         players.Add(player5);
                         break;
                 }
+
+                //for (int i = 0; i < numberOfPlayers; i++)
+                //{
+                //   Player player = new Player;
+                //    players.Add(player);
+                //}
             }
         }
 
-        private bool CheckSpelersOpVak(int location)
+        private bool CheckPlayersOnField(int location)
         {
             for (int i = 0; i < players.Count; i++)
             {
@@ -122,30 +132,29 @@ namespace Ganzenbord
             return false;
         }
 
-        private void CheckVak(int locatie)
+        private void CheckField(int locatie)
         {
             if (Field != "NineOnFirstTurn")
             {
                 Field = board.fields[locatie];
+
+                if (Field != null)
+                {
+                    string field2;
+                    players[playerTurn].EventStart(Field);
+                    locatie = players[playerTurn].location;
+                    field2 = board.fields[locatie];
+                    players[playerTurn].EventStart(field2);
+                    if (CheckWell_Prison())
+                    {
+
+                    }
+                }
             }
-            if (Field != null)
+            else if (CheckPlayersOnField(players[playerTurn].location))
             {
-                players[playerTurn].EventStart(Field);
-                if (CheckWell_Prison())
-                {
-
-                }
-                else if (CheckSpelersOpVak(players[playerTurn].location))
-                {
-                    players[playerTurn].RevertLocation();
-                    Field = "TweeOpÉénVak";
-                }
-
-                if (WinCheck())
-                {
-                    CoreApplication.Exit();
-                    Restart();
-                }
+                players[playerTurn].RevertLocation();
+                Field = "TweeOpÉénVak";
             }
         }
 
@@ -161,43 +170,14 @@ namespace Ganzenbord
 
         public bool CheckSkippingTurn()
         {
-            if (players[playerTurn].skipTurn)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool CheckStuckInWell_Prison()
-        {
-            if (players[playerTurn].stuckInWell_Prison)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (players[playerTurn].skipTurn);
         }
 
-        public void ChangeFieldName()
+        public bool CheckStuck()
         {
-            Field = "NineOnFirstThrow";
+            return players[playerTurn].stuckInWell_Prison;
         }
 
-        private bool WinCheck()
-        {
-            if (players[playerTurn].winGame)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         private bool CheckWell_Prison()
         {
@@ -208,6 +188,9 @@ namespace Ganzenbord
                     players[i].ChangeStuckInWell_Prison();
                     players[i].ChangeLocation(1);
                     fieldImages[players[i].location].Source = players[i].playerImage;
+                    fieldImages[players[i].location - 1].Source = noPicture;
+                    getal = 0;
+
                     return true;
                 }
             }
@@ -228,7 +211,7 @@ namespace Ganzenbord
             players[playerTurn].ChangeSkipTurn();
         }
 
-        public void ChangeStuckInWell_Prison()
+        public void ChangeStuck()
         {
             players[playerTurn].ChangeStuckInWell_Prison();
         }

@@ -139,9 +139,9 @@ namespace Ganzenbord
             PipCount = 0;
         }
 
-        public void ChangeThrowCount(int Getal)
+        public void ChangeThrowCount(int number)
         {
-            ThrowCount = ThrowCount + Getal;
+            ThrowCount = ThrowCount + number;
         }
 
         

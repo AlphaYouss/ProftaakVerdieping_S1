@@ -37,10 +37,10 @@ namespace Ganzenbord
 
             ganzenbord = new Ganzenbord(aantalSpelers, vakimages);
 
-            this.Spelernaam2 = Spelernaam1;
-            this.Spelernaam3 = Spelernaam1;
-            this.Spelernaam4 = Spelernaam1;
-            this.Spelernaam5 = Spelernaam1;
+            this.Spelernaam2 = Spelernaam2;
+            this.Spelernaam3 = Spelernaam3;
+            this.Spelernaam4 = Spelernaam4;
+            this.Spelernaam5 = Spelernaam5;
 
             Speler2.Text = Spelernaam2;
             Speler3.Text = Spelernaam3;
@@ -129,7 +129,7 @@ namespace Ganzenbord
             Eventvak.Text = "Dobbellen...";
             //Task.Delay(2000).Wait();
 
-            ganzenbord.ZetStap();
+            ganzenbord.PlayerMove();
 
                 switch (ganzenbord.Field)
                 {
@@ -143,19 +143,21 @@ namespace Ganzenbord
                     Eventvak.Text = "Je bent in de herberg beland. Je moet een beurt overslaan";
                      break;
                 case "put":
-                    Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt";
+                    Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt of je 3 beurten hebt overgeslagen";
                     break;
                 case "doolhof":
                     Eventvak.Text = "Je bent vastgelopen in het doolhof. Je gaat terug naar veld 37.";
                     break;
                 case "gevangenis":
-                    Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt.";
+                    Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt. of je 3 beurten hebt overgeslagen";
                     break;
                 case "dood":
                     Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";
                     break;
                 case "einde":
-                    Eventvak.Text = "Je hebt gewonnen!";
+                    Eventvak.Text = "Je hebt gewonnen! Ga terug of restart het spel!";
+                    btnDobbel.IsEnabled = false;
+                    btnRestart.Visibility = Visibility.Visible;
                     break;
                 case "dubbeleworp":
                     Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
@@ -170,6 +172,13 @@ namespace Ganzenbord
 
             dobbel.Text = "aantal ogen gegooid:" + " " + Convert.ToString(ganzenbord.dice.PipCount) + "\n Je staat nu op vak:" + " " + ganzenbord.players[ganzenbord.playerTurn].location;
 
+            if (ganzenbord.winGame)
+            {
+                Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + " " + "heeft gewonnen! Ga terug of restart het spel!";
+                btnDobbel.IsEnabled = false;
+                btnRestart.Visibility = Visibility.Visible;
+            }
+
             ganzenbord.NextPlayer();
 
 
@@ -178,39 +187,59 @@ namespace Ganzenbord
                 ganzenbord.ChangeSkipTurn();
                 ganzenbord.NextPlayer();
             } 
-            else if (ganzenbord.CheckStuckInWell_Prison())
+            else if (ganzenbord.CheckStuck())
             {
-                if (getal == 3)
+                if (ganzenbord.getal == 2)
                 {
-                    ganzenbord.ChangeStuckInWell_Prison();
-                    getal = 0;
+                    ganzenbord.ChangeStuck();
+                    ganzenbord.getal = 0;
                 }
                 else
                 {
-                    getal++;
+                    ganzenbord.getal++;
                     ganzenbord.NextPlayer();
                 }
             }
 
-            switch (ganzenbord.playerTurn)
+            SelecteerSpeler(ganzenbord.playerTurn);
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            ganzenbord.Restart();
+            btnDobbel.IsEnabled = true;
+
+            AantalSpelers aantalSpelers = new AantalSpelers();
+            Content = aantalSpelers;
+        }
+
+        private string SelecteerSpeler(int player)
+        {
+            switch (player)
             {
                 default:
-                    break;
+                    return "";
                 case 0:
-                    speler.Text = "Paars speelt";
-                    break;
+                    speler.Text = "Frankie speelt" + " " + "(paars)";
+                    return "Frankie";
                 case 1:
-                    speler.Text = "Blauw speelt";
-                    break;
+                    speler.Text = Spelernaam2 + " " + "speelt" + " " + "(blauw)";
+                    return Spelernaam2;
                 case 2:
-                    speler.Text = "Groen speelt";
-                    break;
+                    speler.Text = Spelernaam3 + " " + "speelt" + " " + "(groen)";
+                    return Spelernaam3;
                 case 3:
-                    speler.Text = "Rood speelt";
-                    break;
+                    speler.Text = Spelernaam4 + " " + "speelt" + " " + "(rood)";
+                    return Spelernaam4;
                 case 4:
-                    speler.Text = "Zwart speelt";
-                    break;
+                    speler.Text = Spelernaam5 + " " + "speelt" + " " + "(zwart)";
+                    return Spelernaam5;
             }
         }
     }

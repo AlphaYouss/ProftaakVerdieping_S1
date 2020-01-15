@@ -13,12 +13,12 @@ namespace Ganzenbord
         public Board bord { get; private set; }
         public Dice dice { get; private set; }
         public SpecialFields specialFields { get; private set; }
-        public string playerName { get; private set; }
         public BitmapImage playerImage { get; private set; }
         public int location { get; private set; }
         public bool skipTurn { get; private set; }
         public bool stuckInWell_Prison { get; private set; }
-        public bool winGame { get; private set; } 
+        public string Field { get; private set; }
+        public bool winGame { get; private set; }
         public Player(Board board, Dice dice, SpecialFields specialFields, BitmapImage playerImage)
         {
             this.playerImage = playerImage;
@@ -28,7 +28,7 @@ namespace Ganzenbord
             location = 0;
             skipTurn = false;
             stuckInWell_Prison = false;
-            winGame = false;
+
         }
 
         public string PlayerMove()
@@ -37,7 +37,9 @@ namespace Ganzenbord
             if (location == 0 && dice.ThrowCount == 9)
             {
                 location = 26;
+                Field = "NineOnFirstTurn";
                 return "NineOnFirstTurn";
+                
             }
             else
             {
@@ -49,7 +51,6 @@ namespace Ganzenbord
                     location = 63;
                     location = location - number;
                     dice.ChangeThrowCount(-number);
-                    
                 }
             }
             return "";
@@ -57,7 +58,14 @@ namespace Ganzenbord
 
         public void RevertLocation()
         {
-            location = location - dice.ThrowCount;
+            if (Field == "NineOnFirstTurn")
+            {
+                location = location - 26;
+            }
+            else
+            {
+                location = location - dice.ThrowCount;
+            }
         }
 
         public void EventStart(string Event)
@@ -67,28 +75,28 @@ namespace Ganzenbord
                 default:
                     break;
                 case "brug":
-                  location = specialFields.BurgEvent(location);
+                  location = specialFields.BridgeEvent(location);
                     break;
                 case "herberg":
-                   skipTurn = specialFields.HerbergEvent();
+                   skipTurn = specialFields.InnEvent();
                     break;
                 case "put":
-                   stuckInWell_Prison = specialFields.PutEvent();
+                   stuckInWell_Prison = specialFields.WellEvent();
                     break;
                 case "doolhof":
-                   location = specialFields.DoolhofEvent(location);
+                   location = specialFields.MazeEvent(location);
                     break;
                 case "gevangenis":
-                    stuckInWell_Prison = specialFields.GevangenisEvent();
+                    stuckInWell_Prison = specialFields.PrisonEvent();
                     break;
                 case "dood":
-                   location = specialFields.DoodEvent(location);
+                   location = specialFields.DeathEvent(location);
                     break;
                 case "einde":
-                   winGame = specialFields.EindeEvent();
+                   winGame = specialFields.EndEvent();
                     break;
                 case "dubbeleworp":
-                   location = specialFields.DubbelWorp(location);
+                   location = specialFields.DoubleThrow(location);
                     break;
             }
         }
@@ -108,9 +116,9 @@ namespace Ganzenbord
             skipTurn = false;
         }
 
-        public void ChangeLocation(int getal)
+        public void ChangeLocation(int number)
         {
-            location = location + getal;
+            location = location + number;
         }
     }
 }
