@@ -35,7 +35,7 @@
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
@@ -51,9 +51,20 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0" Grid.Column="1" Background="Black" BorderBrush="#ec00fb" BorderThickness="4.5">
-                <Viewbox Stretch="Uniform"  StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <TextBlock x:Name="bets" Text="Bets" Margin="5, 2, 5, 0"/>
-                </Viewbox>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Stretch="Uniform" Grid.Row="0" StretchDirection="Both" VerticalAlignment="Top">
+                        <TextBlock x:Name="landed" Text="Landed:" Margin="0,5"/>
+                    </Viewbox>
+
+                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" VerticalAlignment="Top">
+                        <TextBlock x:Name="winningNumber" Text="0" Margin="5"/>
+                    </Viewbox>
+                </Grid>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
@@ -120,33 +131,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0" Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.9*"/>
-                        <RowDefinition Height="2*"/>
-                    </Grid.RowDefinitions>
-
                     <Viewbox Stretch="Uniform" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" StretchDirection="Both">
                         <Image x:Name="wheel" Source="/Assets/Images/rl/wheel.png" RenderTransformOrigin="0.5,0.5" />
                     </Viewbox>
-
-                    <Grid Grid.Row="1" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height=".5*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height=".5*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="4*"/>
-                        </Grid.RowDefinitions>
-
-                        <Viewbox Stretch="Uniform" Grid.Row="3" StretchDirection="Both" VerticalAlignment="Top">
-                            <TextBlock x:Name="landed" Text="Landed:" Margin="5"/>
-                        </Viewbox>
-
-                        <Viewbox Stretch="Uniform" Grid.Row="4" StretchDirection="Both" VerticalAlignment="Top">
-                            <TextBlock x:Name="winningNumber" Text="0" Margin="5"/>
-                        </Viewbox>
-                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="0" Grid.Row="1">
