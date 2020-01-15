@@ -269,8 +269,12 @@
     <Content Include="Assets\Images\hm\newgame.png" />
     <Content Include="Assets\Images\hub\background.jpg" />
     <Content Include="Assets\Images\leaderboard\back.png" />
+    <Content Include="Assets\Images\leaderboard\BJ.png" />
     <Content Include="Assets\Images\leaderboard\game\back.jpg" />
     <Content Include="Assets\Images\leaderboard\game\next.jpg" />
+    <Content Include="Assets\Images\leaderboard\Hangman.png" />
+    <Content Include="Assets\Images\leaderboard\Roulette.png" />
+    <Content Include="Assets\Images\leaderboard\TicTacToe.png" />
     <Content Include="Assets\Images\login\image.jpg" />
     <Content Include="Assets\Images\login\login.png" />
     <Content Include="Assets\Images\rl\back.png" />

@@ -43,7 +43,9 @@
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnBlackjack" Content="Blackjack" Click="btnGame_Click" BorderThickness="0"/>
+                <Button Name="btnBlackjack" Click="btnGame_Click" Padding="0" BorderThickness="0">
+                    <Image Source="/Assets/Images/leaderboard/BJ.png" />
+                </Button>
             </Viewbox>
         </Grid>
 
@@ -55,13 +57,17 @@
 
         <Grid Grid.Row="1" Grid.Column="5">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnRoulette" Content="Roulette" Click="btnGame_Click" BorderThickness="0"/>
+                <Button Name="btnRoulette" Click="btnGame_Click" Padding="0" BorderThickness="0">
+                    <Image Source="/Assets/Images/leaderboard/Roulette.png" />
+                </Button>
             </Viewbox>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="1">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnHangman" Content="Galgje" Click="btnGame_Click" BorderThickness="0"/>
+                <Button Name="btnHangman" Click="btnGame_Click" Padding="0" BorderThickness="0">
+                    <Image Source="/Assets/Images/leaderboard/Hangman.png" />
+                </Button>
             </Viewbox>
         </Grid>
 
@@ -73,7 +79,9 @@
 
         <Grid Grid.Row="3" Grid.Column="5">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <Button Name="btnBKE" Content="BoterKaasEieren" Click="btnGame_Click" BorderThickness="0"/>
+                <Button Name="btnBKE" Click="btnGame_Click" Padding="0" BorderThickness="0">
+                    <Image Source="/Assets/Images/leaderboard/TicTacToe.png" />
+                </Button>
             </Viewbox>
         </Grid>
     </Grid>

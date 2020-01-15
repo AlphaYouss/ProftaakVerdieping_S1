@@ -88,7 +88,7 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Stretch="Uniform" Grid.Row="0" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock x:Name="playerName1" Text="Selected chip:" Margin="2,5"/>
+                    <TextBlock x:Name="selectedChip" Text="Selected chip:" Margin="2,5"/>
                 </Viewbox>
 
                 <Viewbox Stretch="Uniform" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" StretchDirection="Both">
