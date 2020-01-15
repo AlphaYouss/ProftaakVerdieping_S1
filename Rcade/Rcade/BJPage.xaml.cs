@@ -103,8 +103,9 @@ namespace Rcade
                 gameHost.SecondTurn(stake);
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
-                gameHost.CheckBlackjack(stake);
+                
             }
+            gameHost.CheckBlackjack(stake);
             CheckGame();
             UpdateText();
         }
@@ -118,9 +119,9 @@ namespace Rcade
             {
                 gameHost.SecondTurn(stake);
                 CheckAce(gameHost.player.CheckForAce());
-                gameHost.CheckBlackjack(stake);
                 gameHost.SetPlayedTurn(true);
             }
+            gameHost.CheckBlackjack(stake);
             CheckGame();
             UpdateText();
         }
@@ -137,10 +138,9 @@ namespace Rcade
             }
             else
             {
-                // gameHost.CheckBlackjack();
                 gameHost.CheckForPlayerBust();
             }
-
+            
             gameHost.CheckBlackjack(stake);
 
             CheckGame();
@@ -318,6 +318,11 @@ namespace Rcade
             ClearText();
 
             gameHost.FirstTurn(stake);
+            if (gameHost.player.hasAce)
+            {
+                btnHit.Visibility = Visibility.Collapsed;
+                btnStand.Visibility = Visibility.Collapsed;
+            }
             CheckAce(gameHost.player.hasAce);
 
             if (gameHost.hasInsurance)
