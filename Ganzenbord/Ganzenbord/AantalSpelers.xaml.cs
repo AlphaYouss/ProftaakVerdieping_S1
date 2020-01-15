@@ -42,19 +42,19 @@ namespace Ganzenbord
                         s1.Visibility = Visibility.Visible;
                         break;
                     case 2:
-                        s2.Visibility = Visibility.Visible;
+                        Speler2.Visibility = Visibility.Visible;
                         playerNames.Add(Speler2);
                         break;
                     case 3:
-                        s3.Visibility = Visibility.Visible;
+                        Speler3.Visibility = Visibility.Visible;
                         playerNames.Add(Speler3);
                         break;
                     case 4:
-                        s4.Visibility = Visibility.Visible;
+                        Speler4.Visibility = Visibility.Visible;
                         playerNames.Add(Speler4);
                         break;
                     case 5:
-                        s5.Visibility = Visibility.Visible;
+                        Speler5.Visibility = Visibility.Visible;
                         playerNames.Add(Speler5);
                         break;
                 }

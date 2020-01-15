@@ -46,37 +46,17 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <Viewbox>
-                        <Button Name="btnBack"  Click="btnBack_Click">
-                            <Image Source="/Assets/Back.png" />
-                            <Button.Resources>
-                                <ResourceDictionary>
-                                    <ResourceDictionary.ThemeDictionaries>
-                                        <ResourceDictionary x:Key="Light">
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#CB55CE"/>
-                                        </ResourceDictionary>
-                                    </ResourceDictionary.ThemeDictionaries>
-                                </ResourceDictionary>
-                            </Button.Resources>
+                    <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
+                        <Button x:Name="btnBack" Click="btnBack_Click" Padding="0" >
+                            <Image Source="/Assets/Back.png"/>
                         </Button>
                     </Viewbox>
                 </Grid>
 
                 <Grid Grid.Column="2">
-                    <Viewbox>
-                        <Button Name="btnRestart" Visibility="Collapsed" Background="Black" Foreground="#CB55CE" FontSize="100" RenderTransformOrigin="0.24,0.24" Click="btnRestart_Click">
-                            <Image Source="/Assets/Restart.png" />
-                            <Button.Resources>
-                                <ResourceDictionary>
-                                    <ResourceDictionary.ThemeDictionaries>
-                                        <ResourceDictionary x:Key="Light">
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#CB55CE"/>
-                                        </ResourceDictionary>
-                                    </ResourceDictionary.ThemeDictionaries>
-                                </ResourceDictionary>
-                            </Button.Resources>
+                    <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
+                        <Button x:Name="btnRestart" Click="btnRestart_Click" Padding="0" >
+                            <Image Source="/Assets/Restart.png"/>
                         </Button>
                     </Viewbox>
                 </Grid>
