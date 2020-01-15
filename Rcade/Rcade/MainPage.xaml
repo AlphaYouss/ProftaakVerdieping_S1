@@ -109,7 +109,7 @@
                     </Grid.RowDefinitions>
 
                     <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Uniform" HorizontalAlignment="Left">
-                        <TextBlock x:Name="version" Text="Alpha V.5.0" Foreground="White"/>
+                        <TextBlock x:Name="version" Text="Alpha V.5.7" Foreground="White"/>
                     </Viewbox>
                 </Grid>
             </Grid>

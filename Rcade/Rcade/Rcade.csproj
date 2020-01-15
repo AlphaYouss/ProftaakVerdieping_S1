@@ -176,9 +176,60 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Files\NLwords.txt" />
     <Content Include="Assets\Files\words.txt" />
     <Content Include="Assets\Files\wordsDutch.txt" />
+    <Content Include="Assets\Images\application\icon1240.png" />
+    <Content Include="Assets\Images\application\icon1240.scale-100.png" />
+    <Content Include="Assets\Images\application\icon1240.scale-125.png" />
+    <Content Include="Assets\Images\application\icon1240.scale-150.png" />
+    <Content Include="Assets\Images\application\icon1240.scale-200.png" />
+    <Content Include="Assets\Images\application\icon1240.scale-400.png" />
+    <Content Include="Assets\Images\application\icon300.scale-100.png" />
+    <Content Include="Assets\Images\application\icon300.scale-125.png" />
+    <Content Include="Assets\Images\application\icon300.scale-150.png" />
+    <Content Include="Assets\Images\application\icon300.scale-200.png" />
+    <Content Include="Assets\Images\application\icon300.scale-400.png" />
+    <Content Include="Assets\Images\application\icon50.scale-100.png" />
+    <Content Include="Assets\Images\application\icon50.scale-125.png" />
+    <Content Include="Assets\Images\application\icon50.scale-150.png" />
+    <Content Include="Assets\Images\application\icon50.scale-200.png" />
+    <Content Include="Assets\Images\application\icon50.scale-400.png" />
+    <Content Include="Assets\Images\application\icon620.scale-100.png" />
+    <Content Include="Assets\Images\application\icon620.scale-125.png" />
+    <Content Include="Assets\Images\application\icon620.scale-150.png" />
+    <Content Include="Assets\Images\application\icon620.scale-200.png" />
+    <Content Include="Assets\Images\application\icon620.scale-400.png" />
+    <Content Include="Assets\Images\application\icon88.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Images\application\icon88.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Images\application\icon88.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Images\application\icon88.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Images\application\icon88.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Images\application\icon88.png" />
+    <Content Include="Assets\Images\application\icon88.scale-100.png" />
+    <Content Include="Assets\Images\application\icon88.scale-125.png" />
+    <Content Include="Assets\Images\application\icon88.scale-150.png" />
+    <Content Include="Assets\Images\application\icon88.scale-200.png" />
+    <Content Include="Assets\Images\application\icon88.scale-400.png" />
+    <Content Include="Assets\Images\application\icon88.targetsize-16.png" />
+    <Content Include="Assets\Images\application\icon88.targetsize-24.png" />
+    <Content Include="Assets\Images\application\icon88.targetsize-256.png" />
+    <Content Include="Assets\Images\application\icon88.targetsize-32.png" />
+    <Content Include="Assets\Images\application\icon88.targetsize-48.png" />
+    <Content Include="Assets\Images\application\LargeTile.scale-100.png" />
+    <Content Include="Assets\Images\application\LargeTile.scale-125.png" />
+    <Content Include="Assets\Images\application\LargeTile.scale-150.png" />
+    <Content Include="Assets\Images\application\LargeTile.scale-200.png" />
+    <Content Include="Assets\Images\application\LargeTile.scale-400.png" />
+    <Content Include="Assets\Images\application\SmallTile.scale-100.png" />
+    <Content Include="Assets\Images\application\SmallTile.scale-125.png" />
+    <Content Include="Assets\Images\application\SmallTile.scale-150.png" />
+    <Content Include="Assets\Images\application\SmallTile.scale-200.png" />
+    <Content Include="Assets\Images\application\SmallTile.scale-400.png" />
     <Content Include="Assets\Images\bj\11.png" />
     <Content Include="Assets\Images\bj\1.png" />
     <Content Include="Assets\Images\bj\2x.png" />
@@ -284,13 +335,6 @@
     <Content Include="Assets\Images\rl\resetBtn.png" />
     <Content Include="Assets\Images\rl\table.jpg" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\Images\application\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\Images\application\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Images\application\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Images\application\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Images\application\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\Images\application\StoreLogo.png" />
-    <Content Include="Assets\Images\application\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
