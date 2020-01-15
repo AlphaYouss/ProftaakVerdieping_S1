@@ -33,6 +33,7 @@ namespace Ganzenbord
         public int playerTurn { get; private set; }
         public string Field { get; private set; }
         public int getal { get; set; }
+        public bool winGame { get; set; }
 
         public Ganzenbord(int numberOfPlayers, List<Image> fieldImages)
         {
@@ -75,6 +76,7 @@ namespace Ganzenbord
                 players[playerTurn].RevertLocation();
                 Field = "TweeOpÉénVak";
             }
+            winGame = players[playerTurn].winGame;
             ChangeImage();
         }
 
@@ -176,10 +178,6 @@ namespace Ganzenbord
             return players[playerTurn].stuckInWell_Prison;
         }
 
-        private bool WinCheck()
-        {
-            return (players[playerTurn].winGame);
-        }
 
         private bool CheckWell_Prison()
         {

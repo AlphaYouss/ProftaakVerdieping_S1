@@ -172,6 +172,13 @@ namespace Ganzenbord
 
             dobbel.Text = "aantal ogen gegooid:" + " " + Convert.ToString(ganzenbord.dice.PipCount) + "\n Je staat nu op vak:" + " " + ganzenbord.players[ganzenbord.playerTurn].location;
 
+            if (ganzenbord.winGame)
+            {
+                Eventvak.Text = "Je hebt gewonnen! Ga terug of restart het spel!";
+                btnDobbel.IsEnabled = false;
+                btnRestart.Visibility = Visibility.Visible;
+            }
+
             ganzenbord.NextPlayer();
 
 

@@ -17,8 +17,8 @@ namespace Ganzenbord
         public int location { get; private set; }
         public bool skipTurn { get; private set; }
         public bool stuckInWell_Prison { get; private set; }
-        public bool winGame { get; private set; }
         public string Field { get; private set; }
+        public bool winGame { get; private set; }
         public Player(Board board, Dice dice, SpecialFields specialFields, BitmapImage playerImage)
         {
             this.playerImage = playerImage;
@@ -28,7 +28,7 @@ namespace Ganzenbord
             location = 0;
             skipTurn = false;
             stuckInWell_Prison = false;
-            winGame = false;
+
         }
 
         public string PlayerMove()

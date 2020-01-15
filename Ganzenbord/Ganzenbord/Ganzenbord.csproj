@@ -138,7 +138,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Fuck.jpg" />
     <Content Include="Assets\Ganzenbord_pd.svg.png" />
     <Content Include="Assets\How-To-Make-Synthwave-Music.jpg" />
     <Content Include="Assets\Logo.jpg" />
