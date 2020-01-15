@@ -155,7 +155,9 @@ namespace Ganzenbord
                     Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";
                     break;
                 case "einde":
-                    Eventvak.Text = "Je hebt gewonnen!";
+                    Eventvak.Text = "Je hebt gewonnen! Ga terug of restart het spel!";
+                    btnDobbel.IsEnabled = false;
+                    btnBack.Visibility = Visibility.Visible;
                     break;
                 case "dubbeleworp":
                     Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
@@ -180,14 +182,14 @@ namespace Ganzenbord
             } 
             else if (ganzenbord.CheckStuck())
             {
-                if (getal == 3)
+                if (ganzenbord.getal == 2)
                 {
                     ganzenbord.ChangeStuck();
-                    getal = 0;
+                    ganzenbord.getal = 0;
                 }
                 else
                 {
-                    getal++;
+                    ganzenbord.getal++;
                     ganzenbord.NextPlayer();
                 }
             }
@@ -197,19 +199,19 @@ namespace Ganzenbord
                 default:
                     break;
                 case 0:
-                    speler.Text = "Frankie speelt";
+                    speler.Text = "Frankie speelt" + " " + "(paars)";
                     break;
                 case 1:
-                    speler.Text = Spelernaam2 + " " + "speelt";
+                    speler.Text = Spelernaam2 + " " + "speelt" + " " + "(blauw)";
                     break;
                 case 2:
-                    speler.Text = Spelernaam3 + " " + "speelt";
+                    speler.Text = Spelernaam3 + " " + "speelt" + " " + "(groen)";
                     break;
                 case 3:
-                    speler.Text = Spelernaam4 + " " + "speelt";
+                    speler.Text = Spelernaam4 + " " + "speelt" + " " + "(rood)";
                     break;
                 case 4:
-                    speler.Text = Spelernaam5 + " " + "speelt";
+                    speler.Text = Spelernaam5 + " " + "speelt" + " " + "(zwart)";
                     break;
             }
         }

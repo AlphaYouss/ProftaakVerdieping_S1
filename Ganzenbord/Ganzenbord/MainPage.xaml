@@ -28,7 +28,7 @@
 
         <Grid Grid.Row="0" Grid.Column="0">
             <Viewbox>
-                <Button Visibility="Collapsed" Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100" RenderTransformOrigin="0.24,0.24">
+                <Button Name="btnBack" Visibility="Collapsed" Background="Black" Foreground="#CB55CE" Content="Back" FontSize="100" RenderTransformOrigin="0.24,0.24">
                     <Button.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.ThemeDictionaries>
@@ -852,7 +852,7 @@
            
             
             <Viewbox Grid.Column="5" >
-                <Button Background="Black" Foreground="#CB55CE" FontSize="30" Click="Button_Click">
+                <Button x:Name="btnDobbel" Background="Black" Foreground="#CB55CE" FontSize="30" Click="Button_Click">
                     <Image Source="/Assets/ThrowDice.png" />
                     <Button.Resources>
                         <ResourceDictionary>

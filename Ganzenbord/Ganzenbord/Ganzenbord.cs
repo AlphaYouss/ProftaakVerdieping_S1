@@ -32,6 +32,7 @@ namespace Ganzenbord
         public int numberOfPlayers { get; private set; }
         public int playerTurn { get; private set; }
         public string Field { get; private set; }
+        public int getal { get; set; }
 
         public Ganzenbord(int numberOfPlayers, List<Image> fieldImages)
         {
@@ -173,15 +174,9 @@ namespace Ganzenbord
 
         public bool CheckSkippingTurn()
         {
-            if (players[playerTurn].skipTurn)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (players[playerTurn].skipTurn);
         }
+
         public bool CheckStuck()
         {
             return players[playerTurn].stuckInWell_Prison;
@@ -189,14 +184,7 @@ namespace Ganzenbord
 
         private bool WinCheck()
         {
-            if (players[playerTurn].winGame)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (players[playerTurn].winGame);
         }
 
         private bool CheckWell_Prison()
@@ -208,6 +196,8 @@ namespace Ganzenbord
                     players[i].ChangeStuckInWell_Prison();
                     players[i].ChangeLocation(1);
                     fieldImages[players[i].location].Source = players[i].playerImage;
+                    fieldImages[players[i].location - 1].Source = noPicture;
+                    getal = 0;
 
                     return true;
                 }
