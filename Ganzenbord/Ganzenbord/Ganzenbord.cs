@@ -154,12 +154,6 @@ namespace Ganzenbord
                 players[playerTurn].RevertLocation();
                 Field = "TweeOpÉénVak";
             }
-
-                if (WinCheck())
-                {
-                    CoreApplication.Exit();
-                    Restart();
-                }
         }
 
         public void NextPlayer()

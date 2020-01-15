@@ -157,7 +157,7 @@ namespace Ganzenbord
                 case "einde":
                     Eventvak.Text = "Je hebt gewonnen! Ga terug of restart het spel!";
                     btnDobbel.IsEnabled = false;
-                    btnBack.Visibility = Visibility.Visible;
+                    btnRestart.Visibility = Visibility.Visible;
                     break;
                 case "dubbeleworp":
                     Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
@@ -214,6 +214,20 @@ namespace Ganzenbord
                     speler.Text = Spelernaam5 + " " + "speelt" + " " + "(zwart)";
                     break;
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            ganzenbord.Restart();
+            btnDobbel.IsEnabled = true;
+
+            AantalSpelers aantalSpelers = new AantalSpelers();
+            Content = aantalSpelers;
         }
     }
 }
