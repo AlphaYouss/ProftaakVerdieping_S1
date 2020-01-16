@@ -7,20 +7,23 @@
         public GB_Dice dice { get; private set; }
         public GB_SpecialFields(GB_Dice dice)
         {
-            this.board = board;
             this.dice = dice;
         }
 
         public int DoubleThrow(int location)
         {
-            location = location + dice.ThrowCount;
-            dice.ChangeThrowCount(dice.ThrowCount);
+            location = location + dice.throwCount;
+            dice.ChangeThrowCount(dice.throwCount);
+
             if (location > 63)
             {
                 int number = 0;
+
                 number = location - 63;
+
                 location = 63;
                 location = location - number;
+
                 dice.ChangeThrowCount(-number);
             }
             return location;
@@ -30,7 +33,6 @@
         {
             dice.ChangeThrowCount(6);
             return locatie = 12;
-
         }
 
         public bool InnEvent()

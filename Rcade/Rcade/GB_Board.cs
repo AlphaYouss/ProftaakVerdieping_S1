@@ -5,30 +5,25 @@ namespace Rcade
     class GB_Board
     {
         public Dictionary<int, string> fields { get; private set; }
-        public List<int> DoubleThrowFields { get; private set; }
+        public List<int> doubleThrowFields { get; private set; }
         public GB_SpecialFields specialfields { get; private set; }
         public GB_Board(GB_Dice dice)
-
         {
             specialfields = new GB_SpecialFields(dice);
             fields = new Dictionary<int, string>();
-            DoubleThrowFields = new List<int>() { 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 };
+            doubleThrowFields = new List<int>() { 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59 };
         }
 
         public void GenerateBoard()
         {
             for (int i = 0; i <= 63; i++)
             {
-                if (DoubleThrowFields.Contains(i))
+                if (doubleThrowFields.Contains(i))
                 {
                     fields.Add(i, "dubbeleworp");
                 }
 
-                if (fields.ContainsKey(i))
-                {
-
-                }
-                else
+                if (!fields.ContainsKey(i))
                 {
                     switch (i)
                     {

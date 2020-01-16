@@ -4,19 +4,19 @@ namespace Rcade
 {
     class GB_Dice
     {
-        public int ThrowCount { get; private set; }
-        public int Throw { get; private set; }
-        public int PipCount { get; private set; }
+        public int throwCount { get; private set; }
+        public int throwAmount { get; private set; }
+        public int pipCount { get; private set; }
         public int XD6(int X)
         {
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 7);
-                ThrowCount = ThrowCount + Throw;
-                PipCount = ThrowCount;
+                throwAmount = rnd.Next(1, 7);
+                throwCount = throwCount + throwAmount;
+                pipCount = throwCount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD2(int X)
@@ -24,10 +24,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 3);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 3);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD3(int X)
@@ -35,10 +35,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 4);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 4);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD4(int X)
@@ -46,10 +46,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 5);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 5);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD8(int X)
@@ -57,10 +57,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 8);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 8);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD10(int X)
@@ -68,10 +68,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 11);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 11);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD12(int X)
@@ -79,10 +79,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 13);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 13);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD16(int X)
@@ -90,10 +90,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 17);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 17);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD20(int X)
@@ -101,10 +101,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 21);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 21);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD30(int X)
@@ -112,10 +112,10 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 31);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 31);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public int XD100(int X)
@@ -123,21 +123,21 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
-                Throw = rnd.Next(1, 101);
-                ThrowCount = ThrowCount + Throw;
+                throwAmount = rnd.Next(1, 101);
+                throwCount = throwCount + throwAmount;
             }
-            return ThrowCount;
+            return throwCount;
         }
 
         public void ResetThrowCount()
         {
-            ThrowCount = 0;
-            PipCount = 0;
+            throwCount = 0;
+            pipCount = 0;
         }
 
         public void ChangeThrowCount(int number)
         {
-            ThrowCount = ThrowCount + number;
+            throwCount = throwCount + number;
         }
     }
 }
