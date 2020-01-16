@@ -309,6 +309,7 @@
     <Content Include="Assets\Images\bke\background.jpg" />
     <Content Include="Assets\Images\bke\back.png" />
     <Content Include="Assets\Images\bke\BackgroundGood.jpg" />
+    <Content Include="Assets\Images\bke\BackgroundGoodV2.jpg" />
     <Content Include="Assets\Images\bke\o.png" />
     <Content Include="Assets\Images\bke\restart.png" />
     <Content Include="Assets\Images\bke\transparent.png" />
