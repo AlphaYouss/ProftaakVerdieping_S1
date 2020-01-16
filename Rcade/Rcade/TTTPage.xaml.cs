@@ -17,7 +17,8 @@ namespace Rcade
         private TTT ttt { get; set; }
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
-        private TTT_Ai ai { get; set; }
+        //   private TTT_Ai ai { get; set; }
+        private NewAI AI;
         private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
         private string[] tttStats { get; set; } = new string[3];
 
@@ -51,6 +52,7 @@ namespace Rcade
             }
 
             field.ClearField();
+            AI.FirstMoveDone = false;
 
             vak1.Click += vak_Click;
             vak2.Click += vak_Click;
@@ -86,7 +88,8 @@ namespace Rcade
                 // Player wins.
 
                 player.SetScore(3);
-                ai.SetScore(-1);
+                // ai.SetScore(-1);
+                AI.SetScore(-1);
 
                 SetUserStats(0);
 
@@ -97,15 +100,18 @@ namespace Rcade
             }
             else if (remainingBoxes != 0)
             {
-                ai.TakeTurn();
-                SetField(ai.moveAi, ai.imageAi, false, true);
+                // ai.TakeTurn();
+                AI.NewMove();
+                // SetField(ai.moveAi, ai.imageAi, false, true);
+                SetField(AI.moveAI, AI.imageAi, false, true);
 
                 if (ttt.CheckWin())
                 {
                     // AI wins.   
 
                     player.SetScore(-1);
-                    ai.SetScore(3);
+                    //ai.SetScore(3);
+                    AI.SetScore(3);
 
                     SetUserStats(1);
 
@@ -134,12 +140,14 @@ namespace Rcade
             field.GenerateField();
 
             player = new TTT_Player(field);
-            ai = new TTT_Ai(field);
+            // ai = new TTT_Ai(field);
+            AI = new NewAI(field);
             ttt = new TTT(field);
 
             player.SetPlayerName(user.userName);
 
-            txtNameAI.Text = ai.nameAi;
+            //txtNameAI.Text = ai.nameAi;
+            txtNameAI.Text = AI.nameAi;
             txtNamePlayer.Text = player.namePlayer;
         }
 
@@ -149,10 +157,12 @@ namespace Rcade
             btnRestart.Visibility = Visibility.Visible;
 
             player.SetScore();
-            ai.SetScore();
+            AI.SetScore();
+           // ai.SetScore();
 
             txtScorePlayer.Text = player.scorePlayer.ToString();
-            txtScoreAI.Text = ai.scoreAi.ToString();
+            //txtScoreAI.Text = ai.scoreAi.ToString();
+            txtScoreAI.Text = AI.scoreAi.ToString();
 
             for (int i = 1; i < 10; i++)
             {

@@ -150,6 +150,7 @@
     <Compile Include="LeaderboardGamePage.xaml.cs">
       <DependentUpon>LeaderboardGamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewAI.cs" />
     <Compile Include="RL.cs" />
     <Compile Include="RLPage.xaml.cs">
       <DependentUpon>RLPage.xaml</DependentUpon>
