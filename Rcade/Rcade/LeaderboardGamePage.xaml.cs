@@ -60,7 +60,7 @@ namespace Rcade
             {
                 dbh.ChangeChoice(choice);
                 dbh.ChoiceMaker();
-                
+
             }
 
             ButtonOnOff();

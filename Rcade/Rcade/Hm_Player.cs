@@ -23,7 +23,7 @@ namespace Rcade
         public void SetPlayerStats(int gameScore, int turn)
         {
             totalScore = totalScore + gameScore;
-            totalMistakes = totalMistakes +  turn;
+            totalMistakes = totalMistakes + turn;
 
             lastPlayed = DateTime.Now;
         }

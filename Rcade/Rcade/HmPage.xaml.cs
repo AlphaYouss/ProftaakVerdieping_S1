@@ -147,8 +147,10 @@ namespace Rcade
             if (previousTurn != host.player.turn || host.player.turn == 0)
             {
                 string Location = "ms-appx:///Assets/Images/hm/" + numbers[host.player.turn] + ".jpg";
+
                 BitmapImage ImageSource = new BitmapImage(new Uri(Location));
                 image.Source = ImageSource;
+
                 previousTurn = host.player.turn;
             }
         }

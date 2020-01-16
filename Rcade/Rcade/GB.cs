@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -31,8 +28,8 @@ namespace Rcade
 
         public int numberOfPlayers { get; private set; }
         public int playerTurn { get; private set; }
-        public string Field { get; private set; }
-        public int getal { get; set; }
+        public string field { get; private set; }
+        public int number { get; set; }
         public bool winGame { get; set; }
 
         public GB(int numberOfPlayers, List<Image> fieldImages)
@@ -43,11 +40,11 @@ namespace Rcade
             this.fieldImages = fieldImages;
 
             noPicture = new BitmapImage(new Uri("ms-appx:///"));
-            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/pion paars_wit.png"));
-            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/pion blauw_wit.png"));
-            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/pion groen_wit.png"));
-            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/pion rood_wit.png"));
-            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/pion zwart_wit.png"));
+            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/purple.png"));
+            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/blue.png"));
+            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/green.png"));
+            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/red.png"));
+            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/black.png"));
 
             players = new List<GB_Player>();
 
@@ -59,7 +56,6 @@ namespace Rcade
 
             playerTurn = 0;
 
-
             this.numberOfPlayers = numberOfPlayers;
 
             FillPlayerList();
@@ -69,12 +65,14 @@ namespace Rcade
         public void PlayerMove()
         {
             fieldImages[players[playerTurn].location].Source = noPicture;
-            Field = players[playerTurn].PlayerMove();
+            field = players[playerTurn].PlayerMove();
+
             CheckField(players[playerTurn].location);
+
             if (CheckPlayersOnField(players[playerTurn].location))
             {
                 players[playerTurn].RevertLocation();
-                Field = "TweeOpÉénVak";
+                field = "TweeOpÉénVak";
             }
             winGame = players[playerTurn].winGame;
             ChangeImage();
@@ -110,12 +108,6 @@ namespace Rcade
                         players.Add(player5);
                         break;
                 }
-
-                //for (int i = 0; i < numberOfPlayers; i++)
-                //{
-                //   Player player = new Player;
-                //    players.Add(player);
-                //}
             }
         }
 
@@ -134,33 +126,34 @@ namespace Rcade
 
         private void CheckField(int locatie)
         {
-            if (Field != "NineOnFirstTurn")
+            if (field != "NineOnFirstTurn")
             {
-                Field = board.fields[locatie];
+                field = board.fields[locatie];
 
-                if (Field != null)
+                if (field != null)
                 {
                     string field2;
-                    players[playerTurn].EventStart(Field);
+
+                    players[playerTurn].EventStart(field);
+
                     locatie = players[playerTurn].location;
                     field2 = board.fields[locatie];
-                    players[playerTurn].EventStart(field2);
-                    if (CheckWell_Prison())
-                    {
 
-                    }
+                    players[playerTurn].EventStart(field2);
+                    CheckWellPrison();
                 }
             }
             else if (CheckPlayersOnField(players[playerTurn].location))
             {
                 players[playerTurn].RevertLocation();
-                Field = "TweeOpÉénVak";
+                field = "TweeOpÉénVak";
             }
         }
 
         public void NextPlayer()
         {
             playerTurn++;
+
             if (playerTurn == numberOfPlayers)
             {
                 playerTurn = 0;
@@ -175,21 +168,22 @@ namespace Rcade
 
         public bool CheckStuck()
         {
-            return players[playerTurn].stuckInWell_Prison;
+            return players[playerTurn].stuckInWellPrison;
         }
 
-
-        private bool CheckWell_Prison()
+        private bool CheckWellPrison()
         {
             for (int i = 0; i < players.Count; i++)
             {
-                if (players[playerTurn].stuckInWell_Prison == true && players[i].stuckInWell_Prison == true && players[playerTurn] != players[i])
+                if (players[playerTurn].stuckInWellPrison == true && players[i].stuckInWellPrison == true && players[playerTurn] != players[i])
                 {
-                    players[i].ChangeStuckInWell_Prison();
+                    players[i].ChangeStuckInWellPrison();
                     players[i].ChangeLocation(1);
+
                     fieldImages[players[i].location].Source = players[i].playerImage;
                     fieldImages[players[i].location - 1].Source = noPicture;
-                    getal = 0;
+
+                    number = 0;
 
                     return true;
                 }
@@ -213,7 +207,7 @@ namespace Rcade
 
         public void ChangeStuck()
         {
-            players[playerTurn].ChangeStuckInWell_Prison();
+            players[playerTurn].ChangeStuckInWellPrison();
         }
     }
 }

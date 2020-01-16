@@ -17,8 +17,8 @@ namespace Rcade
         private TTT ttt { get; set; }
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
+        private TTT_NewAI AI;
         //   private TTT_Ai ai { get; set; }
-        private NewAI AI;
         private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
         private string[] tttStats { get; set; } = new string[3];
 
@@ -52,7 +52,7 @@ namespace Rcade
             }
 
             field.ClearField();
-            AI.FirstMoveDone = false;
+            AI.firstMoveDone = false;
 
             vak1.Click += vak_Click;
             vak2.Click += vak_Click;
@@ -141,7 +141,7 @@ namespace Rcade
 
             player = new TTT_Player(field);
             // ai = new TTT_Ai(field);
-            AI = new NewAI(field);
+            AI = new TTT_NewAI(field);
             ttt = new TTT(field);
 
             player.SetPlayerName(user.userName);
@@ -158,7 +158,7 @@ namespace Rcade
 
             player.SetScore();
             AI.SetScore();
-           // ai.SetScore();
+            // ai.SetScore();
 
             txtScorePlayer.Text = player.scorePlayer.ToString();
             //txtScoreAI.Text = ai.scoreAi.ToString();

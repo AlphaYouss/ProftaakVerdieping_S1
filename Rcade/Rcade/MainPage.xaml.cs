@@ -40,30 +40,30 @@ namespace Rcade
             bool errorUsername = false;
             bool errorPassword = false;
 
-            if (user.ValidateUsername(username.Text) == false)
+            if (!user.ValidateUsername(username.Text))
             {
                 errorUsername = true;
             }
-            if (user.ValidatePassword(password.Password) == false)
+            if (!user.ValidatePassword(password.Password))
             {
                 errorPassword = true;
             }
 
-            if (errorUsername == true && errorPassword == true)
+            if (errorUsername && errorPassword)
             {
                 message.Text = user.ShowError("Login", 2);
             }
-            else if (errorUsername == true)
+            else if (errorUsername)
             {
                 message.Text = user.ShowError("Login", 0);
             }
-            else if (errorPassword == true)
+            else if (errorPassword)
             {
                 message.Text = user.ShowError("Login", 1);
             }
             else
             {
-                if (user.dbh.TestConnection() == false)
+                if (!user.dbh.TestConnection())
                 {
                     message.Text = user.ShowError("Database", 0);
                 }
@@ -71,10 +71,10 @@ namespace Rcade
                 {
                     user.CheckUser(username.Text);
 
-                    if (user.exists == true)
+                    if (user.exists)
                     {
                         user.Login(username.Text, password.Password);
-                        if (user.loggedIn == true)
+                        if (user.loggedIn)
                         {
                             HubPage hub = new HubPage();
                             hub.SetUser(user);

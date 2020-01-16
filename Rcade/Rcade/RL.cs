@@ -79,7 +79,7 @@ namespace Rcade
                         break;
                     case "Red":
                     case "Black":
-                        RedBlack(bet.Value, bet.Key);
+                        RedBlack(bet.Value, Convert.ToString(bet.Key));
                         break;
                     case "Even":
                     case "Odd":
@@ -119,7 +119,7 @@ namespace Rcade
         {
             multiplier = 1;
 
-            if (wheel.winningNumber.color == color)
+            if (Convert.ToString(wheel.winningNumber.color) == color)
             {
                 int moneyWon = value * multiplier;
                 totalMoneyWon = totalMoneyWon + moneyWon;
@@ -318,6 +318,7 @@ namespace Rcade
             }
             return name;
         }
+
         public void SetIsPlaying(bool value)
         {
             isPlaying = value;

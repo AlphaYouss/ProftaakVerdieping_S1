@@ -114,6 +114,8 @@ namespace Rcade
         private void BtnGooseboard_Click(object sender, RoutedEventArgs e)
         {
             GBPlayersPage gbp = new GBPlayersPage();
+            gbp.SetUser(user);
+
             Content = gbp;
         }
     }

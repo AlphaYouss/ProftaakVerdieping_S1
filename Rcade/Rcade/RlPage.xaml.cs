@@ -32,7 +32,7 @@ namespace Rcade
 
         private void btnBet_Click(object sender, RoutedEventArgs e)
         {
-            if (GetIsPlaying() == false)
+            if (roulette.isPlaying == false)
             {
                 if (CanBet() == true)
                 {
@@ -98,7 +98,7 @@ namespace Rcade
 
         private void btnResetStake_Click(object sender, RoutedEventArgs e)
         {
-            if (GetBets() == 0)
+            if (roulette.player.bet.Count == 0)
             {
                 UpdateResult("Nothing to reset!");
             }
@@ -155,7 +155,6 @@ namespace Rcade
         private void Spin()
         {
             winningNumber.Text = "-";
-            //winningBlock.Background = ConvertColorFromHexString("#000000");
 
             btnResetStake.IsEnabled = false;
             btnSpin.IsEnabled = false;
@@ -248,22 +247,6 @@ namespace Rcade
             await Task.Delay(5000);
 
             int winningNumberValue = roulette.wheel.winningNumber.number;
-            //string winningColor = roulette.wheel.winningNumber.color;
-
-            //switch (winningColor)
-            //{
-            //    case "Black":
-            //        winningBlock.Background = ConvertColorFromHexString("#000000");
-            //        break;
-
-            //    case "Red":
-            //        winningBlock.Background = ConvertColorFromHexString("#8E1600");
-            //        break;
-
-            //    case "Green":
-            //        winningBlock.Background = ConvertColorFromHexString("#05812f");
-            //        break;
-            //}
 
             winningNumber.Text = winningNumberValue.ToString();
 
@@ -344,22 +327,6 @@ namespace Rcade
             }
         }
 
-        private SolidColorBrush ConvertColorFromHexString(string colorHex)
-        {
-            string colorStr = colorHex;
-            colorStr = colorStr.Replace("#", string.Empty);
-
-            byte r = (byte)Convert.ToUInt32(colorStr.Substring(0, 2), 16);
-            byte g = (byte)Convert.ToUInt32(colorStr.Substring(2, 2), 16);
-            byte b = (byte)Convert.ToUInt32(colorStr.Substring(4, 2), 16);
-
-            Windows.UI.Color color = Windows.UI.Color.FromArgb(255, r, g, b);
-
-            SolidColorBrush myBrush = new SolidColorBrush(color);
-
-            return myBrush;
-        }
-
         private int GetUserStats()
         {
             if (dbh_RL.TestConnection() == false)
@@ -382,23 +349,6 @@ namespace Rcade
 
                 return bjSaldo;
             }
-        }
-
-        private bool GetIsPlaying()
-        {
-            if (roulette.isPlaying != true)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private int GetBets()
-        {
-            return roulette.player.bet.Count;
         }
 
         internal void SetUser(User user)

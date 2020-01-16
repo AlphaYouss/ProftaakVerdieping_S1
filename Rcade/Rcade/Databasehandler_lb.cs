@@ -55,11 +55,11 @@ namespace Rcade
                     query = "SELECT User_gegevens.Username, BKE.user_ID FROM User_gegevens INNER JOIN BKE ON User_gegevens.ID = BKE.user_ID";
                     break;
 
-                //case 5:
-                //    SelectFromGanzenbord();
-                //    testquery = "SELECT Test_User_gegevens.Username, Test_Ganzenbord.user_ID FROM Test_User_gegevens INNER JOIN Test_Ganzenbord ON Test_User_gegevens.ID = Test_Ganzenbord.user_ID";
-                //    query = "SELECT User_gegevens.Username, Ganzenbord.user_ID FROM User_gegevens INNER JOIN Ganzenbord ON User_gegevens.ID = Ganzenbord.user_ID";
-                //    break;
+                    //case 5:
+                    //    SelectFromGanzenbord();
+                    //    testquery = "SELECT Test_User_gegevens.Username, Test_Ganzenbord.user_ID FROM Test_User_gegevens INNER JOIN Test_Ganzenbord ON Test_User_gegevens.ID = Test_Ganzenbord.user_ID";
+                    //    query = "SELECT User_gegevens.Username, Ganzenbord.user_ID FROM User_gegevens INNER JOIN Ganzenbord ON User_gegevens.ID = Ganzenbord.user_ID";
+                    //    break;
             }
 
             UserIDToUsername();

@@ -12,7 +12,7 @@
 
     <Grid x:Name="main">
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Images/gb/How-To-Make-Synthwave-Music.jpg">
+            <ImageBrush ImageSource="/Assets/Images/gb/background.jpg">
             </ImageBrush>
         </Grid.Background>
         
@@ -62,6 +62,14 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
+                    <Button x:Name="btnBack" Click="btnBack_Click" Padding="0" >
+                        <Image Source="/Assets/Images/gb/back.png"/>
+                    </Button>
+                </Viewbox>
+            </Grid>
+
             <Grid Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="5">
                 <Viewbox Stretch="Fill">
                     <TextBox BorderThickness="0" x:Name="txtPlayerCount" HorizontalAlignment="Left" FontSize ="36"  Text="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="450" IsReadOnly="True"/>
@@ -71,7 +79,7 @@
             <Grid Grid.Row="2" Grid.Column="9">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
                     <Button x:Name="btnPlus" Click="btnPlus_Click" Padding="0" >
-                        <Image Source="/Assets/Images/gb/Plus.jpg"/>
+                        <Image Source="/Assets/Images/gb/plus.jpg"/>
                     </Button>
                 </Viewbox>
             </Grid>
@@ -79,7 +87,7 @@
             <Grid Grid.Row="2" Grid.Column="10">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
                     <Button x:Name="btnMin" Click="btnMin_Click" Padding="0" >
-                        <Image Source="/Assets/Images/gb/Min.jpg"/>
+                        <Image Source="/Assets/Images/gb/min.jpg"/>
                     </Button>
                 </Viewbox>
             </Grid>
@@ -87,7 +95,7 @@
             <Grid Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
                     <Button x:Name="btnConfirm" Click="btnConfirm_Click" Padding="0" BorderThickness="0" >
-                        <Image Source="/Assets/Images/gb/Confirm.jpg"/>
+                        <Image Source="/Assets/Images/gb/confirm.jpg"/>
                     </Button>
                 </Viewbox>
             </Grid>
@@ -95,7 +103,7 @@
             <Grid Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3">
                 <Border x:Name="s1" Visibility="Collapsed" BorderBrush="#FFEC00FB" BorderThickness="5">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Padding="5,10,5,10" FontFamily="Consolas" Width="120" Text="Frankie" x:Name="Speler1"/>
+                        <TextBlock Padding="5,10,5,10" FontFamily="Consolas" Width="120" x:Name="Speler1"/>
                     </Viewbox>
                 </Border>
             </Grid>
@@ -127,7 +135,7 @@
             <Grid Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="3">
                 <Viewbox>
                     <Button Visibility="Collapsed" x:Name="btnPlay" BorderThickness="0" Click="btnPlay_Click" Padding="0" >
-                        <Image Source="/Assets/Images/gb/Play.jpg"/>
+                        <Image Source="/Assets/Images/gb/play.jpg"/>
                     </Button>
                 </Viewbox>
             </Grid>

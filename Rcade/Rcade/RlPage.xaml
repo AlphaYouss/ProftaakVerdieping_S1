@@ -548,7 +548,7 @@
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform" Grid.Row="3" Grid.Column="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Button x:Name="btnResetStake" Click="btnResetStake_Click" Margin="10,20" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00000000" BorderThickness="0" BorderBrush="#1963d0">
-                                <Image Source="/Assets/Images/rl/resetbtn.png" />
+                                <Image Source="/Assets/Images/rl/reset.png" />
                             </Button>
                         </Viewbox>
                     </Grid>

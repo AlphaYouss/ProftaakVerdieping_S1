@@ -103,7 +103,7 @@ namespace Rcade
                 gameHost.SecondTurn(stake);
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
-                
+
             }
             gameHost.CheckBlackjack(stake);
             CheckGame();
@@ -140,7 +140,7 @@ namespace Rcade
             {
                 gameHost.CheckForPlayerBust();
             }
-            
+
             gameHost.CheckBlackjack(stake);
 
             CheckGame();

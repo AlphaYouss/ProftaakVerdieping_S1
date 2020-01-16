@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI.Xaml.Media.Imaging;
+﻿using Windows.UI.Xaml.Media.Imaging;
 
 namespace Rcade
 {
@@ -15,8 +10,8 @@ namespace Rcade
         public BitmapImage playerImage { get; private set; }
         public int location { get; private set; }
         public bool skipTurn { get; private set; }
-        public bool stuckInWell_Prison { get; private set; }
-        public string Field { get; private set; }
+        public bool stuckInWellPrison { get; private set; }
+        public string field { get; private set; }
         public bool winGame { get; private set; }
 
         public GB_Player(GB_Board board, GB_Dice dice, GB_SpecialFields specialFields, BitmapImage playerImage)
@@ -24,32 +19,37 @@ namespace Rcade
             this.playerImage = playerImage;
             this.specialFields = specialFields;
             this.dice = dice;
+
             bord = board;
             location = 0;
-            skipTurn = false;
-            stuckInWell_Prison = false;
 
+            skipTurn = false;
+            stuckInWellPrison = false;
         }
 
         public string PlayerMove()
         {
             dice.XD6(2);
-            if (location == 0 && dice.ThrowCount == 9)
+            if (location == 0 && dice.throwCount == 9)
             {
                 location = 26;
-                Field = "NineOnFirstTurn";
-                return "NineOnFirstTurn";
 
+                field = "NineOnFirstTurn";
+                return "NineOnFirstTurn";
             }
             else
             {
-                location = location + dice.ThrowCount;
+                location = location + dice.throwCount;
+
                 if (location > 63)
                 {
                     int number = 0;
+
                     number = location - 63;
+
                     location = 63;
                     location = location - number;
+
                     dice.ChangeThrowCount(-number);
                 }
             }
@@ -58,13 +58,13 @@ namespace Rcade
 
         public void RevertLocation()
         {
-            if (Field == "NineOnFirstTurn")
+            if (field == "NineOnFirstTurn")
             {
                 location = location - 26;
             }
             else
             {
-                location = location - dice.ThrowCount;
+                location = location - dice.throwCount;
             }
         }
 
@@ -81,13 +81,13 @@ namespace Rcade
                     skipTurn = specialFields.InnEvent();
                     break;
                 case "put":
-                    stuckInWell_Prison = specialFields.WellEvent();
+                    stuckInWellPrison = specialFields.WellEvent();
                     break;
                 case "doolhof":
                     location = specialFields.MazeEvent(location);
                     break;
                 case "gevangenis":
-                    stuckInWell_Prison = specialFields.PrisonEvent();
+                    stuckInWellPrison = specialFields.PrisonEvent();
                     break;
                 case "dood":
                     location = specialFields.DeathEvent(location);
@@ -106,9 +106,9 @@ namespace Rcade
             location = 0;
         }
 
-        public void ChangeStuckInWell_Prison()
+        public void ChangeStuckInWellPrison()
         {
-            stuckInWell_Prison = false;
+            stuckInWellPrison = false;
         }
 
         public void ChangeSkipTurn()

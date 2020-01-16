@@ -8,19 +8,21 @@ namespace Rcade
 {
     public sealed partial class GBPlayersPage : Page
     {
-        List<TextBox> emptyBoxes = new List<TextBox>();
-        List<TextBox> playerNames = new List<TextBox>();
+        private List<TextBox> emptyBoxes { get; set; } = new List<TextBox>();
+        private List<TextBox> playerNames { get; set; } = new List<TextBox>();
+        private User user { get; set; }
         public int playerCount { get; private set; }
 
         public GBPlayersPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             playerCount = 2;
         }
 
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
             playerCount++;
+
             if (playerCount > 5)
             {
                 playerCount = 5;
@@ -65,12 +67,19 @@ namespace Rcade
         private void btnMin_Click(object sender, RoutedEventArgs e)
         {
             playerCount--;
+
             if (playerCount < 2)
             {
                 playerCount = 2;
             }
             txtPlayerCount.Text = Convert.ToString(playerCount);
         }
+
+        internal void SetUser(User user)
+        {
+            this.user = user;
+        }
+
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
             txtPlayerCount.Text = Convert.ToString(playerCount);
@@ -92,8 +101,10 @@ namespace Rcade
             {
                 playerCount = Convert.ToInt32(txtPlayerCount.Text);
 
-                GBPage mainPage = new GBPage(playerCount, Speler2.Text, Speler3.Text, Speler4.Text, Speler5.Text);
-                Content = mainPage;
+                GBPage gb = new GBPage(playerCount, Speler2.Text, Speler3.Text, Speler4.Text, Speler5.Text);
+                gb.SetUser(user);
+
+                Content = gb;
             }
         }
 
@@ -148,14 +159,15 @@ namespace Rcade
             var regex = @"[a-zA-Z]$";
             var match = Regex.Match(username, regex, RegexOptions.IgnoreCase);
 
-            if (!match.Success)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return match.Success;
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            HubPage hub = new HubPage();
+            hub.SetUser(user);
+
+            Content = hub;
         }
     }
 }

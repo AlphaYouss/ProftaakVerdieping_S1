@@ -5,11 +5,6 @@ namespace Rcade
 {
     class Databasehandler_ttt : Databasehandler
     {
-        public int won { get; set; }
-        public int draw { get; set; }
-        public int lost { get; set; }
-        public DateTime lastPlayed { get; set; }
-
         public Databasehandler_ttt(bool testTable)
         {
             isTestVersion = testTable;
