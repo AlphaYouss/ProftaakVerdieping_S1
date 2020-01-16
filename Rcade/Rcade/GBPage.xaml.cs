@@ -133,44 +133,39 @@ namespace Rcade
                     Eventvak.Text = "";
                     break;
                 case "brug":
-                    Eventvak.Text = "Je bent op de brug gekomen! Je bent naar veld 12 verplaatst";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", landed on a bridge! You have been moved to field 12.";
                     break;
                 case "herberg":
-                    Eventvak.Text = "Je bent in de herberg beland. Je moet een beurt overslaan";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you're staying at an inn for tonight. You have to skip your next turn.";
                     break;
                 case "put":
-                    Eventvak.Text = "Je bent in de put beland. Je zit hier vast todat iemand je eruit haalt of je 3 beurten hebt overgeslagen";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you are stuck in a well. You have to stay here untill someone gets you out or untill you climb out in 3 turns";
                     break;
                 case "doolhof":
-                    Eventvak.Text = "Je bent vastgelopen in het doolhof. Je gaat terug naar veld 37.";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you were lost in a maze. You are moved back to field 37.";
                     break;
                 case "gevangenis":
-                    Eventvak.Text = "Je bent in de gevangenis beland. Je zit hier vast todat iemand je eruit haalt. of je 3 beurten hebt overgeslagen";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you're in prison! You have to stay here untill someone bails you out or untill you escape in 3 turns";
                     break;
                 case "dood":
-                    Eventvak.Text = "Je bent in een val beland. Je moet helaas opnieuw beginnen.";
-                    break;
-                case "einde":
-                    Eventvak.Text = "Je hebt gewonnen! Ga terug of restart het spel!";
-                    btnDobbel.IsEnabled = false;
-                    btnRestart.Visibility = Visibility.Visible;
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you've been caught in a trap. You'll have to start over from the ";
                     break;
                 case "dubbeleworp":
-                    Eventvak.Text = "Je bent op een speciaal veld beland. Je worp wordt verdubbeld.";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you've landed on a special field. Your dice throw is doubled";
                     break;
                 case "TweeOpÉénVak":
-                    Eventvak.Text = "Je bent op een veld beland waar al iemand op stond. Je bent terug verplaatst.";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", you landed on a field someone was already on. You've been moved back to your old position.";
                     break;
                 case "NineOnFirstTurn":
-                    Eventvak.Text = "Je bent op veld 9 gekomen in de eerste beurt. Je bent naar veld 26 verplaatst";
+                    Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + ", lucky you! You landed on field 9 in your first turn! You've been moved to field 26;";
                     break;
             }
 
-            dobbel.Text = "aantal ogen gegooid:" + " " + Convert.ToString(ganzenbord.dice.PipCount) + "\n Je staat nu op vak:" + " " + ganzenbord.players[ganzenbord.playerTurn].location;
+            dobbel.Text = "Number of pips thrown:" + " " + Convert.ToString(ganzenbord.dice.PipCount) + "\n" + SelecteerSpeler(ganzenbord.playerTurn) + ", You are now on field:" + " " + ganzenbord.players[ganzenbord.playerTurn].location;
 
             if (ganzenbord.winGame)
             {
-                Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + " " + "heeft gewonnen! Ga terug of restart het spel!";
+                Eventvak.Text = SelecteerSpeler(ganzenbord.playerTurn) + " " + "Won the Game! You can either play another game or go back to the home menu";
                 btnDobbel.IsEnabled = false;
                 btnRestart.Visibility = Visibility.Visible;
             }
@@ -222,19 +217,19 @@ namespace Rcade
                 default:
                     return "";
                 case 0:
-                    speler.Text = "Frankie speelt" + " " + "(paars)";
+                    speler.Text = "Frankie is playing" + " " + "(purple)";
                     return "Frankie";
                 case 1:
-                    speler.Text = Spelernaam2 + " " + "speelt" + " " + "(blauw)";
+                    speler.Text = Spelernaam2 + " " + "is playing" + " " + "(blue)";
                     return Spelernaam2;
                 case 2:
-                    speler.Text = Spelernaam3 + " " + "speelt" + " " + "(groen)";
+                    speler.Text = Spelernaam3 + " " + "is playing" + " " + "(green)";
                     return Spelernaam3;
                 case 3:
-                    speler.Text = Spelernaam4 + " " + "speelt" + " " + "(rood)";
+                    speler.Text = Spelernaam4 + " " + "is playing" + " " + "(red)";
                     return Spelernaam4;
                 case 4:
-                    speler.Text = Spelernaam5 + " " + "speelt" + " " + "(zwart)";
+                    speler.Text = Spelernaam5 + " " + "is playing" + " " + "(black)";
                     return Spelernaam5;
             }
         }

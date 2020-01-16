@@ -85,7 +85,7 @@ namespace Rcade
 
             if (emptyBoxes.Count != 0)
             {
-                txtPlayerCount.Text = "Voer eerst je namen in!";
+                txtPlayerCount.Text = "Fill in your names first!";
                 emptyBoxes.Clear();
             }
             else

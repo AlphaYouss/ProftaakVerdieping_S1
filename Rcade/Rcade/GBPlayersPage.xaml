@@ -64,7 +64,7 @@
 
             <Grid Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="5">
                 <Viewbox Stretch="Fill">
-                    <TextBox x:Name="txtPlayerCount" HorizontalAlignment="Left" FontSize ="36"  Text="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" IsReadOnly="True"/>
+                    <TextBox BorderThickness="0" x:Name="txtPlayerCount" HorizontalAlignment="Left" FontSize ="36"  Text="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="450" IsReadOnly="True"/>
                 </Viewbox>
             </Grid>
 
@@ -86,7 +86,7 @@
 
             <Grid Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
-                    <Button x:Name="btnConfirm" Click="btnConfirm_Click" Padding="0" >
+                    <Button x:Name="btnConfirm" Click="btnConfirm_Click" Padding="0" BorderThickness="0" >
                         <Image Source="/Assets/Images/gb/Confirm.jpg"/>
                     </Button>
                 </Viewbox>
@@ -95,49 +95,39 @@
             <Grid Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3">
                 <Border x:Name="s1" Visibility="Collapsed" BorderBrush="#FFEC00FB" BorderThickness="5">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Padding="5,10,5,10" FontFamily="Consolas" Width="100" Text="Frankie" x:Name="Speler1"/>
+                        <TextBlock Padding="5,10,5,10" FontFamily="Consolas" Width="120" Text="Frankie" x:Name="Speler1"/>
                     </Viewbox>
                 </Border>
             </Grid>
 
             <Grid Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
-                    <TextBox Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler2" PlaceholderText="Player 2" Width="100" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
+                    <TextBox BorderThickness="2" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler2" PlaceholderText="Player 2" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
             <Grid Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
-                    <TextBox Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler3" PlaceholderText="Player 3" Width="100" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
+                    <TextBox BorderThickness="2" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler3" PlaceholderText="Player 3" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
             <Grid Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
-                    <TextBox Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler4" PlaceholderText="Player 4" Width="100" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
+                    <TextBox BorderThickness="2" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler4" PlaceholderText="Player 4" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
             <Grid Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
-                    <TextBox Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler5" PlaceholderText="Player 5" Width="100" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
+                    <TextBox BorderThickness="2" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Speler5" PlaceholderText="Player 5" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
             <Grid Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="3">
-                <Viewbox Stretch="Fill">
-                    <Button Visibility="Collapsed" Name="btnPlay" Click="btnPlay_Click">
+                <Viewbox>
+                    <Button Visibility="Collapsed" x:Name="btnPlay" BorderThickness="0" Click="btnPlay_Click" Padding="0" >
                         <Image Source="/Assets/Images/gb/Play.jpg"/>
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#CB55CE"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
                     </Button>
                 </Viewbox>
             </Grid>
