@@ -110,5 +110,11 @@ namespace Rcade
                 Content = hm;
             }
         }
+
+        private void BtnGooseboard_Click(object sender, RoutedEventArgs e)
+        {
+            GBPlayersPage gbp = new GBPlayersPage();
+            Content = gbp;
+        }
     }
 }

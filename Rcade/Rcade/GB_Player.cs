@@ -1,12 +1,17 @@
-﻿using Windows.UI.Xaml.Media.Imaging;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
-namespace Ganzenbord
+namespace Rcade
 {
-    class Player
+    class GB_Player
     {
-        public Board bord { get; private set; }
-        public Dice dice { get; private set; }
-        public SpecialFields specialFields { get; private set; }
+        public GB_Board bord { get; private set; }
+        public GB_Dice dice { get; private set; }
+        public GB_SpecialFields specialFields { get; private set; }
         public BitmapImage playerImage { get; private set; }
         public int location { get; private set; }
         public bool skipTurn { get; private set; }
@@ -14,7 +19,7 @@ namespace Ganzenbord
         public string Field { get; private set; }
         public bool winGame { get; private set; }
 
-        public Player(Board board, Dice dice, SpecialFields specialFields, BitmapImage playerImage)
+        public GB_Player(GB_Board board, GB_Dice dice, GB_SpecialFields specialFields, BitmapImage playerImage)
         {
             this.playerImage = playerImage;
             this.specialFields = specialFields;
@@ -34,7 +39,7 @@ namespace Ganzenbord
                 location = 26;
                 Field = "NineOnFirstTurn";
                 return "NineOnFirstTurn";
-                
+
             }
             else
             {
@@ -70,28 +75,28 @@ namespace Ganzenbord
                 default:
                     break;
                 case "brug":
-                  location = specialFields.BridgeEvent(location);
+                    location = specialFields.BridgeEvent(location);
                     break;
                 case "herberg":
-                   skipTurn = specialFields.InnEvent();
+                    skipTurn = specialFields.InnEvent();
                     break;
                 case "put":
-                   stuckInWell_Prison = specialFields.WellEvent();
+                    stuckInWell_Prison = specialFields.WellEvent();
                     break;
                 case "doolhof":
-                   location = specialFields.MazeEvent(location);
+                    location = specialFields.MazeEvent(location);
                     break;
                 case "gevangenis":
                     stuckInWell_Prison = specialFields.PrisonEvent();
                     break;
                 case "dood":
-                   location = specialFields.DeathEvent(location);
+                    location = specialFields.DeathEvent(location);
                     break;
                 case "einde":
-                   winGame = specialFields.EndEvent();
+                    winGame = specialFields.EndEvent();
                     break;
                 case "dubbeleworp":
-                   location = specialFields.DoubleThrow(location);
+                    location = specialFields.DoubleThrow(location);
                     break;
             }
         }

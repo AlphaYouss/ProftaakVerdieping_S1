@@ -125,7 +125,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="BtnGooseboard" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                            <Button x:Name="BtnGooseboard" HorizontalAlignment="Stretch" Background="Transparent" Padding="0" Click="BtnGooseboard_Click"/>
                         </Viewbox>
                     </Grid>
                 </Grid>

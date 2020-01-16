@@ -127,6 +127,17 @@
     <Compile Include="BJ_Cards.cs" />
     <Compile Include="BJ_Player.cs" />
     <Compile Include="Databasehandler_lb.cs" />
+    <Compile Include="GB.cs" />
+    <Compile Include="GBPage.xaml.cs">
+      <DependentUpon>GBPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GBPlayersPage.xaml.cs">
+      <DependentUpon>GBPlayersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GB_Board.cs" />
+    <Compile Include="GB_Dice.cs" />
+    <Compile Include="GB_Player.cs" />
+    <Compile Include="GB_SpecialFields.cs" />
     <Compile Include="Hm.cs" />
     <Compile Include="HmPage.xaml.cs">
       <DependentUpon>HmPage.xaml</DependentUpon>
@@ -304,6 +315,31 @@
     <Content Include="Assets\Images\chips\200.png" />
     <Content Include="Assets\Images\chips\50.png" />
     <Content Include="Assets\Images\chips\500.png" />
+    <Content Include="Assets\Images\gb\Back.png" />
+    <Content Include="Assets\Images\gb\Confirm.jpg" />
+    <Content Include="Assets\Images\gb\field.jpg" />
+    <Content Include="Assets\Images\gb\Ganzenbord_pd.svg.png" />
+    <Content Include="Assets\Images\gb\How-To-Make-Synthwave-Music.jpg" />
+    <Content Include="Assets\Images\gb\Logo.jpg" />
+    <Content Include="Assets\Images\gb\Min.jpg" />
+    <Content Include="Assets\Images\gb\pion blauw.png" />
+    <Content Include="Assets\Images\gb\pion blauw_wit.png" />
+    <Content Include="Assets\Images\gb\pion groen.png" />
+    <Content Include="Assets\Images\gb\pion groen_wit.png" />
+    <Content Include="Assets\Images\gb\pion paars.png" />
+    <Content Include="Assets\Images\gb\pion paars_wit.png" />
+    <Content Include="Assets\Images\gb\pion rood.png" />
+    <Content Include="Assets\Images\gb\pion rood_wit.png" />
+    <Content Include="Assets\Images\gb\pion zwart.png" />
+    <Content Include="Assets\Images\gb\pion zwart_wit.png" />
+    <Content Include="Assets\Images\gb\Play.jpg" />
+    <Content Include="Assets\Images\gb\Plus.jpg" />
+    <Content Include="Assets\Images\gb\Restart.png" />
+    <Content Include="Assets\Images\gb\synthwave.jpg" />
+    <Content Include="Assets\Images\gb\test.png" />
+    <Content Include="Assets\Images\gb\ThrowDice.png" />
+    <Content Include="Assets\Images\gb\WireFrameBlackJack3X9.jpg" />
+    <Content Include="Assets\Images\gb\WireframeBlackJack7x2.jpg" />
     <Content Include="Assets\Images\hm\1.jpg" />
     <Content Include="Assets\Images\hm\10.jpg" />
     <Content Include="Assets\Images\hm\11.jpg" />
@@ -342,6 +378,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BJPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GBPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GBPlayersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
