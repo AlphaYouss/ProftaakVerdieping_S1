@@ -46,9 +46,20 @@ namespace Rcade
             }
             else
             {
-                ForkBlock();
+                int Chance = GenerateNumber(4);
+
+                if (Chance == 1 )
+                {
+                    TryToWin();
+                }
+                else
+                {
+                    ForkBlock();
+                }
             }
         }
+
+
 
         private void RandomTurn()
         {
@@ -62,24 +73,30 @@ namespace Rcade
                 }
             }
 
-            int box = GenerateNumber(remainingBoxes.Count, remainingBoxes);
-
+            int box = remainingBoxes[GenerateNumber(remainingBoxes.Count)];
             field.box[box] = "O";
             moveAI = box;
         }
 
-        private int GenerateNumber(int remainingNumbers, List<int> remainingBoxes)
+
+
+
+        public int GenerateNumber(int MaxValue)
         {
             Random rnd = new Random();
-            int number = rnd.Next(1, remainingNumbers);
+            int number = rnd.Next(1, MaxValue);
 
-            return remainingBoxes[number];
+            return number;
         }
+
+
 
         private void Clear()
         {
             Array.Clear(Rows, 0, 24);
         }
+
+
 
         private void ForkBlock()
         {
@@ -95,27 +112,21 @@ namespace Rcade
             bool done = false;
 
             int contains = 0;
-            int notContains = 0;
 
 
             for (i = 0; i < Rows.GetLength(0); i++)
             {
-
                 for (x = 0; x < 3; x++)
+
                 {
                     if (Rows[i, x] == "X" && Rows[i, x] != "O")
                     {
                         contains++;
                     }
-                    else
+
+                    else if (Rows[i, x] != "X" && Rows[i, x] != "O")
                     {
-                        notContains++;
-
-                        if (Rows[i, x] != "X" && Rows[i, x] != "O")
-                        {
                             moveAI = Convert.ToInt32(Rows[i, x]);
-                        }
-
                     }
 
                 }
@@ -129,7 +140,6 @@ namespace Rcade
                 else
                 {
                     contains = 0;
-                    notContains = 0;
                 }
             }
 
@@ -140,10 +150,65 @@ namespace Rcade
             done = false;
         }
 
+
+
+        private void TryToWin()
+        {
+            Clear();
+            UpdateRows();
+
+            int i = 0;
+            int x = 0;
+         
+            bool done = false;
+
+            int contains = 0;
+
+            for (i = 0; i < Rows.GetLength(0); i++)
+            {
+                for (x = 0; x < 3; x++)
+                {
+                    if (Rows[i, x] == "O" && Rows[i, x] != "X")
+                    {
+                        contains++;
+                    }
+
+                    else if (Rows[i, x] != "X" && Rows[i, x] != "O")
+                    {
+                            moveAI = Convert.ToInt32(Rows[i, x]);
+                    }
+                }
+
+                if (contains >= 1 && field.box[moveAI] != "O")
+                {
+                    field.box[moveAI] = "O";
+                    done = true;
+                    break;
+                }
+                else
+                {
+                    contains = 0;
+                }
+            }
+
+            if (!done)
+            {
+                RandomTurn();
+            }
+            done = false;
+
+        }
+
+
+
+
+
         public void SetScore(int score)
         {
             scoreAi += score;
         }
+
+
 
         public void SetScore()
         {

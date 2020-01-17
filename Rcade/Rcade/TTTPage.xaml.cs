@@ -17,8 +17,8 @@ namespace Rcade
         private TTT ttt { get; set; }
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
+
         private TTT_NewAI AI;
-        //   private TTT_Ai ai { get; set; }
         private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
         private string[] tttStats { get; set; } = new string[3];
 
@@ -88,7 +88,6 @@ namespace Rcade
                 // Player wins.
 
                 player.SetScore(3);
-                // ai.SetScore(-1);
                 AI.SetScore(-1);
 
                 SetUserStats(0);
@@ -100,9 +99,7 @@ namespace Rcade
             }
             else if (remainingBoxes != 0)
             {
-                // ai.TakeTurn();
                 AI.NewMove();
-                // SetField(ai.moveAi, ai.imageAi, false, true);
                 SetField(AI.moveAI, AI.imageAi, false, true);
 
                 if (ttt.CheckWin())
@@ -110,9 +107,7 @@ namespace Rcade
                     // AI wins.   
 
                     player.SetScore(-1);
-                    //ai.SetScore(3);
                     AI.SetScore(3);
-
                     SetUserStats(1);
 
                     txtNamePlayer.Foreground = new SolidColorBrush(Colors.Red);
@@ -140,13 +135,11 @@ namespace Rcade
             field.GenerateField();
 
             player = new TTT_Player(field);
-            // ai = new TTT_Ai(field);
             AI = new TTT_NewAI(field);
             ttt = new TTT(field);
 
             player.SetPlayerName(user.userName);
 
-            //txtNameAI.Text = ai.nameAi;
             txtNameAI.Text = AI.nameAi;
             txtNamePlayer.Text = player.namePlayer;
         }
@@ -158,10 +151,8 @@ namespace Rcade
 
             player.SetScore();
             AI.SetScore();
-            // ai.SetScore();
 
             txtScorePlayer.Text = player.scorePlayer.ToString();
-            //txtScoreAI.Text = ai.scoreAi.ToString();
             txtScoreAI.Text = AI.scoreAi.ToString();
 
             for (int i = 1; i < 10; i++)
