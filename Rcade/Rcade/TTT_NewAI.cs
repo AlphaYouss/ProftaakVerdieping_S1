@@ -46,16 +46,7 @@ namespace Rcade
             }
             else
             {
-                int Chance = GenerateNumber(4);
-
-                if (Chance == 1 )
-                {
                     TryToWin();
-                }
-                else
-                {
-                    ForkBlock();
-                }
             }
         }
 
@@ -179,7 +170,7 @@ namespace Rcade
                     }
                 }
 
-                if (contains >= 1 && field.box[moveAI] != "O")
+                if (contains == 2 && field.box[moveAI] != "O")
                 {
                     field.box[moveAI] = "O";
                     done = true;
@@ -193,10 +184,9 @@ namespace Rcade
 
             if (!done)
             {
-                RandomTurn();
+                ForkBlock();
             }
             done = false;
-
         }
 
 
