@@ -48,9 +48,6 @@ namespace Rcade
                 case "btnBKE":
                     number = 4;
                     break;
-                case "btnGanzenbord":
-                    number = 5;
-                    break;
             }
 
             LeaderbordGamePage lbg = new LeaderbordGamePage(number);

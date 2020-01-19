@@ -323,6 +323,7 @@ namespace Rcade
                 btnHit.Visibility = Visibility.Collapsed;
                 btnStand.Visibility = Visibility.Collapsed;
             }
+
             CheckAce(gameHost.player.hasAce);
 
             if (gameHost.hasInsurance)

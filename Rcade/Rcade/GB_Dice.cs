@@ -12,6 +12,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 7);
                 throwCount = throwCount + throwAmount;
                 pipCount = throwCount;
@@ -24,6 +25,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 3);
                 throwCount = throwCount + throwAmount;
             }
@@ -35,6 +37,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 4);
                 throwCount = throwCount + throwAmount;
             }
@@ -46,6 +49,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 5);
                 throwCount = throwCount + throwAmount;
             }
@@ -57,6 +61,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 8);
                 throwCount = throwCount + throwAmount;
             }
@@ -68,6 +73,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 11);
                 throwCount = throwCount + throwAmount;
             }
@@ -79,6 +85,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 13);
                 throwCount = throwCount + throwAmount;
             }
@@ -90,6 +97,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 17);
                 throwCount = throwCount + throwAmount;
             }
@@ -101,6 +109,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 21);
                 throwCount = throwCount + throwAmount;
             }
@@ -112,6 +121,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 31);
                 throwCount = throwCount + throwAmount;
             }
@@ -123,6 +133,7 @@ namespace Rcade
             for (int i = 1; i <= X; i++)
             {
                 Random rnd = new Random();
+
                 throwAmount = rnd.Next(1, 101);
                 throwCount = throwCount + throwAmount;
             }

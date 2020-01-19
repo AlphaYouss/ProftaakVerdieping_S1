@@ -106,7 +106,6 @@ namespace Rcade
         public void Number(int value, string number)
         {
             multiplier = 35;
-
             if (wheel.winningNumber.number == Convert.ToInt32(number))
             {
                 int moneyWon = value * multiplier;
@@ -118,7 +117,6 @@ namespace Rcade
         public void RedBlack(int value, string color)
         {
             multiplier = 1;
-
             if (Convert.ToString(wheel.winningNumber.color) == color)
             {
                 int moneyWon = value * multiplier;
@@ -130,7 +128,6 @@ namespace Rcade
         public void EvenOdd(int value, string type)
         {
             multiplier = 1;
-
             if (Convert.ToInt32(wheel.winningNumber.number) != 0)
             {
                 switch (type)
@@ -175,7 +172,6 @@ namespace Rcade
         public void Columns(int value, string type)
         {
             multiplier = 2;
-
             switch (type)
             {
                 case "1st 12":
@@ -208,7 +204,6 @@ namespace Rcade
         public void Rows(int value, string type)
         {
             multiplier = 2;
-
             switch (type)
             {
                 case "1st row":

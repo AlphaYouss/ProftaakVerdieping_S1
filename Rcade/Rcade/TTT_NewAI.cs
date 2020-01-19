@@ -6,13 +6,13 @@ namespace Rcade
 {
     class TTT_NewAI
     {
-        public TTT_Field field { get; private set; }  = new TTT_Field();
+        public TTT_Field field { get; private set; } = new TTT_Field();
         public BitmapImage imageAi { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/o.png"));
         public bool firstMoveDone { get; set; }
         public string nameAi { get; private set; } = "Gibby";
         public int scoreAi { get; private set; } = 0;
         public int moveAI { get; private set; }
-        private string[,] Rows { get; set; }
+        private string[,] rows { get; set; }
 
         public TTT_NewAI(TTT_Field field)
         {
@@ -22,7 +22,7 @@ namespace Rcade
 
         private void UpdateRows()
         {
-            Rows = new string[,]
+            rows = new string[,]
             {
                 {field.box[1], field.box[2], field.box[3]},
                 {field.box[4], field.box[5], field.box[6]},
@@ -46,11 +46,9 @@ namespace Rcade
             }
             else
             {
-                    TryToWin();
+                TryToWin();
             }
         }
-
-
 
         private void RandomTurn()
         {
@@ -63,14 +61,11 @@ namespace Rcade
                     remainingBoxes.Add(i);
                 }
             }
-
             int box = remainingBoxes[GenerateNumber(remainingBoxes.Count)];
+
             field.box[box] = "O";
             moveAI = box;
         }
-
-
-
 
         public int GenerateNumber(int MaxValue)
         {
@@ -80,14 +75,10 @@ namespace Rcade
             return number;
         }
 
-
-
         private void Clear()
         {
-            Array.Clear(Rows, 0, 24);
+            Array.Clear(rows, 0, 24);
         }
-
-
 
         private void ForkBlock()
         {
@@ -95,37 +86,30 @@ namespace Rcade
             UpdateRows();
 
             int i = 0;
-            i = 0;
-
             int x = 0;
-            x = 0;
 
             bool done = false;
-
             int contains = 0;
 
-
-            for (i = 0; i < Rows.GetLength(0); i++)
+            for (i = 0; i < rows.GetLength(0); i++)
             {
                 for (x = 0; x < 3; x++)
-
                 {
-                    if (Rows[i, x] == "X" && Rows[i, x] != "O")
+                    if (rows[i, x] == "X" && rows[i, x] != "O")
                     {
                         contains++;
                     }
-
-                    else if (Rows[i, x] != "X" && Rows[i, x] != "O")
+                    else if (rows[i, x] != "X" && rows[i, x] != "O")
                     {
-                            moveAI = Convert.ToInt32(Rows[i, x]);
+                        moveAI = Convert.ToInt32(rows[i, x]);
                     }
-
                 }
 
                 if (contains == 2 && field.box[moveAI] != "O")
                 {
                     field.box[moveAI] = "O";
                     done = true;
+
                     break;
                 }
                 else
@@ -133,15 +117,12 @@ namespace Rcade
                     contains = 0;
                 }
             }
-
             if (!done)
             {
                 RandomTurn();
             }
             done = false;
         }
-
-
 
         private void TryToWin()
         {
@@ -150,30 +131,28 @@ namespace Rcade
 
             int i = 0;
             int x = 0;
-         
-            bool done = false;
 
+            bool done = false;
             int contains = 0;
 
-            for (i = 0; i < Rows.GetLength(0); i++)
+            for (i = 0; i < rows.GetLength(0); i++)
             {
                 for (x = 0; x < 3; x++)
                 {
-                    if (Rows[i, x] == "O" && Rows[i, x] != "X")
+                    if (rows[i, x] == "O" && rows[i, x] != "X")
                     {
                         contains++;
                     }
-
-                    else if (Rows[i, x] != "X" && Rows[i, x] != "O")
+                    else if (rows[i, x] != "X" && rows[i, x] != "O")
                     {
-                            moveAI = Convert.ToInt32(Rows[i, x]);
+                        moveAI = Convert.ToInt32(rows[i, x]);
                     }
                 }
-
                 if (contains == 2 && field.box[moveAI] != "O")
                 {
                     field.box[moveAI] = "O";
                     done = true;
+
                     break;
                 }
                 else
@@ -181,7 +160,6 @@ namespace Rcade
                     contains = 0;
                 }
             }
-
             if (!done)
             {
                 ForkBlock();
@@ -189,16 +167,10 @@ namespace Rcade
             done = false;
         }
 
-
-
-
-
         public void SetScore(int score)
         {
             scoreAi += score;
         }
-
-
 
         public void SetScore()
         {

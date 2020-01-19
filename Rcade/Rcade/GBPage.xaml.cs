@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -10,32 +13,134 @@ namespace Rcade
         private List<Image> boxImages { get; set; } = new List<Image> { };
         private GB gb { get; set; }
         private User user { get; set; }
-        public string Spelernaam1 { get; private set; }
-        public string Spelernaam2 { get; private set; }
-        public string Spelernaam3 { get; private set; }
-        public string Spelernaam4 { get; private set; }
-        public string Spelernaam5 { get; private set; }
+        public string firstPlayerName { get; private set; }
+        public string secondPlayerName { get; private set; }
+        public string thirdPlayerName { get; private set; }
+        public string fourthPlayerName { get; private set; }
+        public string fivePlayerName { get; private set; }
 
-        public GBPage(int aantalSpelers, string Spelernaam2, string Spelernaam3, string Spelernaam4, string Spelernaam5)
+        public GBPage(int amountOfPlayers, string firstPlayerName, string secondPlayerName, string thirdPlayerName, string fourthPlayerName, string fivePlayerName)
         {
             InitializeComponent();
 
-            gb = new GB(aantalSpelers, boxImages);
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+            new Size(
+                1000,
+                1000
+                ));
 
-            this.Spelernaam2 = Spelernaam2;
-            this.Spelernaam3 = Spelernaam3;
-            this.Spelernaam4 = Spelernaam4;
-            this.Spelernaam5 = Spelernaam5;
+            gb = new GB(amountOfPlayers, boxImages);
 
-            Speler2.Text = Spelernaam2;
-            Speler3.Text = Spelernaam3;
-            Speler4.Text = Spelernaam4;
-            Speler5.Text = Spelernaam5;
+            this.firstPlayerName = firstPlayerName;
+            this.secondPlayerName = secondPlayerName;
+            this.thirdPlayerName = thirdPlayerName;
+            this.fourthPlayerName = fourthPlayerName;
+            this.fivePlayerName = fivePlayerName;
 
-            VulImages();
+            Speler1.Text = firstPlayerName;
+            Speler2.Text = secondPlayerName;
+            Speler3.Text = thirdPlayerName;
+            Speler4.Text = fourthPlayerName;
+            Speler5.Text = fivePlayerName;
+
+            AddImages();
         }
 
-        private void VulImages()
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            HubPage hub = new HubPage();
+            hub.SetUser(user);
+
+            Content = hub;
+        }
+
+        private void btnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            gb.Restart();
+            btnDice.IsEnabled = true;
+
+            GBPlayersPage gbp = new GBPlayersPage();
+            gbp.SetUser(user);
+
+            Content = gbp;
+        }
+
+        private async void btnDice_Click(object sender, RoutedEventArgs e)
+        {
+            Eventvak.Text = "Throwing...";
+            await Task.Delay(2000);
+
+            gb.PlayerMove();
+
+            switch (gb.field)
+            {
+                default:
+                    Eventvak.Text = "";
+                    break;
+                case "bridge":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", landed on a bridge! You have been moved to field 12.";
+                    break;
+                case "inn":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you're staying at an inn for tonight. You have to skip your next turn.";
+                    break;
+                case "well":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you're stuck in a well. You have to stay here until someone gets you out or until you climb out in 3 turns.";
+                    break;
+                case "maze":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you were lost in a maze. You are moved back to field 37.";
+                    break;
+                case "jail":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you're in prison! You have to stay here until someone bails you out or until you escape in 3 turns.";
+                    break;
+                case "dead":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you've been caught in a trap. You'll have to start over from the beginning.";
+                    break;
+                case "dubbleThrow":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you've landed on a special field. Your dice throw is doubled.";
+                    break;
+                case "twoOnOneBox":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", you landed on a field someone was already on. You've been moved back to your old position.";
+                    break;
+                case "nineOnFirstTurn":
+                    Eventvak.Text = SelectPlayer(gb.playerTurn) + ", lucky you! You landed on field 9 in your first turn! You've been moved to field 26.";
+                    break;
+            }
+
+            dobbel.Text = "Number of pips thrown:" + " " + Convert.ToString(gb.dice.pipCount) + "\n" + SelectPlayer(gb.playerTurn) + ", You are now on field:" + " " + gb.players[gb.playerTurn].location;
+
+            if (gb.winGame)
+            {
+                Eventvak.Text = SelectPlayer(gb.playerTurn) + " " + "won the game! You can either play another game or go back to the home menu.";
+                btnDice.IsEnabled = false;
+                btnRestart.Visibility = Visibility.Visible;
+            }
+
+            gb.NextPlayer();
+
+
+            if (gb.CheckSkippingTurn())
+            {
+                gb.ChangeSkipTurn();
+                gb.NextPlayer();
+            }
+            else if (gb.CheckStuck())
+            {
+                if (gb.number == 2)
+                {
+                    gb.ChangeStuck();
+                    gb.number = 0;
+                }
+                else
+                {
+                    gb.number++;
+                    gb.NextPlayer();
+                }
+            }
+
+            SelectPlayer(gb.playerTurn);
+        }
+
+        private void AddImages()
         {
             boxImages.Add(vak0);
             boxImages.Add(vak1);
@@ -109,128 +214,33 @@ namespace Rcade
             boxImages.Add(vak63);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Eventvak.Text = "Dobbellen...";
-            //Task.Delay(2000).Wait();
-
-            gb.PlayerMove();
-
-            switch (gb.field)
-            {
-                default:
-                    Eventvak.Text = "";
-                    break;
-                case "brug":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", landed on a bridge! You have been moved to field 12.";
-                    break;
-                case "herberg":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you're staying at an inn for tonight. You have to skip your next turn.";
-                    break;
-                case "put":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you are stuck in a well. You have to stay here untill someone gets you out or untill you climb out in 3 turns";
-                    break;
-                case "doolhof":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you were lost in a maze. You are moved back to field 37.";
-                    break;
-                case "gevangenis":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you're in prison! You have to stay here untill someone bails you out or untill you escape in 3 turns";
-                    break;
-                case "dood":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you've been caught in a trap. You'll have to start over from the ";
-                    break;
-                case "dubbeleworp":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you've landed on a special field. Your dice throw is doubled";
-                    break;
-                case "TweeOpÉénVak":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", you landed on a field someone was already on. You've been moved back to your old position.";
-                    break;
-                case "NineOnFirstTurn":
-                    Eventvak.Text = SelecteerSpeler(gb.playerTurn) + ", lucky you! You landed on field 9 in your first turn! You've been moved to field 26;";
-                    break;
-            }
-
-            dobbel.Text = "Number of pips thrown:" + " " + Convert.ToString(gb.dice.pipCount) + "\n" + SelecteerSpeler(gb.playerTurn) + ", You are now on field:" + " " + gb.players[gb.playerTurn].location;
-
-            if (gb.winGame)
-            {
-                Eventvak.Text = SelecteerSpeler(gb.playerTurn) + " " + "Won the Game! You can either play another game or go back to the home menu";
-                btnDobbel.IsEnabled = false;
-                btnRestart.Visibility = Visibility.Visible;
-            }
-
-            gb.NextPlayer();
-
-
-            if (gb.CheckSkippingTurn())
-            {
-                gb.ChangeSkipTurn();
-                gb.NextPlayer();
-            }
-            else if (gb.CheckStuck())
-            {
-                if (gb.number == 2)
-                {
-                    gb.ChangeStuck();
-                    gb.number = 0;
-                }
-                else
-                {
-                    gb.number++;
-                    gb.NextPlayer();
-                }
-            }
-
-            SelecteerSpeler(gb.playerTurn);
-        }
-
-        internal void SetUser(User user)
-        {
-            this.user = user;
-            this.Spelernaam1 = Spelernaam1;
-        }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            HubPage hub = new HubPage();
-            hub.SetUser(user);
-
-            Content = hub;
-        }
-
-        private void btnRestart_Click(object sender, RoutedEventArgs e)
-        {
-            gb.Restart();
-            btnDobbel.IsEnabled = true;
-
-            GBPlayersPage gbp = new GBPlayersPage();
-            gbp.SetUser(user);
-
-            Content = gbp;
-        }
-
-        private string SelecteerSpeler(int player)
+        private string SelectPlayer(int player)
         {
             switch (player)
             {
                 default:
                     return "";
                 case 0:
-                    speler.Text = "Frankie is playing" + " " + "(purple)";
-                    return "Frankie";
+                    speler.Text = firstPlayerName + " " + "(purple)";
+                    return firstPlayerName;
                 case 1:
-                    speler.Text = Spelernaam2 + " " + "is playing" + " " + "(blue)";
-                    return Spelernaam2;
+                    speler.Text = secondPlayerName + " " + "is playing" + " " + "(blue)";
+                    return secondPlayerName;
                 case 2:
-                    speler.Text = Spelernaam3 + " " + "is playing" + " " + "(green)";
-                    return Spelernaam3;
+                    speler.Text = thirdPlayerName + " " + "is playing" + " " + "(green)";
+                    return thirdPlayerName;
                 case 3:
-                    speler.Text = Spelernaam4 + " " + "is playing" + " " + "(red)";
-                    return Spelernaam4;
+                    speler.Text = fourthPlayerName + " " + "is playing" + " " + "(red)";
+                    return fourthPlayerName;
                 case 4:
-                    speler.Text = Spelernaam5 + " " + "is playing" + " " + "(black)";
-                    return Spelernaam5;
+                    speler.Text = fivePlayerName + " " + "is playing" + " " + "(black)";
+                    return fivePlayerName;
             }
+        }
+
+        internal void SetUser(User user)
+        {
+            this.user = user;
         }
     }
 }

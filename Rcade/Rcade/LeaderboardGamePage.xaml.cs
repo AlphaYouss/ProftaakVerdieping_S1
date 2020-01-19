@@ -12,8 +12,8 @@ namespace Rcade
     {
         private Databasehandler_lb dbh { get; set; } = new Databasehandler_lb(true);
         private User user { get; set; }
-        private List<string> Games { get; set; } = new List<string> { "Leaderboard", "Blackjack", "Roulette", "Hangman", "Tic, Tac and Toe", "Gooseboard", "Four in a row" };
-        private int AmountOfGames = 4;
+        private List<string> games { get; set; } = new List<string> { "Leaderboard", "Blackjack", "Roulette", "Hangman", "Tic Tac Toe" };
+        private int amountOfGames { get; set; } = 4;
 
         public LeaderbordGamePage(int Number)
         {
@@ -56,7 +56,7 @@ namespace Rcade
         {
             int choice = dbh.choice + 1;
 
-            if (choice <= AmountOfGames)
+            if (choice <= amountOfGames)
             {
                 dbh.ChangeChoice(choice);
                 dbh.ChoiceMaker();
@@ -69,7 +69,7 @@ namespace Rcade
 
         private void UpdateText()
         {
-            gameName.Text = Games[dbh.choice];
+            gameName.Text = games[dbh.choice];
 
             ClearText();
             ButtonOnOff();
@@ -120,7 +120,7 @@ namespace Rcade
             btnForward.IsEnabled = true;
             btnBack.IsEnabled = true;
 
-            if (dbh.choice == AmountOfGames)
+            if (dbh.choice == amountOfGames)
             {
                 btnForward.Visibility = Visibility.Collapsed;
             }

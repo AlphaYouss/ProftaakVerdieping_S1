@@ -34,8 +34,8 @@ namespace Rcade
             {
                 location = 26;
 
-                field = "NineOnFirstTurn";
-                return "NineOnFirstTurn";
+                field = "nineOnFirstTurn";
+                return "nineOnFirstTurn";
             }
             else
             {
@@ -58,7 +58,7 @@ namespace Rcade
 
         public void RevertLocation()
         {
-            if (field == "NineOnFirstTurn")
+            if (field == "nineOnFirstTurn")
             {
                 location = location - 26;
             }
@@ -68,34 +68,34 @@ namespace Rcade
             }
         }
 
-        public void EventStart(string Event)
+        public void EventStart(string eventString)
         {
-            switch (Event)
+            switch (eventString)
             {
                 default:
                     break;
-                case "brug":
+                case "bridge":
                     location = specialFields.BridgeEvent(location);
                     break;
-                case "herberg":
+                case "inn":
                     skipTurn = specialFields.InnEvent();
                     break;
-                case "put":
+                case "well":
                     stuckInWellPrison = specialFields.WellEvent();
                     break;
-                case "doolhof":
+                case "maze":
                     location = specialFields.MazeEvent(location);
                     break;
-                case "gevangenis":
+                case "jail":
                     stuckInWellPrison = specialFields.PrisonEvent();
                     break;
-                case "dood":
+                case "dead":
                     location = specialFields.DeathEvent(location);
                     break;
-                case "einde":
+                case "end":
                     winGame = specialFields.EndEvent();
                     break;
-                case "dubbeleworp":
+                case "dubbleThrow":
                     location = specialFields.DoubleThrow(location);
                     break;
             }

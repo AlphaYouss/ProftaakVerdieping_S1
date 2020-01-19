@@ -12,7 +12,7 @@
 
     <Grid Name="main">
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Images/rl/background.jpg"></ImageBrush>
+            <ImageBrush ImageSource="/Assets/Images/leaderboard/background.jpg"></ImageBrush>
         </Grid.Background>
         
         <Grid.RowDefinitions>

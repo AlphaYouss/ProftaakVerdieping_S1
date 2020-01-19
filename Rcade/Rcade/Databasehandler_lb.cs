@@ -54,12 +54,6 @@ namespace Rcade
                     testquery = "SELECT Test_User_gegevens.Username, Test_BKE.user_ID FROM Test_User_gegevens INNER JOIN Test_BKE ON Test_User_gegevens.ID = Test_BKE.user_ID";
                     query = "SELECT User_gegevens.Username, BKE.user_ID FROM User_gegevens INNER JOIN BKE ON User_gegevens.ID = BKE.user_ID";
                     break;
-
-                    //case 5:
-                    //    SelectFromGanzenbord();
-                    //    testquery = "SELECT Test_User_gegevens.Username, Test_Ganzenbord.user_ID FROM Test_User_gegevens INNER JOIN Test_Ganzenbord ON Test_User_gegevens.ID = Test_Ganzenbord.user_ID";
-                    //    query = "SELECT User_gegevens.Username, Ganzenbord.user_ID FROM User_gegevens INNER JOIN Ganzenbord ON User_gegevens.ID = Ganzenbord.user_ID";
-                    //    break;
             }
 
             UserIDToUsername();
@@ -234,45 +228,6 @@ namespace Rcade
                 table4.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
-
-        //private void SelectFromGanzenbord()
-        //{
-        //    SqlCommand cmd = new SqlCommand();
-
-        //    if (isTestVersion == true)
-        //    {
-        //        cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Ganzenbord ", GetCon());
-        //    }
-        //    else
-        //    {
-        //        cmd = new SqlCommand("SELECT TOP (10) * FROM Ganzenbord ", GetCon());
-        //    }
-
-        //    OpenConnectionToDB();
-
-        //    SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-        //    adapt.Fill(table);
-
-        //    CloseConnectionToDB();
-
-        //    DateTime dt;
-
-        //    table1Name = "Username";
-        //    table2Name = "Dices rolled";
-        //    table3Name = "Games played";
-        //    table4Name = "Last seen";
-
-        //    foreach (DataRow row in table.Rows)
-        //    {
-        //        table1.Add(Convert.ToString(row["user_ID"]));
-        //        table2.Add(Convert.ToString(row["aantal_worpen"]));
-        //        table3.Add(Convert.ToString(row["gespeelde_potjes"]));
-
-        //        dt = Convert.ToDateTime(row["laatst_gespeeld"]);
-
-        //        table4.Add(dt.Date.ToString("MM/dd/yyyy"));
-        //    }
-        //}
 
         private void SelectFromRoulette()
         {

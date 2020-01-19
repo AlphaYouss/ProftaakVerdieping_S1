@@ -10,7 +10,7 @@
     Foreground="White"
     RequestedTheme="Dark">
 
-    <Grid x:Name="main" >
+    <Grid x:Name="main" RequestedTheme="Dark">
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Images/hub/background.jpg"/>
         </Grid.Background>
@@ -24,14 +24,14 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0">
+        <Grid Grid.Row="0" Grid.Column="0" Background="Transparent" Margin="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width=".12*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Viewbox StretchDirection="Both" Stretch="Fill">
-                <Button x:Name="btnLogout" Click="btnLogout_Click" Background="Transparent" Padding="0">
+                <Button x:Name="btnLogout" Click="btnLogout_Click" Background="Transparent" Padding="0" Margin="0">
                     <Button.RenderTransform>
                         <RotateTransform Angle="6"/>
                     </Button.RenderTransform>

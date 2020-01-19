@@ -37,7 +37,7 @@ namespace Rcade
             Content = hub;
         }
 
-        private void Alphabet_Click(object sender, RoutedEventArgs e)
+        private void alphabet_Click(object sender, RoutedEventArgs e)
         {
             btnBack.Visibility = Visibility.Collapsed;
 

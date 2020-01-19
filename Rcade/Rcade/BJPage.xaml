@@ -306,9 +306,20 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="playerStake" HorizontalAlignment="Left" Padding="0" Margin="3.5,6.5" FontFamily="Consolas"/>
-                </Viewbox>
+                <Grid Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Stretch="Uniform" Grid.Row="0" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                        <TextBlock x:Name="playerStakeText" Text="Bet:" HorizontalAlignment="Center" Padding="0" Margin="0.5,6.5"/>
+                    </Viewbox>
+
+                    <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="playerStake" HorizontalAlignment="Left" Padding="0" Margin="3.5,3.5" FontFamily="Consolas"/>
+                    </Viewbox>
+                </Grid>
             </Grid>
         </Grid>
 
@@ -320,13 +331,16 @@
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height=".4*"/>
-                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="sessionBalance" HorizontalAlignment="Center" FontFamily="Consolas" Padding="0" Margin="3.5,6.5,3.5,8"/>
+                <Viewbox Stretch="Uniform" Grid.Row="0" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                    <TextBlock x:Name="sessionBalanceText" Text="Session:" HorizontalAlignment="Center" Padding="0" Margin="8,6.5,3.5,8"/>
+                </Viewbox>
+
+                <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="7.5">
+                    <TextBlock x:Name="sessionBalance" HorizontalAlignment="Center" FontFamily="Consolas" Padding="0" Margin="3.5,-5,3.5,10"/>
                 </Viewbox>
             </Grid>
         </Grid>

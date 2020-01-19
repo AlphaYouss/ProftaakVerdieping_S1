@@ -17,8 +17,7 @@ namespace Rcade
         private TTT ttt { get; set; }
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
-
-        private TTT_NewAI AI;
+        private TTT_NewAI ai { get; set; }
         private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
         private string[] tttStats { get; set; } = new string[3];
 
@@ -52,7 +51,7 @@ namespace Rcade
             }
 
             field.ClearField();
-            AI.firstMoveDone = false;
+            ai.firstMoveDone = false;
 
             vak1.Click += vak_Click;
             vak2.Click += vak_Click;
@@ -88,7 +87,7 @@ namespace Rcade
                 // Player wins.
 
                 player.SetScore(3);
-                AI.SetScore(-1);
+                ai.SetScore(-1);
 
                 SetUserStats(0);
 
@@ -99,15 +98,15 @@ namespace Rcade
             }
             else if (remainingBoxes != 0)
             {
-                AI.NewMove();
-                SetField(AI.moveAI, AI.imageAi, false, true);
+                ai.NewMove();
+                SetField(ai.moveAI, ai.imageAi, false, true);
 
                 if (ttt.CheckWin())
                 {
                     // AI wins.   
 
                     player.SetScore(-1);
-                    AI.SetScore(3);
+                    ai.SetScore(3);
                     SetUserStats(1);
 
                     txtNamePlayer.Foreground = new SolidColorBrush(Colors.Red);
@@ -135,12 +134,12 @@ namespace Rcade
             field.GenerateField();
 
             player = new TTT_Player(field);
-            AI = new TTT_NewAI(field);
+            ai = new TTT_NewAI(field);
             ttt = new TTT(field);
 
             player.SetPlayerName(user.userName);
 
-            txtNameAI.Text = AI.nameAi;
+            txtNameAI.Text = ai.nameAi;
             txtNamePlayer.Text = player.namePlayer;
         }
 
@@ -150,10 +149,10 @@ namespace Rcade
             btnRestart.Visibility = Visibility.Visible;
 
             player.SetScore();
-            AI.SetScore();
+            ai.SetScore();
 
             txtScorePlayer.Text = player.scorePlayer.ToString();
-            txtScoreAI.Text = AI.scoreAi.ToString();
+            txtScoreAI.Text = ai.scoreAi.ToString();
 
             for (int i = 1; i < 10; i++)
             {

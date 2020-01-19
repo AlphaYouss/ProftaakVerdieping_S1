@@ -72,7 +72,7 @@ namespace Rcade
             if (CheckPlayersOnField(players[playerTurn].location))
             {
                 players[playerTurn].RevertLocation();
-                field = "TweeOpÉénVak";
+                field = "twoOnOneBox";
             }
             winGame = players[playerTurn].winGame;
             ChangeImage();
@@ -124,29 +124,29 @@ namespace Rcade
             return false;
         }
 
-        private void CheckField(int locatie)
+        private void CheckField(int location)
         {
-            if (field != "NineOnFirstTurn")
+            if (field != "nineOnFirstTurn")
             {
-                field = board.fields[locatie];
+                field = board.fields[location];
 
                 if (field != null)
                 {
-                    string field2;
+                    string fieldAfterThrow;
 
                     players[playerTurn].EventStart(field);
 
-                    locatie = players[playerTurn].location;
-                    field2 = board.fields[locatie];
+                    location = players[playerTurn].location;
+                    fieldAfterThrow = board.fields[location];
 
-                    players[playerTurn].EventStart(field2);
+                    players[playerTurn].EventStart(fieldAfterThrow);
                     CheckWellPrison();
                 }
             }
             else if (CheckPlayersOnField(players[playerTurn].location))
             {
                 players[playerTurn].RevertLocation();
-                field = "TweeOpÉénVak";
+                field = "twoOnOneBox";
             }
         }
 

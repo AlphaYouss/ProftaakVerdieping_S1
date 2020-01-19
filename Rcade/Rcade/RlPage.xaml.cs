@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -20,6 +22,12 @@ namespace Rcade
         public RLPage()
         {
             InitializeComponent();
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+            new Size(
+                1000,
+                1000
+                ));
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

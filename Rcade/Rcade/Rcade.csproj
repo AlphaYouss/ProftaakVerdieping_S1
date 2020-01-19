@@ -348,6 +348,7 @@
     <Content Include="Assets\Images\hm\newgame.png" />
     <Content Include="Assets\Images\hub\background.jpg" />
     <Content Include="Assets\Images\leaderboard\back.png" />
+    <Content Include="Assets\Images\leaderboard\background.jpg" />
     <Content Include="Assets\Images\leaderboard\BJ.png" />
     <Content Include="Assets\Images\leaderboard\game\back.jpg" />
     <Content Include="Assets\Images\leaderboard\game\next.jpg" />

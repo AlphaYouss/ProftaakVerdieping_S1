@@ -5,6 +5,7 @@
         public GB ganzenbord { get; private set; }
         public GB_Board board { get; private set; }
         public GB_Dice dice { get; private set; }
+
         public GB_SpecialFields(GB_Dice dice)
         {
             this.dice = dice;
@@ -29,10 +30,10 @@
             return location;
         }
 
-        public int BridgeEvent(int locatie)
+        public int BridgeEvent(int location)
         {
             dice.ChangeThrowCount(6);
-            return locatie = 12;
+            return location = 12;
         }
 
         public bool InnEvent()
@@ -45,10 +46,10 @@
             return true;
         }
 
-        public int MazeEvent(int locatie)
+        public int MazeEvent(int location)
         {
             dice.ChangeThrowCount(-5);
-            return locatie = 37;
+            return location = 37;
         }
 
         public bool PrisonEvent()
@@ -56,9 +57,9 @@
             return true;
         }
 
-        public int DeathEvent(int locatie)
+        public int DeathEvent(int location)
         {
-            return locatie = 0;
+            return location = 0;
         }
 
         public bool EndEvent()

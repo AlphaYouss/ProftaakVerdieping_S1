@@ -7,6 +7,7 @@ namespace Rcade
         public Dictionary<int, string> fields { get; private set; }
         public List<int> doubleThrowFields { get; private set; }
         public GB_SpecialFields specialfields { get; private set; }
+
         public GB_Board(GB_Dice dice)
         {
             specialfields = new GB_SpecialFields(dice);
@@ -20,7 +21,7 @@ namespace Rcade
             {
                 if (doubleThrowFields.Contains(i))
                 {
-                    fields.Add(i, "dubbeleworp");
+                    fields.Add(i, "dubbleThrow");
                 }
 
                 if (!fields.ContainsKey(i))
@@ -31,25 +32,25 @@ namespace Rcade
                             fields.Add(i, null);
                             break;
                         case 6:
-                            fields.Add(i, "brug");
+                            fields.Add(i, "bridge");
                             break;
                         case 19:
-                            fields.Add(i, "herberg");
+                            fields.Add(i, "inn");
                             break;
                         case 31:
-                            fields.Add(i, "put");
+                            fields.Add(i, "well");
                             break;
                         case 42:
-                            fields.Add(i, "doolhof");
+                            fields.Add(i, "maze");
                             break;
                         case 52:
-                            fields.Add(i, "gevangenis");
+                            fields.Add(i, "jail");
                             break;
                         case 58:
-                            fields.Add(i, "dood");
+                            fields.Add(i, "dead");
                             break;
                         case 63:
-                            fields.Add(i, "einde");
+                            fields.Add(i, "end");
                             break;
                     }
                 }

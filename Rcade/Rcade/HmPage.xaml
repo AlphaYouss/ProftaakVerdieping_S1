@@ -45,16 +45,15 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
+
                 <Viewbox Grid.Row="0">
                     <TextBlock Text="Score:" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/sfalienenc/SFAlienEncounters.ttf#SF Alien Encounters" Margin="5"/>
                 </Viewbox>
-                
+
                 <Viewbox Grid.Row="1">
                     <TextBlock Name="TbScore" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Viewbox>
             </Grid>
-
         </Grid>
 
         <Grid Grid.Row="0" Grid.Column="1">
@@ -81,6 +80,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="4*" />
@@ -89,7 +89,7 @@
 
                     <Grid Grid.Column="1" Grid.Row="1">
                         <Viewbox>
-                            <TextBlock  Name="TbLetterDisplay" Text="-------" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Name="TbLetterDisplay" Text="-------" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -127,53 +127,52 @@
                         <ColumnDefinition Width="1.7*" />
                     </Grid.ColumnDefinitions>
 
-
                     <!--Eerste regel van het keyboard-->
                     <Grid Grid.Row="1" Grid.Column="1">
                         <Viewbox Stretch="Fill">
-                            <Button Name="A" Content="A" Click="Alphabet_Click"/>
+                            <Button Name="A" Content="A" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="3">
                         <Viewbox Stretch="Fill">
-                            <Button Name="B" Content="B" Click="Alphabet_Click"/>
+                            <Button Name="B" Content="B" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="5">
                         <Viewbox Stretch="Fill">
-                            <Button Name="C" Content="C" Click="Alphabet_Click"/>
+                            <Button Name="C" Content="C" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="7">
                         <Viewbox Stretch="Fill">
-                            <Button Name="D" Content="D" Click="Alphabet_Click"/>
+                            <Button Name="D" Content="D" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="9">
                         <Viewbox Stretch="Fill">
-                            <Button Name="E" Content="E" Click="Alphabet_Click"/>
+                            <Button Name="E" Content="E" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="11">
                         <Viewbox Stretch="Fill">
-                            <Button Name="F" Content="F" Click="Alphabet_Click"/>
+                            <Button Name="F" Content="F" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="13">
                         <Viewbox Stretch="Fill">
-                            <Button Name="G" Content="G" Click="Alphabet_Click"/>
+                            <Button Name="G" Content="G" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="1" Grid.Column="15">
                         <Viewbox Stretch="Fill">
-                            <Button Name="H" Content="H" Click="Alphabet_Click"/>
+                            <Button Name="H" Content="H" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
@@ -181,49 +180,49 @@
                     <!--Tweede regel van het keyboard-->
                     <Grid Grid.Row="3" Grid.Column="1">
                         <Viewbox Stretch="Fill">
-                            <Button Name="I" Content="I" Click="Alphabet_Click"/>
+                            <Button Name="I" Content="I" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="3">
                         <Viewbox Stretch="Fill">
-                            <Button Name="J" Content="J" Click="Alphabet_Click"/>
+                            <Button Name="J" Content="J" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="5">
                         <Viewbox Stretch="Fill">
-                            <Button Name="K" Content="K" Click="Alphabet_Click"/>
+                            <Button Name="K" Content="K" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="7">
                         <Viewbox Stretch="Fill">
-                            <Button Name="L" Content="L" Click="Alphabet_Click"/>
+                            <Button Name="L" Content="L" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="9">
                         <Viewbox Stretch="Fill">
-                            <Button Name="M" Content="M" Click="Alphabet_Click"/>
+                            <Button Name="M" Content="M" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="11">
                         <Viewbox Stretch="Fill">
-                            <Button Name="N" Content="N" Click="Alphabet_Click"/>
+                            <Button Name="N" Content="N" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="13">
                         <Viewbox Stretch="Fill">
-                            <Button Name="O" Content="O" Click="Alphabet_Click"/>
+                            <Button Name="O" Content="O" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="15">
                         <Viewbox Stretch="Fill">
-                            <Button Name="P" Content="P" Click="Alphabet_Click"/>
+                            <Button Name="P" Content="P" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
@@ -231,49 +230,49 @@
                     <!--Derde regel van het keyboard-->
                     <Grid Grid.Row="5" Grid.Column="1">
                         <Viewbox Stretch="Fill">
-                            <Button Name="Q" Content="Q" Click="Alphabet_Click"/>
+                            <Button Name="Q" Content="Q" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="3">
                         <Viewbox Stretch="Fill">
-                            <Button Name="R" Content="R" Click="Alphabet_Click"/>
+                            <Button Name="R" Content="R" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="5">
                         <Viewbox Stretch="Fill">
-                            <Button Name="S" Content="S" Click="Alphabet_Click"/>
+                            <Button Name="S" Content="S" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="7">
                         <Viewbox Stretch="Fill">
-                            <Button Name="T" Content="T" Click="Alphabet_Click"/>
+                            <Button Name="T" Content="T" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="9">
                         <Viewbox Stretch="Fill">
-                            <Button Name="U" Content="U" Click="Alphabet_Click"/>
+                            <Button Name="U" Content="U" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="11">
                         <Viewbox Stretch="Fill">
-                            <Button Name="V" Content="V" Click="Alphabet_Click"/>
+                            <Button Name="V" Content="V" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="13">
                         <Viewbox Stretch="Fill">
-                            <Button Name="W" Content="W" Click="Alphabet_Click"/>
+                            <Button Name="W" Content="W" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="15">
                         <Viewbox Stretch="Fill">
-                            <Button Name="X" Content="X" Click="Alphabet_Click"/>
+                            <Button Name="X" Content="X" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
@@ -281,13 +280,13 @@
                     <!--Laatste regel van het toetsenbord-->
                     <Grid Grid.Row="7" Grid.Column="7">
                         <Viewbox Stretch="Fill">
-                            <Button Name="Y" Content="Y" Click="Alphabet_Click"/>
+                            <Button Name="Y" Content="Y" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Row="7" Grid.Column="9">
                         <Viewbox Stretch="Fill">
-                            <Button Name="Z" Content="Z" Click="Alphabet_Click"/>
+                            <Button Name="Z" Content="Z" Click="alphabet_Click"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -299,7 +298,6 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
 
                 <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
@@ -331,8 +329,8 @@
 
                 <Grid Grid.Row="2">
                     <Grid Grid.Column="1">
-                        <Viewbox Stretch="Uniform">
-                            <Button Name="btnNewgame" Margin="5" Padding="0" BorderThickness="0" Click="btnNewgame_Click">
+                        <Viewbox Stretch="Uniform" StretchDirection="Both">
+                            <Button Name="btnNewgame" Margin="5" Padding="0" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnNewgame_Click">
                                 <Image Source="/Assets/Images/hm/newgame.png"/>
                             </Button>
                         </Viewbox>

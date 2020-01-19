@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Rcade
+﻿namespace Rcade
 {
     class TTT
     {
@@ -47,6 +45,5 @@ namespace Rcade
             }
             return remainingBoxes;
         }
-
     }
 }

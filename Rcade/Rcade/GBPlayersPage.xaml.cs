@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -16,6 +18,13 @@ namespace Rcade
         public GBPlayersPage()
         {
             InitializeComponent();
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+            new Size(
+                1000,
+                1000
+                ));
+
             playerCount = 2;
         }
 
@@ -42,25 +51,27 @@ namespace Rcade
                         s1.Visibility = Visibility.Visible;
                         break;
                     case 2:
-                        Speler2.Visibility = Visibility.Visible;
-                        playerNames.Add(Speler2);
+                        Player2.Visibility = Visibility.Visible;
+                        playerNames.Add(Player2);
                         break;
                     case 3:
-                        Speler3.Visibility = Visibility.Visible;
-                        playerNames.Add(Speler3);
+                        Player3.Visibility = Visibility.Visible;
+                        playerNames.Add(Player3);
                         break;
                     case 4:
-                        Speler4.Visibility = Visibility.Visible;
-                        playerNames.Add(Speler4);
+                        Player4.Visibility = Visibility.Visible;
+                        playerNames.Add(Player4);
                         break;
                     case 5:
-                        Speler5.Visibility = Visibility.Visible;
-                        playerNames.Add(Speler5);
+                        Player5.Visibility = Visibility.Visible;
+                        playerNames.Add(Player5);
                         break;
                 }
             }
             btnPlus.IsEnabled = false;
             btnMin.IsEnabled = false;
+            btnConfirm.Visibility = Visibility.Collapsed;
+
             btnPlay.Visibility = Visibility.Visible;
         }
 
@@ -78,6 +89,7 @@ namespace Rcade
         internal void SetUser(User user)
         {
             this.user = user;
+            Player1.Text = user.userName;
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -101,7 +113,7 @@ namespace Rcade
             {
                 playerCount = Convert.ToInt32(txtPlayerCount.Text);
 
-                GBPage gb = new GBPage(playerCount, Speler2.Text, Speler3.Text, Speler4.Text, Speler5.Text);
+                GBPage gb = new GBPage(playerCount, Player1.Text, Player2.Text, Player3.Text, Player4.Text, Player5.Text);
                 gb.SetUser(user);
 
                 Content = gb;
@@ -114,41 +126,41 @@ namespace Rcade
             {
                 default:
                     break;
-                case "Speler2":
-                    if (!ValidateUsername(Speler2.Text) && Speler2.Text.Length != 0)
+                case "Player2":
+                    if (!ValidateUsername(Player2.Text) && Player2.Text.Length != 0)
                     {
-                        Speler2.Text = Speler2.Text.Remove(Speler2.Text.Length - 1);
+                        Player2.Text = Player2.Text.Remove(Player2.Text.Length - 1);
 
-                        Speler2.SelectionStart = Speler2.Text.Length;
-                        Speler2.SelectionLength = 0;
+                        Player2.SelectionStart = Player2.Text.Length;
+                        Player2.SelectionLength = 0;
                     }
                     break;
-                case "Speler3":
-                    if (!ValidateUsername(Speler3.Text) && Speler3.Text.Length != 0)
+                case "Player3":
+                    if (!ValidateUsername(Player3.Text) && Player3.Text.Length != 0)
                     {
-                        Speler3.Text = Speler3.Text.Remove(Speler3.Text.Length - 1);
+                        Player3.Text = Player3.Text.Remove(Player3.Text.Length - 1);
 
-                        Speler3.SelectionStart = Speler3.Text.Length;
-                        Speler3.SelectionLength = 0;
+                        Player3.SelectionStart = Player3.Text.Length;
+                        Player3.SelectionLength = 0;
 
                     }
                     break;
-                case "Speler4":
-                    if (!ValidateUsername(Speler4.Text) && Speler4.Text.Length != 0)
+                case "Player4":
+                    if (!ValidateUsername(Player4.Text) && Player4.Text.Length != 0)
                     {
-                        Speler4.Text = Speler4.Text.Remove(Speler4.Text.Length - 1);
+                        Player4.Text = Player4.Text.Remove(Player4.Text.Length - 1);
 
-                        Speler4.SelectionStart = Speler4.Text.Length;
-                        Speler4.SelectionLength = 0;
+                        Player4.SelectionStart = Player4.Text.Length;
+                        Player4.SelectionLength = 0;
                     }
                     break;
-                case "Speler5":
-                    if (!ValidateUsername(Speler5.Text) && Speler5.Text.Length != 0)
+                case "Player5":
+                    if (!ValidateUsername(Player5.Text) && Player5.Text.Length != 0)
                     {
-                        Speler5.Text = Speler5.Text.Remove(Speler5.Text.Length - 1);
+                        Player5.Text = Player5.Text.Remove(Player5.Text.Length - 1);
 
-                        Speler5.SelectionStart = Speler5.Text.Length;
-                        Speler5.SelectionLength = 0;
+                        Player5.SelectionStart = Player5.Text.Length;
+                        Player5.SelectionLength = 0;
                     }
                     break;
             }

@@ -5,7 +5,6 @@ namespace Rcade
     class RL_Numbers
     {
         public List<RL_Number> numbers = new List<RL_Number>();
-        //private enum colors { Red, Black, Green };
 
         public RL_Numbers()
         {
