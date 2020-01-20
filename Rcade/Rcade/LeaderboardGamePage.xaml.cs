@@ -148,6 +148,7 @@ namespace Rcade
                 ListBoxItem listBoxItem = new ListBoxItem();
                 listBoxItem.Content = list[i];
                 listBoxItem.FontFamily = new FontFamily("Consolas");
+                listBoxItem.IsTabStop = false;
 
                 listbox.Items.Add(listBoxItem);
             }

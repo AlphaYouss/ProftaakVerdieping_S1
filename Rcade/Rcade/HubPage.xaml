@@ -31,7 +31,7 @@
             </Grid.ColumnDefinitions>
 
             <Viewbox StretchDirection="Both" Stretch="Fill">
-                <Button x:Name="btnLogout" Click="btnLogout_Click" Background="Transparent" Padding="0" Margin="0">
+                <Button x:Name="btnLogout" Click="btnLogout_Click" Background="Transparent" Padding="0" Margin="0" IsTabStop="False">
                     <Button.RenderTransform>
                         <RotateTransform Angle="6"/>
                     </Button.RenderTransform>
@@ -57,7 +57,7 @@
                 </Grid.RowDefinitions>
 
                 <Viewbox Grid.Column="1" StretchDirection="Both" Stretch="Fill">
-                    <Button x:Name="btnLeaderboard" Click="btnLeaderboard_Click" Padding="0" Background="Transparent"/>
+                    <Button x:Name="btnLeaderboard" Click="btnLeaderboard_Click" Padding="0" Background="Transparent" IsTabStop="False"/>
                 </Viewbox>
             </Grid>
 
@@ -82,7 +82,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnTTT" HorizontalAlignment="Stretch" Click="btnTTT_Click" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnTTT" HorizontalAlignment="Stretch" Click="btnTTT_Click" Background="Transparent" Padding="0" IsTabStop="False"/>
                         </Viewbox>
                     </Grid>
 
@@ -94,7 +94,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnRoulette" Click="btnRoulette_Click" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnRoulette" Click="btnRoulette_Click" HorizontalAlignment="Stretch" Background="Transparent" Padding="0" IsTabStop="False"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -113,7 +113,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnFourInARow" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnFourInARow" HorizontalAlignment="Stretch" Background="Transparent" Padding="0" IsTabStop="False"/>
                         </Viewbox>
                     </Grid>
 
@@ -125,7 +125,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="BtnGooseboard" HorizontalAlignment="Stretch" Background="Transparent" Padding="0" Click="BtnGooseboard_Click"/>
+                            <Button x:Name="BtnGooseboard" HorizontalAlignment="Stretch" Background="Transparent" Padding="0" Click="BtnGooseboard_Click" IsTabStop="False"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -145,7 +145,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnHangman" Click="btnHangman_Click" HorizontalAlignment="Stretch" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnHangman" Click="btnHangman_Click" HorizontalAlignment="Stretch" Background="Transparent" Padding="0" IsTabStop="False"/>
                         </Viewbox>
                     </Grid>
 
@@ -156,7 +156,7 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Row="1" StretchDirection="Both" Stretch="Fill">
-                            <Button x:Name="btnBJ" HorizontalAlignment="Stretch" Click="btnBJ_Click" Background="Transparent" Padding="0"/>
+                            <Button x:Name="btnBJ" HorizontalAlignment="Stretch" Click="btnBJ_Click" Background="Transparent" Padding="0" IsTabStop="False"/>
                         </Viewbox>
                     </Grid>
                 </Grid>

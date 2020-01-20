@@ -313,7 +313,7 @@
                     </Grid.RowDefinitions>
 
                     <Viewbox Stretch="Uniform" Grid.Row="0" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
-                        <TextBlock x:Name="playerStakeText" Text="Bet:" HorizontalAlignment="Center" Padding="0" Margin="0.5,6.5"/>
+                        <TextBlock x:Name="playerStakeText" Text="Bet:" HorizontalAlignment="Center" Padding="0" Margin="0.5,2.5"/>
                     </Viewbox>
 
                     <Viewbox Stretch="Uniform" Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">

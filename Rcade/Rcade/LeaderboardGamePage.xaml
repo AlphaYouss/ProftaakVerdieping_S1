@@ -49,7 +49,7 @@
 
         <Grid Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <ListBox Name="column1" FontSize="20" Height="500" Width="150" Background="Transparent"/>
+                <ListBox Name="column1" FontSize="20" Height="500" Width="150" Background="Transparent"  IsTabStop="False"/>
             </Viewbox>
         </Grid>
 
@@ -61,7 +61,7 @@
 
         <Grid Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <ListBox Name="column2" FontSize="20" Height="500" Width="150" Background="Transparent" />
+                <ListBox Name="column2" FontSize="20" Height="500" Width="150" Background="Transparent" IsTabStop="False"/>
             </Viewbox>
         </Grid>
 
@@ -73,7 +73,7 @@
 
         <Grid Grid.Row="2" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <ListBox Name="column3" FontSize="20" Height="500" Width="150" Background="Transparent"/>
+                <ListBox Name="column3" FontSize="20" Height="500" Width="150" Background="Transparent" IsTabStop="False"/>
             </Viewbox>
         </Grid>
 
@@ -85,7 +85,7 @@
 
         <Grid Grid.Row="2" Grid.Column="4" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <ListBox Name="column4" FontSize="20" Height="500" Width="150" Background="Transparent"/>
+                <ListBox Name="column4" FontSize="20" Height="500" Width="150" Background="Transparent" IsTabStop="False"/>
             </Viewbox>
         </Grid>
 
@@ -97,7 +97,7 @@
 
         <Grid Grid.Row="2" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Viewbox Stretch="Fill" StretchDirection="Both">
-                <ListBox Name="column5" FontSize="20" Height="500" Width="150" Background="Transparent"/>
+                <ListBox Name="column5" FontSize="20" Height="500" Width="150" Background="Transparent" IsTabStop="False"/>
             </Viewbox>
         </Grid>
 
