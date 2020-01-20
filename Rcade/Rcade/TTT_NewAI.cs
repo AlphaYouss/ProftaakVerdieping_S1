@@ -61,8 +61,8 @@ namespace Rcade
                     remainingBoxes.Add(i);
                 }
             }
-            int box = remainingBoxes[GenerateNumber(remainingBoxes.Count)];
-
+           int box = remainingBoxes[GenerateNumber(remainingBoxes.Count)];
+           // int box = 1;
             field.box[box] = "O";
             moveAI = box;
         }
@@ -103,9 +103,13 @@ namespace Rcade
                     {
                         moveAI = Convert.ToInt32(rows[i, x]);
                     }
+                    else
+                    {
+                        moveAI = 0;
+                    }
                 }
 
-                if (contains == 2 && field.box[moveAI] != "O")
+                if (contains == 2 && field.box[moveAI] != "O" && moveAI != 0)
                 {
                     field.box[moveAI] = "O";
                     done = true;
@@ -129,6 +133,7 @@ namespace Rcade
             Clear();
             UpdateRows();
 
+         //   moveAI = 0;
             int i = 0;
             int x = 0;
 
@@ -147,8 +152,12 @@ namespace Rcade
                     {
                         moveAI = Convert.ToInt32(rows[i, x]);
                     }
+                    else
+                    {
+                        moveAI = 0;
+                    }
                 }
-                if (contains == 2 && field.box[moveAI] != "O")
+                if (contains == 2 && field.box[moveAI] != "O" && moveAI != 0)
                 {
                     field.box[moveAI] = "O";
                     done = true;
