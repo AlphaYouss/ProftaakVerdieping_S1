@@ -91,7 +91,7 @@ namespace Rcade
             column5.FontFamily = new FontFamily("Consolas");
             column5.Foreground = new SolidColorBrush(Colors.White);
 
-            ListToListBoxItem(column1, dbh.usernames);
+            ListToListBoxItem(column1, dbh.table1);
 
             column2Text.Text = dbh.table2Name;
             ListToListBoxItem(column2, dbh.table2);

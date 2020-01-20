@@ -7,8 +7,6 @@ namespace Rcade
 {
     class Databasehandler_lb : Databasehandler
     {
-        private string query { get; set; } = "";
-        private string testquery { get; set; } = "";
         public int choice { get; private set; } = 1;
         public List<string> usernames { get; private set; } = new List<string>();
         public string table1Name { get; private set; } = "";
@@ -33,36 +31,23 @@ namespace Rcade
             switch (choice)
             {
                 case 1:
-                    SelectFromBlackjack();
-                    testquery = "SELECT Test_User_gegevens.Username, Test_Blackjack.user_ID FROM Test_User_gegevens INNER JOIN Test_Blackjack ON Test_User_gegevens.ID = Test_Blackjack.user_ID";
-                    query = "SELECT User_gegevens.Username, Blackjack.user_ID FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID";
+                    SelectFromBJ();
                     break;
                 case 2:
-                    SelectFromRoulette();
-                    testquery = "SELECT Test_User_gegevens.Username, Test_Roulette.user_ID FROM Test_User_gegevens INNER JOIN Test_Roulette ON Test_User_gegevens.ID = Test_Roulette.user_ID";
-                    query = "SELECT User_gegevens.Username, Roulette.user_ID FROM User_gegevens INNER JOIN Roulette ON User_gegevens.ID = Roulette.user_ID";
+                    SelectFromRL();
                     break;
-
                 case 3:
-                    SelectFromHangman();
-                    testquery = "SELECT Test_User_gegevens.Username, Test_Galgje.user_ID FROM Test_User_gegevens INNER JOIN Test_Galgje ON Test_User_gegevens.ID = Test_Galgje.user_ID";
-                    query = "SELECT User_gegevens.Username, Galgje.user_ID FROM User_gegevens INNER JOIN Galgje ON User_gegevens.ID = Galgje.user_ID";
+                    SelectFromHM();
                     break;
-
                 case 4:
-                    SelectFromBKE();
-                    testquery = "SELECT Test_User_gegevens.Username, Test_BKE.user_ID FROM Test_User_gegevens INNER JOIN Test_BKE ON Test_User_gegevens.ID = Test_BKE.user_ID";
-                    query = "SELECT User_gegevens.Username, BKE.user_ID FROM User_gegevens INNER JOIN BKE ON User_gegevens.ID = BKE.user_ID";
+                    SelectFromTTT();
                     break;
             }
-
-            UserIDToUsername();
         }
 
         public void Clear()
         {
             table.Clear();
-
             usernames.Clear();
 
             table1.Clear();
@@ -83,46 +68,17 @@ namespace Rcade
             choice = myChoice;
         }
 
-        private void UserIDToUsername()
+        private void SelectFromBJ()
         {
             SqlCommand cmd = new SqlCommand();
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand(testquery, GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) Test_User_gegevens.Username, Test_Blackjack.saldo, Test_Blackjack.laatst_gespeeld FROM Test_User_gegevens INNER JOIN Test_Blackjack ON Test_User_gegevens.ID = Test_Blackjack.user_ID ORDER BY saldo DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand(query, GetCon());
-            }
-
-            OpenConnectionToDB();
-
-            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-            adapt.Fill(table);
-
-            CloseConnectionToDB();
-
-            foreach (DataRow row in table.Rows)
-            {
-                if (Convert.ToString(row["Username"]) != "")
-                {
-                    usernames.Add(Convert.ToString(row["Username"]));
-                }
-            }
-        }
-
-        private void SelectFromBlackjack()
-        {
-            SqlCommand cmd = new SqlCommand();
-
-            if (isTestVersion == true)
-            {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Blackjack ORDER BY saldo DESC", GetCon());
-            }
-            else
-            {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Blackjack ORDER BY saldo DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP (10) User_gegevens.Username, Blackjack.saldo, Blackjack.laatst_gespeeld FROM User_gegevens INNER JOIN Blackjack ON User_gegevens.ID = Blackjack.user_ID ORDER BY saldo DESC", GetCon());
             }
 
             OpenConnectionToDB();
@@ -140,7 +96,7 @@ namespace Rcade
 
             foreach (DataRow row in table.Rows)
             {
-                table1.Add(Convert.ToString(row["user_ID"]));
+                table1.Add(Convert.ToString(row["Username"]));
                 table2.Add(Convert.ToString(row["saldo"]));
 
                 dt = Convert.ToDateTime(row["laatst_gespeeld"]);
@@ -148,17 +104,18 @@ namespace Rcade
                 table3.Add(dt.Date.ToString("MM/dd/yyyy"));
             }
         }
-        private void SelectFromBKE()
+
+        private void SelectFromTTT()
         {
             SqlCommand cmd = new SqlCommand();
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_BKE ORDER BY gewonnen_potjes DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP(10) Test_User_gegevens.Username, Test_BKE.gewonnen_potjes, Test_BKE.verloren_potjes, Test_BKE.gelijkspel_potjes, Test_BKE.laatst_gespeeld FROM Test_User_gegevens INNER JOIN Test_BKE ON Test_User_gegevens.ID = Test_BKE.user_ID ORDER BY gewonnen_potjes DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM BKE ORDER BY gewonnen_potjes DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP(10) User_gegevens.Username, BKE.gewonnen_potjes, BKE.verloren_potjes, BKE.gelijkspel_potjes, BKE.laatst_gespeeld FROM User_gegevens INNER JOIN BKE ON User_gegevens.ID = BKE.user_ID ORDER BY gewonnen_potjes DESC", GetCon());
             }
 
             OpenConnectionToDB();
@@ -178,7 +135,7 @@ namespace Rcade
 
             foreach (DataRow row in table.Rows)
             {
-                table1.Add(Convert.ToString(row["user_ID"]));
+                table1.Add(Convert.ToString(row["Username"]));
                 table2.Add(Convert.ToString(row["gewonnen_potjes"]));
                 table3.Add(Convert.ToString(row["verloren_potjes"]));
                 table4.Add(Convert.ToString(row["gelijkspel_potjes"]));
@@ -189,17 +146,17 @@ namespace Rcade
             }
         }
 
-        private void SelectFromHangman()
+        private void SelectFromHM()
         {
             SqlCommand cmd = new SqlCommand();
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Galgje ORDER BY totaal_punten DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP(10) Test_User_gegevens.Username, Test_Galgje.totaal_punten, Test_Galgje.totaal_fouten, Test_Galgje.laatst_gespeeld FROM Test_User_gegevens INNER JOIN Test_Galgje  ON Test_User_gegevens.ID = Test_Galgje.user_ID ORDER BY totaal_punten DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Galgje ORDER BY totaal_punten DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP(10) User_gegevens.Username, Galgje.totaal_punten, Galgje.totaal_fouten, Galgje.laatst_gespeeld FROM User_gegevens INNER JOIN Galgje ON User_gegevens.ID = Galgje.user_ID ORDER BY totaal_punten DESC", GetCon());
             }
 
 
@@ -219,7 +176,7 @@ namespace Rcade
 
             foreach (DataRow row in table.Rows)
             {
-                table1.Add(Convert.ToString(row["user_ID"]));
+                table1.Add(Convert.ToString(row["Username"]));
                 table2.Add(Convert.ToString(row["totaal_punten"]));
                 table3.Add(Convert.ToString(row["totaal_fouten"]));
 
@@ -229,17 +186,17 @@ namespace Rcade
             }
         }
 
-        private void SelectFromRoulette()
+        private void SelectFromRL()
         {
             SqlCommand cmd = new SqlCommand();
 
             if (isTestVersion == true)
             {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Test_Roulette ORDER BY saldo DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP(10) Test_User_gegevens.Username, Test_Roulette.saldo, Test_Roulette.laatst_gespeeld FROM Test_User_gegevens INNER JOIN Test_Roulette ON Test_User_gegevens.ID = Test_Roulette.user_ID ORDER BY saldo DESC", GetCon());
             }
             else
             {
-                cmd = new SqlCommand("SELECT TOP (10) * FROM Roulette ORDER BY saldo DESC", GetCon());
+                cmd = new SqlCommand("SELECT TOP(10) User_gegevens.Username, Roulette.saldo, Roulette.laatst_gespeeld FROM User_gegevens INNER JOIN Roulette ON User_gegevens.ID = Roulette.user_ID ORDER BY saldo DESC", GetCon());
             }
 
             OpenConnectionToDB();
@@ -257,7 +214,7 @@ namespace Rcade
 
             foreach (DataRow row in table.Rows)
             {
-                table1.Add(Convert.ToString(row["user_ID"]));
+                table1.Add(Convert.ToString(row["Username"]));
                 table2.Add(Convert.ToString(row["saldo"]));
 
                 dt = Convert.ToDateTime(row["laatst_gespeeld"]);
