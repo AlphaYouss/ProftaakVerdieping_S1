@@ -37,59 +37,31 @@ namespace Rcade
 
         private void Login()
         {
-            bool errorUsername = false;
-            bool errorPassword = false;
-
-            if (!user.ValidateUsername(username.Text))
+            if (!user.dbh.TestConnection())
             {
-                errorUsername = true;
-            }
-            if (!user.ValidatePassword(password.Password))
-            {
-                errorPassword = true;
-            }
-
-            if (errorUsername && errorPassword)
-            {
-                message.Text = user.ShowError("Login", 2);
-            }
-            else if (errorUsername)
-            {
-                message.Text = user.ShowError("Login", 0);
-            }
-            else if (errorPassword)
-            {
-                message.Text = user.ShowError("Login", 1);
+                message.Text = user.ShowError("Database", 0);
             }
             else
             {
-                if (!user.dbh.TestConnection())
+                user.CheckUser(username.Text);
+                if (user.exists)
                 {
-                    message.Text = user.ShowError("Database", 0);
-                }
-                else
-                {
-                    user.CheckUser(username.Text);
-
-                    if (user.exists)
+                    user.Login(username.Text, password.Password);
+                    if (user.loggedIn)
                     {
-                        user.Login(username.Text, password.Password);
-                        if (user.loggedIn)
-                        {
-                            HubPage hub = new HubPage();
-                            hub.SetUser(user);
+                        HubPage hub = new HubPage();
+                        hub.SetUser(user);
 
-                            Content = hub;
-                        }
-                        else
-                        {
-                            message.Text = user.ShowError("Account", 1);
-                        }
+                        Content = hub;
                     }
                     else
                     {
-                        message.Text = user.ShowError("Account", 0);
+                        message.Text = user.ShowError("Account", 1);
                     }
+                }
+                else
+                {
+                    message.Text = user.ShowError("Account", 0);
                 }
             }
         }

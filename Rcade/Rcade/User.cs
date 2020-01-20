@@ -36,36 +36,6 @@ namespace Rcade
             }
         }
 
-        public bool ValidateUsername(string username)
-        {
-            var regex = @"^[a-zA-Z0-9]{3,10}$";
-            var match = Regex.Match(username, regex, RegexOptions.IgnoreCase);
-
-            if (!match.Success)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        public bool ValidatePassword(string password)
-        {
-            var regex = @"^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9])(.{3,100})$";
-            var match = Regex.Match(password, regex, RegexOptions.IgnoreCase);
-
-            if (!match.Success)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
         private void CheckPassword(string password, string hashed)
         {
             if (Crypter.CheckPassword(password, hashed) == true)
@@ -83,9 +53,6 @@ namespace Rcade
             string errorMessage = "";
             switch (list)
             {
-                case "Login":
-                    errorMessage = errorHandler.GetLoginError(error);
-                    break;
                 case "Account":
                     errorMessage = errorHandler.GetAccountError(error);
                     break;
