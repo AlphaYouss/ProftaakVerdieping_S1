@@ -23,10 +23,10 @@ namespace Rcade
             while (spinDuration != 0)
             {
                 spinDuration = spinDuration - 1;
-                landedNumber = randomNumber.Next(0, 37);
                 await Task.Delay(200);
             }
 
+            landedNumber = randomNumber.Next(0, 37);
             GetWinningNumber();
         }
 

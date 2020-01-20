@@ -12,7 +12,7 @@
 
     <Grid x:Name="main">
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Images/bke/BackgroundGoodV2.jpg"></ImageBrush>
+            <ImageBrush ImageSource="/Assets/Images/ttt/background.jpg"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -54,7 +54,7 @@
                 <Grid Grid.Column="1" Grid.Row="1">
                     <Viewbox StretchDirection="Both" Stretch="Uniform">
                         <Button x:Name="btnBack" Click="btnBack_Click" Padding="0" BorderThickness="0" BorderBrush="#1963d0">
-                            <Image Source="/Assets/Images/bke/back.png" />
+                            <Image Source="/Assets/Images/ttt/back.png" />
                         </Button>
                     </Viewbox>
                 </Grid>
@@ -76,7 +76,7 @@
                 <Grid Grid.Column="1" Grid.Row="1">
                     <Viewbox StretchDirection="Both" Stretch="Uniform">
                         <Button x:Name="btnRestart" Click="btnRestart_Click" Padding="0" BorderThickness="0" BorderBrush="#1963d0" Visibility="Collapsed">
-                            <Image Source="/Assets/Images/bke/restart.png" />
+                            <Image Source="/Assets/Images/ttt/restart.png" />
                         </Button>
                     </Viewbox>
                 </Grid>
@@ -104,7 +104,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -134,7 +134,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image2" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image2" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -164,7 +164,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image3" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image3" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -194,7 +194,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image4" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image4" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -224,7 +224,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image5" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image5" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -254,7 +254,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image6" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image6" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -284,7 +284,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image7" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image7" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -314,7 +314,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image8" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image8" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -344,7 +344,7 @@
                                 </Button.Background>
 
                                 <StackPanel>
-                                    <Image Name="image9" Source="/Assets/Images/bke/transparent.png"/>
+                                    <Image Name="image9" Source="/Assets/Images/ttt/transparent.png"/>
                                 </StackPanel>
                             </Button>
                         </Viewbox>

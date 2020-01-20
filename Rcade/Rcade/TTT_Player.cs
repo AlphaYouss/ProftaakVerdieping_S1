@@ -6,7 +6,7 @@ namespace Rcade
     class TTT_Player
     {
         public TTT_Field field { get; private set; }
-        public BitmapImage imagePlayer { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/x.png"));
+        public BitmapImage imagePlayer { get; private set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/ttt/x.png"));
         public string namePlayer { get; private set; } = "";
         public int scorePlayer { get; private set; } = 0;
         public int won { get; private set; } = 0;

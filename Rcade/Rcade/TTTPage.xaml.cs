@@ -18,7 +18,7 @@ namespace Rcade
         private TTT_Field field { get; set; }
         private TTT_Player player { get; set; }
         private TTT_NewAI ai { get; set; }
-        private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/bke/transparent.png"));
+        private BitmapImage defaultImage { get; set; } = new BitmapImage(new Uri("ms-appx:///Assets/Images/ttt/transparent.png"));
         private string[] tttStats { get; set; } = new string[3];
 
         public TTTPage()
