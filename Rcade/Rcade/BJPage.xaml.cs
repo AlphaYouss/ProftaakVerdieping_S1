@@ -173,7 +173,6 @@ namespace Rcade
             gameHost.actualStake *= 2;
           //  stake *= 2;
             playerStake.Text = Convert.ToString(gameHost.actualStake);
-            btnDoubleDown.Visibility = Visibility.Collapsed;
             gameHost.player.DecreaseBalance(stake);
 
 
@@ -337,8 +336,8 @@ namespace Rcade
 
             btnDoubleDown.IsEnabled = true;
             btnInsurance.IsEnabled = true;
-            btnInsurance.Visibility = Visibility.Collapsed;
-            btnDoubleDown.Visibility = Visibility.Collapsed;
+         //   btnInsurance.Visibility = Visibility.Collapsed;
+          //  btnDoubleDown.Visibility = Visibility.Collapsed;
            
             btnResetStake.IsEnabled = false;
             btnFifty.IsEnabled = true;
