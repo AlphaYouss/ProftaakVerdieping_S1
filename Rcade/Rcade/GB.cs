@@ -40,11 +40,11 @@ namespace Rcade
             this.fieldImages = fieldImages;
 
             noPicture = new BitmapImage(new Uri("ms-appx:///"));
-            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/purple.png"));
-            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/blue.png"));
-            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/green.png"));
-            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/red.png"));
-            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/black.png"));
+            purplePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/PionBlauw.png"));
+            bluePawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/PionGeel.png"));
+            greenPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/PionGroen.png"));
+            redPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/PionRood.png"));
+            blackPawn = new BitmapImage(new Uri("ms-appx:///Assets/Images/gb/PionWit.png"));
 
             players = new List<GB_Player>();
 
