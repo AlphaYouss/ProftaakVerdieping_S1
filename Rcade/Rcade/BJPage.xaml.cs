@@ -240,8 +240,8 @@ namespace Rcade
                 btnHit.IsEnabled = true;
                 btnStand.IsEnabled = true;
 
-                btnHit.Visibility = Visibility.Visible;
-                btnStand.Visibility = Visibility.Visible;
+            //    btnHit.Visibility = Visibility.Visible;
+            //    btnStand.Visibility = Visibility.Visible;
 
                 result.Text = "";
                 gameHost.SetResult("");
@@ -352,6 +352,7 @@ namespace Rcade
             ClearText();
 
             gameHost.FirstTurn(stake);
+          
             if (gameHost.player.hasAce)
             {
                 btnHit.Visibility = Visibility.Collapsed;

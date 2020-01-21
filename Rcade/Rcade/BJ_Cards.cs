@@ -11,6 +11,7 @@ namespace Rcade
         public BJ_Card NewCard()
         {
             int intCard = randomNumber.Next(2, 15);
+            //int intCard = 14;
             int x = 0;
 
             bool foundCard = false;
