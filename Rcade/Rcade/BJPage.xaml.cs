@@ -176,7 +176,7 @@ namespace Rcade
             gameHost.actualStake *= 2;
           //  stake *= 2;
             playerStake.Text = Convert.ToString(gameHost.actualStake);
-            gameHost.player.DecreaseBalance(stake);
+            gameHost.player.DecreaseBalance(gameHost.actualStake);
 
 
 
@@ -421,7 +421,7 @@ namespace Rcade
 
         private void Stand()
         {
-            gameHost.Stand(stake, gameHost.stackOfCards);
+            gameHost.Stand(gameHost.actualStake, gameHost.stackOfCards);
 
             CheckGame();
             UpdateText();
