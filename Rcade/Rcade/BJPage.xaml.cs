@@ -334,9 +334,12 @@ namespace Rcade
 
             btnConfirmStake.Visibility = Visibility.Visible;
             btnConfirmStake.IsEnabled = true;
-            btnDoubleDown.IsEnabled = false;
 
-            btnInsurance.IsEnabled = false;
+            btnDoubleDown.IsEnabled = true;
+            btnInsurance.IsEnabled = true;
+            btnInsurance.Visibility = Visibility.Collapsed;
+            btnDoubleDown.Visibility = Visibility.Collapsed;
+           
             btnResetStake.IsEnabled = false;
             btnFifty.IsEnabled = true;
             btnHundred.IsEnabled = true;
