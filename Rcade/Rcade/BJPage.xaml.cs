@@ -100,7 +100,7 @@ namespace Rcade
 
             if (!gameHost.playedTurn)
             {
-                gameHost.SecondTurn(stake);
+                gameHost.SecondTurn(gameHost.actualStake);
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
 
@@ -117,7 +117,7 @@ namespace Rcade
 
             if (!gameHost.playedTurn)
             {
-                gameHost.SecondTurn(stake);
+                gameHost.SecondTurn(gameHost.actualStake);
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
             }

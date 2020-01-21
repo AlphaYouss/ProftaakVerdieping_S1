@@ -48,7 +48,7 @@
 
             if (insurance)
             {
-                if (dealer.playerCards[1].image.Contains("A"))
+                if (dealer.playerCards[1].value == 10)
                 {
                     double insuranceMoney = (stake / 2) + stake;
 
