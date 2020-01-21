@@ -170,21 +170,50 @@ namespace Rcade
 
         private void btnDoubleDown_Click(object sender, RoutedEventArgs e)
         {
-            stake *= 2;
-            playerStake.Text = Convert.ToString(stake);
+            gameHost.actualStake *= 2;
+          //  stake *= 2;
+            playerStake.Text = Convert.ToString(gameHost.actualStake);
             btnDoubleDown.Visibility = Visibility.Collapsed;
             gameHost.player.DecreaseBalance(stake);
+
+
+
+
+          // HIT
+            gameHost.player.SetCard(gameHost.stackOfCards);
+
+            CheckAce(gameHost.player.CheckForAce());
+
+            if (gameHost.player.CheckForAce())
+            {
+                CheckAce(true);
+            }
+            else
+            {
+                gameHost.CheckForPlayerBust();
+            }
+
+            gameHost.CheckBlackjack(stake);
+
+            CheckGame();
+            UpdateText();
+
+            btnInsurance.Visibility = Visibility.Collapsed;
+            btnDoubleDown.Visibility = Visibility.Collapsed;
+
+
+            btnDoubleDown.IsEnabled = false;
         }
 
         private void btnInsurance_Click(object sender, RoutedEventArgs e)
         {
             gameHost.SetInsurance(true);
-            gameHost.player.DecreaseBalance(stake / 2);
+            gameHost.player.DecreaseBalance(gameHost.actualStake / 2);
             btnInsurance.Visibility = Visibility.Collapsed;
 
             if (!gameHost.playedTurn)
             {
-                gameHost.SecondTurn(stake);
+                gameHost.SecondTurn(gameHost.actualStake);
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
             }
@@ -305,7 +334,9 @@ namespace Rcade
 
             btnConfirmStake.Visibility = Visibility.Visible;
             btnConfirmStake.IsEnabled = true;
+            btnDoubleDown.IsEnabled = false;
 
+            btnInsurance.IsEnabled = false;
             btnResetStake.IsEnabled = false;
             btnFifty.IsEnabled = true;
             btnHundred.IsEnabled = true;
@@ -359,6 +390,9 @@ namespace Rcade
 
                 btnEleven.Visibility = Visibility.Collapsed;
                 btnOne.Visibility = Visibility.Collapsed;
+
+                btnDoubleDown.Visibility = Visibility.Collapsed;
+                btnInsurance.Visibility = Visibility.Collapsed;
 
                 SetPlayerImage(gameHost.dealer, dealerImages);
             }
