@@ -56,6 +56,8 @@
                     player.AddBalance(insuranceMoney);
 
                     Stand(stake, stackOfCards);
+
+                    gameOver = true;
                 }
             }
             CheckBlackjack(stake);

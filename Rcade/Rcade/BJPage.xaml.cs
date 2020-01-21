@@ -195,7 +195,7 @@ namespace Rcade
                 gameHost.CheckForPlayerBust();
             }
 
-            gameHost.CheckBlackjack(stake);
+            gameHost.CheckBlackjack(gameHost.actualStake);
 
             CheckGame();
             UpdateText();
@@ -219,6 +219,9 @@ namespace Rcade
                 CheckAce(gameHost.player.CheckForAce());
                 gameHost.SetPlayedTurn(true);
             }
+
+            CheckGame();
+
             UpdateText();
         }
 
