@@ -9,21 +9,11 @@ namespace Rcade
         private enum colors { C, D, H, S };
         private enum images { J, Q, K, A };
 
-        List<int> list = new List<int> {8,14, 2, 12};
-        int y = 0;
 
         public BJ_Card NewCard()
-        {
-            if (y == 4)
-            {
-                y = 0;
-            }
+        {         
+            int intCard = randomNumber.Next(2, 15);
 
-
-            int intCard = list[y];
-           
-            //int intCard = randomNumber.Next(2, 15);
-            //int intCard = 14;
             int x = 0;
 
             bool foundCard = false;
@@ -51,9 +41,6 @@ namespace Rcade
                 x++;
             }
             BJ_Card aCard = new BJ_Card(intCard, card);
-
-
-            y++;
 
             return aCard;
         }
