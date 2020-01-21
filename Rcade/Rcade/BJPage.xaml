@@ -99,6 +99,18 @@
             </Viewbox>
         </Grid>
 
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.6*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Stretch="Uniform" Grid.Row="0" StretchDirection="Both" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="points" FontFamily="Consolas" Text="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,2" Padding="0"/>
+            </Viewbox>
+        </Grid>
+
         <Viewbox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Margin="10">
             <Image Name="playerCard1" Source="/Assets/Images/bj/cards/back.jpg" Margin="50"/>
         </Viewbox>
