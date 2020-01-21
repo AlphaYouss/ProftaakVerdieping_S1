@@ -146,6 +146,9 @@ namespace Rcade
             CheckGame();
             UpdateText();
 
+
+            gameHost.SetPlayedTurn(true);
+
             btnInsurance.Visibility = Visibility.Collapsed;
             btnDoubleDown.Visibility = Visibility.Collapsed;
         }
@@ -312,6 +315,28 @@ namespace Rcade
                 balance.Margin = new Thickness(1, 0, 0, 4);
             }
 
+
+            bool Ace = false;
+            for (int i = 0; i < gameHost.player.playerCards.Count; i++)
+            {
+               if (gameHost.player.playerCards[i].value == 14)
+                {
+                    Ace = true;
+                }
+            }
+
+
+            if (gameHost.player.GetTotalPoints() != 0 && !Ace)
+            {
+                TbPoints.Text = Convert.ToString(gameHost.player.GetTotalPoints());
+            }
+            else
+            {
+                TbPoints.Text = "";
+            }
+            
+            
+            
             result.Text = gameHost.result;
             playerStake.Text = Convert.ToString(gameHost.actualStake);
             sessionBalance.Text = Convert.ToString(gameHost.player.sessionBalance);
@@ -336,8 +361,6 @@ namespace Rcade
 
             btnDoubleDown.IsEnabled = true;
             btnInsurance.IsEnabled = true;
-         //   btnInsurance.Visibility = Visibility.Collapsed;
-          //  btnDoubleDown.Visibility = Visibility.Collapsed;
            
             btnResetStake.IsEnabled = false;
             btnFifty.IsEnabled = true;
@@ -440,6 +463,8 @@ namespace Rcade
             btnOne.Visibility = Visibility.Collapsed;
             btnHit.Visibility = Visibility.Visible;
             btnStand.Visibility = Visibility.Visible;
+            btnInsurance.Visibility = Visibility.Collapsed;
+            btnDoubleDown.Visibility = Visibility.Collapsed;
 
             gameHost.CheckForPlayerBust();
             CheckGame();

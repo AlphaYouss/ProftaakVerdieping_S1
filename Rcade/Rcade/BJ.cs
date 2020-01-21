@@ -36,6 +36,7 @@
             {
                 SecondTurn(stake);
             }
+
         }
 
         public void SecondTurn(double stake)

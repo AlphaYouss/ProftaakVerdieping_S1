@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Rcade
 {
@@ -8,8 +9,12 @@ namespace Rcade
         private enum colors { C, D, H, S };
         private enum images { J, Q, K, A };
 
+        List<int> list = new List<int> {8,14};
+
         public BJ_Card NewCard()
         {
+
+           
             int intCard = randomNumber.Next(2, 15);
             //int intCard = 14;
             int x = 0;
@@ -39,6 +44,7 @@ namespace Rcade
                 x++;
             }
             BJ_Card aCard = new BJ_Card(intCard, card);
+
             return aCard;
         }
     }
