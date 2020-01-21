@@ -353,11 +353,6 @@ namespace Rcade
 
             gameHost.FirstTurn(stake);
           
-            if (gameHost.player.hasAce)
-            {
-                btnHit.Visibility = Visibility.Collapsed;
-                btnStand.Visibility = Visibility.Collapsed;
-            }
 
             CheckAce(gameHost.player.hasAce);
 
@@ -432,6 +427,11 @@ namespace Rcade
                 }
                 UpdateText();
                 gameHost.player.SetHasAce(false);
+            }
+            else
+            {
+                btnHit.Visibility = Visibility.Visible;
+                btnStand.Visibility = Visibility.Visible;
             }
         }
 
