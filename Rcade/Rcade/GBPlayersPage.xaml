@@ -58,6 +58,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="0.05*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -69,13 +70,13 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="5">
+            <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="5">
                 <Viewbox Stretch="Fill" StretchDirection="Both">
-                    <TextBox x:Name="txtPlayerCount" IsTabStop="False" BorderThickness="3,2" Background="#000000" BorderBrush="#FFEC00FB" HorizontalAlignment="Left" FontSize="36" Text="2" Width="450" IsReadOnly="True" IsHitTestVisible="False"/>
+                    <TextBox x:Name="txtPlayerCount" IsTabStop="False" Padding="5,10,5,10" BorderThickness="3,2" Background="#000000" BorderBrush="#FFEC00FB" HorizontalAlignment="Left" FontSize="36" Text="Players: 2" Width="450" IsReadOnly="True" IsHitTestVisible="False"/>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="10">
+            <Grid Grid.Row="3" Grid.Column="10">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform" Margin="2,0">
                     <Button x:Name="btnPlus" Click="btnPlus_Click" Padding="0">
                         <Image Source="/Assets/Images/gb/plus.jpg"/>
@@ -83,7 +84,7 @@
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="11">
+            <Grid Grid.Row="3" Grid.Column="11">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform" Margin="2.5,0">
                     <Button x:Name="btnMin" Click="btnMin_Click" Padding="0" >
                         <Image Source="/Assets/Images/gb/min.jpg"/>
@@ -91,7 +92,7 @@
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
+            <Grid Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2">
                 <Viewbox Grid.Row="5" StretchDirection="Both" Stretch="Uniform">
                     <Button x:Name="btnConfirm" Click="btnConfirm_Click" Padding="0" Margin="10" BorderThickness="0" >
                         <Image Source="/Assets/Images/gb/confirm.jpg"/>
@@ -99,7 +100,7 @@
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3">
+            <Grid Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3">
                 <Border x:Name="s1" Visibility="Collapsed" BorderBrush="#FFEC00FB" BorderThickness="2" Background="#000000">
                     <Viewbox Stretch="Fill">
                         <TextBlock Padding="5,10,5,10" FontFamily="Consolas" Width="120" x:Name="Player1"/>
@@ -107,25 +108,25 @@
                 </Border>
             </Grid>
 
-            <Grid Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="3">
+            <Grid Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
                     <TextBox BorderThickness="1.5" Background="#000000" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Player2" PlaceholderText="Player 2" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="3">
+            <Grid Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
                     <TextBox BorderThickness="1.5" Background="#000000" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Player3" PlaceholderText="Player 3" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="3">
+            <Grid Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
                     <TextBox BorderThickness="2" Background="#000000" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Player4" PlaceholderText="Player 4" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>
             </Grid>
 
-            <Grid Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="3">
+            <Grid Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="3">
                 <Viewbox Grid.Row="1" StretchDirection="Both" HorizontalAlignment="Left" Stretch="Fill">
                     <TextBox BorderThickness="2" Background="#000000" Visibility="Collapsed" TextChanged="Speler_TextChanged" x:Name="Player5" PlaceholderText="Player 5" Width="120" FontFamily="Consolas" Padding="5,10,5,10" Foreground="White" MaxLength="10" BorderBrush="#FFEC00FB"/>
                 </Viewbox>

@@ -36,7 +36,7 @@ namespace Rcade
             {
                 playerCount = 5;
             }
-            txtPlayerCount.Text = Convert.ToString(playerCount);
+            txtPlayerCount.Text = "Players:" + " " + Convert.ToString(playerCount);
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
@@ -83,7 +83,7 @@ namespace Rcade
             {
                 playerCount = 2;
             }
-            txtPlayerCount.Text = Convert.ToString(playerCount);
+            txtPlayerCount.Text = "Players:" + " " + Convert.ToString(playerCount);
         }
 
         internal void SetUser(User user)

@@ -5,6 +5,7 @@ using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Rcade
 {
@@ -67,8 +68,11 @@ namespace Rcade
 
         private async void btnDice_Click(object sender, RoutedEventArgs e)
         {
+            SpinImage();
             Eventvak.Text = "Throwing...";
+            btnDice.IsEnabled = false;
             await Task.Delay(2000);
+            btnDice.IsEnabled = true;
 
             gb.PlayerMove();
 
@@ -138,6 +142,17 @@ namespace Rcade
             }
 
             SelectPlayer(gb.playerTurn);
+        }
+        private async void SpinImage()
+        {
+            RotateTransform m_transform = new RotateTransform();
+            Dice.RenderTransform = m_transform;
+
+            while (m_transform.Angle != 360)
+            {
+                m_transform.Angle = m_transform.Angle + 36;
+                await Task.Delay(100);
+            }
         }
 
         private void AddImages()
