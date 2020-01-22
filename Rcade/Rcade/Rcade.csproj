@@ -17,7 +17,17 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <PackageCertificateKeyFile>D:\Programming\C#\ProftaakVerdieping_S1\Rcade\Rcade\Rcade_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>94BAE3AF4D4B18F8E6573356ED96EB28F41EC7C1</PackageCertificateThumbprint>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxPackageDir>C:\Users\Youssef\Desktop\</AppxPackageDir>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -190,7 +200,6 @@
   <ItemGroup>
     <Content Include="Assets\Files\words.txt" />
     <Content Include="Assets\Files\wordsDutch.txt" />
-    <Content Include="Assets\Images\application\icon1240.png" />
     <Content Include="Assets\Images\application\icon1240.scale-100.png" />
     <Content Include="Assets\Images\application\icon1240.scale-125.png" />
     <Content Include="Assets\Images\application\icon1240.scale-150.png" />
@@ -221,7 +230,6 @@
     <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-256.png" />
     <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-32.png" />
     <Content Include="Assets\Images\application\icon88.altform-unplated_targetsize-48.png" />
-    <Content Include="Assets\Images\application\icon88.png" />
     <Content Include="Assets\Images\application\icon88.scale-100.png" />
     <Content Include="Assets\Images\application\icon88.scale-125.png" />
     <Content Include="Assets\Images\application\icon88.scale-150.png" />
@@ -424,7 +432,9 @@
       <Version>4.7.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Rcade_TemporaryKey.pfx" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Fonts\sfalienenc\SFAlienEncounters.ttf" />
   </ItemGroup>
