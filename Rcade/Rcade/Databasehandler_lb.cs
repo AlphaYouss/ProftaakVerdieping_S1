@@ -170,8 +170,8 @@ namespace Rcade
             DateTime dt;
 
             table1Name = "Username";
-            table2Name = "Total points";
-            table3Name = "Total mistakes";
+            table2Name = "Points";
+            table3Name = "Mistakes";
             table4Name = "Last seen";
 
             foreach (DataRow row in table.Rows)

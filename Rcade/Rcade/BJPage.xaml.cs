@@ -559,7 +559,7 @@ namespace Rcade
             BitmapImage ImageSource1 = new BitmapImage(new Uri(locatie));
             ImagesArray[0].Source = ImageSource1;
 
-            BitmapImage ImageSource2 = new BitmapImage(new Uri("ms-appx:///Assets/Images/bj/cards/back.jpg"));
+            BitmapImage ImageSource2 = new BitmapImage(new Uri("ms-appx:///Assets/Images/bj/cards/back.png"));
             ImagesArray[1].Source = ImageSource2;
         }
 
