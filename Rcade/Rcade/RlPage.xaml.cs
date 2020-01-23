@@ -12,7 +12,7 @@ namespace Rcade
 {
     public sealed partial class RLPage : Page
     {
-        private Databasehandler_rl dbh_RL { get; set; } = new Databasehandler_rl(true);
+        private Databasehandler_rl dbh_RL { get; set; } = new Databasehandler_rl(false);
         private RL roulette { get; set; }
         private User user { get; set; }
         private int stake { get; set; } = Convert.ToInt32(RL.chips.Fifty);

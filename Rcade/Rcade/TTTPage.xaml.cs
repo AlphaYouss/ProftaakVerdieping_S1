@@ -12,7 +12,7 @@ namespace Rcade
 {
     public sealed partial class TTTPage : Page
     {
-        private Databasehandler_ttt dbh_TTT { get; set; } = new Databasehandler_ttt(true);
+        private Databasehandler_ttt dbh_TTT { get; set; } = new Databasehandler_ttt(false);
         private User user { get; set; }
         private TTT ttt { get; set; }
         private TTT_Field field { get; set; }
@@ -248,11 +248,6 @@ namespace Rcade
 
         public void GetUserStats()
         {
-            if (dbh_TTT.CheckUser(user.id) == false)
-            {
-                dbh_TTT.CreateUser(user.id);
-            }
-
             dbh_TTT.GetUser(user.id);
 
             foreach (DataRow row in dbh_TTT.table.Rows)

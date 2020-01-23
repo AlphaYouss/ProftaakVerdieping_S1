@@ -321,6 +321,7 @@
     <Content Include="Assets\Images\gb\pionRood.png" />
     <Content Include="Assets\Images\gb\pionWit.png" />
     <Content Include="Assets\Images\leaderboard\game\background.jpg" />
+    <Content Include="Assets\Images\rl\background2.jpg" />
     <Content Include="Assets\Images\ttt\background.jpg" />
     <Content Include="Assets\Images\ttt\back.png" />
     <Content Include="Assets\Images\ttt\background2.jpg" />

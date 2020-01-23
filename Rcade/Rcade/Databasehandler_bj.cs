@@ -10,58 +10,8 @@ namespace Rcade
             isTestVersion = testTable;
         }
 
-        public bool CheckUser(int id)
-        {
-            SqlCommand cmd = new SqlCommand();
-
-            if (isTestVersion == true)
-            {
-                cmd = new SqlCommand("SELECT COUNT(*) FROM Test_Blackjack WHERE user_ID = @ID", GetCon());
-            }
-            else
-            {
-                cmd = new SqlCommand("SELECT COUNT(*) FROM Blackjack WHERE user_ID = @ID", GetCon());
-            }
-
-            cmd.Parameters.AddWithValue("ID", id);
-
-            OpenConnectionToDB();
-
-            bool exists = (int)cmd.ExecuteScalar() > 0;
-
-            CloseConnectionToDB();
-            return exists;
-        }
-
-        public void CreateUser(int id)
-        {
-            SqlCommand cmd = new SqlCommand();
-            string datetime = DateTime.Now.ToString();
-
-            if (isTestVersion == true)
-            {
-                cmd = new SqlCommand("INSERT INTO Test_Blackjack(user_ID, saldo, laatst_gespeeld) VALUES(@ID, 25000, @Datetime)", GetCon());
-            }
-            else
-            {
-                cmd = new SqlCommand("INSERT INTO Blackjack(user_ID, saldo, laatst_gespeeld) VALUES(@ID, 25000, @Datetime)", GetCon());
-            }
-
-            cmd.Parameters.AddWithValue("ID", id);
-            cmd.Parameters.AddWithValue("Datetime", datetime);
-
-            OpenConnectionToDB();
-            cmd.ExecuteNonQuery();
-            CloseConnectionToDB();
-        }
-
         public void GetUser(int id)
         {
-            if (CheckUser(id) == false)
-            {
-                CreateUser(id);
-            }
-
             SqlCommand cmd = new SqlCommand();
 
             if (isTestVersion == true)

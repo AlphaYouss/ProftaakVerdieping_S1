@@ -10,7 +10,7 @@ namespace Rcade
 {
     public sealed partial class BJPage : Page
     {
-        private Databasehandler_bj dbh_BJ { get; set; } = new Databasehandler_bj(true);
+        private Databasehandler_bj dbh_BJ { get; set; } = new Databasehandler_bj(false);
         private User user { get; set; }
         private BJ gameHost { get; set; } = new BJ();
         private Image[] playerImages { get; set; }

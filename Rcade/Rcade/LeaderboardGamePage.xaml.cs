@@ -10,7 +10,7 @@ namespace Rcade
 {
     public sealed partial class LeaderbordGamePage : Page
     {
-        private Databasehandler_lb dbh { get; set; } = new Databasehandler_lb(true);
+        private Databasehandler_lb dbh { get; set; } = new Databasehandler_lb(false);
         private User user { get; set; }
         private List<string> games { get; set; } = new List<string> { "Leaderboard", "Blackjack", "Roulette", "Hangman", "Tic Tac Toe" };
         private int amountOfGames { get; set; } = 4;

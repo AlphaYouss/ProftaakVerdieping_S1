@@ -6,7 +6,7 @@ namespace Rcade
     internal class User
     {
         public Databasehandler dbh { get; private set; } = new Databasehandler();
-        private Databasehandler_user dbh_U { get; set; } = new Databasehandler_user(true);
+        private Databasehandler_user dbh_U { get; set; } = new Databasehandler_user(false);
         private Errorhandler errorHandler { get; set; } = new Errorhandler();
         public bool exists { get; private set; } = false;
         public bool loggedIn { get; private set; } = false;

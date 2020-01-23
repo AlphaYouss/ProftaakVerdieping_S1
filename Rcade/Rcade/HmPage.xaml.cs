@@ -11,7 +11,7 @@ namespace Rcade
 {
     public sealed partial class HmPage : Page
     {
-        private Databasehandler_hm dbh_Hm { get; set; } = new Databasehandler_hm(true);
+        private Databasehandler_hm dbh_Hm { get; set; } = new Databasehandler_hm(false);
         private User user { get; set; }
         private Hm host { get; set; } = new Hm();
         private List<string> numbers { get; set; } = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
