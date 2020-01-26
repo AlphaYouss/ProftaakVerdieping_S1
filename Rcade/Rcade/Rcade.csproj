@@ -22,7 +22,7 @@
     <PackageCertificateKeyFile>D:\Programming\C#\ProftaakVerdieping_S1\Rcade\Rcade\Rcade_TemporaryKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>94BAE3AF4D4B18F8E6573356ED96EB28F41EC7C1</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxPackageDir>C:\Users\Youssef\Desktop\</AppxPackageDir>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
