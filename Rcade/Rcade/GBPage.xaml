@@ -112,7 +112,7 @@
                         <TextBlock Foreground="#CB55CE" Margin="15" Text="1"></TextBlock>
                     </Viewbox>
                 </Border>
-                <Viewbox Stretch="Fill">
+                <Viewbox>
                     <Image Name="vak1"></Image>
                 </Viewbox>
             </Grid>
@@ -134,7 +134,7 @@
                         <TextBlock Foreground="#CB55CE" Margin="15" Text="3"></TextBlock>
                     </Viewbox>
                 </Border>
-                <Viewbox Stretch="Fill">
+                <Viewbox>
                     <Image Name="vak3"></Image>
                 </Viewbox>
             </Grid>
@@ -169,7 +169,7 @@
             <Grid Grid.Row="5" Grid.Column="7">
                 <Border BorderBrush="#CB55CE" BorderThickness="3,3,3,6" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Foreground="#CB55CE" Margin="15" Text="6"></TextBlock>
+                        <Image Source="/Assets/Images/gb/bridge.jpg"></Image>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -328,7 +328,7 @@
             <Grid Grid.Row="0" Grid.Column="7">
                 <Border BorderBrush="#CB55CE" BorderThickness="3,6,3,3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Foreground="#CB55CE" Margin="15" Text="19"></TextBlock>
+                        <Image Source="/Assets/Images/gb/tavern.jpg"></Image>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -470,7 +470,7 @@
             <Grid Grid.Row="4" Grid.Column="1">
                 <Border BorderBrush="#CB55CE" BorderThickness="3,3,3,3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Foreground="#CB55CE" Margin="15" Text="31"></TextBlock>
+                        <Image Source="/Assets/Images/gb/well.jpg"></Image>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -598,7 +598,7 @@
                 </Viewbox>
                 <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <Image Source="/Assets/Images/gb/field.jpg"></Image>
+                        <Image Source="/Assets/Images/gb/maze.jpg"></Image>
                     </Viewbox>
                 </Border>
             </Grid>
@@ -726,7 +726,7 @@
             <Grid Grid.Row="1" Grid.Column="1">
                 <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Foreground="#CB55CE" Margin="15" Text="52"></TextBlock>
+                        <Image Source="/Assets/Images/gb/jail.jpg"></Image>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -803,6 +803,11 @@
                 <Viewbox>
                     <Image Name="vak58"></Image>
                 </Viewbox>
+                <Border BorderBrush="#CB55CE" BorderThickness="3,3,3,3" Background="Black">
+                    <Viewbox Stretch="Fill">
+                        <Image Source="/Assets/Images/gb/hunter.jpg"></Image>
+                    </Viewbox>
+                </Border>
             </Grid>
 
             <Grid Grid.Row="3" Grid.Column="6">
@@ -855,9 +860,9 @@
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="9">
-                <Border BorderBrush="#CB55CE" BorderThickness="3,3,3,3" Background="Black">
+                <Border BorderBrush="#CB55CE" BorderThickness="3" Background="Black">
                     <Viewbox Stretch="Fill">
-                        <TextBlock Foreground="#CB55CE" Margin="15" Text="63"></TextBlock>
+                        <Image Source="/Assets/Images/gb/end.jpg"></Image>
                     </Viewbox>
                 </Border>
                 <Viewbox>
@@ -867,7 +872,7 @@
 
             <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" >
                 <Viewbox Stretch="Fill">
-                    <TextBlock FontFamily="consolas" Foreground="white" x:Name="speler"  Margin="15" Text= "Frankie is playing (purple)"></TextBlock>
+                    <TextBlock FontFamily="consolas" Foreground="white" x:Name="speler"  Margin="15" Text= "Frankie is playing (blue)"></TextBlock>
                 </Viewbox>
 
             </Grid>

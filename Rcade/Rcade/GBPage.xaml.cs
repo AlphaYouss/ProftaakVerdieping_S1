@@ -236,10 +236,10 @@ namespace Rcade
                 default:
                     return "";
                 case 0:
-                    speler.Text = firstPlayerName + " " + "(purple)";
+                    speler.Text = firstPlayerName + " " + "(blue)";
                     return firstPlayerName;
                 case 1:
-                    speler.Text = secondPlayerName + " " + "is playing" + " " + "(blue)";
+                    speler.Text = secondPlayerName + " " + "is playing" + " " + "(yellow)";
                     return secondPlayerName;
                 case 2:
                     speler.Text = thirdPlayerName + " " + "is playing" + " " + "(green)";
@@ -248,7 +248,7 @@ namespace Rcade
                     speler.Text = fourthPlayerName + " " + "is playing" + " " + "(red)";
                     return fourthPlayerName;
                 case 4:
-                    speler.Text = fivePlayerName + " " + "is playing" + " " + "(black)";
+                    speler.Text = fivePlayerName + " " + "is playing" + " " + "(white)";
                     return fivePlayerName;
             }
         }
