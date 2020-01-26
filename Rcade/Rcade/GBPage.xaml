@@ -872,7 +872,7 @@
 
             <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" >
                 <Viewbox Stretch="Fill">
-                    <TextBlock FontFamily="consolas" Foreground="white" x:Name="speler"  Margin="15" Text= "Frankie is playing (blue)"></TextBlock>
+                    <TextBlock FontFamily="consolas" Foreground="white" x:Name="speler"  Margin="15" Text= ""></TextBlock>
                 </Viewbox>
 
             </Grid>

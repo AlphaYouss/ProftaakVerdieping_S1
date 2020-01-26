@@ -44,6 +44,8 @@ namespace Rcade
             Speler4.Text = fourthPlayerName;
             Speler5.Text = fivePlayerName;
 
+            speler.Text = firstPlayerName + " " + "is playing (blue)";
+
             AddImages();
         }
 
@@ -236,7 +238,7 @@ namespace Rcade
                 default:
                     return "";
                 case 0:
-                    speler.Text = firstPlayerName + " " + "(blue)";
+                    speler.Text = firstPlayerName + " " + "is playing (blue)";
                     return firstPlayerName;
                 case 1:
                     speler.Text = secondPlayerName + " " + "is playing" + " " + "(yellow)";
